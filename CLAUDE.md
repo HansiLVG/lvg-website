@@ -69,7 +69,7 @@ Claude Code/
 - [ ] **Hosting** wählen und alle Dateien hochladen
 - [ ] **404.html** als Custom-Error-Page beim Hoster eintragen
 - [ ] **Google Search Console** nach Go-Live verbinden
-- [ ] **Calendly-Link** einbauen — alle CTA-Buttons zeigen aktuell auf `#cta` oder `mailto:`
+- [x] **Cal.com-Link** eingebaut — alle CTA-Buttons zeigen auf `https://cal.eu/lvg-ppc/15min`
 - [ ] **Zertifikats-Badges** auf `index.html` — Body-Texte sind noch Platzhalter
 - [ ] **PageSpeed Insights** nach Go-Live prüfen (reale Core Web Vitals)
 
