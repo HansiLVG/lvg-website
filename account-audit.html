@@ -665,6 +665,24 @@
   }
   .reveal.in { opacity: 1; transform: none; }
   .reveal[data-settled="1"] { will-change: auto; }
+  /* ─── Content hover interactions ────────────────────── */
+  .tri-list > li,
+  .step-list > li {
+    cursor: default;
+    transform-origin: left center;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .tri-list > li:hover,
+  .step-list > li:hover { transform: scale(1.015); opacity: 1; }
+  .grid-body > p,
+  .legal-block p {
+    cursor: default;
+    transform-origin: left center;
+    transition: transform 0.30s ease, color 0.30s ease, opacity 0.30s ease;
+  }
+  .grid-body > p:hover,
+  .legal-block p:hover { transform: scale(1.015); color: var(--ink); opacity: 1; }
+  .section-grid h2, .lede { cursor: default; }
   h1.page-title, .page-lede, .cta-close { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
   ::selection { background: var(--accent); color: #fff; }
@@ -964,6 +982,17 @@
   // ─────────────────────────────────────────────────────
   // Reveal observer (identisch zu index.html)
   // ─────────────────────────────────────────────────────
+  // ─── Stagger reveals within content grids ──────────────
+  document.querySelectorAll('.section-grid, .legal').forEach(function(grid) {
+    grid.classList.remove('reveal');
+    grid.style.removeProperty('--reveal-delay');
+    var targets = grid.querySelectorAll('h2, h3.lede, .tri-list > li, .step-list > li, .grid-body > p, .legal-block');
+    targets.forEach(function(el, i) {
+      if (!el.classList.contains('reveal')) el.classList.add('reveal');
+      el.style.setProperty('--reveal-delay', (0.05 + i * 0.05) + 's');
+    });
+  });
+
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
