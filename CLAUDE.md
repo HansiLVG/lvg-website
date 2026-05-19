@@ -27,7 +27,11 @@ Claude Code/
     ├── cta-background.webp
     ├── water-flow.webp
     ├── valley-mist.webp
-    └── leistungen-detail.webp
+    ├── leistungen-detail.webp
+    ├── badge-sponsored-ads.avif        ← Amazon Ads Certified – Sponsored Ads | Advanced
+    ├── badge-marketing-cloud.png       ← Amazon Ads Certified – Marketing Cloud
+    ├── zertifikat-sponsored-ads.pdf    ← Zertifikats-PDF (nicht verlinkt, nur als Backup)
+    └── zertifikat-amazon-marketing-cloud.pdf  ← Zertifikats-PDF (nicht verlinkt, nur als Backup)
 ```
 
 ## Design-Prinzipien (Kurzfassung)
@@ -65,6 +69,8 @@ Claude Code/
 - Cookie-Banner, Parallax, Reveal-Animationen (bi-direktional), animierte Wellen
 - Wellen: Opacity und Bewegung in Session 3 feinabgestimmt (träger, breiter)
 - Datenschutzerklärung finalisiert: GitHub Pages, Formspree, Cal.com, GA4 (Consent Mode v2), LinkedIn, selbst gehostete Fonts
+- Zertifikats-Badges als Akkordeon-Cards im Vertrauensbereich auf index.html (text-only, kein PDF-Link aus Datenschutzgründen)
+- Step-Akkordeons auf allen 3 Leistungsseiten — Ablauf/Vorgehen-Listen sind klickbar interaktiv (Grid-Rows-Trick)
 
 ### Offene TODOs (vor Go-Live)
 - [x] **Datenschutzerklärung** finalisiert (Mai 2026) — alle Dienste dokumentiert
@@ -73,7 +79,8 @@ Claude Code/
 - [x] **Google Search Console** verbunden (Mai 2026) — sitemap.xml eingereicht
 - [x] **Mobile-Audit** (Mai 2026) — hero-right transform-Bug auf Mobile gefixt; GA Consent Mode v2 auf 404.html, account-audit, strategie-aufbau, kampagnen-management, impressum nachgezogen
 - [x] **Cal.com-Link** eingebaut — alle CTA-Buttons zeigen auf `https://cal.eu/lvg-ppc/15min`
-- [ ] **Zertifikats-Badges** auf `index.html` — Body-Texte sind noch Platzhalter
+- [ ] **Zertifikats-Badges** auf `index.html` — Akkordeon-Cards (text-only) sind als Platzhalter eingebaut. Badge-Bilder liegen in assets/ bereit (`badge-sponsored-ads.avif`, `badge-marketing-cloud.png`), werden aber erst eingebaut wenn bessere/offizielle Bilder gefunden wurden. PDFs nicht verlinkt (Datenschutz). Credly nicht verfügbar (kein Zugriff auf alten Arbeitgeber-Account).
+- [x] **Leistungsseiten interaktiver** — Ablauf/Vorgehen-Schritte auf allen 3 Sub-Pages als klickbare Step-Akkordeons umgebaut (Mai 2026)
 - [ ] **Newsletter / E-Mail-Automation** — Brevo (brevo.com, kostenlos bis 300 Mails/Tag, EU-Server). Signup-Formular als neue Section einbauen, Double Opt-In in Brevo aktivieren, automatisierte Welcome-Sequenz aufbauen. **Datenschutzerklärung muss dann um Brevo-Abschnitt ergänzt werden.**
 - [ ] **PageSpeed Insights** nach Go-Live prüfen (reale Core Web Vitals)
 
@@ -84,7 +91,7 @@ Claude Code/
 
 ## Technische Besonderheiten
 
-- **Akkordeons** (FAQ + Cert-Badges): Grid-Rows-Trick `0fr → 1fr`, kein `max-height`
+- **Akkordeons** (FAQ, Cert-Badges, Step-Items): Grid-Rows-Trick `0fr → 1fr`, kein `max-height`. Step-Akkordeons zusätzlich mit `translateY`-Fade auf `.step-desc`.
 - **Parallax**: `data-parallax="<factor>"` Attribut, `intensity = (mob?0.08:0.12)*factor`, cap 56/32px
 - **Scroll-Blur**: +0.6px auf bestehenden filter während Scroll, 200ms Debounce
 - **Wellen**: 4 SVG-Pfade, requestAnimationFrame, pausiert bei `document.hidden`
