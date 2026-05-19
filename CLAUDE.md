@@ -68,7 +68,7 @@ Claude Code/
 
 ### Offene TODOs (vor Go-Live)
 - [x] **Datenschutzerklärung** finalisiert (Mai 2026) — alle Dienste dokumentiert
-- [ ] **Hosting** — GitHub Pages bereits aktiv (Repo: HansiLVG/lvg-website), Custom Domain noch einrichten
+- [x] **Hosting** — GitHub Pages live, Custom Domain lvg-ppc.de aktiv, HTTPS enforced
 - [ ] **404.html** als Custom-Error-Page beim Hoster eintragen
 - [ ] **Google Search Console** nach Go-Live verbinden
 - [x] **Cal.com-Link** eingebaut — alle CTA-Buttons zeigen auf `https://cal.eu/lvg-ppc/15min`
