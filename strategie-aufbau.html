@@ -630,11 +630,16 @@
     .reveal { opacity: 1; transform: none; }
   }
 </style>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) — Consent Mode v2 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CMYKYVVJM3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    wait_for_update: 500
+  });
   gtag('js', new Date());
   gtag('config', 'G-CMYKYVVJM3', {
     anonymize_ip: true,

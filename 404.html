@@ -218,39 +218,20 @@
     h1 { font-size: clamp(40px, 12vw, 64px); }
   }
 </style>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) — Consent Mode v2 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CMYKYVVJM3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    wait_for_update: 500
+  });
   gtag('js', new Date());
   gtag('config', 'G-CMYKYVVJM3', {
     anonymize_ip: true,
     cookie_flags: 'SameSite=None;Secure'
-  });
-</script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Alle CTA-Buttons (Gespräch buchen)
-    document.querySelectorAll('a[href="#cta"], a.cta-link').forEach(function(el) {
-      el.addEventListener('click', function() {
-        gtag('event', 'cta_click', {
-          event_category: 'engagement',
-          event_label: el.textContent.trim()
-        });
-      });
-    });
-
-    // Mailto-Links
-    document.querySelectorAll('a[href^="mailto"]').forEach(function(el) {
-      el.addEventListener('click', function() {
-        gtag('event', 'contact_click', {
-          event_category: 'engagement',
-          event_label: 'email'
-        });
-      });
-    });
   });
 </script>
 </head>
