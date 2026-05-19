@@ -676,6 +676,14 @@
     color: var(--ink-muted);
     opacity: 0.75;
   }
+  a.cert-note {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 500;
+    opacity: 1;
+    text-decoration: none;
+  }
+  a.cert-note:hover { text-decoration: underline; }
   .badge {
     display: inline-flex;
     align-items: center;
@@ -1522,6 +1530,46 @@
 <div class="trust-badges reveal" style="--reveal-delay: 0.50s;">
         <span class="badge"><span class="tri"></span>Seit 2024 aktiv im Amazon Advertising</span>
         <span class="badge"><span class="tri"></span>Persönliche Betreuung – kein Junior, kein Team</span>
+      </div>
+
+      <div class="badges reveal" style="--reveal-delay: 0.65s;">
+        <div class="cert-badge" role="group" aria-label="Zertifikat: Amazon Ads Sponsored Ads">
+          <button class="cert-badge-head" aria-expanded="false">
+            <span>Amazon Ads Academy — Sponsored Ads</span>
+            <svg class="cert-plus" viewBox="0 0 14 14" aria-hidden="true">
+              <line x1="7" y1="1" x2="7" y2="13"/>
+              <line x1="1" y1="7" x2="13" y2="7"/>
+            </svg>
+          </button>
+          <div class="cert-body-wrap">
+            <div class="cert-body-inner">
+              <div class="cert-badge-body">
+                Zertifizierung für Sponsored Products, Sponsored Brands und Sponsored Display —
+                abgeschlossen September 2025 über die Amazon Ads Academy.
+                <a class="cert-note" href="assets/zertifikat-sponsored-ads.pdf" target="_blank" rel="noopener">Zertifikat ansehen →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-badge" role="group" aria-label="Zertifikat: Amazon Marketing Cloud">
+          <button class="cert-badge-head" aria-expanded="false">
+            <span>Amazon Ads Academy — Marketing Cloud</span>
+            <svg class="cert-plus" viewBox="0 0 14 14" aria-hidden="true">
+              <line x1="7" y1="1" x2="7" y2="13"/>
+              <line x1="1" y1="7" x2="13" y2="7"/>
+            </svg>
+          </button>
+          <div class="cert-body-wrap">
+            <div class="cert-body-inner">
+              <div class="cert-badge-body">
+                Zertifizierung für datenbasierte Analyse und Attribution mit der
+                Amazon Marketing Cloud — abgeschlossen September 2025 über die Amazon Ads Academy.
+                <a class="cert-note" href="assets/zertifikat-amazon-marketing-cloud.pdf" target="_blank" rel="noopener">Zertifikat ansehen →</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
