@@ -12,7 +12,7 @@ Claude Code/
 ├── strategie-aufbau.html       ← Leistungsseite
 ├── kampagnen-management.html   ← Leistungsseite
 ├── impressum.html
-├── datenschutz.html            ← Platzhalter, noch nicht finalisiert
+├── datenschutz.html            ← Finalisiert (DSGVO-konform, Mai 2026)
 ├── 404.html
 ├── DESIGN-SYSTEM.md            ← Vollständige technische Spezifikation
 └── assets/
@@ -60,18 +60,20 @@ Claude Code/
 - Vollständige Website: Startseite + 3 Leistungsseiten + Impressum + Datenschutz + 404
 - Fonts selbst gehostet → FCP < 1s (war 3,1s mit Google CDN)
 - WCAG AA Farbkontrast-konform
-- Google Analytics 4 (`G-CMYKYVVJM3`), anonymize_ip: true, Conversion-Tracking auf CTAs
+- Google Analytics 4 (`G-CMYKYVVJM3`), Consent Mode v2, anonymize_ip: true, Conversion-Tracking auf CTAs
+- Cookie-Banner mit `applyConsent()` — GA wird nur nach Zustimmung aktiviert
 - Cookie-Banner, Parallax, Reveal-Animationen (bi-direktional), animierte Wellen
 - Wellen: Opacity und Bewegung in Session 3 feinabgestimmt (träger, breiter)
+- Datenschutzerklärung finalisiert: GitHub Pages, Formspree, Cal.com, GA4 (Consent Mode v2), LinkedIn, selbst gehostete Fonts
 
 ### Offene TODOs (vor Go-Live)
-- [ ] **Datenschutzerklärung** finalisieren — Anwalt oder datenschutz-generator.de. Pflicht!
-- [ ] **Hosting** wählen und alle Dateien hochladen
+- [x] **Datenschutzerklärung** finalisiert (Mai 2026) — alle Dienste dokumentiert
+- [ ] **Hosting** — GitHub Pages bereits aktiv (Repo: HansiLVG/lvg-website), Custom Domain noch einrichten
 - [ ] **404.html** als Custom-Error-Page beim Hoster eintragen
 - [ ] **Google Search Console** nach Go-Live verbinden
 - [x] **Cal.com-Link** eingebaut — alle CTA-Buttons zeigen auf `https://cal.eu/lvg-ppc/15min`
 - [ ] **Zertifikats-Badges** auf `index.html` — Body-Texte sind noch Platzhalter
-- [ ] **Newsletter / E-Mail-Automation** — Brevo (brevo.com, kostenlos bis 300 Mails/Tag, EU-Server). Signup-Formular als neue Section einbauen, Double Opt-In in Brevo aktivieren, automatisierte Welcome-Sequenz aufbauen. Datenschutzerklärung muss Brevo als Dienstleister nennen.
+- [ ] **Newsletter / E-Mail-Automation** — Brevo (brevo.com, kostenlos bis 300 Mails/Tag, EU-Server). Signup-Formular als neue Section einbauen, Double Opt-In in Brevo aktivieren, automatisierte Welcome-Sequenz aufbauen. **Datenschutzerklärung muss dann um Brevo-Abschnitt ergänzt werden.**
 - [ ] **PageSpeed Insights** nach Go-Live prüfen (reale Core Web Vitals)
 
 ### Bekannte Abweichungen vom ursprünglichen Brief
