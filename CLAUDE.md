@@ -1,0 +1,97 @@
+# CLAUDE.md — LVG Website
+
+Persönliche Website von Leon-Vincent Gamradt, Amazon PPC Spezialist Berlin.
+Statische HTML/CSS/JS-Website, kein Framework, kein Build-Schritt.
+
+## Projektstruktur
+
+```
+Claude Code/
+├── index.html                  ← Startseite (One-Pager)
+├── account-audit.html          ← Leistungsseite
+├── strategie-aufbau.html       ← Leistungsseite
+├── kampagnen-management.html   ← Leistungsseite
+├── impressum.html
+├── datenschutz.html            ← Platzhalter, noch nicht finalisiert
+├── 404.html
+├── DESIGN-SYSTEM.md            ← Vollständige technische Spezifikation
+└── assets/
+    ├── fonts/                  ← Selbst gehostet (kein Google Fonts CDN)
+    │   ├── fonts.css
+    │   ├── instrument-serif-regular.woff2
+    │   ├── instrument-serif-italic.woff2
+    │   └── inter-latin.woff2
+    ├── LVG_Logo.png / .webp
+    ├── portrait*.webp          ← Mehrere Varianten (bw-light/medium/strong, colour)
+    ├── hero-background.webp
+    ├── cta-background.webp
+    ├── water-flow.webp
+    ├── valley-mist.webp
+    └── leistungen-detail.webp
+```
+
+## Design-Prinzipien (Kurzfassung)
+
+**Vollständige Spezifikation → [`DESIGN-SYSTEM.md`](DESIGN-SYSTEM.md)**
+
+- **Typografie:** Instrument Serif (Headlines, Peaks, Zahlen) + Inter (Body, Labels)
+- **Farben:** Monochrom Paper/Ink + sparsamer Waldgrün-Akzent `#2d5f3f`
+- **Motiv:** Aufwärts-Dreieck (▲) als wiederkehrendes Akzent-Element
+- **Atmosphäre:** Animierte Wellen (SVG/RAF) + Parallax + Scroll-Blur — das Design "atmet"
+- **Prinzip:** Grün-Akzent nur an 6 definierten Stellen. Kein Hintergrundfarbe-Hover. Nur Scale + Farbshift.
+
+## Wichtige CSS-Tokens
+
+```css
+--paper: #fafafa      --ink: #0a0a0a        --accent: #2d5f3f
+--ink-soft: #4a4a4a   --ink-muted: #8a8a8a  --accent-soft: #4a7c59
+--maxw: 1240px        --pad-x: 64px (→ 28px mobile)
+--serif: "Instrument Serif"    --sans: "Inter"
+```
+
+## Aktueller Stand
+
+### Lighthouse-Scores (Desktop / Mobile)
+| Performance | Accessibility | Best Practices | SEO |
+|---|---|---|---|
+| 96 / 74 | 100 / 100 | 100 / 100 | 100 / 100 |
+
+### Was implementiert ist
+- Vollständige Website: Startseite + 3 Leistungsseiten + Impressum + Datenschutz + 404
+- Fonts selbst gehostet → FCP < 1s (war 3,1s mit Google CDN)
+- WCAG AA Farbkontrast-konform
+- Google Analytics 4 (`G-CMYKYVVJM3`), anonymize_ip: true, Conversion-Tracking auf CTAs
+- Cookie-Banner, Parallax, Reveal-Animationen (bi-direktional), animierte Wellen
+- Wellen: Opacity und Bewegung in Session 3 feinabgestimmt (träger, breiter)
+
+### Offene TODOs (vor Go-Live)
+- [ ] **Datenschutzerklärung** finalisieren — Anwalt oder datenschutz-generator.de. Pflicht!
+- [ ] **Hosting** wählen und alle Dateien hochladen
+- [ ] **404.html** als Custom-Error-Page beim Hoster eintragen
+- [ ] **Google Search Console** nach Go-Live verbinden
+- [ ] **Calendly-Link** einbauen — alle CTA-Buttons zeigen aktuell auf `#cta` oder `mailto:`
+- [ ] **Zertifikats-Badges** auf `index.html` — Body-Texte sind noch Platzhalter
+- [ ] **PageSpeed Insights** nach Go-Live prüfen (reale Core Web Vitals)
+
+### Bekannte Abweichungen vom ursprünglichen Brief
+- Erfahrungszahlen in eigener "Vertrauen"-Section (nicht direkt unter Hero-Headline)
+- Kein Calendly-Link implementiert — Platzhalter
+- FAQ-Section und Zertifikats-Badges wurden hinzugefügt (im Brief nicht vorgesehen)
+
+## Technische Besonderheiten
+
+- **Akkordeons** (FAQ + Cert-Badges): Grid-Rows-Trick `0fr → 1fr`, kein `max-height`
+- **Parallax**: `data-parallax="<factor>"` Attribut, `intensity = (mob?0.08:0.12)*factor`, cap 56/32px
+- **Scroll-Blur**: +0.6px auf bestehenden filter während Scroll, 200ms Debounce
+- **Wellen**: 4 SVG-Pfade, requestAnimationFrame, pausiert bei `document.hidden`
+- **Reveal**: IntersectionObserver bi-direktional (kein `once`), threshold 0.10
+- **Mobile**: Zwei Breakpoints — 1100px (Nav vereinfacht) und 900px (Layout kollabiert)
+- **Tweaks-Panel**: React/Babel UMD, Hero-Feintuning live im Browser
+
+## Quelldokumente (außerhalb des Repos)
+
+In `OneDrive/WORK/03_Verwaltung/Website/`:
+- `Website-Copy_Leon-Vincent.docx` — alle Texte der Website
+- `Website-Strategie_Leon-Vincent.docx` — strategisches Briefing
+- `Claude Design/Master-Prompt_Leon-Vincent_v5.md` — ursprünglicher Design-Prompt
+- `Grafiken/` — Quell-PNGs der Assets
