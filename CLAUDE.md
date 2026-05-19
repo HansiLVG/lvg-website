@@ -70,7 +70,7 @@ Claude Code/
 - [x] **Datenschutzerklärung** finalisiert (Mai 2026) — alle Dienste dokumentiert
 - [x] **Hosting** — GitHub Pages live, Custom Domain lvg-ppc.de aktiv, HTTPS enforced
 - [ ] **404.html** als Custom-Error-Page beim Hoster eintragen
-- [ ] **Google Search Console** nach Go-Live verbinden
+- [x] **Google Search Console** verbunden (Mai 2026) — sitemap.xml eingereicht
 - [x] **Cal.com-Link** eingebaut — alle CTA-Buttons zeigen auf `https://cal.eu/lvg-ppc/15min`
 - [ ] **Zertifikats-Badges** auf `index.html` — Body-Texte sind noch Platzhalter
 - [ ] **Newsletter / E-Mail-Automation** — Brevo (brevo.com, kostenlos bis 300 Mails/Tag, EU-Server). Signup-Formular als neue Section einbauen, Double Opt-In in Brevo aktivieren, automatisierte Welcome-Sequenz aufbauen. **Datenschutzerklärung muss dann um Brevo-Abschnitt ergänzt werden.**
