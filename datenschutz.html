@@ -204,28 +204,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* ─── Platzhalter-Hinweis ───────────────────────────────── */
-  .placeholder-notice {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    background: rgba(45, 95, 63, 0.06);
-    border: 1px solid rgba(45, 95, 63, 0.20);
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin-bottom: 48px;
-    font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.65;
-    color: var(--ink-soft);
-    max-width: 68ch;
-  }
-  .placeholder-notice strong {
-    font-weight: 500;
-    color: var(--accent);
-  }
-
   /* ─── Legal body ────────────────────────────────────────── */
   .legal {
     display: flex;
@@ -371,11 +349,17 @@
     .reveal { opacity: 1; transform: none; }
   }
 </style>
-<!-- Google tag (gtag.js) -->
+
+<!-- Google tag (gtag.js) — Consent Mode v2 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CMYKYVVJM3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    wait_for_update: 500
+  });
   gtag('js', new Date());
   gtag('config', 'G-CMYKYVVJM3', {
     anonymize_ip: true,
@@ -385,7 +369,6 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Alle CTA-Buttons (Gespräch buchen)
     document.querySelectorAll('a[href="#cta"], a.cta-link').forEach(function(el) {
       el.addEventListener('click', function() {
         gtag('event', 'cta_click', {
@@ -394,8 +377,6 @@
         });
       });
     });
-
-    // Mailto-Links
     document.querySelectorAll('a[href^="mailto"]').forEach(function(el) {
       el.addEventListener('click', function() {
         gtag('event', 'contact_click', {
@@ -442,19 +423,9 @@
         Datenschutzerklärung.
       </h1>
 
-      <div class="placeholder-notice reveal" style="--reveal-delay: 0.15s;">
-        <div>
-          <strong>Platzhalter — bitte vor Veröffentlichung prüfen.</strong><br />
-          Diese Seite enthält einen vorläufigen Entwurf einer Datenschutzerklärung.
-          Bitte lass den Text von einem Anwalt oder über einen Datenschutz-Generator
-          (z.&thinsp;B. <a href="https://www.datenschutz-generator.de" target="_blank" rel="noopener">datenschutz-generator.de</a>)
-          für deine konkrete Situation prüfen und anpassen.
-        </div>
-      </div>
-
       <div class="legal">
 
-        <div class="legal-block reveal" style="--reveal-delay: 0.20s;">
+        <div class="legal-block reveal" style="--reveal-delay: 0.18s;">
           <h2>1. Verantwortlicher</h2>
           <p>
             Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:<br /><br />
@@ -466,106 +437,196 @@
           </p>
         </div>
 
-        <div class="legal-block reveal" style="--reveal-delay: 0.22s;">
+        <div class="legal-block reveal" style="--reveal-delay: 0.20s;">
           <h2>2. Hosting</h2>
           <p>
-            Diese Website wird bei einem externen Hosting-Dienstleister betrieben.
-            Der Hoster erhebt in sogenannten Logfiles die Daten, die dein Browser
-            automatisch übermittelt (IP-Adresse, Datum und Uhrzeit des Zugriffs,
-            aufgerufene Seite, Browsertyp und -version, Betriebssystem).
-            Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO
-            (berechtigtes Interesse am sicheren Betrieb der Website).
+            Diese Website wird über <strong>GitHub Pages</strong> bereitgestellt,
+            einem Dienst von GitHub, Inc. (88 Colin P Kelly Jr St, San Francisco,
+            CA 94107, USA), einem Tochterunternehmen der Microsoft Corporation.
           </p>
           <p>
-            <strong>[Hosting-Anbieter und ggf. Auftragsverarbeitungsvertrag hier ergänzen]</strong>
+            GitHub erhebt in sogenannten Server-Logfiles automatisch Informationen,
+            die dein Browser übermittelt. Dazu gehören IP-Adresse, Datum und Uhrzeit
+            des Zugriffs, aufgerufene Seite, Browsertyp und -version sowie
+            Betriebssystem. Diese Daten werden zur Sicherstellung des Betriebs und
+            zur Missbrauchserkennung verarbeitet.
+          </p>
+          <p>
+            Rechtsgrundlage ist Art.&thinsp;6 Abs.&thinsp;1 lit.&thinsp;f DSGVO
+            (berechtigtes Interesse am sicheren Betrieb der Website). Die
+            Datenübertragung in die USA erfolgt auf Grundlage des
+            EU-US Data Privacy Framework (Angemessenheitsbeschluss der
+            EU-Kommission vom 10.&thinsp;Juli 2023).
+          </p>
+          <p>
+            Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.
+          </p>
+        </div>
+
+        <div class="legal-block reveal" style="--reveal-delay: 0.22s;">
+          <h2>3. Kontaktformular</h2>
+          <p>
+            Wenn du das Kontaktformular auf dieser Website verwendest, werden deine
+            Angaben (Name, E-Mail-Adresse sowie deine Nachricht) zur Bearbeitung
+            deiner Anfrage verarbeitet. Die Übermittlung erfolgt über den Dienst
+            <strong>Formspree</strong> (Formspree, Inc., 2021 Fillmore St #225,
+            San Francisco, CA 94115, USA). Formspree leitet die Formulardaten per
+            E-Mail an mich weiter.
+          </p>
+          <p>
+            Die Verarbeitung erfolgt auf Grundlage von Art.&thinsp;6
+            Abs.&thinsp;1 lit.&thinsp;b DSGVO (Vertragsanbahnung bzw. Durchführung
+            vorvertraglicher Maßnahmen) sowie Art.&thinsp;6 Abs.&thinsp;1
+            lit.&thinsp;f DSGVO (berechtigtes Interesse an der Beantwortung von
+            Anfragen). Die Datenübertragung in die USA erfolgt auf Grundlage des
+            EU-US Data Privacy Framework.
+          </p>
+          <p>
+            Die übermittelten Daten werden ausschließlich zur Bearbeitung deiner
+            Anfrage verwendet und nicht zu anderen Zwecken gespeichert oder an
+            Dritte weitergegeben. Weitere Informationen findest du in der
+            <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Datenschutzerklärung von Formspree</a>.
           </p>
         </div>
 
         <div class="legal-block reveal" style="--reveal-delay: 0.24s;">
-          <h2>3. Kontaktformular</h2>
+          <h2>4. Terminbuchung</h2>
           <p>
-            Wenn du das Kontaktformular auf dieser Website verwendest, werden deine
-            Angaben (Name, E-Mail-Adresse, ggf. Unternehmen, Werbebudget und
-            Nachricht) zur Bearbeitung deiner Anfrage verarbeitet. Diese Daten
-            werden über den Dienst <strong>Formspree</strong> (Formspree, Inc.,
-            USA) übertragen und anschließend per E-Mail an mich weitergeleitet.
+            Für die Buchung eines Erstgesprächs nutze ich den Dienst
+            <strong>Cal.com</strong> (Cal.com, Inc., 2261 Market Street #5439,
+            San Francisco, CA 94114, USA). Wenn du einen Termin buchst, werden
+            deine Angaben (Name, E-Mail-Adresse, Wunschtermin) direkt an Cal.com
+            übermittelt und dort zur Terminverwaltung verarbeitet.
           </p>
           <p>
-            Formspree verarbeitet deine Daten auf Servern in den USA.
-            Weitere Informationen findest du in der
-            <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Datenschutzerklärung von Formspree</a>.
-            Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO
-            (Vertragsanbahnung) bzw. Art. 6 Abs. 1 lit. f DSGVO
-            (berechtigtes Interesse an der Beantwortung von Anfragen).
-          </p>
-          <p>
-            Die übermittelten Daten werden ausschließlich zur Bearbeitung deiner
-            Anfrage verwendet und nicht an Dritte weitergegeben.
+            Rechtsgrundlage ist Art.&thinsp;6 Abs.&thinsp;1 lit.&thinsp;b DSGVO
+            (Vertragsanbahnung). Die Datenübertragung in die USA erfolgt auf
+            Grundlage des EU-US Data Privacy Framework. Weitere Informationen
+            findest du in der
+            <a href="https://cal.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von Cal.com</a>.
           </p>
         </div>
 
         <div class="legal-block reveal" style="--reveal-delay: 0.26s;">
-          <h2>4. Google Fonts</h2>
+          <h2>5. Google Analytics</h2>
           <p>
-            Diese Website nutzt Google Fonts (Anbieter: Google Ireland Limited,
-            Gordon House, Barrow Street, Dublin 4, Irland) zur einheitlichen
-            Darstellung von Schriftarten. Beim Aufruf einer Seite lädt dein
-            Browser die benötigten Fonts direkt von Google-Servern.
-            Dabei wird deine IP-Adresse an Google übermittelt.
-            Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
-            Interesse an einer einheitlichen Darstellung).
+            Diese Website nutzt <strong>Google Analytics 4</strong>, einen
+            Webanalysedienst der Google Ireland Limited (Gordon House, Barrow
+            Street, Dublin 4, Irland). Google Analytics verwendet Cookies und
+            ähnliche Technologien, um die Nutzung der Website auszuwerten und
+            Berichte über Website-Aktivitäten zu erstellen.
           </p>
           <p>
-            Weitere Informationen findest du in der
+            Ich setze Google Analytics im Rahmen des <strong>Consent Mode v2</strong>
+            ein. Das bedeutet: Google Analytics wird erst dann mit vollständiger
+            Datenerhebung aktiviert, wenn du über den Cookie-Hinweis zugestimmt
+            hast. Ohne deine Einwilligung werden keine Analyse-Cookies gesetzt und
+            keine personenbezogenen Daten an Google übermittelt.
+          </p>
+          <p>
+            Zusätzlich ist die IP-Anonymisierung aktiviert
+            (<code>anonymize_ip: true</code>), sodass deine IP-Adresse vor der
+            Speicherung gekürzt wird. Die im Rahmen von Google Analytics
+            verarbeiteten Daten können in die USA übermittelt werden; Google LLC
+            ist nach dem EU-US Data Privacy Framework zertifiziert.
+          </p>
+          <p>
+            Rechtsgrundlage für die Verarbeitung nach erteilter Einwilligung ist
+            Art.&thinsp;6 Abs.&thinsp;1 lit.&thinsp;a DSGVO. Du kannst deine
+            Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem
+            du die Cookie-Einstellungen über den Cookie-Hinweis änderst (Seite neu
+            laden) oder das
+            <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-Out Browser-Add-on</a>
+            installierst. Weitere Informationen:
             <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von Google</a>.
           </p>
         </div>
 
         <div class="legal-block reveal" style="--reveal-delay: 0.28s;">
-          <h2>5. Cookies</h2>
+          <h2>6. Schriftarten</h2>
           <p>
-            Diese Website verwendet ein technisch notwendiges Cookie, um deine
-            Entscheidung zum Cookie-Hinweis zu speichern (<code>lvg-cookie-consent</code>).
-            Dieses Cookie enthält ausschließlich den Wert deiner Auswahl
-            (»accepted« oder »declined«) und keine personenbezogenen Daten.
-            Es wird lokal in deinem Browser gespeichert (localStorage) und nicht
-            an Server übertragen.
-          </p>
-          <p>
-            Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse
-            an der Funktion des Cookie-Hinweises).
+            Diese Website verwendet die Schriftarten <em>Instrument Serif</em> und
+            <em>Inter</em>. Beide Schriftarten sind auf dem eigenen Webserver
+            selbst gehostet und werden als <code>.woff2</code>-Dateien lokal
+            ausgeliefert. Es werden <strong>keine</strong> Schriftartdateien von
+            externen Servern (z.&thinsp;B. Google Fonts CDN) geladen. Es findet
+            keine Übermittlung deiner IP-Adresse an Dritte statt.
           </p>
         </div>
 
         <div class="legal-block reveal" style="--reveal-delay: 0.30s;">
-          <h2>6. Deine Rechte</h2>
-          <p>Du hast gegenüber mir folgende Rechte bezüglich deiner personenbezogenen Daten:</p>
-          <ul>
-            <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
-            <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
-            <li>Recht auf Löschung (Art. 17 DSGVO)</li>
-            <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
-            <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
-            <li>Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
-          </ul>
+          <h2>7. Externe Links</h2>
           <p>
-            Zur Ausübung deiner Rechte wende dich an:
-            <a href="mailto:l.gamradt@lvg-ppc.de">l.gamradt@lvg-ppc.de</a>
-          </p>
-          <p>
-            Du hast außerdem das Recht, dich bei einer Datenschutz-Aufsichtsbehörde
-            zu beschweren. Die zuständige Behörde für Berlin ist:
-            Berliner Beauftragte für Datenschutz und Informationsfreiheit,
-            Friedrichstr. 219, 10969 Berlin.
+            Diese Website enthält Links zu meinem
+            <a href="https://www.linkedin.com/in/leon-vincent-gamradt-224613297" target="_blank" rel="noopener">LinkedIn-Profil</a>
+            (LinkedIn Ireland Unlimited Company, Wilton Place, Dublin 2, Irland).
+            Wenn du auf diesen Link klickst und LinkedIn aufrufst, gelten die
+            Datenschutzbestimmungen von LinkedIn. Auf meiner Website selbst werden
+            keine LinkedIn-Widgets oder -Plugins eingebunden, die Daten an LinkedIn
+            übermitteln.
           </p>
         </div>
 
         <div class="legal-block reveal" style="--reveal-delay: 0.32s;">
-          <h2>7. Aktualität</h2>
+          <h2>8. Cookies &amp; localStorage</h2>
           <p>
-            Diese Datenschutzerklärung ist aktuell gültig und hat den Stand
-            Mai 2026. Durch die Weiterentwicklung dieser Website kann eine
-            Anpassung notwendig werden.
+            Diese Website speichert deine Cookie-Entscheidung unter dem Schlüssel
+            <code>lvg-cookie-consent</code> im <strong>localStorage</strong> deines
+            Browsers. Dieser Eintrag enthält ausschließlich den Wert deiner
+            Entscheidung (<em>accepted</em> oder <em>declined</em>) und keine
+            personenbezogenen Daten. Der Eintrag wird nicht an Server übertragen
+            und verbleibt lokal in deinem Browser.
+          </p>
+          <p>
+            Wenn du der Nutzung von Google Analytics zugestimmt hast, setzt Google
+            Analytics eigene Cookies (<code>_ga</code>, <code>_ga_*</code>) zur
+            Wiedererkennung von Sitzungen. Diese Cookies werden nur nach deiner
+            Einwilligung gesetzt (siehe Abschnitt 5).
+          </p>
+          <p>
+            Rechtsgrundlage für den technisch notwendigen localStorage-Eintrag ist
+            Art.&thinsp;6 Abs.&thinsp;1 lit.&thinsp;f DSGVO (berechtigtes
+            Interesse an der Funktion des Cookie-Hinweises). Rechtsgrundlage für
+            optionale Analyse-Cookies ist deine Einwilligung gemäß Art.&thinsp;6
+            Abs.&thinsp;1 lit.&thinsp;a DSGVO.
+          </p>
+        </div>
+
+        <div class="legal-block reveal" style="--reveal-delay: 0.34s;">
+          <h2>9. Deine Rechte</h2>
+          <p>
+            Dir stehen gegenüber mir als Verantwortlichem folgende Rechte bezüglich
+            deiner personenbezogenen Daten zu:
+          </p>
+          <ul>
+            <li>Recht auf Auskunft (Art.&thinsp;15 DSGVO)</li>
+            <li>Recht auf Berichtigung (Art.&thinsp;16 DSGVO)</li>
+            <li>Recht auf Löschung (Art.&thinsp;17 DSGVO)</li>
+            <li>Recht auf Einschränkung der Verarbeitung (Art.&thinsp;18 DSGVO)</li>
+            <li>Recht auf Datenübertragbarkeit (Art.&thinsp;20 DSGVO)</li>
+            <li>Recht auf Widerspruch gegen die Verarbeitung (Art.&thinsp;21 DSGVO)</li>
+            <li>Recht auf Widerruf einer erteilten Einwilligung (Art.&thinsp;7 Abs.&thinsp;3 DSGVO)</li>
+          </ul>
+          <p>
+            Zur Geltendmachung deiner Rechte wende dich bitte an:
+            <a href="mailto:l.gamradt@lvg-ppc.de">l.gamradt@lvg-ppc.de</a>
+          </p>
+          <p>
+            Du hast außerdem das Recht, dich bei einer zuständigen
+            Datenschutz-Aufsichtsbehörde zu beschweren. Die für Berlin zuständige
+            Behörde ist die <strong>Berliner Beauftragte für Datenschutz und
+            Informationsfreiheit</strong>, Friedrichstr. 219, 10969 Berlin
+            (<a href="https://www.datenschutz-berlin.de" target="_blank" rel="noopener">datenschutz-berlin.de</a>).
+          </p>
+        </div>
+
+        <div class="legal-block reveal" style="--reveal-delay: 0.36s;">
+          <h2>10. Aktualität</h2>
+          <p>
+            Diese Datenschutzerklärung hat den Stand Mai 2026. Durch die
+            Weiterentwicklung dieser Website oder Änderungen rechtlicher
+            Rahmenbedingungen kann eine Aktualisierung erforderlich werden.
+            Die jeweils aktuelle Fassung ist stets auf dieser Seite abrufbar.
           </p>
         </div>
 
@@ -665,16 +726,27 @@
   const cookieBanner = document.getElementById('cookie-banner');
   if (cookieBanner) {
     const STORAGE_KEY = 'lvg-cookie-consent';
+
+    function applyConsent(choice) {
+      const granted = choice === 'accepted';
+      gtag('consent', 'update', {
+        analytics_storage: granted ? 'granted' : 'denied',
+        ad_storage: 'denied'
+      });
+    }
+
     let stored = null;
     try { stored = localStorage.getItem(STORAGE_KEY); } catch (_) {}
     if (stored === 'accepted' || stored === 'declined') {
+      applyConsent(stored);
       cookieBanner.remove();
     } else {
       cookieBanner.addEventListener('click', (ev) => {
         const target = ev.target.closest('[data-cookie]');
         if (!target) return;
-        const choice = target.getAttribute('data-cookie');
-        try { localStorage.setItem(STORAGE_KEY, choice === 'accept' ? 'accepted' : 'declined'); } catch (_) {}
+        const choice = target.getAttribute('data-cookie') === 'accept' ? 'accepted' : 'declined';
+        try { localStorage.setItem(STORAGE_KEY, choice); } catch (_) {}
+        applyConsent(choice);
         cookieBanner.classList.add('is-hidden');
         setTimeout(() => { cookieBanner.remove(); }, 320);
       });
