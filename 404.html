@@ -64,7 +64,7 @@
   nav.nav {
     position: fixed;
     top: 0; left: 0; right: 0;
-    height: 64px;
+    min-height: 64px;
     z-index: 100;
     background: rgba(250, 250, 250, 0.85);
     backdrop-filter: saturate(140%) blur(12px);
@@ -74,13 +74,50 @@
   }
   .nav-inner {
     max-width: var(--maxw);
-    height: 100%;
+    height: 64px;
     margin: 0 auto;
     padding: 0 var(--pad-x);
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+  .nav-burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px; height: 36px;
+    background: transparent;
+    border: 0;
+    padding: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-burger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.2s ease;
+    transform-origin: center;
+  }
+  nav.is-open .nav-burger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  nav.is-open .nav-burger span:nth-child(2) { opacity: 0; }
+  nav.is-open .nav-burger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .nav-mobile-wrap { display: none; }
+  @media (max-width: 1100px) {
+    .nav-burger { display: flex; }
+    .nav-mobile-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.38s cubic-bezier(0.22,1,0.36,1); }
+    nav.is-open .nav-mobile-wrap { grid-template-rows: 1fr; }
+  }
+  .nav-mobile-inner { overflow: hidden; min-height: 0; }
+  .nav-mobile-links { border-top: 1px solid var(--border); padding: 6px 0 12px; }
+  .nav-mobile-links a { display: block; font-family: var(--sans); font-weight: 400; font-size: 15px; color: var(--ink); text-decoration: none; padding: 13px 28px; transition: color 0.2s ease, background 0.15s ease; }
+  .nav-mobile-links a:hover, .nav-mobile-links a:active { color: var(--accent); background: rgba(45,95,63,0.04); }
+  .nav-mobile-divider { height: 1px; background: var(--border); margin: 4px 0; }
+  .nav-mobile-cta { color: var(--accent) !important; font-weight: 500 !important; }
   .nav .brand {
     font-family: var(--serif);
     font-size: 22px;
@@ -251,6 +288,22 @@
   <div class="nav-inner">
     <a class="brand" href="index.html">Leon-Vincent Gamradt</a>
     <a class="cta-link" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Gespräch buchen</a>
+    <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-wrap" aria-hidden="true">
+    <div class="nav-mobile-inner">
+      <div class="nav-mobile-links">
+        <a href="index.html">← Startseite</a>
+        <div class="nav-mobile-divider"></div>
+        <a href="account-audit.html">Account-Audit</a>
+        <a href="strategie-aufbau.html">Strategie-Aufbau</a>
+        <a href="kampagnen-management.html">Kampagnen-Management</a>
+        <div class="nav-mobile-divider"></div>
+        <a class="nav-mobile-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Gespräch buchen →</a>
+      </div>
+    </div>
   </div>
 </nav>
 
@@ -319,5 +372,35 @@
 })();
 </script>
 
+
+<script>
+(function() {
+  var navEl = document.querySelector('nav.nav');
+  var burgerBtn = document.querySelector('.nav-burger');
+  var navMobileWrap = document.querySelector('.nav-mobile-wrap');
+  function closeMobileNav() {
+    navEl.classList.remove('is-open');
+    burgerBtn.setAttribute('aria-expanded', 'false');
+    burgerBtn.setAttribute('aria-label', 'Menü öffnen');
+    navMobileWrap.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  if (burgerBtn) {
+    burgerBtn.addEventListener('click', function() {
+      var isOpen = navEl.classList.toggle('is-open');
+      burgerBtn.setAttribute('aria-expanded', String(isOpen));
+      burgerBtn.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+      navMobileWrap.setAttribute('aria-hidden', String(!isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    document.querySelectorAll('.nav-mobile-links a').forEach(function(a) { a.addEventListener('click', closeMobileNav); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMobileNav(); });
+    document.addEventListener('click', function(e) { if (navEl.classList.contains('is-open') && !navEl.contains(e.target)) closeMobileNav(); });
+    var touchStartY = 0;
+    document.addEventListener('touchstart', function(e) { touchStartY = e.touches[0].clientY; }, { passive: true });
+    document.addEventListener('touchmove', function(e) { if (navEl.classList.contains('is-open') && Math.abs(e.touches[0].clientY - touchStartY) > 30) closeMobileNav(); }, { passive: true });
+  }
+})();
+</script>
 </body>
 </html>
