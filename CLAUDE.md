@@ -91,9 +91,14 @@ Claude Code/
 - **Mobile**: Zwei Breakpoints — 1100px (Nav vereinfacht) und 900px (Layout kollabiert)
 - **Tweaks-Panel**: React/Babel UMD, Hero-Feintuning live im Browser
 
-## Workflow-Regel
+## Workflow-Regeln
 
-Nach jedem `git push`: CLAUDE.md TODOs aktualisieren + erledigte Notion-Tasks abhaken.
+**Commits:** Jede inhaltliche Änderung bekommt einen eigenen Commit (gut für Nachvollziehbarkeit).
+
+**Push-Zeitpunkt:** Erst am Ende eines logischen Themenblocks pushen, nicht nach jeder Einzeldatei.
+Ausnahmen: explizites „push" vom User (Live-Test gewünscht) oder Sessionende (alles offen Gebliebene).
+
+**Nach jedem Push:** CLAUDE.md TODOs aktualisieren + erledigte Notion-Tasks abhaken.
 
 ## Quelldokumente (außerhalb des Repos)
 
