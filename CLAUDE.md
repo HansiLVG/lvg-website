@@ -91,6 +91,10 @@ Claude Code/
 - **Mobile**: Zwei Breakpoints — 1100px (Nav vereinfacht) und 900px (Layout kollabiert)
 - **Tweaks-Panel**: React/Babel UMD, Hero-Feintuning live im Browser
 
+## Workflow-Regel
+
+Nach jedem `git push`: CLAUDE.md TODOs aktualisieren + erledigte Notion-Tasks abhaken.
+
 ## Quelldokumente (außerhalb des Repos)
 
 In `OneDrive/WORK/03_Verwaltung/Website/`:
