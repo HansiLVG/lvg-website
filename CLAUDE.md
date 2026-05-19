@@ -99,6 +99,14 @@ Claude Code/
 - **Mobile**: Zwei Breakpoints — 1100px (Nav vereinfacht) und 900px (Layout kollabiert)
 - **Tweaks-Panel**: React/Babel UMD, Hero-Feintuning live im Browser
 
+## Automatisierung
+
+**CLAUDE.md Auto-Sync** läuft täglich um 23:00 Uhr (CEST) als Remote-Agent auf Anthropic Cloud:
+- Liest die letzten 24h Commits + geänderte Dateien via GitHub API
+- Aktualisiert TODOs, Projektstruktur und Technische Besonderheiten automatisch
+- Pusht nur wenn es tatsächlich Änderungen gibt (`docs: auto-sync CLAUDE.md YYYY-MM-DD`)
+- Verwalten: [claude.ai/code/routines](https://claude.ai/code/routines) → Routine-ID `trig_01UTyKT766vMbt64CE6b3DCj`
+
 ## Workflow-Regeln
 
 **Commits:** Jede inhaltliche Änderung bekommt einen eigenen Commit (gut für Nachvollziehbarkeit).
