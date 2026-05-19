@@ -2179,6 +2179,15 @@
         closeMobileNav();
       }
     });
+    let touchStartY = 0;
+    document.addEventListener('touchstart', function(e) {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    document.addEventListener('touchmove', function(e) {
+      if (navEl.classList.contains('is-open') && Math.abs(e.touches[0].clientY - touchStartY) > 30) {
+        closeMobileNav();
+      }
+    }, { passive: true });
   }
 
   // ─────────────────────────────────────────────────────────
