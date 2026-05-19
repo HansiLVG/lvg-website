@@ -71,6 +71,7 @@ Claude Code/
 - [ ] **Google Search Console** nach Go-Live verbinden
 - [x] **Cal.com-Link** eingebaut — alle CTA-Buttons zeigen auf `https://cal.eu/lvg-ppc/15min`
 - [ ] **Zertifikats-Badges** auf `index.html` — Body-Texte sind noch Platzhalter
+- [ ] **Newsletter / E-Mail-Automation** — Brevo (brevo.com, kostenlos bis 300 Mails/Tag, EU-Server). Signup-Formular als neue Section einbauen, Double Opt-In in Brevo aktivieren, automatisierte Welcome-Sequenz aufbauen. Datenschutzerklärung muss Brevo als Dienstleister nennen.
 - [ ] **PageSpeed Insights** nach Go-Live prüfen (reale Core Web Vitals)
 
 ### Bekannte Abweichungen vom ursprünglichen Brief
