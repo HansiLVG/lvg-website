@@ -96,7 +96,8 @@ Claude Code/
 **Commits:** Jede inhaltliche Änderung bekommt einen eigenen Commit (gut für Nachvollziehbarkeit).
 
 **Push-Zeitpunkt:** Erst am Ende eines logischen Themenblocks pushen, nicht nach jeder Einzeldatei.
-Ausnahmen: explizites „push" vom User (Live-Test gewünscht) oder Sessionende (alles offen Gebliebene).
+Ausnahmen: explizites „push" vom User (Live-Test gewünscht) oder Sessionende.
+**Beim Verlassen des Arbeitsplatzes immer pushen** — als Backup und für sauberen Stand beim nächsten Start.
 
 **Nach jedem Push:** CLAUDE.md TODOs aktualisieren + erledigte Notion-Tasks abhaken.
 
