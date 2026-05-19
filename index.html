@@ -1183,50 +1183,20 @@
     position: relative;
     z-index: 3;
     border-top: 1px solid var(--border);
-    padding: 48px 0 40px;
+    padding: 40px 0;
     text-align: center;
     background: var(--paper);
-  }
-  .footer-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    align-items: center;
-  }
-  .footer-cross {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px 28px;
-    justify-content: center;
-    font-family: var(--sans);
-    font-weight: 400;
-    font-size: 12px;
-    letter-spacing: 0.02em;
-    color: var(--ink-soft);
-  }
-  .footer-cross a {
-    color: var(--ink-soft);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  .footer-cross a:hover { color: var(--ink); }
-  .footer-cross a.is-current {
-    color: var(--ink);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 1px;
   }
   footer .foot-text {
     font-family: var(--sans);
     font-size: 12px;
-    color: var(--ink-soft);
+    color: var(--ink-muted);
+    opacity: 0.85;
     letter-spacing: 0.02em;
   }
-  footer a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
+  footer a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
   footer a:hover { color: var(--ink); }
+  .foot-sep { margin: 0 8px; opacity: 0.5; }
 
   /* ─── Reveal animations ──────────────────────────────────── */
   .reveal {
@@ -1841,18 +1811,10 @@
 
 <footer>
   <div class="wrap">
-    <div class="footer-inner">
-      <div class="footer-cross">
-        <a href="index.html" class="is-current" aria-current="page">Startseite</a>
-        <a href="account-audit.html">Account-Audit</a>
-        <a href="strategie-aufbau.html">Strategie-Aufbau</a>
-        <a href="kampagnen-management.html">Kampagnen-Management</a>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-      </div>
-      <div class="foot-text">
-        Leon-Vincent Gamradt — Amazon PPC Spezialist — Berlin
-      </div>
+    <div class="foot-text">
+      Leon-Vincent Gamradt — Amazon PPC Spezialist — Berlin
+      &nbsp;·&nbsp; <a href="impressum.html">Impressum</a>
+      &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a>
     </div>
   </div>
 </footer>
