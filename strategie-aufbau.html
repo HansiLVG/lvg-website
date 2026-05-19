@@ -583,100 +583,20 @@
     position: relative;
     z-index: 3;
     border-top: 1px solid var(--border);
+    padding: 40px 0;
+    text-align: center;
     background: var(--paper);
   }
-  .footer-nav {
-    max-width: var(--maxw);
-    height: 56px;
-    margin: 0 auto;
-    padding: 0 var(--pad-x);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-  }
-  .footer-brand {
-    font-family: var(--serif);
-    font-size: 18px;
-    color: var(--ink);
-    letter-spacing: 0.005em;
-    line-height: 1;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .footer-nav-links {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    flex: 1;
-    justify-content: center;
-  }
-  .footer-nav-links a {
-    position: relative;
+  footer .foot-text {
     font-family: var(--sans);
-    font-weight: 500;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    text-decoration: none;
-    padding: 4px 0;
-    transition: color 0.2s ease;
-    white-space: nowrap;
-  }
-  .footer-nav-links a:hover { color: var(--ink); }
-  .footer-nav-links a.is-current { color: var(--ink); }
-  .footer-nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 100%;
-    bottom: 0;
-    height: 1px;
-    background: var(--ink);
-    transition: right 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .footer-nav-links a:hover::after { right: 0; }
-  .footer-nav-links a.is-current::after { display: none; }
-  .footer-cta {
-    font-family: var(--sans);
-    font-weight: 500;
     font-size: 12px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink);
-    text-decoration: none;
-    padding-bottom: 2px;
-    position: relative;
-    flex-shrink: 0;
-  }
-  .footer-cta::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 100%;
-    bottom: 0;
-    height: 1px;
-    background: var(--ink);
-    transition: right 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .footer-cta:hover::after { right: 0; }
-  .foot-legal {
-    max-width: var(--maxw);
-    margin: 0 auto;
-    padding: 10px var(--pad-x) 18px;
-    font-family: var(--sans);
-    font-size: 11px;
     color: var(--ink-muted);
+    opacity: 0.85;
     letter-spacing: 0.02em;
-    text-align: center;
   }
-  .foot-legal a { color: inherit; text-decoration: none; }
-  .foot-legal a:hover { color: var(--ink); }
-  @media (max-width: 1100px) {
-    .footer-nav-links { display: none; }
-  }
-  @media (max-width: 900px) {
-    .footer-nav { height: auto; padding: 18px var(--pad-x); }
-  }
+  footer a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+  footer a:hover { color: var(--ink); }
+  .foot-sep { margin: 0 8px; opacity: 0.5; }
 
   /* ─── Reveal ─────────────────────────────────────────── */
   .reveal {
@@ -935,22 +855,14 @@
 </main>
 
 <footer>
-  <div class="footer-nav">
-    <a class="footer-brand" href="index.html">Leon-Vincent Gamradt</a>
-    <div class="footer-nav-links">
-      <a href="index.html">Startseite</a>
-      <a href="account-audit.html">Account-Audit</a>
-      <a href="strategie-aufbau.html" class="is-current" aria-current="page">Strategie-Aufbau</a>
-      <a href="kampagnen-management.html">Kampagnen-Management</a>
-      <a href="index.html#ueber-mich">Über mich</a>
-      <a href="index.html#faq">FAQ</a>
+  <div class="wrap">
+    <div class="foot-text">
+      <a href="index.html">&larr; Zur&uuml;ck zur Startseite</a>
+      <span class="foot-sep">&middot;</span>
+      Leon-Vincent Gamradt &mdash; Amazon PPC Spezialist &mdash; Berlin
+      &nbsp;&middot;&nbsp; <a href="impressum.html">Impressum</a>
+      &nbsp;&middot;&nbsp; <a href="datenschutz.html">Datenschutz</a>
     </div>
-    <a class="footer-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Gespräch buchen</a>
-  </div>
-  <div class="foot-legal">
-    Leon-Vincent Gamradt — Amazon PPC Spezialist — Berlin
-    &nbsp;·&nbsp; <a href="impressum.html">Impressum</a>
-    &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a>
   </div>
 </footer>
 
