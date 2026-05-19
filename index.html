@@ -1315,11 +1315,19 @@
     .reveal { opacity: 1; transform: none; }
   }
 </style>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) — Consent Mode v2 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CMYKYVVJM3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+
+  // Default: alle Cookies verweigert bis Nutzer zustimmt (DSGVO-konform)
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    wait_for_update: 500
+  });
+
   gtag('js', new Date());
   gtag('config', 'G-CMYKYVVJM3', {
     anonymize_ip: true,
@@ -2123,16 +2131,27 @@
   const cookieBanner = document.getElementById('cookie-banner');
   if (cookieBanner) {
     const STORAGE_KEY = 'lvg-cookie-consent';
+
+    function applyConsent(choice) {
+      const granted = choice === 'accepted';
+      gtag('consent', 'update', {
+        analytics_storage: granted ? 'granted' : 'denied',
+        ad_storage: 'denied'
+      });
+    }
+
     let stored = null;
     try { stored = localStorage.getItem(STORAGE_KEY); } catch (_) {}
     if (stored === 'accepted' || stored === 'declined') {
+      applyConsent(stored);
       cookieBanner.remove();
     } else {
       cookieBanner.addEventListener('click', (ev) => {
         const target = ev.target.closest('[data-cookie]');
         if (!target) return;
-        const choice = target.getAttribute('data-cookie');
-        try { localStorage.setItem(STORAGE_KEY, choice === 'accept' ? 'accepted' : 'declined'); } catch (_) {}
+        const choice = target.getAttribute('data-cookie') === 'accept' ? 'accepted' : 'declined';
+        try { localStorage.setItem(STORAGE_KEY, choice); } catch (_) {}
+        applyConsent(choice);
         cookieBanner.classList.add('is-hidden');
         setTimeout(() => { cookieBanner.remove(); }, 320);
       });
