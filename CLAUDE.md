@@ -1,1 +1,104 @@
-IyBDTEFVREUubWQg4oCUIExWRyBXZWJzaXRlCgpQZXJzw7ZubGljaGUgV2Vic2l0ZSB2b24gTGVvbi1WaW5jZW50IEdhbXJhZHQsIEFtYXpvbiBQUEMgU3BlemlhbGlzdCBCZXJsaW4uClN0YXRpc2NoZSBIVE1ML0NTUy9KUy1XZWJzaXRlLCBrZWluIEZyYW1ld29yaywga2VpbiBCdWlsZC1TY2hyaXR0LgoKIyMgUHJvamVrdHN0cnVrdHVyCgpgYGAKQ2xhdWRlIENvZGUvCuKUnOKUgOKUgCBpbmRleC5odG1sICAgICAgICAgICAgICAgICAgIOKGkCBTdGFydHNlaXRlIChPbmUtUGFnZXIpCuKUnOKUgOKUgCBhY2NvdW50LWF1ZGl0Lmh0bWwgICAgICAgICAgIOKGkCBMZWlzdHVuZ3NzZWl0ZQrilJzilIDilIAgc3RyYXRlZ2llLWF1ZmJhdS5odG1sICAgICAgIOKGkCBMZWlzdHVuZ3NzZWl0ZQrilJzilIDilIAga2FtcGFnbmVuLW1hbmFnZW1lbnQuaHRtbCAgIOKGkCBMZWlzdHVuZ3NzZWl0ZQrilJzilIDilIAgdWViZXItbWljaC5odG1sICAgICAgICAgICAgIOKGkCDDnGJlci1NaWNoLVNlaXRlCuKUnOKUgOKUgCBmYXEuaHRtbCAgICAgICAgICAgICAgICAgICAg4oaQIEZBUS1TZWl0ZQrilJzilIDilIAgaW1wcmVzc3VtLmh0bWwK4pSc4pSA4pSAIGRhdGVuc2NodXR6Lmh0bWwgICAgICAgICAgICDihpAgRmluYWxpc2llcnQgKERTR1ZPLWtvbmZvcm0sIE1haSAyMDI2KQrilJzilIDilIAgNDA0Lmh0bWwK4pSc4pSA4pSAIHNpdGVtYXAueG1sICAgICAgICAgICAgICAgICDihpAgU0VPLCBmw7xyIEdvb2dsZSBTZWFyY2ggQ29uc29sZQrilJzilIDilIAgQ05BTUUgICAgICAgICAgICAgICAgICAgICAgIOKGkCBDdXN0b20gRG9tYWluIGx2Zy1wcGMuZGUK4pSc4pSA4pSAIFJFQURNRS5tZArilJzilIDilIAgREVTSUdOLVNZU1RFTS5tZCAgICAgICAgICAgIOKGkCBWb2xsc3TDpG5kaWdlIHRlY2huaXNjaGUgU3BlemlmaWthdGlvbgrilJTilIDilIAgYXNzZXRzLwogICAg4pSc4pSA4pSAIGZvbnRzLyAgICAgICAgICAgICAgICAgIOKGkCBTZWxic3QgZ2Vob3N0ZXQgKGtlaW4gR29vZ2xlIEZvbnRzIENETikKICAgIOKUgiAgIOKUnOKUgOKUgCBmb250cy5jc3MKICAgIOKUgiAgIOKUnOKUgOKUgCBpbnN0cnVtZW50LXNlcmlmLXJlZ3VsYXIud29mZjIKICAgIOKUgiAgIOKUnOKUgOKUgCBpbnN0cnVtZW50LXNlcmlmLWl0YWxpYy53b2ZmMgogICAg4pSCICAg4pSU4pSA4pSAIGludGVyLWxhdGluLndvZmYyCiAgICDilJzilIDilIAgTFZHX0xvZ28ucG5nIC8gLndlYnAKICAgIOKUnOKUgOKUgCBwb3J0cmFpdCoud2VicCAgICAgICAgICDihpAgTWVocmVyZSBWYXJpYW50ZW4gKGJ3LWxpZ2h0L21lZGl1bS9zdHJvbmcsIGNvbG91cikKICAgIOKUnOKUgOKUgCBoZXJvLWJhY2tncm91bmQud2VicAogICAg4pSc4pSA4pSAIGN0YS1iYWNrZ3JvdW5kLndlYnAKICAgIOKUnOKUgOKUgCB3YXRlci1mbG93LndlYnAKICAgIOKUnOKUgOKUgCB2YWxsZXktbWlzdC53ZWJwCiAgICDilJzilIDilIAgbGVpc3R1bmdlbi1kZXRhaWwud2VicAogICAg4pSc4pSA4pSAIGJhZGdlLXNwb25zb3JlZC1hZHMuYXZpZiAgICAgICDihpAgQW1hem9uIEFkcyBDZXJ0aWZpZWQg4oCTIFNwb25zb3JlZCBBZHMgfCBBZHZhbmNlZAogICAg4pSc4pSA4pSAIGJhZGdlLW1hcmtldGluZy1jbG91ZC5wbmcgICAgICDihpAgQW1hem9uIEFkcyBDZXJ0aWZpZWQg4oCTIE1hcmtldGluZyBDbG91ZAogICAg4pSc4pSA4pSAIHplcnRpZmlrYXQtc3BvbnNvcmVkLWFkcy5wZGYgICAg4oaQIFplcnRpZmlrYXRzLVBERiAobmljaHQgdmVybGlua3QsIG51ciBhbHMgQmFja3VwKQogICAg4pSU4pSA4pSAIHplcnRpZmlrYXQtYW1hem9uLW1hcmtldGluZy1jbG91ZC5wZGYgIOKGkCBaZXJ0aWZpa2F0cy1QREYgKG5pY2h0IHZlcmxpbmt0LCBudXIgYWxzIEJhY2t1cCkKYGBgCgojIyBEZXNpZ24tUHJpbnppcGllbiAoS3VyemZhc3N1bmcpCgoqKlZvbGxzdMOkbmRpZ2UgU3BlemlmaWthdGlvbiDihpIgW2BERVNJR04tU1lTVEVNLm1kYF0oREVTSUdOLVNZU1RFTS5tZCkqKgoKLSAqKlR5cG9ncmFmaWU6KiogSW5zdHJ1bWVudCBTZXJpZiAoSGVhZGxpbmVzLCBQZWFrcywgWmFobGVuKSArIEludGVyIChCb2R5LCBMYWJlbHMpCi0gKipGYXJiZW46KiogTW9ub2Nocm9tIFBhcGVyL0luayArIHNwYXJzYW1lciBXYWxkZ3LDvG4tQWt6ZW50IGAjMmQ1ZjNmYAotICoqTW90aXY6KiogQXVmd8OkcnRzLURyZWllY2sgKOKWsikgYWxzIHdpZWRlcmtlaHJlbmRlcyBBa3plbnQtRWxlbWVudAotICoqQXRtb3NwaMOkcmU6KiogQW5pbWllcnRlIFdlbGxlbiAoU1ZHL1JBRikgKyBQYXJhbGxheCArIFNjcm9sbC1CbHVyIOKAlCBkYXMgRGVzaWduICJhdG1ldCIKLSAqKlByaW56aXA6KiogR3LDvG4tQWt6ZW50IG51ciBhbiA2IGRlZmluaWVydGVuIFN0ZWxsZW4uIEtlaW4gSGludGVyZ3J1bmRmYXJiZS1Ib3Zlci4gTnVyIFNjYWxlICsgRmFyYnNoaWZ0LgoKIyMgV2ljaHRpZ2UgQ1NTLVRva2VucwoKYGBgY3NzCi0tcGFwZXI6ICNmYWZhZmEgICAgICAtLWluazogIzBhMGEwYSAgICAgICAgLS1hY2NlbnQ6ICMyZDVmM2YKLS1pbmstc29mdDogIzRhNGE0YSAgIC0taW5rLW11dGVkOiAjOGE4YThhICAtLWFjY2VudC1zb2Z0OiAjNGE3YzU5Ci0tbWF4dzogMTI0MHB4ICAgICAgICAtLXBhZC14OiA2NHB4ICjihpIgMjhweCBtb2JpbGUpCi0tc2VyaWY6ICJJbnN0cnVtZW50IFNlcmlmIiAgICAtLXNhbnM6ICJJbnRlciIKYGBgCgojIyBBa3R1ZWxsZXIgU3RhbmQKCiMjIyBMaWdodGhvdXNlLVNjb3JlcyAoRGVza3RvcCAvIE1vYmlsZSkKfCBQZXJmb3JtYW5jZSB8IEFjY2Vzc2liaWxpdHkgfCBCZXN0IFByYWN0aWNlcyB8IFNFTyB8CnwtLS18LS0tfC0tLXwtLS18CnwgOTYgLyA3NCB8IDEwMCAvIDEwMCB8IDEwMCAvIDEwMCB8IDEwMCAvIDEwMCB8CgojIyMgV2FzIGltcGxlbWVudGllcnQgaXN0Ci0gVm9sbHN0w6RuZGlnZSBXZWJzaXRlOiBTdGFydHNlaXRlICsgMyBMZWlzdHVuZ3NzZWl0ZW4gKyDDnGJlci1NaWNoICsgRkFRICsgSW1wcmVzc3VtICsgRGF0ZW5zY2h1dHogKyA0MDQKLSAgKyAgYWxzIGVpZ2Vuc3TDpG5kaWdlIFN1YnBhZ2VzIG1pdCBOYXYtSW50ZWdyYXRpb24gdW5kIFN0YXJ0c2VpdGVuLVRlYXNlcm4gZWluZ2ViYXV0IChNYWkgMjAyNikKLSBGb250cyBzZWxic3QgZ2Vob3N0ZXQg4oaSIEZDUCA8IDFzICh3YXIgMywxcyBtaXQgR29vZ2xlIENETikKLSBXQ0FHIEFBIEZhcmJrb250cmFzdC1rb25mb3JtCi0gR29vZ2xlIEFuYWx5dGljcyA0IChgRy1DTVlLWVZWSk0zYCksIENvbnNlbnQgTW9kZSB2MiwgYW5vbnltaXplX2lwOiB0cnVlLCBDb252ZXJzaW9uLVRyYWNraW5nIGF1ZiBDVEFzCi0gQ29va2llLUJhbm5lciBtaXQgYGFwcGx5Q29uc2VudCgpYCDigJQgR0Egd2lyZCBudXIgbmFjaCBadXN0aW1tdW5nIGFrdGl2aWVydAotIENvb2tpZS1CYW5uZXIsIFBhcmFsbGF4LCBSZXZlYWwtQW5pbWF0aW9uZW4gKGJpLWRpcmVrdGlvbmFsKSwgYW5pbWllcnRlIFdlbGxlbgotIFdlbGxlbjogT3BhY2l0eSB1bmQgQmV3ZWd1bmcgaW4gU2Vzc2lvbiAzIGZlaW5hYmdlc3RpbW10ICh0csOkZ2VyLCBicmVpdGVyKQotIERhdGVuc2NodXR6ZXJrbMOkcnVuZyBmaW5hbGlzaWVydDogR2l0SHViIFBhZ2VzLCBGb3Jtc3ByZWUsIENhbC5jb20sIEdBNCAoQ29uc2VudCBNb2RlIHYyKSwgTGlua2VkSW4sIHNlbGJzdCBnZWhvc3RldGUgRm9udHMKLSBaZXJ0aWZpa2F0cy1CYWRnZXMgYWxzIEFra29yZGVvbi1DYXJkcyBpbSBWZXJ0cmF1ZW5zYmVyZWljaCBhdWYgaW5kZXguaHRtbCAodGV4dC1vbmx5LCBrZWluIFBERi1MaW5rIGF1cyBEYXRlbnNjaHV0emdyw7xuZGVuKQotIFN0ZXAtQWtrb3JkZW9ucyBhdWYgYWxsZW4gMyBMZWlzdHVuZ3NzZWl0ZW4g4oCUIEFibGF1Zi9Wb3JnZWhlbi1MaXN0ZW4gc2luZCBrbGlja2JhciBpbnRlcmFrdGl2IChHcmlkLVJvd3MtVHJpY2spCi0gTW9iaWxlcyBIYW1idXJnZXItTWVuw7wgYXVmIGFsbGVuIFNlaXRlbiAoaW5rbC4gU3VicGFnZXMpOiBhbmltaWVydGVzIERyb3Bkb3duLCBzY2hsaWXDn3QgYmVpIEF1w59lbmtsaWNrIHVuZCBTd2lwZQotIFN0YWdnZXJlZCBSZXZlYWwtQW5pbWF0aW9uZW4gKyBIb3Zlci1JbnRlcmFrdGlvbmVuIGF1ZiBkZW4gTGVpc3R1bmdzc2VpdGVuCi0gRm9vdGVyIHZlcmVpbmZhY2h0IGF1ZiBhbGxlbiBTZWl0ZW46IG51ciBCYWNrLUxpbmsgKyBOYW1lICsgTGVnYWwtTGlua3MgKGtlaW4gQ1RBLCBrZWluIE5hdikKLSBkYXRlbnNjaHV0ei5odG1sOiBSZXZlYWwtQW5pbWF0aW9uZW4gZGVha3RpdmllcnQg4oCUIEluaGFsdCB3aXJkIHNvZm9ydCBhbmdlemVpZ3QKCiMjIyBPZmZlbmUgVE9ET3MgKHZvciBHby1MaXZlKQotIFt4XSAqKkRhdGVuc2NodXR6ZXJrbMOkcnVuZyoqIGZpbmFsaXNpZXJ0IChNYWkgMjAyNikg4oCUIGFsbGUgRGllbnN0ZSBkb2t1bWVudGllcnQKLSBbeF0gKipIb3N0aW5nKiog4oCUIEdpdEh1YiBQYWdlcyBsaXZlLCBDdXN0b20gRG9tYWluIGx2Zy1wcGMuZGUgYWt0aXYsIEhUVFBTIGVuZm9yY2VkCi0gWyBdICoqNDA0Lmh0bWwqKiBhbHMgQ3VzdG9tLUVycm9yLVBhZ2UgYmVpbSBIb3N0ZXIgZWludHJhZ2VuCi0gW3hdICoqR29vZ2xlIFNlYXJjaCBDb25zb2xlKiogdmVyYnVuZGVuIChNYWkgMjAyNikg4oCUIHNpdGVtYXAueG1sIGVpbmdlcmVpY2h0Ci0gW3hdICoqTW9iaWxlLUF1ZGl0KiogKE1haSAyMDI2KSDigJQgaGVyby1yaWdodCB0cmFuc2Zvcm0tQnVnIGF1ZiBNb2JpbGUgZ2VmaXh0OyBHQSBDb25zZW50IE1vZGUgdjIgYXVmIDQwNC5odG1sLCBhY2NvdW50LWF1ZGl0LCBzdHJhdGVnaWUtYXVmYmF1LCBrYW1wYWduZW4tbWFuYWdlbWVudCwgaW1wcmVzc3VtIG5hY2hnZXpvZ2VuCi0gW3hdICoqQ2FsLmNvbS1MaW5rKiogZWluZ2ViYXV0IOKAlCBhbGxlIENUQS1CdXR0b25zIHplaWdlbiBhdWYgYGh0dHBzOi8vY2FsLmV1L2x2Zy1wcGMvMTVtaW5gCi0gWyBdICoqWmVydGlmaWthdHMtQmFkZ2VzKiogYXVmIGBpbmRleC5odG1sYCDigJQgQWtrb3JkZW9uLUNhcmRzICh0ZXh0LW9ubHkpIHNpbmQgYWxzIFBsYXR6aGFsdGVyIGVpbmdlYmF1dC4gQmFkZ2UtQmlsZGVyIGxpZWdlbiBpbiBhc3NldHMvIGJlcmVpdCAoYGJhZGdlLXNwb25zb3JlZC1hZHMuYXZpZmAsIGBiYWRnZS1tYXJrZXRpbmctY2xvdWQucG5nYCksIHdlcmRlbiBhYmVyIGVyc3QgZWluZ2ViYXV0IHdlbm4gYmVzc2VyZS9vZmZpemllbGxlIEJpbGRlciBnZWZ1bmRlbiB3dXJkZW4uIFBERnMgbmljaHQgdmVybGlua3QgKERhdGVuc2NodXR6KS4gQ3JlZGx5IG5pY2h0IHZlcmbDvGdiYXIgKGtlaW4gWnVncmlmZiBhdWYgYWx0ZW4gQXJiZWl0Z2ViZXItQWNjb3VudCkuCi0gW3hdICoqTGVpc3R1bmdzc2VpdGVuIGludGVyYWt0aXZlcioqIOKAlCBBYmxhdWYvVm9yZ2VoZW4tU2Nocml0dGUgYXVmIGFsbGVuIDMgU3ViLVBhZ2VzIGFscyBrbGlja2JhcmUgU3RlcC1Ba2tvcmRlb25zIHVtZ2ViYXV0IChNYWkgMjAyNikKLSBbIF0gKipOZXdzbGV0dGVyIC8gRS1NYWlsLUF1dG9tYXRpb24qKiDigJQgQnJldm8gKGJyZXZvLmNvbSwga29zdGVubG9zIGJpcyAzMDAgTWFpbHMvVGFnLCBFVS1TZXJ2ZXIpLiBTaWdudXAtRm9ybXVsYXIgYWxzIG5ldWUgU2VjdGlvbiBlaW5iYXVlbiwgRG91YmxlIE9wdC1JbiBpbiBCcmV2byBha3RpdmllcmVuLCBhdXRvbWF0aXNpZXJ0ZSBXZWxjb21lLVNlcXVlbnogYXVmYmF1ZW4uICoqRGF0ZW5zY2h1dHplcmtsw6RydW5nIG11c3MgZGFubiB1bSBCcmV2by1BYnNjaG5pdHQgZXJnw6RuenQgd2VyZGVuLioqCi0gWyBdICoqUGFnZVNwZWVkIEluc2lnaHRzKiogbmFjaCBHby1MaXZlIHByw7xmZW4gKHJlYWxlIENvcmUgV2ViIFZpdGFscykKCiMjIyBCZWthbm50ZSBBYndlaWNodW5nZW4gdm9tIHVyc3Byw7xuZ2xpY2hlbiBCcmllZgotIEVyZmFocnVuZ3N6YWhsZW4gaW4gZWlnZW5lciAiVmVydHJhdWVuIi1TZWN0aW9uIChuaWNodCBkaXJla3QgdW50ZXIgSGVyby1IZWFkbGluZSkKLSBLZWluIENhbGVuZGx5LUxpbmsgaW1wbGVtZW50aWVydCDigJQgUGxhdHpoYWx0ZXIKLSBGQVEtU2VjdGlvbiwgw5xiZXItTWljaC1TZWl0ZSB1bmQgWmVydGlmaWthdHMtQmFkZ2VzIHd1cmRlbiBoaW56dWdlZsO8Z3QgKGltIEJyaWVmIG5pY2h0IHZvcmdlc2VoZW4pCgojIyBUZWNobmlzY2hlIEJlc29uZGVyaGVpdGVuCgotICoqQWtrb3JkZW9ucyoqIChGQVEsIENlcnQtQmFkZ2VzLCBTdGVwLUl0ZW1zKTogR3JpZC1Sb3dzLVRyaWNrIGAwZnIg4oaSIDFmcmAsIGtlaW4gYG1heC1oZWlnaHRgLiBTdGVwLUFra29yZGVvbnMgenVzw6R0emxpY2ggbWl0IGB0cmFuc2xhdGVZYC1GYWRlIGF1ZiBgLnN0ZXAtZGVzY2AuCi0gKipQYXJhbGxheCoqOiBgZGF0YS1wYXJhbGxheD0iPGZhY3Rvcj4iYCBBdHRyaWJ1dCwgYGludGVuc2l0eSA9IChtb2I/MC4wODowLjEyKSpmYWN0b3JgLCBjYXAgNTYvMzJweAotICoqU2Nyb2xsLUJsdXIqKjogKzAuNnB4IGF1ZiBiZXN0ZWhlbmRlbiBmaWx0ZXIgd8OkaHJlbmQgU2Nyb2xsLCAyMDBtcyBEZWJvdW5jZQotICoqV2VsbGVuKio6IDQgU1ZHLVBmYWRlLCByZXF1ZXN0QW5pbWF0aW9uRnJhbWUsIHBhdXNpZXJ0IGJlaSBgZG9jdW1lbnQuaGlkZGVuYAotICoqUmV2ZWFsKio6IEludGVyc2VjdGlvbk9ic2VydmVyIGJpLWRpcmVrdGlvbmFsIChrZWluIGBvbmNlYCksIHRocmVzaG9sZCAwLjEwCi0gKipTdGFnZ2VyZWQgUmV2ZWFsKio6IExlaXN0dW5nc3NlaXRlbiBtaXQgZ2VzdGFmZmVsdGVuIEFuaW1hdGlvbnMtRGVsYXlzIChudGgtY2hpbGQpIHVuZCBIb3Zlci1TY2FsZS1JbnRlcmFrdGlvbmVuIGF1ZiBDYXJkcy9TdGVwcwotICoqTW9iaWxlKio6IFp3ZWkgQnJlYWtwb2ludHMg4oCUIDExMDBweCAoSGFtYnVyZ2VyLU1lbsO8IG1pdCBhbmltaWVydGVtIERyb3Bkb3duLCBzY2hsaWXDn3QgYmVpIEF1w59lbmtsaWNrL1N3aXBlKSB1bmQgOTAwcHggKExheW91dCBrb2xsYWJpZXJ0KQotICoqVHdlYWtzLVBhbmVsKio6IFJlYWN0L0JhYmVsIFVNRCwgSGVyby1GZWludHVuaW5nIGxpdmUgaW0gQnJvd3NlcgoKIyMgQXV0b21hdGlzaWVydW5nCgoqKkNMQVVERS5tZCBBdXRvLVN5bmMqKiBsw6R1ZnQgdMOkZ2xpY2ggdW0gMjM6MDAgVWhyIChDRVNUKSBhbHMgUmVtb3RlLUFnZW50IGF1ZiBBbnRocm9waWMgQ2xvdWQ6Ci0gTGllc3QgZGllIGxldHp0ZW4gMjRoIENvbW1pdHMgKyBnZcOkbmRlcnRlIERhdGVpZW4gdmlhIEdpdEh1YiBBUEkKLSBBa3R1YWxpc2llcnQgVE9ET3MsIFByb2pla3RzdHJ1a3R1ciB1bmQgVGVjaG5pc2NoZSBCZXNvbmRlcmhlaXRlbiBhdXRvbWF0aXNjaAotIFB1c2h0IG51ciB3ZW5uIGVzIHRhdHPDpGNobGljaCDDhG5kZXJ1bmdlbiBnaWJ0IChgZG9jczogYXV0by1zeW5jIENMQVVERS5tZCBZWVlZLU1NLUREYCkKLSBWZXJ3YWx0ZW46IFtjbGF1ZGUuYWkvY29kZS9yb3V0aW5lc10oaHR0cHM6Ly9jbGF1ZGUuYWkvY29kZS9yb3V0aW5lcykg4oaSIFJvdXRpbmUtSUQgYHRyaWdfMDFVVHlLVDc2NnZNYnQ2NENFNmIzRENqYAoKIyMgV29ya2Zsb3ctUmVnZWxuCgoqKkNvbW1pdHM6KiogSmVkZSBpbmhhbHRsaWNoZSDDhG5kZXJ1bmcgYmVrb21tdCBlaW5lbiBlaWdlbmVuIENvbW1pdCAoZ3V0IGbDvHIgTmFjaHZvbGx6aWVoYmFya2VpdCkuCgoqKlB1c2gtWmVpdHB1bmt0OioqIEVyc3QgYW0gRW5kZSBlaW5lcyBsb2dpc2NoZW4gVGhlbWVuYmxvY2tzIHB1c2hlbiwgbmljaHQgbmFjaCBqZWRlciBFaW56ZWxkYXRlaS4KQXVzbmFobWVuOiBleHBsaXppdGVzIOKAnnB1c2giIHZvbSBVc2VyIChMaXZlLVRlc3QgZ2V3w7xuc2NodCkgb2RlciBTZXNzaW9uZW5kZS4KKipCZWltIFZlcmxhc3NlbiBkZXMgQXJiZWl0c3BsYXR6ZXMgaW1tZXIgcHVzaGVuKiog4oCUIGFscyBCYWNrdXAgdW5kIGbDvHIgc2F1YmVyZW4gU3RhbmQgYmVpbSBuw6RjaHN0ZW4gU3RhcnQuCgoqKk5hY2ggamVkZW0gUHVzaDoqKiBDTEFVREUubWQgVE9ET3MgYWt0dWFsaXNpZXJlbiArIGVybGVkaWd0ZSBOb3Rpb24tVGFza3MgYWJoYWtlbi4KCiMjIFF1ZWxsZG9rdW1lbnRlIChhdcOfZXJoYWxiIGRlcyBSZXBvcykKCkluIGBPbmVEcml2ZS9XT1JLLzAzX1ZlcndhbHR1bmcvV2Vic2l0ZS9gOgotIGBXZWJzaXRlLUNvcHlfTGVvbi1WaW5jZW50LmRvY3hgIOKAlCBhbGxlIFRleHRlIGRlciBXZWJzaXRlCi0gYFdlYnNpdGUtU3RyYXRlZ2llX0xlb24tVmluY2VudC5kb2N4YCDigJQgc3RyYXRlZ2lzY2hlcyBCcmllZmluZwotIGBDbGF1ZGUgRGVzaWduL01hc3Rlci1Qcm9tcHRfTGVvbi1WaW5jZW50X3Y1Lm1kYCDigJQgdXJzcHLDvG5nbGljaGVyIERlc2lnbi1Qcm9tcHQKLSBgR3JhZmlrZW4vYCDigJQgUXVlbGwtUE5HcyBkZXIgQXNzZXRzCg==
+# CLAUDE.md — LVG Website
+
+Persönliche Website von Leon-Vincent Gamradt, Amazon PPC Spezialist Berlin.
+Statische HTML/CSS/JS-Website, kein Framework, kein Build-Schritt.
+
+## Projektstruktur
+
+```
+Claude Code/
+├── index.html                  ← Startseite (One-Pager)
+├── account-audit.html          ← Leistungsseite
+├── strategie-aufbau.html       ← Leistungsseite
+├── kampagnen-management.html   ← Leistungsseite
+├── impressum.html
+├── datenschutz.html            ← Finalisiert (DSGVO-konform, Mai 2026)
+├── 404.html
+├── DESIGN-SYSTEM.md            ← Vollständige technische Spezifikation
+└── assets/
+    ├── fonts/                  ← Selbst gehostet (kein Google Fonts CDN)
+    │   ├── fonts.css
+    │   ├── instrument-serif-regular.woff2
+    │   ├── instrument-serif-italic.woff2
+    │   └── inter-latin.woff2
+    ├── LVG_Logo.png / .webp
+    ├── portrait*.webp          ← Mehrere Varianten (bw-light/medium/strong, colour)
+    ├── hero-background.webp
+    ├── cta-background.webp
+    ├── water-flow.webp
+    ├── valley-mist.webp
+    ├── leistungen-detail.webp
+    ├── badge-sponsored-ads.avif        ← Amazon Ads Certified – Sponsored Ads | Advanced
+    ├── badge-marketing-cloud.png       ← Amazon Ads Certified – Marketing Cloud
+    ├── zertifikat-sponsored-ads.pdf    ← Zertifikats-PDF (nicht verlinkt, nur als Backup)
+    └── zertifikat-amazon-marketing-cloud.pdf  ← Zertifikats-PDF (nicht verlinkt, nur als Backup)
+```
+
+## Design-Prinzipien (Kurzfassung)
+
+**Vollständige Spezifikation → [`DESIGN-SYSTEM.md`](DESIGN-SYSTEM.md)**
+
+- **Typografie:** Instrument Serif (Headlines, Peaks, Zahlen) + Inter (Body, Labels)
+- **Farben:** Monochrom Paper/Ink + sparsamer Waldgrün-Akzent `#2d5f3f`
+- **Motiv:** Aufwärts-Dreieck (▲) als wiederkehrendes Akzent-Element
+- **Atmosphäre:** Animierte Wellen (SVG/RAF) + Parallax + Scroll-Blur — das Design "atmet"
+- **Prinzip:** Grün-Akzent nur an 6 definierten Stellen. Kein Hintergrundfarbe-Hover. Nur Scale + Farbshift.
+
+## Wichtige CSS-Tokens
+
+```css
+--paper: #fafafa      --ink: #0a0a0a        --accent: #2d5f3f
+--ink-soft: #4a4a4a   --ink-muted: #8a8a8a  --accent-soft: #4a7c59
+--maxw: 1240px        --pad-x: 64px (→ 28px mobile)
+--serif: "Instrument Serif"    --sans: "Inter"
+```
+
+## Aktueller Stand
+
+### Lighthouse-Scores (Desktop / Mobile)
+| Performance | Accessibility | Best Practices | SEO |
+|---|---|---|---|
+| 96 / 74 | 100 / 100 | 100 / 100 | 100 / 100 |
+
+### Was implementiert ist
+- Vollständige Website: Startseite + 3 Leistungsseiten + Impressum + Datenschutz + 404
+- Fonts selbst gehostet → FCP < 1s (war 3,1s mit Google CDN)
+- WCAG AA Farbkontrast-konform
+- Google Analytics 4 (`G-CMYKYVVJM3`), Consent Mode v2, anonymize_ip: true, Conversion-Tracking auf CTAs
+- Cookie-Banner mit `applyConsent()` — GA wird nur nach Zustimmung aktiviert
+- Cookie-Banner, Parallax, Reveal-Animationen (bi-direktional), animierte Wellen
+- Wellen: Opacity und Bewegung in Session 3 feinabgestimmt (träger, breiter)
+- Datenschutzerklärung finalisiert: GitHub Pages, Formspree, Cal.com, GA4 (Consent Mode v2), LinkedIn, selbst gehostete Fonts
+- Zertifikats-Badges als Akkordeon-Cards im Vertrauensbereich auf index.html (text-only, kein PDF-Link aus Datenschutzgründen)
+- Step-Akkordeons auf allen 3 Leistungsseiten — Ablauf/Vorgehen-Listen sind klickbar interaktiv (Grid-Rows-Trick)
+
+### Offene TODOs
+- [ ] **404.html** als Custom-Error-Page beim Hoster eintragen
+- [ ] **Zertifikats-Badges** auf `index.html` — Akkordeon-Cards (text-only) sind als Platzhalter eingebaut. Badge-Bilder liegen in assets/ bereit (`badge-sponsored-ads.avif`, `badge-marketing-cloud.png`), werden aber erst eingebaut wenn bessere/offizielle Bilder gefunden wurden. PDFs nicht verlinkt (Datenschutz). Credly nicht verfügbar (kein Zugriff auf alten Arbeitgeber-Account).
+- [ ] **Newsletter / E-Mail-Automation** — Brevo (brevo.com, kostenlos bis 300 Mails/Tag, EU-Server). Signup-Formular als neue Section einbauen, Double Opt-In in Brevo aktivieren, automatisierte Welcome-Sequenz aufbauen. **Datenschutzerklärung muss dann um Brevo-Abschnitt ergänzt werden.**
+- [ ] **PageSpeed Insights** nach Go-Live prüfen (reale Core Web Vitals)
+
+## Technische Besonderheiten
+
+- **Akkordeons** (FAQ, Cert-Badges, Step-Items): Grid-Rows-Trick `0fr → 1fr`, kein `max-height`. Step-Akkordeons zusätzlich mit `translateY`-Fade auf `.step-desc`.
+- **Parallax**: `data-parallax="<factor>"` Attribut, `intensity = (mob?0.08:0.12)*factor`, cap 56/32px
+- **Scroll-Blur**: +0.6px auf bestehenden filter während Scroll, 200ms Debounce
+- **Wellen**: 4 SVG-Pfade, requestAnimationFrame, pausiert bei `document.hidden`
+- **Reveal**: IntersectionObserver bi-direktional (kein `once`), threshold 0.10
+- **Mobile**: Zwei Breakpoints — 1100px (Nav vereinfacht) und 900px (Layout kollabiert)
+- **Tweaks-Panel**: React/Babel UMD, Hero-Feintuning live im Browser
+
+## Workflow-Regeln
+
+**Commits:** Jede inhaltliche Änderung bekommt einen eigenen Commit (gut für Nachvollziehbarkeit).
+
+**Push-Zeitpunkt:** Erst am Ende eines logischen Themenblocks pushen, nicht nach jeder Einzeldatei.
+Ausnahmen: explizites „push" vom User (Live-Test gewünscht) oder Sessionende.
+**Beim Verlassen des Arbeitsplatzes immer pushen** — als Backup und für sauberen Stand beim nächsten Start.
+
+**Nach jedem Push:** CLAUDE.md TODOs aktualisieren + erledigte Notion-Tasks abhaken.
+
+**Session-Log (automatisch):** Am Ende jeder erkennbar abgeschlossenen Claude Code Session wird ein strukturierter Eintrag an die heutige Daily-Briefing-Seite in Notion angehängt.
+- Notion Daily Briefings DB: `65db8b3231bd450c9d5c5f90f821362e`
+- Format: `📌 Session [HH:MM] — [Thema in 5 Worten]` + Bullets: Erledigt / Geändert (Dateien/Repos) / Offen geblieben
+- Nur wenn etwas Konkretes umgesetzt wurde — keine Logs für reine Beratungs-Sessions ohne Änderungen
