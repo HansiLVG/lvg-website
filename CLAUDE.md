@@ -8,12 +8,16 @@ Statische HTML/CSS/JS-Website, kein Framework, kein Build-Schritt.
 ```
 Claude Code/
 ├── index.html                  ← Startseite (One-Pager)
+├── ueber-mich.html             ← Neue Unterseite: Über Leon-Vincent
+├── faq.html                    ← Neue Unterseite: 10 häufige Fragen
 ├── account-audit.html          ← Leistungsseite
 ├── strategie-aufbau.html       ← Leistungsseite
 ├── kampagnen-management.html   ← Leistungsseite
 ├── impressum.html
 ├── datenschutz.html            ← Finalisiert (DSGVO-konform, Mai 2026)
 ├── 404.html
+├── sitemap.xml                 ← Google Search Console
+├── CNAME                       ← Custom Domain: lvg-ppc.de
 ├── DESIGN-SYSTEM.md            ← Vollständige technische Spezifikation
 └── assets/
     ├── fonts/                  ← Selbst gehostet (kein Google Fonts CDN)
@@ -62,21 +66,37 @@ Claude Code/
 
 ### Was implementiert ist
 - Vollständige Website: Startseite + 3 Leistungsseiten + Impressum + Datenschutz + 404
+- Neue Unterseiten: `ueber-mich.html` (basierend auf CV, Businessplan, Arbeitszeugnis) und `faq.html` (10 Fragen: Märkte, Kampagnenformate, Onboarding, proaktives Consulting)
+- Nav-Links auf allen Seiten zeigen auf `ueber-mich.html` / `faq.html`; Teaser-Links am Ende der Sections auf index.html
 - Fonts selbst gehostet → FCP < 1s (war 3,1s mit Google CDN)
 - WCAG AA Farbkontrast-konform
 - Google Analytics 4 (`G-CMYKYVVJM3`), Consent Mode v2, anonymize_ip: true, Conversion-Tracking auf CTAs
-- Cookie-Banner mit `applyConsent()` — GA wird nur nach Zustimmung aktiviert
+- Cookie-Banner mit `applyConsent()` — GA wird nur nach Zustimmung aktiviert; GA Consent Mode v2 auf allen Seiten aktiv
 - Cookie-Banner, Parallax, Reveal-Animationen (bi-direktional), animierte Wellen
 - Wellen: Opacity und Bewegung in Session 3 feinabgestimmt (träger, breiter)
 - Datenschutzerklärung finalisiert: GitHub Pages, Formspree, Cal.com, GA4 (Consent Mode v2), LinkedIn, selbst gehostete Fonts
 - Zertifikats-Badges als Akkordeon-Cards im Vertrauensbereich auf index.html (text-only, kein PDF-Link aus Datenschutzgründen)
 - Step-Akkordeons auf allen 3 Leistungsseiten — Ablauf/Vorgehen-Listen sind klickbar interaktiv (Grid-Rows-Trick)
+- Mobile Hamburger-Menü auf index.html + allen Subpages: animiertes Dropdown, schließt bei Outside-Click und Swipe
+- Mobile: Portrait-Bild unter Text in der Über-mich-Section; Portrait größer + flush with section bottom
+- Staggered Reveal-Animationen + Hover-Interaktionen auf allen Leistungsseiten
+- Footer auf allen Seiten vereinfacht (nur Back-Link, Name, Legal-Links — kein Nav/Brand/CTA)
+- Datenschutz: Reveal-Animationen deaktiviert (Inhalt sofort sichtbar)
+- Impressum: Telefonnummer entfernt
+- Copy: KI-Muster (sauber, vollständig, nachhaltig, datengetrieben, Passivketten) aus allen Leistungsseiten entfernt
+- Custom Domain **lvg-ppc.de** live mit HTTPS (GitHub Pages, CNAME)
+- sitemap.xml erstellt + in Google Search Console eingereicht
+- Schema.org Structured Data (JSON-LD) auf allen Content-Seiten:
+  - `index.html`: Person + ProfessionalService + WebSite
+  - `faq.html`: FAQPage (10 Fragen)
+  - `ueber-mich.html`: Person
+  - Alle 3 Leistungsseiten: Service-Schema inkl. Preisrange
 
 ### Offene TODOs
 - [ ] **404.html** als Custom-Error-Page beim Hoster eintragen
 - [ ] **Zertifikats-Badges** auf `index.html` — Akkordeon-Cards (text-only) sind als Platzhalter eingebaut. Badge-Bilder liegen in assets/ bereit (`badge-sponsored-ads.avif`, `badge-marketing-cloud.png`), werden aber erst eingebaut wenn bessere/offizielle Bilder gefunden wurden. PDFs nicht verlinkt (Datenschutz). Credly nicht verfügbar (kein Zugriff auf alten Arbeitgeber-Account).
 - [ ] **Newsletter / E-Mail-Automation** — Brevo (brevo.com, kostenlos bis 300 Mails/Tag, EU-Server). Signup-Formular als neue Section einbauen, Double Opt-In in Brevo aktivieren, automatisierte Welcome-Sequenz aufbauen. **Datenschutzerklärung muss dann um Brevo-Abschnitt ergänzt werden.**
-- [ ] **PageSpeed Insights** nach Go-Live prüfen (reale Core Web Vitals)
+- [ ] **PageSpeed Insights** prüfen — Site ist live unter lvg-ppc.de, reale Core Web Vitals jetzt messbar.
 
 ## Technische Besonderheiten
 
@@ -86,6 +106,8 @@ Claude Code/
 - **Wellen**: 4 SVG-Pfade, requestAnimationFrame, pausiert bei `document.hidden`
 - **Reveal**: IntersectionObserver bi-direktional (kein `once`), threshold 0.10
 - **Mobile**: Zwei Breakpoints — 1100px (Nav vereinfacht) und 900px (Layout kollabiert)
+- **Mobile Nav**: Hamburger-Button öffnet Dropdown via `grid-rows`-Trick; schließt bei Outside-Click (`document.addEventListener`) und Touch-Swipe nach oben
+- **Schema.org**: JSON-LD inline in `<head>`, Typen: Person + ProfessionalService + WebSite (index.html), FAQPage (faq.html), Person (ueber-mich.html), Service inkl. Preisrange (Leistungsseiten)
 - **Tweaks-Panel**: React/Babel UMD, Hero-Feintuning live im Browser
 
 ## Workflow-Regeln
