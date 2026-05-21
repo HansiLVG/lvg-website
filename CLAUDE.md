@@ -65,6 +65,7 @@ Claude Code/
 | 96 / 74 | 100 / 100 | 100 / 100 | 100 / 100 |
 
 ### Was implementiert ist
+- **Hero:** Animierter Canvas-2D-PPC-Performancegraph (9 Metriken, 12 Monate, Breathing, Floating Chips, Hover-Tooltip, Metric-Pills, Tweak-Panel) — Natur-Foto-Hero ersetzt. Commit: `a017fb0`
 - Vollständige Website: Startseite + 3 Leistungsseiten + Impressum + Datenschutz + 404
 - Neue Unterseiten: `ueber-mich.html` (basierend auf CV, Businessplan, Arbeitszeugnis) und `faq.html` (10 Fragen: Märkte, Kampagnenformate, Onboarding, proaktives Consulting)
 - Nav-Links auf allen Seiten zeigen auf `ueber-mich.html` / `faq.html`; Teaser-Links am Ende der Sections auf index.html
@@ -94,11 +95,7 @@ Claude Code/
 
 ### Aktive Feature-Branches
 
-| Branch | Worktree | Status |
-|---|---|---|
-| `feature/hero-data-viz` | `../website-hero-redesign/` | In Arbeit — NOCH NICHT in main gemergt |
-
-**Hero-Redesign (`feature/hero-data-viz`):** Dunkler Hero (`#0a0a0a`) + animierter Canvas-2D-ROAS-Graph (draw-on, lebende Kurve, Hover-Tooltip, Floating Chips). Dev-Server: `npx serve -p 4321 ../website-hero-redesign`. Letzter Commit: Iteration 2 (`f7b6627`).
+Keine aktiven Feature-Branches. `feature/hero-data-viz` wurde in `main` gemergt (Commit `a017fb0`).
 
 ### Offene TODOs
 - [ ] **404.html** als Custom-Error-Page beim Hoster eintragen
