@@ -92,6 +92,14 @@ Claude Code/
   - `ueber-mich.html`: Person
   - Alle 3 Leistungsseiten: Service-Schema inkl. Preisrange
 
+### Aktive Feature-Branches
+
+| Branch | Worktree | Status |
+|---|---|---|
+| `feature/hero-data-viz` | `../website-hero-redesign/` | In Arbeit — NOCH NICHT in main gemergt |
+
+**Hero-Redesign (`feature/hero-data-viz`):** Dunkler Hero (`#0a0a0a`) + animierter Canvas-2D-ROAS-Graph (draw-on, lebende Kurve, Hover-Tooltip, Floating Chips). Dev-Server: `npx serve -p 4321 ../website-hero-redesign`. Letzter Commit: Iteration 2 (`f7b6627`).
+
 ### Offene TODOs
 - [ ] **404.html** als Custom-Error-Page beim Hoster eintragen
 - [ ] **Zertifikats-Badges** auf `index.html` — Akkordeon-Cards (text-only) sind als Platzhalter eingebaut. Badge-Bilder liegen in assets/ bereit (`badge-sponsored-ads.avif`, `badge-marketing-cloud.png`), werden aber erst eingebaut wenn bessere/offizielle Bilder gefunden wurden. PDFs nicht verlinkt (Datenschutz). Credly nicht verfügbar (kein Zugriff auf alten Arbeitgeber-Account).
