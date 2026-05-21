@@ -11,19 +11,19 @@
 ## 1 · Grund-Setup
 
 ### 1.1 Schriften (Web-Fonts)
-Laden via Google Fonts in `<head>`:
+**Selbst gehostet** (kein Google-CDN — wegen Performance & DSGVO). Eingebunden in `<head>`:
 
 ```html
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
 ```
 
-| Familie            | Geladene Schnitte           | Verwendung                         |
-| ------------------ | --------------------------- | ---------------------------------- |
-| Instrument Serif   | 400 regular, 400 italic     | Headlines, Peak-Sätze, Zahlen, CTA |
-| Inter              | 300, 400, 500               | Body, Labels, Buttons, Nav, FAQ-Q  |
+`assets/fonts/fonts.css` definiert drei `@font-face` (latin-Subset, `font-display: swap`):
+
+| Familie            | Datei                              | Schnitte                | Verwendung                         |
+| ------------------ | ---------------------------------- | ----------------------- | ---------------------------------- |
+| Instrument Serif   | `instrument-serif-regular.woff2`   | 400 regular             | Headlines, Peak-Sätze, Zahlen, CTA |
+| Instrument Serif   | `instrument-serif-italic.woff2`    | 400 italic              | Akzent-Italics                     |
+| Inter              | `inter-latin.woff2`                | variable 300–500        | Body, Labels, Buttons, Nav, FAQ-Q  |
 
 Stacks (CSS-Variablen):
 ```css
@@ -87,15 +87,17 @@ CTA-Vordergrund: `#fff`, sekundäre Stack-Sätze `rgba(255,255,255,0.45)`.
 | `--maxw`   | `1240px`| Container-Maximalbreite (`.wrap`, `.nav-inner`)                       |
 | `--pad-x`  | `64px`  | Container-Innenabstand horizontal — wird unter 900px zu `28px`        |
 
-### 2.5 Hero-Tweakables (live über Tweaks-Panel steuerbar)
-| Token                  | Default | Bereich        | Beschreibung                              |
-| ---------------------- | ------- | -------------- | ----------------------------------------- |
-| `--hero-right-top`     | `20vh`  | `0–42 vh`      | Vertikaler Offset der Hero-Rechtsspalte   |
-| `--hero-bg-opacity`    | `0.32`  | `0–0.7`        | Deckkraft des Bergbild-Hintergrunds       |
-| `--hero-scrim`         | `0.30`  | `0–0.85`       | Paper-Schleier hinter Hero-Text           |
+### 2.5 Hero-Tokens (final eingebrannt in `:root`)
+Die früher über das Tweaks-Panel gesteuerten Hero-Werte sind inzwischen als finale Werte direkt in `:root` eingebrannt:
 
-> **Achtung — Abweichung CSS ↔ Tweaks-Defaults:**
-> `:root` setzt `--hero-bg-opacity: 0.32` und `--hero-scrim: 0.30`. Der Tweaks-Block (`TWEAK_DEFAULTS`) überschreibt das beim Mount auf `heroBgOpacity: 0.56`, `heroScrim: 0.44`, `heroBlur: 0.6 px`, `heroOffsetVh: 8`, `scrollCue: true`. **Effektive Defaults im Browser = Tweaks-Werte**, nicht die CSS-Werte. Beim Reproduzieren beide Stellen synchron halten.
+| Token                  | Wert      | Beschreibung                              |
+| ---------------------- | --------- | ----------------------------------------- |
+| `--hero-right-top`     | `6vh`     | Vertikaler Offset der Hero-Rechtsspalte   |
+| `--hero-right-offset`  | `-80px`   | Horizontaler Offset der Hero-Rechtsspalte |
+| `--hero-bg-opacity`    | `0.64`    | Deckkraft des Bergbild-Hintergrunds       |
+| `--hero-scrim`         | `0.38`    | Paper-Schleier hinter Hero-Text           |
+| `--ueber-photo-mask`       | `27%`  | Über-Mich-Portrait — Maske links          |
+| `--ueber-photo-mask-right` | `17%`  | Über-Mich-Portrait — Maske rechts         |
 
 ### 2.6 Selection
 ```css
@@ -239,7 +241,7 @@ Hover-Default: `transform: scale(1.04)` (alle Varianten).
 
 ### 5.3 Hero
 Struktur: `.hero > .hero-bg + .hero-scrim + .hero-vignette + .scroll-cue + .wrap > .hero-grid (left, hero-right)`.
-- **`.hero-bg`** — `position: absolute; inset: -8% 0` (Bleed), `background-image: url("assets/hero-background.png")`, `background-size: cover`, `opacity: var(--hero-bg-opacity, 0.32)`, `filter: saturate(1.05) contrast(1.04) blur(0.8px)`. Trägt `data-parallax="0.7"`.
+- **`.hero-bg`** — `position: absolute; inset: -8% 0` (Bleed), `background-image: url("assets/hero-background.webp")`, `background-size: cover`, `opacity: var(--hero-bg-opacity, 0.32)`, `filter: saturate(1.05) contrast(1.04) blur(0.8px)`. Trägt `data-parallax="0.7"`.
 - **`.hero-scrim`** — Paper-Verlauf von unten (`rgba(250,250,250, --hero-scrim)`) abnehmend zu transparent bei 92%. Stops bei 0/38/68/92 %.
 - **`.hero-vignette`** — `radial-gradient(ellipse at center, transparent 30%, rgba(10,10,10,0.10) 100%)`.
 - **`.scroll-cue`** — fixierter Anker mittig unten in Hero. Vertikale 1-px-Gradient-Linie `height: 48px`, darauf läuft ein 40 %-hoher Akzent-Streifen (`@keyframes cueRun`, 2.4 s infinite). Pfeil-SVG bouncet (`cueBounce`). Hover: opacity 1, `transform: translateX(-50%) translateY(2px)`, color → `--ink`.
@@ -271,20 +273,20 @@ Struktur: `.hero > .hero-bg + .hero-scrim + .hero-vignette + .scroll-cue + .wrap
 ### 5.7 Leistungs-Reihen (`.leistung-row`)
 - 2-Spalten (220px + 1fr), `gap 40px`, `padding 36px 0`, Trennlinie `border-bottom: 1px solid var(--border)`. Erste Reihe erbt eine Top-Linie über `.leistungen-rows`.
 - Hover-Verhalten: gesamte Body-Spalte `transform: scale(1.02)` (`transform-origin: left center`), Bold-Subtitel wechselt color → `--ink`.
-- Hintergrund-Element `.leistungen-detail`: absolut positioniert rechts (`right: -6%`), `width: 46%`, `height: 58%`, `max-height: 64vh`, `min-height: 380px`, `background-image: url("assets/leistungen-detail.png")`, `opacity: 0.95`, `filter: saturate(1.08) contrast(1.05) blur(0.6px)`, links via Mask weich ausgeblendet (`linear-gradient(to right, transparent 0%, #000 32%, #000 100%)`). Trägt `data-parallax="0.65"`. Wird unter 900px komplett ausgeblendet.
+- Hintergrund-Element `.leistungen-detail`: absolut positioniert rechts (`right: -6%`), `width: 46%`, `height: 58%`, `max-height: 64vh`, `min-height: 380px`, `background-image: url("assets/leistungen-detail.webp")`, `opacity: 0.95`, `filter: saturate(1.08) contrast(1.05) blur(0.6px)`, links via Mask weich ausgeblendet (`linear-gradient(to right, transparent 0%, #000 32%, #000 100%)`). Trägt `data-parallax="0.65"`. Wird unter 900px komplett ausgeblendet.
 
 ### 5.8 Über-Mich-Paragraphen
 - Erster `<p>` ist **stilistisch eine Lead** (Serif 26 px, line-height 1.35, color `--ink`).
 - Restliche `<p>` Sans 300/17 px.
 - Hover je Paragraph: `transform: scale(1.02)` (`transform-origin: left center`), color → `--ink`, opacity → 1.
-- Hintergrund `.ueber-bg`: `water-flow.png`, `opacity 0.22`, Maske `radial-gradient(ellipse 90% 90% at 50% 50%, #000 35%, #0004 100%)`, `data-parallax="0.55"`.
+- Hintergrund `.ueber-bg`: `water-flow.webp`, `opacity 0.22`, Maske `radial-gradient(ellipse 90% 90% at 50% 50%, #000 35%, #0004 100%)`, `data-parallax="0.55"`.
 
 ### 5.9 Ablauf-Schritte
 - 3-Spalten-Grid intern: `88px (Nummer) + 1fr (Body)`, `padding 32px 0`, `border-bottom: 1px solid var(--border)`.
 - **Ablauf-Num:** Instrument Serif 28/1.0, color `--accent`, **mit Mini-Triangle** (`.tri-mini`, `margin-top: 14px`) **links vor der Ziffer**.
 - Step 1 enthält ein **unsichtbares Overlay** `<a class="ablauf-link" href="#cta">` (`position:absolute; inset:0; z-index:3`), das die gesamte Zeile klickbar macht. `.ablauf-step:has(.ablauf-link) { cursor: pointer; }`.
 - Hover: Body-Block scale 1.02, Title color → `--ink`.
-- Hintergrund `.ablauf-bg`: `valley-mist.png`, `opacity 0.14`, ähnliche Mask, `data-parallax="0.45"`.
+- Hintergrund `.ablauf-bg`: `valley-mist.webp`, `opacity 0.14`, ähnliche Mask, `data-parallax="0.45"`.
 - `.ablauf-section` Hintergrund: `--paper-2` (`#f4f4f4`).
 
 ### 5.10 FAQ
@@ -296,7 +298,7 @@ Struktur: `.hero > .hero-bg + .hero-scrim + .hero-vignette + .scroll-cue + .wrap
 
 ### 5.11 CTA-Section (dunkel)
 - `background: var(--cta-dark)` (`#0a0a0a`), `color: #fff`.
-- `.cta-bg`: `inset: -25% 0` (großer Bleed gegen Parallax-Ränder), `cta-background.png`, `opacity 0.28`, `filter: saturate(1.08) contrast(1.04) brightness(0.92) blur(0.6px)`, `data-parallax="0.65"`.
+- `.cta-bg`: `inset: -25% 0` (großer Bleed gegen Parallax-Ränder), `cta-background.webp`, `opacity 0.28`, `filter: saturate(1.08) contrast(1.04) brightness(0.92) blur(0.6px)`, `data-parallax="0.65"`.
 - **Top- & Bottom-Fade** je 180px hoch: `linear-gradient` vom CTA-Dark zu transparent → versteckt Parallax-Kanten.
 - `.cta-vignette` radial center, dazu `.cta-wave` mit 4 SVG-Pfaden, Stroke `rgba(255,255,255,0.04–0.06)`.
 - **Stack-Sätze** (`.cta-stack > span`): Serif 400, `clamp(28px, 4.2vw, 48px)`, line-height 1.18, color `rgba(255,255,255,0.45)` — letzter Satz (`.last`) volles `#fff` mit `margin-top: 4px`.
@@ -426,11 +428,11 @@ Es gibt **kein** dediziertes Tablet- oder XL-Breakpoint-Layout — alles fluide 
 
 | Datei                                  | Verwendung                                  |
 | -------------------------------------- | ------------------------------------------- |
-| `assets/hero-background.png`           | Hero-BG (Berg)                              |
-| `assets/leistungen-detail.png`         | Leistungen — Bild rechts (Maske + Parallax) |
-| `assets/water-flow.png`                | Über-Mich-BG (radial-maskiert)              |
-| `assets/valley-mist.png`               | Ablauf-BG (radial-maskiert)                 |
-| `assets/cta-background.png`            | CTA-BG (mit Top/Bottom-Fade)                |
+| `assets/hero-background.webp`           | Hero-BG (Berg)                              |
+| `assets/leistungen-detail.webp`         | Leistungen — Bild rechts (Maske + Parallax) |
+| `assets/water-flow.webp`                | Über-Mich-BG (radial-maskiert)              |
+| `assets/valley-mist.webp`               | Ablauf-BG (radial-maskiert)                 |
+| `assets/cta-background.webp`            | CTA-BG (mit Top/Bottom-Fade)                |
 
 Alle Background-Images werden via `background-image` + `cover`/`center` eingebunden, **nicht** als `<img>`. `data-parallax`-Attribut entscheidet über die Bewegung.
 
@@ -482,10 +484,10 @@ Diese Aspekte sind im Brief nicht vorgegeben und wurden frei gewählt:
 - **Tweaks-Panel** für Hero-Feintuning (zur Laufzeit).
 
 ### 12.4 Offene Punkte (laut Brief)
+> **Hinweis:** §12 beschreibt den ursprünglichen Briefing-Abgleich; die folgenden Punkte sind teils überholt — maßgeblich ist der Stand in `CLAUDE.md`.
 - „Sobald erste eigene Kunden laufen, konkrete Ergebnisse nachträglich ergänzen." → derzeit nur agenturweite Zahlen (50+, 7-stellig, 100 %).
-- Calendly-Link fehlt — alle Erstgespräch-Buttons sind interne Anker bzw. `mailto:`.
-- Zertifikats-Beschreibungen sind Platzhalter (`Platzhaltertext — finale Beschreibung folgt.`).
-- Impressum/Datenschutz-Seiten fehlen.
+- Zertifikats-Badges: Beschreibungen vorhanden, finale Badge-**Bilder** noch ausstehend (siehe `CLAUDE.md` TODOs).
+- ✅ Impressum- und Datenschutz-Seiten existieren und sind finalisiert (`impressum.html`, `datenschutz.html`).
 
 ---
 
@@ -493,7 +495,7 @@ Diese Aspekte sind im Brief nicht vorgegeben und wurden frei gewählt:
 
 Damit eine neue Session diesen Stand exakt wiederherstellt:
 
-1. `<html lang="de">`, Inter (300/400/500) + Instrument Serif (400 + 400 italic) via Google Fonts.
+1. `<html lang="de">`, Inter (300–500) + Instrument Serif (400 + 400 italic) **selbst gehostet** via `assets/fonts/fonts.css`.
 2. `:root`-Variablen exakt wie in §2 setzen — Tweaks-Block überschreibt Hero-Variablen mit `0.56 / 0.44 / 8 vh / 0.6 px / true`.
 3. Container 1240 px, Padding 64 px (28 px <900), `.section-pad` 112/80 px, Anchor-Offset 72 px.
 4. Globale Layer in dieser Reihenfolge: `.wave-bg` (z 1) → `.noise` (z 2) → `<main>` (z 3) → `nav` (z 100).

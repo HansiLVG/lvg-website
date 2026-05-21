@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="assets/LVG_Logo.png" />
+<title>Preise | Amazon PPC Spezialist Berlin — Leon-Vincent Gamradt</title>
+<meta name="description" content="Transparente Pakete für Amazon PPC Kampagnen-Management. Starter, Growth oder Scale — monatlich, wertbasiert, ohne Agentur-Overhead." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://lvg-ppc.de/preise.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:site_name" content="Leon-Vincent Gamradt — Amazon PPC Spezialist" />
+<meta property="og:title" content="Preise | Amazon PPC — Leon-Vincent Gamradt" />
+<meta property="og:description" content="Transparente Pakete für Amazon PPC Kampagnen-Management." />
+<meta property="og:url" content="https://lvg-ppc.de/preise.html" />
+
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
+<style>
+  :root {
+    --paper: #fafafa;
+    --paper-2: #f4f4f4;
+    --ink: #0a0a0a;
+    --ink-strong: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-muted: #6e6e6e;
+    --ink-faint: #c0c0c0;
+    --border: rgba(10, 10, 10, 0.08);
+    --border-strong: rgba(10, 10, 10, 0.18);
+    --accent: #2d5f3f;
+    --accent-soft: #4a7c59;
+    --accent-glow: rgba(45, 95, 63, 0.08);
+    --cta-dark: #0a0a0a;
+    --maxw: 1240px;
+    --pad-x: 64px;
+    --serif: "Instrument Serif", "Iowan Old Style", "Apple Garamond", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink-soft);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    line-height: 1.5;
+  }
+
+  /* ─── Noise + Wellen ────────────────────────────────── */
+  .noise {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: multiply;
+  }
+  .wave-bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right,
+      rgba(0,0,0,1) 0%, rgba(0,0,0,0.22) 28%,
+      rgba(0,0,0,0.22) 72%, rgba(0,0,0,1) 100%);
+            mask-image: linear-gradient(to right,
+      rgba(0,0,0,1) 0%, rgba(0,0,0,0.22) 28%,
+      rgba(0,0,0,0.22) 72%, rgba(0,0,0,1) 100%);
+  }
+  .wave-bg svg { width: 100%; height: 100%; display: block; }
+  .wave-bg path { fill: none; stroke-width: 1.25; }
+
+  /* ─── Navigation ─────────────────────────────────────── */
+  nav.nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    min-height: 64px;
+    z-index: 100;
+    background: rgba(250, 250, 250, 0.85);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 0 rgba(10,10,10,0.02), 0 8px 24px -16px rgba(10,10,10,0.10);
+  }
+  .nav-inner {
+    max-width: var(--maxw);
+    height: 64px;
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .nav .brand {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: 0.005em;
+    line-height: 1;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    flex: 1;
+    justify-content: center;
+  }
+  .nav-links a {
+    position: relative;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    padding: 6px 0;
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.is-active { color: var(--ink); }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 100%;
+    bottom: 2px;
+    height: 1px;
+    background: var(--ink);
+    transition: right 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .nav-links a:hover::after { right: 0; }
+  .nav-links a.is-active::after { display: none; }
+
+  @media (max-width: 1100px) {
+    .nav-links { display: none; }
+  }
+  .nav-burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 0;
+    padding: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-burger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.2s ease;
+    transform-origin: center;
+  }
+  nav.is-open .nav-burger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  nav.is-open .nav-burger span:nth-child(2) { opacity: 0; }
+  nav.is-open .nav-burger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .nav-mobile-wrap { display: none; }
+  @media (max-width: 1100px) {
+    .nav-burger { display: flex; }
+    .nav-mobile-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.38s cubic-bezier(0.22,1,0.36,1);
+    }
+    nav.is-open .nav-mobile-wrap { grid-template-rows: 1fr; }
+  }
+  .nav-mobile-inner { overflow: hidden; min-height: 0; }
+  .nav-mobile-links { border-top: 1px solid var(--border); padding: 6px 0 12px; }
+  .nav-mobile-links a {
+    display: block;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 13px 28px;
+    transition: color 0.2s ease, background 0.15s ease;
+  }
+  .nav-mobile-links a:hover,
+  .nav-mobile-links a:active { color: var(--accent); background: rgba(45,95,63,0.04); }
+  .nav-mobile-divider { height: 1px; background: var(--border); margin: 4px 0; }
+  .nav-mobile-cta { color: var(--accent) !important; font-weight: 500 !important; }
+  .nav a.cta-link {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    padding-bottom: 2px;
+    position: relative;
+  }
+  .nav a.cta-link::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 100%;
+    bottom: 0;
+    height: 1px;
+    background: var(--ink);
+    transition: right 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .nav a.cta-link:hover::after { right: 0; }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-shrink: 0;
+  }
+
+  /* ─── Layout ─────────────────────────────────────────── */
+  main { position: relative; z-index: 3; padding-top: 64px; }
+  section { position: relative; }
+  section[id] { scroll-margin-top: 72px; }
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+    position: relative;
+    z-index: 2;
+  }
+  .section-pad { padding: 112px 0; }
+  .divider { height: 1px; background: var(--border); border: 0; margin: 0; }
+
+  .label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .tri {
+    display: inline-block;
+    width: 0; height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 6px solid var(--accent);
+  }
+
+  /* ─── Page Header ────────────────────────────────────── */
+  .page-head {
+    padding: 104px 0 80px;
+    overflow: hidden;
+  }
+  .page-head-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/valley-mist.webp");
+    background-size: cover;
+    background-position: center 40%;
+    filter: saturate(0.2) brightness(1.15) blur(1.5px);
+    opacity: 0.18;
+    transform: translateZ(0);
+  }
+  h1.page-title {
+    font-family: var(--serif);
+    font-size: clamp(44px, 6vw, 76px);
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+    margin: 20px 0 24px;
+    max-width: 760px;
+  }
+  .page-lede {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink-muted);
+    max-width: 560px;
+    margin: 0;
+  }
+
+  /* ─── Pricing cards ──────────────────────────────────── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding-top: 56px;
+  }
+  .pricing-card {
+    border: 1px solid var(--border-strong);
+    border-radius: 3px;
+    padding: 40px 36px 36px;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    cursor: default;
+  }
+  .pricing-card:hover {
+    box-shadow: 0 8px 32px -8px rgba(10,10,10,0.10);
+    transform: translateY(-2px);
+  }
+  .pricing-card.is-featured {
+    border-color: var(--accent);
+    background: var(--paper);
+    box-shadow: 0 0 0 1px var(--accent), 0 8px 40px -8px rgba(45,95,63,0.14);
+  }
+  .pricing-card.is-featured:hover {
+    box-shadow: 0 0 0 1px var(--accent), 0 12px 48px -8px rgba(45,95,63,0.20);
+    transform: translateY(-3px);
+  }
+  .card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    min-height: 18px;
+  }
+  .card-badge-placeholder { min-height: 18px; margin-bottom: 20px; }
+  .card-name {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0 0 6px;
+    line-height: 1.1;
+  }
+  .card-tagline {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin: 0 0 28px;
+    line-height: 1.5;
+  }
+  .card-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .price-ab {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-right: 4px;
+    align-self: flex-end;
+    padding-bottom: 6px;
+  }
+  .price-amount {
+    font-family: var(--serif);
+    font-size: 48px;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .price-unit {
+    font-size: 14px;
+    color: var(--ink-muted);
+    letter-spacing: 0.01em;
+  }
+  .price-note {
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin: 0 0 32px;
+  }
+  .pricing-footer-note {
+    margin-top: 32px;
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.65;
+    max-width: 640px;
+  }
+  .hybrid-block {
+    margin-top: 56px;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 2px;
+    padding: 36px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 48px;
+  }
+  .hybrid-block h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0 0 10px;
+    grid-column: 1 / -1;
+  }
+  .hybrid-block p {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+  .hybrid-example {
+    background: var(--accent-glow);
+    border-radius: 2px;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .hybrid-example strong { color: var(--ink); font-weight: 500; }
+  @media (max-width: 900px) {
+    .hybrid-block { grid-template-columns: 1fr; padding: 28px 24px; }
+    .hybrid-block h3 { grid-column: 1; }
+  }
+  .card-divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 28px;
+  }
+  .card-features {
+    list-style: none;
+    margin: 0 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .card-features li {
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    gap: 12px;
+    align-items: start;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    transition: color 0.2s ease;
+  }
+  .card-features li:hover { color: var(--ink); }
+  .feat-tri {
+    display: inline-block;
+    width: 0; height: 0;
+    border-left: 3.5px solid transparent;
+    border-right: 3.5px solid transparent;
+    border-bottom: 5px solid var(--accent);
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+  .card-cta {
+    margin-top: 36px;
+    display: block;
+    text-align: center;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 24px;
+    border: 1px solid var(--border-strong);
+    color: var(--ink);
+    border-radius: 2px;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .card-cta:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .pricing-card.is-featured .card-cta {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .pricing-card.is-featured .card-cta:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  /* ─── One-time services ──────────────────────────────── */
+  .onetime-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding-top: 48px;
+  }
+  .onetime-card {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: box-shadow 0.25s ease;
+  }
+  .onetime-card:hover {
+    box-shadow: 0 4px 20px -4px rgba(10,10,10,0.08);
+  }
+  .onetime-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.2;
+  }
+  .onetime-price {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .onetime-desc {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .onetime-link {
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-top: auto;
+    transition: opacity 0.2s ease;
+  }
+  .onetime-link:hover { opacity: 0.7; }
+
+  /* ─── Notes / Konditionen ────────────────────────────── */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    padding-top: 48px;
+  }
+  .note-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .note-label {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .note-value {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .note-value strong { color: var(--ink); font-weight: 500; }
+
+  /* ─── Section layout ─────────────────────────────────── */
+  .section-head {
+    max-width: 620px;
+  }
+  .section-head h2 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400;
+    color: var(--ink);
+    margin: 16px 0 12px;
+    line-height: 1.12;
+  }
+  .section-head p {
+    font-size: 16px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+  .content-section { padding: 96px 0; }
+  .content-section.alt { background: transparent; }
+
+  /* ─── CTA ─────────────────────────────────────────────── */
+  .cta-section {
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/cta-background.webp");
+    background-size: cover;
+    background-position: center;
+    filter: saturate(0.15) brightness(0.28) blur(2px);
+    transform: translateZ(0);
+  }
+  .cta-fade {
+    position: absolute;
+    left: 0; right: 0;
+    height: 80px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .cta-fade.top { top: 0; background: linear-gradient(to bottom, var(--paper), transparent); }
+  .cta-fade.bottom { bottom: 0; background: linear-gradient(to top, var(--paper), transparent); }
+  .cta-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(10,10,10,0.45) 100%);
+    pointer-events: none;
+  }
+  .cta-wave {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .cta-wave svg { width: 100%; height: 100%; display: block; }
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    padding: 104px 0 96px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 24px;
+  }
+  .cta-close {
+    font-family: var(--serif);
+    font-size: clamp(34px, 5vw, 58px);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.08;
+    margin: 0 0 20px;
+    max-width: 680px;
+    letter-spacing: -0.01em;
+  }
+  .cta-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.60);
+    line-height: 1.7;
+    margin: 0 0 40px;
+    max-width: 520px;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 2px;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  }
+  .btn-primary {
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid transparent;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .btn-ghost:hover {
+    color: #fff;
+    border-color: rgba(255,255,255,0.55);
+  }
+
+  /* ─── Footer ─────────────────────────────────────────── */
+  footer {
+    position: relative;
+    z-index: 3;
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+  }
+  .foot-text {
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  .foot-text a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .foot-text a:hover { color: var(--ink); }
+  .foot-sep { margin: 0 8px; }
+
+  /* ─── Cookie banner ──────────────────────────────────── */
+  .cookie-banner {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    background: var(--ink);
+    color: rgba(255,255,255,0.80);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 16px 24px;
+    border-radius: 3px;
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 760px;
+    width: calc(100% - 48px);
+    box-shadow: 0 8px 32px rgba(10,10,10,0.22);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .cookie-banner.is-hidden { opacity: 0; transform: translateX(-50%) translateY(12px); pointer-events: none; }
+  .cookie-text { flex: 1; }
+  .cookie-text a { color: rgba(255,255,255,0.6); }
+  .cookie-text a:hover { color: rgba(255,255,255,0.9); }
+  .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+  .cookie-actions .btn-primary { background: var(--paper); color: var(--ink); font-size: 11px; padding: 10px 18px; }
+  .cookie-actions .btn-ghost { color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.18); font-size: 11px; padding: 10px 18px; }
+  .cookie-actions .btn-ghost:hover { color: rgba(255,255,255,0.85); }
+
+  /* ─── Reveal ─────────────────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0s);
+    will-change: opacity, transform;
+  }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal[data-settled="1"] { will-change: auto; }
+
+  a.accent-link {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  a.accent-link:hover { opacity: 0.75; }
+
+  ::selection { background: var(--accent); color: #fff; }
+
+  /* ─── Responsive ─────────────────────────────────────── */
+  @media (max-width: 1100px) {
+    .nav-links { display: none; }
+  }
+  @media (max-width: 900px) {
+    :root { --pad-x: 28px; }
+    .page-head { padding: 88px 0 56px; }
+    .content-section { padding: 72px 0; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 16px; padding-top: 36px; }
+    .card-badge-placeholder { display: none; }
+    .onetime-grid { grid-template-columns: 1fr; gap: 16px; padding-top: 32px; }
+    .notes-grid { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; }
+    .cta-content { padding: 88px 0 76px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+
+<!-- Google tag (gtag.js) — Consent Mode v2 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMYKYVVJM3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    wait_for_update: 500
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-CMYKYVVJM3', {
+    anonymize_ip: true,
+    cookie_flags: 'SameSite=None;Secure'
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href="#cta"], a.cta-link').forEach(function(el) {
+      el.addEventListener('click', function() {
+        gtag('event', 'cta_click', { event_category: 'engagement', event_label: el.textContent.trim() });
+      });
+    });
+    document.querySelectorAll('a[href^="mailto"]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        gtag('event', 'contact_click', { event_category: 'engagement', event_label: 'email' });
+      });
+    });
+  });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://lvg-ppc.de/preise.html",
+  "name": "Preise & Pakete — Amazon PPC",
+  "description": "Transparente Pakete für Amazon PPC Kampagnen-Management von Leon-Vincent Gamradt.",
+  "url": "https://lvg-ppc.de/preise.html",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://lvg-ppc.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Preise", "item": "https://lvg-ppc.de/preise.html" }
+    ]
+  }
+}
+</script>
+</head>
+<body data-screen-label="Preise">
+
+<!-- Wellen-Hintergrund -->
+<div class="wave-bg" aria-hidden="true">
+  <svg viewBox="0 0 1600 1000" preserveAspectRatio="none">
+    <path id="wave1" d="M -200 720 C 200 640, 500 660, 800 580 S 1300 480, 1800 380" stroke="rgba(45,95,63,0.040)"></path>
+    <path id="wave2" d="M -200 820 C 250 760, 600 780, 900 700 S 1350 600, 1800 520" stroke="rgba(45,95,63,0.048)"></path>
+    <path id="wave3" d="M -200 920 C 300 880, 700 860, 1000 800 S 1400 720, 1800 660" stroke="rgba(45,95,63,0.055)"></path>
+    <path id="wave4" d="M -200 540 C 280 580, 580 480, 880 520 S 1320 440, 1800 300" stroke="rgba(45,95,63,0.060)"></path>
+  </svg>
+</div>
+
+<div class="noise" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Hauptnavigation">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">Leon-Vincent Gamradt</a>
+    <div class="nav-links">
+      <a href="account-audit.html">Account-Audit</a>
+      <a href="strategie-aufbau.html">Strategie-Aufbau</a>
+      <a href="kampagnen-management.html">Kampagnen-Management</a>
+      <a href="ueber-mich.html">Über mich</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <a class="cta-link" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Gespräch buchen</a>
+    </div>
+    <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-wrap" aria-hidden="true">
+    <div class="nav-mobile-inner">
+      <div class="nav-mobile-links">
+        <a href="account-audit.html">Account-Audit</a>
+        <a href="strategie-aufbau.html">Strategie-Aufbau</a>
+        <a href="kampagnen-management.html">Kampagnen-Management</a>
+        <div class="nav-mobile-divider"></div>
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="faq.html">FAQ</a>
+        <div class="nav-mobile-divider"></div>
+        <a class="nav-mobile-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Gespräch buchen →</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ─── Page Header ───────────────────────────────── -->
+  <section class="page-head" id="head" data-screen-label="Preise — Header">
+    <div class="page-head-bg" data-parallax="0.5"></div>
+    <div class="wrap">
+      <div class="reveal"><span class="label"><span class="tri"></span>PREISE &middot; PAKETE</span></div>
+      <h1 class="page-title reveal" style="--reveal-delay: 0.10s;">
+        Transparent.<br>Wertbasiert.<br>Ohne Verstecktes.
+      </h1>
+      <p class="page-lede reveal" style="--reveal-delay: 0.20s;">
+        Kein Stundensatz, keine Agentur-Overhead-Aufschläge.
+        Der Preis richtet sich nach dem Wert, den gute PPC-Arbeit
+        fur Deinen Account schafft — und nach Deinem Budget als Ausgangspunkt.
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ─── Retainer-Pakete ───────────────────────────── -->
+  <section class="content-section" id="pakete" data-screen-label="Retainer-Pakete">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label"><span class="tri"></span>MONATLICHE BETREUUNG</span>
+      </div>
+      <div class="section-head reveal" style="--reveal-delay: 0.08s;">
+        <h2>Retainer-Pakete</h2>
+        <p>
+          Drei klar abgegrenzte Pakete. Wähle das, das zu Deinem
+          aktuellen Werbebudget und Betreuungsbedarf passt.
+          Alle Pakete: <strong style="color: var(--ink);">3 Monate Mindestlaufzeit</strong>,
+          danach monatlich mit 4 Wochen Frist kündbar.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Starter -->
+        <div class="pricing-card reveal" style="--reveal-delay: 0.12s;">
+          <div class="card-badge-placeholder"></div>
+          <h3 class="card-name">Starter</h3>
+          <p class="card-tagline">Fur Accounts mit solidem Fundament — klare Optimierung, ohne Overengineering.</p>
+          <div class="card-price">
+            <span class="price-ab">ab</span>
+            <span class="price-amount">1.200</span>
+            <span class="price-unit">EUR / Monat</span>
+          </div>
+          <p class="price-note">zzgl. 19% MwSt. · ab 3 Monate</p>
+          <div class="card-divider"></div>
+          <ul class="card-features">
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Bis <strong>8.000 EUR</strong> monatlicher Ad Spend</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span><strong>1 Marktplatz</strong> (DE oder AT/CH)</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Sponsored Products &amp; Sponsored Brands</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Wöchentliche Bid- &amp; Keyword-Optimierung</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Monatlicher Report + 30-Min-Call</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Onboarding Quick-Audit inklusive</span></li>
+          </ul>
+          <a class="card-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Erstgespräch buchen</a>
+        </div>
+
+        <!-- Growth (Featured) -->
+        <div class="pricing-card is-featured reveal" style="--reveal-delay: 0.20s;">
+          <div class="card-badge"><span class="tri" style="border-bottom-color: var(--accent);"></span>EMPFOHLEN</div>
+          <h3 class="card-name">Growth</h3>
+          <p class="card-tagline">Fur Brands in der Wachstumsphase — alle Formate, zwei Märkte, engere Taktung.</p>
+          <div class="card-price">
+            <span class="price-ab">ab</span>
+            <span class="price-amount">2.200</span>
+            <span class="price-unit">EUR / Monat</span>
+          </div>
+          <p class="price-note">zzgl. 19% MwSt. · ab 3 Monate</p>
+          <div class="card-divider"></div>
+          <ul class="card-features">
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Bis <strong>20.000 EUR</strong> monatlicher Ad Spend</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span><strong>2 Marktplätze</strong> (z.B. DE + FR oder DE + AT)</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>SP, SB, SD — alle Kampagnenformate</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Tägliche Bid-Kontrolle, wöchentliche Deep-Dives</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Wöchentliches schriftliches Update</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Monatlicher Review-Call (60 Min)</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>ASIN- &amp; Competitor-Targeting aktiv</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Onboarding Quick-Audit inklusive</span></li>
+          </ul>
+          <a class="card-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Erstgespräch buchen</a>
+        </div>
+
+        <!-- Scale -->
+        <div class="pricing-card reveal" style="--reveal-delay: 0.28s;">
+          <div class="card-badge-placeholder"></div>
+          <h3 class="card-name">Scale</h3>
+          <p class="card-tagline">Vollbetreuung fur Brands mit hohem Spend und Skalierungsambition.</p>
+          <div class="card-price">
+            <span class="price-ab">ab</span>
+            <span class="price-amount">3.800</span>
+            <span class="price-unit">EUR / Monat</span>
+          </div>
+          <p class="price-note">zzgl. 19% MwSt. · ab 3 Monate</p>
+          <div class="card-divider"></div>
+          <ul class="card-features">
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Bis <strong>40.000 EUR</strong> monatlicher Ad Spend</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span><strong>3+ Marktplätze</strong> inkl. internationale Expansion</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Alle Formate inkl. AMC-Auswertungen</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Tägliche Optimierung + priorisierter Zugang</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Wöchentlicher Strategie-Call</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Quarterly Business Review</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Launch-Begleitung neuer Produkte inklusive</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Onboarding-Audit + Neustrukturierung inklusive</span></li>
+          </ul>
+          <a class="card-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Erstgespräch buchen</a>
+        </div>
+
+      </div>
+
+      <p class="pricing-footer-note reveal" style="--reveal-delay: 0.36s;">
+        Die Pakete sind Orientierungsrahmen, kein Festpreis-Katalog.
+        Scope, Marktplatz-Anzahl und Honorar stimmen wir im Erstgesprach
+        auf Deinen Account und Deine Ziele ab.
+      </p>
+
+      <div class="hybrid-block reveal" style="--reveal-delay: 0.44s;">
+        <h3>Alternativ: Hybrid-Modell</h3>
+        <p>
+          Niedriger Fixbetrag als Basis, der Rest richtet sich nach Deinem
+          monatlichen Ad Spend. Sinnvoll, wenn Du mit uberschaubarem Budget
+          startest &mdash; und ich profitiere automatisch mit, wenn Dein Account
+          wachst. Kein Fehlanreiz, Budget kunstlich hochzuhalten:
+          wir optimieren auf Effizienz, nicht auf Volumen.
+        </p>
+        <div class="hybrid-example">
+          <strong>Beispiel Growth-Hybrid:</strong> 900&nbsp;EUR Basis
+          + 8&nbsp;% des monatlichen Ad Spends.<br>
+          Bei 10.000&nbsp;EUR Spend: <strong>1.700&nbsp;EUR gesamt</strong>
+          (statt ab 2.200&nbsp;EUR Flat) &mdash; gunstigerer Einstieg fur Dich,
+          Upside fur mich bei Deinem Wachstum.<br>
+          Bei 20.000&nbsp;EUR Spend: <strong>2.500&nbsp;EUR gesamt</strong>
+          &mdash; skaliert fair mit dem Account.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ─── Einmalige Leistungen ──────────────────────── -->
+  <section class="content-section" id="einmalig" data-screen-label="Einmalige Leistungen">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label"><span class="tri"></span>EINMALIGE LEISTUNGEN</span>
+      </div>
+      <div class="section-head reveal" style="--reveal-delay: 0.08s;">
+        <h2>Einstieg ohne Retainer</h2>
+        <p>
+          Nicht jedes Projekt braucht laufende Betreuung. Account-Audit und
+          Strategie-Aufbau sind abgeschlossene Projekte — sie stehen fur sich
+          oder bereiten einen Retainer vor.
+        </p>
+      </div>
+
+      <div class="onetime-grid">
+        <div class="onetime-card reveal" style="--reveal-delay: 0.12s;">
+          <p class="onetime-name">Account-Audit</p>
+          <p class="onetime-price">ab 350 EUR</p>
+          <p class="onetime-desc">
+            Vollstandige Analyse Deines Amazon Ads Accounts: Struktur, Gebote,
+            Targeting, Suchterme, Budget-Effizienz. Ergebnis: schriftlicher Report
+            mit priorisierten Handlungsempfehlungen und ROI-Einschätzung.
+            Lieferzeit 3–5 Werktage nach Zugang.
+          </p>
+          <a class="onetime-link" href="account-audit.html">Mehr zum Account-Audit &rarr;</a>
+        </div>
+        <div class="onetime-card reveal" style="--reveal-delay: 0.20s;">
+          <p class="onetime-name">Strategie &amp; Aufbau</p>
+          <p class="onetime-price">ab 1.500 EUR</p>
+          <p class="onetime-desc">
+            Kompletter Neuaufbau Deiner Amazon PPC Kampagnen-Struktur:
+            Keyword-Recherche, Kampagnenarchitektur, Targeting-Strategie,
+            Launch-Planung. Ideal fur neue Accounts oder nach einem Amazon Ads Reset.
+            Preis nach Scope-Gesprach.
+          </p>
+          <a class="onetime-link" href="strategie-aufbau.html">Mehr zum Strategie-Aufbau &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ─── Konditionen ───────────────────────────────── -->
+  <section class="content-section" id="konditionen" data-screen-label="Konditionen">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label"><span class="tri"></span>KONDITIONEN</span>
+      </div>
+      <div class="section-head reveal" style="--reveal-delay: 0.08s;">
+        <h2>Was Du wissen solltest</h2>
+      </div>
+
+      <div class="notes-grid">
+        <div class="note-item reveal" style="--reveal-delay: 0.12s;">
+          <span class="note-label">Mindestlaufzeit</span>
+          <p class="note-value">
+            <strong>3 Monate</strong> — Amazon PPC braucht eine Anlaufphase.
+            Bid-Algorithmen konsolidieren sich nach 4–6 Wochen; vorher sind Urteile
+            uber Erfolg oder Misserfolg statistisch bedeutungslos.
+          </p>
+        </div>
+        <div class="note-item reveal" style="--reveal-delay: 0.18s;">
+          <span class="note-label">Kündigung</span>
+          <p class="note-value">
+            Nach der Mindestlaufzeit mit <strong>4 Wochen Frist</strong> zum
+            Monatsende kündbar. Keine versteckten Bindungen, kein
+            automatisches Jahresabo.
+          </p>
+        </div>
+        <div class="note-item reveal" style="--reveal-delay: 0.24s;">
+          <span class="note-label">Zahlung</span>
+          <p class="note-value">
+            Monatlich im Voraus, Rechnung zu Monatsbeginn.
+            <strong>Keine Erfolgsprovision</strong> auf das Werbebudget —
+            der Anreiz liegt in der Effizienz, nicht im Budget-Volumen.
+          </p>
+        </div>
+        <div class="note-item reveal" style="--reveal-delay: 0.30s;">
+          <span class="note-label">Onboarding</span>
+          <p class="note-value">
+            Zwischen Vertragsschluss und erstem Optimierungs-Tag liegen
+            typischerweise <strong>5–10 Werktage</strong> fur Zugang, Analyse
+            und Strukturplanung.
+          </p>
+        </div>
+        <div class="note-item reveal" style="--reveal-delay: 0.36s;">
+          <span class="note-label">Scope-Erweiterung</span>
+          <p class="note-value">
+            Wenn Spend oder Märkte dauerhaft uber die Paket-Grenzen wachsen,
+            sprechen wir ein Upgrade ab. <strong>Kein automatischer Aufpreis</strong>
+            fur gelegentliche Spitzen (Saisonales, Prime Day).
+          </p>
+        </div>
+        <div class="note-item reveal" style="--reveal-delay: 0.42s;">
+          <span class="note-label">Preisanpassung</span>
+          <p class="note-value">
+            Nach 6 Monaten mit nachweisbaren Ergebnissen besprechen wir offen
+            eine Anpassung. Bestandskunden bekommen dabei immer
+            <strong>30 Tage Vorlauf</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ───────────────────────────────────────── -->
+  <section class="cta-section" id="cta" data-screen-label="CTA">
+    <div class="cta-bg" data-parallax="0.65"></div>
+    <div class="cta-fade top" aria-hidden="true"></div>
+    <div class="cta-fade bottom" aria-hidden="true"></div>
+    <div class="cta-vignette"></div>
+    <div class="cta-wave" aria-hidden="true">
+      <svg viewBox="0 0 1600 1000" preserveAspectRatio="none">
+        <path id="cwave1" d="M -200 720 C 200 640, 500 660, 800 580 S 1300 480, 1800 380" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none"></path>
+        <path id="cwave2" d="M -200 820 C 250 760, 600 780, 900 700 S 1350 600, 1800 520" stroke="rgba(255,255,255,0.05)" stroke-width="1.5" fill="none"></path>
+        <path id="cwave3" d="M -200 920 C 300 880, 700 860, 1000 800 S 1400 720, 1800 660" stroke="rgba(255,255,255,0.04)" stroke-width="1.5" fill="none"></path>
+        <path id="cwave4" d="M -200 540 C 280 580, 580 480, 880 520 S 1320 440, 1800 300" stroke="rgba(255,255,255,0.045)" stroke-width="1.5" fill="none"></path>
+      </svg>
+    </div>
+    <div class="wrap cta-content">
+      <span class="cta-eyebrow reveal"><span class="tri" style="border-bottom-color:rgba(255,255,255,0.4)"></span>NÄCHSTER SCHRITT</span>
+      <h2 class="cta-close reveal" style="--reveal-delay: 0.10s;">
+        Welches Paket passt zu Dir — lass uns das gemeinsam klären.
+      </h2>
+      <p class="cta-sub reveal" style="--reveal-delay: 0.20s;">
+        15 Minuten reichen: Du sagst mir, wo Dein Account gerade steht,
+        ich sage Dir, was realistisch drin ist.
+        Ohne Pitch, ohne Verpflichtung.
+      </p>
+      <div class="cta-buttons reveal" style="--reveal-delay: 0.30s;">
+        <a class="btn btn-primary" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Kostenloses Erstgespräch</a>
+        <a class="btn btn-ghost" href="index.html#kontakt">Direkt schreiben</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-text">
+      <a href="index.html">&larr; Zur&uuml;ck zur Startseite</a>
+      <span class="foot-sep">&middot;</span>
+      Leon-Vincent Gamradt &mdash; Amazon PPC Spezialist &mdash; Berlin
+      &nbsp;&middot;&nbsp; <a href="impressum.html">Impressum</a>
+      &nbsp;&middot;&nbsp; <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Cookie banner -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie-Hinweis">
+  <div class="cookie-text">
+    Diese Website verwendet ausschließlich technisch notwendige Cookies sowie
+    optionale Cookies zur anonymen Reichweitenmessung. Details in der
+    <a href="datenschutz.html">Datenschutzerklärung</a>.
+  </div>
+  <div class="cookie-actions">
+    <button class="btn btn-primary" type="button" data-cookie="accept">Akzeptieren</button>
+    <button class="btn btn-ghost" type="button" data-cookie="decline">Ablehnen</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  'use strict';
+
+  // ─── Reveal ────────────────────────────────────────
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+      } else {
+        e.target.classList.remove('in');
+        e.target.removeAttribute('data-settled');
+      }
+    });
+  }, { threshold: 0.10, rootMargin: '0px 0px -8% 0px' });
+  reveals.forEach((el) => {
+    io.observe(el);
+    el.addEventListener('transitionend', (ev) => {
+      if ((ev.propertyName === 'transform' || ev.propertyName === 'opacity')
+          && el.classList.contains('in')) {
+        el.setAttribute('data-settled', '1');
+      }
+    });
+  });
+
+  // ─── Parallax + Scroll-Blur ────────────────────────
+  const parallaxEls = Array.from(document.querySelectorAll('[data-parallax]')).map((el) => ({
+    el,
+    factor: parseFloat(el.getAttribute('data-parallax')) || 0.5,
+    baseBlur: parseFloat(getComputedStyle(el).filter.match(/blur\(([\d.]+)px\)/)?.[1] || 1.5),
+  }));
+  const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
+  let ticking = false, scrolling = false, scrollTimer = null;
+  let pageVisible = !document.hidden;
+
+  function applyParallax() {
+    const vh = window.innerHeight;
+    const mob = isMobile();
+    parallaxEls.forEach(({ el, factor }) => {
+      const rect = el.getBoundingClientRect();
+      const elCenter = rect.top + rect.height / 2;
+      const dist = elCenter - vh / 2;
+      const intensity = (mob ? 0.08 : 0.12) * factor;
+      const cap = mob ? 32 : 56;
+      const ty = Math.max(-cap, Math.min(cap, -dist * intensity));
+      el.style.transform = `translate3d(0, ${ty.toFixed(2)}px, 0)`;
+    });
+    ticking = false;
+  }
+  function setScrollBlur(active) {
+    parallaxEls.forEach(({ el, baseBlur }) => {
+      const cs = getComputedStyle(el).filter;
+      const sat = (cs.match(/saturate\([^)]+\)/) || [''])[0];
+      const con = (cs.match(/contrast\([^)]+\)/) || [''])[0];
+      const bri = (cs.match(/brightness\([^)]+\)/) || [''])[0];
+      const blur = active ? baseBlur + 0.6 : baseBlur;
+      el.style.filter = [sat, con, bri, `blur(${blur}px)`].filter(Boolean).join(' ').trim();
+    });
+  }
+  function onScroll() {
+    if (!ticking && pageVisible) {
+      requestAnimationFrame(applyParallax);
+      ticking = true;
+    }
+    if (!scrolling) { scrolling = true; setScrollBlur(true); }
+    if (scrollTimer) clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => { scrolling = false; setScrollBlur(false); }, 200);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => requestAnimationFrame(applyParallax), { passive: true });
+  applyParallax();
+
+  // ─── Wellen-Animation ──────────────────────────────
+  const waveDefs = [
+    { id: 'wave1', base: { y0: 720, y1: 380 },
+      cps: [[200,640,40,50,0.0],[500,660,50,59,0.7],[800,580,55,55,1.4],[1100,540,46,63,2.1],[1300,480,37,53,2.8],[1600,420,28,57,3.5]] },
+    { id: 'wave2', base: { y0: 820, y1: 520 },
+      cps: [[250,760,32,67,1.5],[600,780,50,61,2.2],[900,700,60,57,2.9],[1200,660,50,65,3.6],[1350,600,37,55,4.3],[1600,560,28,59,5.0]] },
+    { id: 'wave3', base: { y0: 920, y1: 660 },
+      cps: [[300,880,25,74,3.0],[700,860,37,68,3.7],[1000,800,41,63,4.4],[1300,760,37,70,5.1],[1400,720,28,61,5.8],[1600,700,21,67,0.5]] },
+    { id: 'wave4', base: { y0: 540, y1: 300 },
+      cps: [[280,580,23,80,4.5],[580,480,32,72,5.2],[880,520,41,76,5.9],[1080,500,32,68,0.6],[1320,440,28,78,1.3],[1600,360,21,74,2.0]] },
+  ];
+  function buildPath(def, t) {
+    const { y0, y1 } = def.base;
+    const c = def.cps.map(([x, y, amp, freq, phase]) => {
+      const yo = y + Math.sin((t / 1000) * (2 * Math.PI / freq) + phase) * amp;
+      return [x, yo];
+    });
+    const [c0, c1, c2, c3, c4, c5] = c;
+    return `M -200 ${y0} C ${c0[0]} ${c0[1]}, ${c1[0]} ${c1[1]}, ${c2[0]} ${c2[1]} S ${c3[0]} ${c3[1]}, ${c4[0]} ${c4[1]} S ${c5[0]} ${c5[1]}, 1800 ${y1}`;
+  }
+  const wavePaths = waveDefs.map((d) => ({
+    def: d,
+    el: document.getElementById(d.id),
+    elCta: document.getElementById('c' + d.id),
+  }));
+  let waveStart = performance.now();
+  let waveRAF = null;
+  function tickWaves(now) {
+    if (!pageVisible) { waveRAF = null; return; }
+    const t = now - waveStart;
+    wavePaths.forEach(({ def, el, elCta }) => {
+      const d = buildPath(def, t);
+      if (el) el.setAttribute('d', d);
+      if (elCta) elCta.setAttribute('d', d);
+    });
+    waveRAF = requestAnimationFrame(tickWaves);
+  }
+  waveRAF = requestAnimationFrame(tickWaves);
+  document.addEventListener('visibilitychange', () => {
+    pageVisible = !document.hidden;
+    if (pageVisible) {
+      waveStart = performance.now() - (waveStart % 100000);
+      if (!waveRAF) waveRAF = requestAnimationFrame(tickWaves);
+      requestAnimationFrame(applyParallax);
+    }
+  });
+
+  // ─── Cookie banner ──────────────────────────────────
+  const cookieBanner = document.getElementById('cookie-banner');
+  if (cookieBanner) {
+    const STORAGE_KEY = 'lvg-cookie-consent';
+    let stored = null;
+    try { stored = localStorage.getItem(STORAGE_KEY); } catch (_) {}
+    if (stored === 'accepted' || stored === 'declined') {
+      cookieBanner.remove();
+    } else {
+      cookieBanner.addEventListener('click', (ev) => {
+        const target = ev.target.closest('[data-cookie]');
+        if (!target) return;
+        const choice = target.getAttribute('data-cookie');
+        try { localStorage.setItem(STORAGE_KEY, choice === 'accept' ? 'accepted' : 'declined'); } catch (_) {}
+        cookieBanner.classList.add('is-hidden');
+        setTimeout(() => { cookieBanner.remove(); }, 320);
+      });
+    }
+  }
+})();
+</script>
+
+<script>
+(function() {
+  var navEl = document.querySelector('nav.nav');
+  var burgerBtn = document.querySelector('.nav-burger');
+  var navMobileWrap = document.querySelector('.nav-mobile-wrap');
+  function closeMobileNav() {
+    navEl.classList.remove('is-open');
+    burgerBtn.setAttribute('aria-expanded', 'false');
+    burgerBtn.setAttribute('aria-label', 'Menü öffnen');
+    navMobileWrap.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  if (burgerBtn) {
+    burgerBtn.addEventListener('click', function() {
+      var isOpen = navEl.classList.toggle('is-open');
+      burgerBtn.setAttribute('aria-expanded', String(isOpen));
+      burgerBtn.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+      navMobileWrap.setAttribute('aria-hidden', String(!isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    document.querySelectorAll('.nav-mobile-links a').forEach(function(a) {
+      a.addEventListener('click', closeMobileNav);
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMobileNav();
+    });
+    document.addEventListener('click', function(e) {
+      if (navEl.classList.contains('is-open') && !navEl.contains(e.target)) closeMobileNav();
+    });
+    var touchStartY = 0;
+    document.addEventListener('touchstart', function(e) { touchStartY = e.touches[0].clientY; }, { passive: true });
+    document.addEventListener('touchmove', function(e) {
+      if (navEl.classList.contains('is-open') && Math.abs(e.touches[0].clientY - touchStartY) > 30) closeMobileNav();
+    }, { passive: true });
+  }
+})();
+</script>
+</body>
+</html>
