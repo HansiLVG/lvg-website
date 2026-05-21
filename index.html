@@ -32,7 +32,7 @@
     --ink: #0a0a0a;
     --ink-strong: #1a1a1a;
     --ink-soft: #4a4a4a;
-    --ink-muted: #8a8a8a;
+    --ink-muted: #6e6e6e;
     --ink-faint: #c0c0c0;
     --border: rgba(10, 10, 10, 0.08);
     --border-strong: rgba(10, 10, 10, 0.18);
@@ -339,11 +339,12 @@
     font-weight: 400;
     font-size: clamp(36px, 4.6vw, 56px);
     line-height: 1.12;
-    color: var(--accent);
+    color: var(--ink);
     margin: 22px 0 64px;
     max-width: 22ch;
     letter-spacing: -0.008em;
   }
+  h2.peak .accent { color: var(--accent); }
   h3 { margin: 0; font-weight: inherit; font-size: inherit; line-height: inherit; color: inherit; }
 
   /* ─── HERO ───────────────────────────────────────────────── */
@@ -1353,6 +1354,65 @@
     .ueber-section { min-height: 780px; }
   }
 
+  /* ─── Problem ("Kennst du das?") ───────────────────────── */
+  .problem-list { margin-top: 8px; max-width: 62ch; }
+  .problem-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    align-items: start;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .problem-item:first-child { border-top: 1px solid var(--border); }
+  .problem-item .tri { margin-top: 12px; }
+  .problem-text {
+    margin: 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(19px, 2.4vw, 24px);
+    line-height: 1.4;
+    color: var(--ink-strong);
+  }
+  .problem-close {
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    opacity: 0.85;
+    margin-top: 28px;
+    max-width: 54ch;
+  }
+
+  /* ─── Metric-Strip (KPI-Signal) ────────────────────────── */
+  .metric-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 22px;
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+  .metric-strip-label {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .metric-strip-vals {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: var(--accent);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -1558,8 +1618,8 @@
             <span class="label"><span class="tri"></span>AMAZON PPC SPEZIALIST · BERLIN</span>
           </div>
           <h1 class="reveal" style="--reveal-delay: 0.10s;">
-            Dein Amazon-Budget<br />
-            verdient mehr. <span class="accent">Mit mir.</span>
+            Dein ACOS runter.<br />
+            Deine Marge <span class="accent">rauf.</span>
           </h1>
         </div>
         <div class="hero-right">
@@ -1568,7 +1628,7 @@
             Nur ich, deine Kampagnen und messbare Ergebnisse.
           </p>
           <div class="hero-buttons reveal" style="--reveal-delay: 0.30s;">
-            <a class="btn btn-primary" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Kostenloses Erstgespräch buchen</a>
+            <a class="btn btn-primary" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Kostenloses Erstgespräch (15 Min.)</a>
             <a class="btn btn-secondary" href="#kontakt">Direkt schreiben</a>
           </div>
         </div>
@@ -1581,13 +1641,13 @@
     <div class="wrap">
       <div class="reveal"><span class="label"><span class="tri"></span>VERTRAUEN AUF EINEN BLICK</span></div>
       <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
-        Dein Budget verdient jemanden, der weiß, was er tut.
+        Dein Budget verdient jemanden, der <span class="accent">weiß, was er tut.</span>
       </h2>
 
       <div class="stats reveal" style="--reveal-delay: 0.20s;">
         <div class="stat">
           <div class="stat-num-wrap">
-            <span class="stat-num">50+</span>
+            <span class="stat-num">100+</span>
             <svg class="stat-tri" viewBox="0 0 12 10" aria-hidden="true"><polygon points="6,1 11,9 1,9"/></svg>
           </div>
           <div class="stat-label">betreute Accounts</div>
@@ -1601,10 +1661,10 @@
         </div>
         <div class="stat">
           <div class="stat-num-wrap">
-            <span class="stat-num">100%</span>
+            <span class="stat-num">2×</span>
             <svg class="stat-tri" viewBox="0 0 12 10" aria-hidden="true"><polygon points="6,1 11,9 1,9"/></svg>
           </div>
-          <div class="stat-label">Fokus auf Amazon PPC</div>
+          <div class="stat-label">Amazon Ads zertifiziert</div>
         </div>
       </div>
 
@@ -1655,13 +1715,53 @@
 
   <hr class="divider" />
 
+  <!-- ─── PROBLEM ───────────────────────────────────────── -->
+  <section class="section-pad" id="problem" data-screen-label="Problem">
+    <div class="wrap">
+      <div class="reveal"><span class="label"><span class="tri"></span>KENNST DU DAS?</span></div>
+      <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
+        Dein Budget verdient <span class="accent">kein Rätselraten.</span>
+      </h2>
+
+      <div class="problem-list reveal" style="--reveal-delay: 0.20s;">
+        <div class="problem-item">
+          <span class="tri"></span>
+          <p class="problem-text">„Unser ACOS läuft aus dem Ruder, und wir wissen nicht, warum."</p>
+        </div>
+        <div class="problem-item">
+          <span class="tri"></span>
+          <p class="problem-text">„Die Agentur liefert nicht. Zu viele Kunden, zu wenig Aufmerksamkeit."</p>
+        </div>
+        <div class="problem-item">
+          <span class="tri"></span>
+          <p class="problem-text">„Das Budget steigt, aber wir skalieren trotzdem nicht."</p>
+        </div>
+        <div class="problem-item">
+          <span class="tri"></span>
+          <p class="problem-text">„Wir sehen nicht, wo unser Werbebudget eigentlich landet."</p>
+        </div>
+        <div class="problem-item">
+          <span class="tri"></span>
+          <p class="problem-text">„PPC läuft bei uns nebenbei mit, und niemand hat es wirklich im Griff."</p>
+        </div>
+      </div>
+
+      <p class="problem-close reveal" style="--reveal-delay: 0.30s;">
+        Wenn dir einer dieser Sätze bekannt vorkommt, liegt das selten am Budget,
+        sondern an Struktur, Geboten oder Targeting. Genau da fange ich an.
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
   <!-- ─── LEISTUNGEN ────────────────────────────────────── -->
   <section class="section-pad leistungen-section" id="leistungen" data-screen-label="Leistungen">
     <div class="leistungen-detail" data-parallax="0.65" data-bg="assets/leistungen-detail.webp"></div>
     <div class="wrap leistungen-wrap">
       <div class="reveal"><span class="label"><span class="tri"></span>LEISTUNGEN</span></div>
       <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
-        Dein Budget verdient mehr Kontrolle.
+        Dein Budget verdient <span class="accent">mehr Kontrolle.</span>
       </h2>
 
       <div class="leistungen-rows reveal" style="--reveal-delay: 0.20s;">
@@ -1700,6 +1800,11 @@
           </div>
         </div>
       </div>
+
+      <div class="metric-strip reveal" style="--reveal-delay: 0.35s;">
+        <span class="metric-strip-label">Gesteuert an den Zahlen, die zählen:</span>
+        <span class="metric-strip-vals">ACOS · ROAS · TACOS</span>
+      </div>
     </div>
   </section>
 
@@ -1709,6 +1814,8 @@
     <img
       class="ueber-portrait reveal"
       src="assets/portrait-bw-medium.webp"
+      srcset="assets/portrait-bw-medium-800.webp 800w, assets/portrait-bw-medium-1400.webp 1400w, assets/portrait-bw-medium.webp 2362w"
+      sizes="(max-width: 900px) 100vw, 36vw"
       alt="Leon-Vincent Gamradt — Portrait"
       width="2362"
       height="3307"
@@ -1720,7 +1827,7 @@
       <div class="ueber-text">
         <div class="reveal"><span class="label"><span class="tri"></span>ÜBER MICH</span></div>
         <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
-          Dein Budget verdient jemanden, der wirklich hinschaut.
+          Dein Budget verdient jemanden, der <span class="accent">wirklich hinschaut.</span>
         </h2>
         <div class="ueber-paragraphs">
           <p class="reveal" style="--reveal-delay: 0.20s;">
@@ -1750,7 +1857,7 @@
     <div class="wrap ablauf-content">
       <div class="reveal"><span class="label"><span class="tri"></span>SO LÄUFT'S AB</span></div>
       <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
-        Dein Budget verdient einen klaren Prozess.
+        Dein Budget verdient einen <span class="accent">klaren Prozess.</span>
       </h2>
 
       <div class="ablauf-steps reveal" style="--reveal-delay: 0.20s;">
@@ -1801,7 +1908,7 @@
     <div class="wrap">
       <div class="reveal"><span class="label"><span class="tri"></span>HÄUFIGE FRAGEN</span></div>
       <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
-        Dein Budget verdient ehrliche Antworten.
+        Dein Budget verdient <span class="accent">ehrliche Antworten.</span>
       </h2>
 
       <div class="faq-list reveal" style="--reveal-delay: 0.20s;">
@@ -1902,7 +2009,7 @@
     <div class="wrap">
       <div class="reveal"><span class="label"><span class="tri"></span>KONTAKT</span></div>
       <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
-        Schreib mir direkt.
+        Schreib mir <span class="accent">direkt.</span>
       </h2>
 
       <div class="kontakt-success" id="kontakt-success" data-fs-success>
@@ -2201,6 +2308,8 @@
 
   let waveStart = performance.now();
   let waveRAF = null;
+  const wavesEnabled = !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    && !window.matchMedia('(max-width: 900px)').matches;
   function tickWaves(now) {
     if (!pageVisible) { waveRAF = null; return; }
     const t = now - waveStart;
@@ -2211,7 +2320,7 @@
     });
     waveRAF = requestAnimationFrame(tickWaves);
   }
-  waveRAF = requestAnimationFrame(tickWaves);
+  if (wavesEnabled) waveRAF = requestAnimationFrame(tickWaves);
 
   // ─────────────────────────────────────────────────────────
   // Page Visibility API
@@ -2220,7 +2329,7 @@
     pageVisible = !document.hidden;
     if (pageVisible) {
       waveStart = performance.now() - (waveStart % 100000);
-      if (!waveRAF) waveRAF = requestAnimationFrame(tickWaves);
+      if (wavesEnabled && !waveRAF) waveRAF = requestAnimationFrame(tickWaves);
       requestAnimationFrame(applyParallax);
     }
   });
