@@ -60,7 +60,7 @@ Alle Tokens leben in `:root` in `index.html`. **Werte 1:1 aus dem Code:**
 | `--ink`          | `#0a0a0a`                  | Stärkstes Schwarz, Headlines       |
 | `--ink-strong`   | `#1a1a1a`                  | Bold-Subzeilen (Leistungen/Ablauf) |
 | `--ink-soft`     | `#4a4a4a`                  | Standard-Body-Text                 |
-| `--ink-muted`    | `#8a8a8a`                  | Labels, Meta, Footer               |
+| `--ink-muted`    | `#6e6e6e`                  | Labels, Meta, Footer (WCAG-AA ≥4,5:1) |
 | `--ink-faint`    | `#c0c0c0`                  | Reserve (im Markup ungenutzt)      |
 | `--border`       | `rgba(10,10,10,0.08)`      | Default-Linien                     |
 | `--border-strong`| `rgba(10,10,10,0.18)`      | Reserve                            |

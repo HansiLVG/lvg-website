@@ -52,7 +52,7 @@ Claude Code/
 
 ```css
 --paper: #fafafa      --ink: #0a0a0a        --accent: #2d5f3f
---ink-soft: #4a4a4a   --ink-muted: #8a8a8a  --accent-soft: #4a7c59
+--ink-soft: #4a4a4a   --ink-muted: #6e6e6e  --accent-soft: #4a7c59
 --maxw: 1240px        --pad-x: 64px (→ 28px mobile)
 --serif: "Instrument Serif"    --sans: "Inter"
 ```
