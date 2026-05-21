@@ -1316,7 +1316,7 @@
   @media (max-width: 900px) {
     :root { --pad-x: 28px; }
     .section-pad { padding: 80px 0; }
-    .hero { padding: 96px 0 56px; }
+    .hero { padding: 96px 0 clamp(100px, 18vh, 160px); }
     .hero-grid { grid-template-columns: 1fr; gap: 36px; }
     .hero-right { text-align: left; align-items: flex-start; padding-top: 12px; align-self: auto; transform: none; }
     .scroll-cue { bottom: clamp(60px, 12vh, 100px); font-size: 9px; }
@@ -1626,7 +1626,7 @@
           <div class="cert-body-wrap">
             <div class="cert-body-inner">
               <div class="cert-badge-body">
-                Zertifizierung für Sponsored Products, Sponsored Brands und Sponsored Display —
+                Zertifizierung für Sponsored Products, Sponsored Brands und Sponsored Display,
                 abgeschlossen September 2025 über die Amazon Ads Academy.
               </div>
             </div>
@@ -1645,7 +1645,7 @@
             <div class="cert-body-inner">
               <div class="cert-badge-body">
                 Zertifizierung für datenbasierte Analyse und Attribution mit der
-                Amazon Marketing Cloud — abgeschlossen September 2025 über die Amazon Ads Academy.
+                Amazon Marketing Cloud, abgeschlossen September 2025 über die Amazon Ads Academy.
               </div>
             </div>
           </div>
@@ -1672,7 +1672,7 @@
             <h3 class="leistung-bold">Du weißt immer, wo dein Geld landet und warum.</h3>
             <div class="leistung-text">
               Laufende Optimierung deiner Sponsored Products, Sponsored Brands und
-              Sponsored Display Kampagnen — mit wöchentlichem Reporting, das du auch
+              Sponsored Display Kampagnen, mit wöchentlichem Reporting, das du auch
               ohne PPC-Kenntnisse verstehst.
             </div>
           </div>
@@ -1683,7 +1683,7 @@
           <div class="leistung-body">
             <h3 class="leistung-bold">Du erkennst in 48 Stunden, wo dein Budget gerade verbrennt.</h3>
             <div class="leistung-text">
-              Eine vollständige Analyse deiner bestehenden Kampagnenstruktur — mit
+              Eine vollständige Analyse deiner bestehenden Kampagnenstruktur, mit
               konkreten Handlungsempfehlungen, die du sofort umsetzen kannst.
             </div>
           </div>
@@ -1695,7 +1695,7 @@
             <h3 class="leistung-bold">Du startest mit einer Struktur, die skaliert.</h3>
             <div class="leistung-text">
               Nicht eine, die du in sechs Monaten wieder abreißen musst.
-              Von der Keyword-Recherche bis zur Kampagnenarchitektur —
+              Von der Keyword-Recherche bis zur Kampagnenarchitektur,
               alles aus einer Hand.
             </div>
           </div>
@@ -1725,16 +1725,16 @@
         </h2>
         <div class="ueber-paragraphs">
           <p class="reveal" style="--reveal-delay: 0.20s;">
-            Ich bin Leon-Vincent Gamradt — Amazon PPC Spezialist aus Berlin.
+            Ich bin Leon-Vincent Gamradt, Amazon PPC Spezialist aus Berlin.
           </p>
           <p class="reveal" style="--reveal-delay: 0.30s;">
             Bevor ich mich selbstständig gemacht habe, habe ich bei einer Amazon-Agentur
-            über 50 Accounts gleichzeitig betreut und dabei mehr als eine Million Euro
+            über 100 Accounts betreut, davon bis zu 50 gleichzeitig, und dabei mehr als eine Million Euro
             Werbebudget verantwortet. Ich kenne die Abkürzungen, die Fehler und die Hebel,
             die wirklich etwas bewegen.
           </p>
           <p class="reveal" style="--reveal-delay: 0.40s;">
-            Ich arbeite nicht mit einem Team. Ich arbeite mit dir — direkt, transparent
+            Ich arbeite nicht mit einem Team. Ich arbeite mit dir, direkt, transparent
             und mit vollem Fokus auf deinen Account.
           </p>
           <p class="reveal" style="--reveal-delay: 0.50s;">
@@ -1761,7 +1761,7 @@
           <div class="ablauf-body">
             <h3 class="ablauf-title">Kostenloses Erstgespräch</h3>
             <div class="ablauf-desc">
-              Wir schauen uns gemeinsam an, wo dein Budget gerade steht —
+              Wir schauen uns gemeinsam an, wo dein Budget gerade steht,
               ohne Verkaufsdruck, ohne Verpflichtung.
             </div>
           </div>
@@ -1830,8 +1830,8 @@
             <div class="faq-a">
               Bei einem Audit hast du innerhalb von 48 Stunden konkrete
               Handlungsempfehlungen. Bei laufender Optimierung sind erste
-              Verbesserungen meist nach 2–4 Wochen messbar. Stabile
-              Ergebnisse brauchen typischerweise 2–3 Monate.
+              Verbesserungen meist nach 2-4 Wochen messbar. Stabile
+              Ergebnisse brauchen typischerweise 2-3 Monate.
             </div>
           </div></div>
         </div>
@@ -1857,7 +1857,7 @@
           </button>
           <div class="faq-a-wrap"><div class="faq-a-inner">
             <div class="faq-a">
-              Du arbeitest direkt mit mir — kein Junior, kein Account Manager,
+              Du arbeitest direkt mit mir. Kein Junior, kein Account Manager,
               kein wechselndes Team. Ich kenne deinen Account, deine Marke und
               deine Ziele persönlich. Dafür betreue ich auch nur eine begrenzte
               Anzahl an Kunden gleichzeitig.
@@ -1873,7 +1873,7 @@
           <div class="faq-a-wrap"><div class="faq-a-inner">
             <div class="faq-a">
               Du bekommst wöchentlich ein kurzes Update mit den wichtigsten
-              Zahlen und Entscheidungen der Woche — so geschrieben, dass du es
+              Zahlen und Entscheidungen der Woche, so geschrieben, dass du es
               auch ohne PPC-Vorkenntnisse verstehst.
             </div>
           </div></div>
@@ -1907,7 +1907,7 @@
       </h2>
 
       <div class="kontakt-success" id="kontakt-success" data-fs-success>
-        Danke — ich melde mich bald.
+        Danke, ich melde mich bald.
       </div>
       <div class="kontakt-form-error" data-fs-error></div>
 
@@ -1931,8 +1931,8 @@
           <label class="kontakt-label" for="kontakt-budget">Monatliches Werbebudget</label>
           <select class="kontakt-select" id="kontakt-budget" name="Budget" data-fs-field>
             <option value="Unter 5.000 €">Unter 5.000 €</option>
-            <option value="5.000–15.000 €">5.000–15.000 €</option>
-            <option value="15.000–50.000 €">15.000–50.000 €</option>
+            <option value="5.000–15.000 €">5.000-15.000 €</option>
+            <option value="15.000–50.000 €">15.000-50.000 €</option>
             <option value="Über 50.000 €">Über 50.000 €</option>
           </select>
           <span class="kontakt-field-error" data-fs-error="Budget"></span>
@@ -1982,19 +1982,19 @@
 <aside class="seo-block" aria-label="Über diese Leistung">
   <p>
     Als <strong>Amazon PPC Freelancer</strong> aus <strong>Berlin</strong> übernehme ich
-    das vollständige <strong>PPC-Management</strong> deines <strong>Amazon Ads</strong> Accounts —
+    das vollständige <strong>PPC-Management</strong> deines <strong>Amazon Ads</strong> Accounts,
     von <strong>Sponsored Products</strong> über <strong>Sponsored Brands</strong> bis hin zu
     <strong>Sponsored Display</strong>. Ob laufendes
     <a href="kampagnen-management.html">Kampagnen-Management</a>,
     ein <a href="account-audit.html">Account-Audit</a> oder der
     <a href="strategie-aufbau.html">Strategie-Aufbau</a> für einen neuen Account:
-    jeder Euro Werbebudget wirkt messbar — über klare Account-Architektur, gezielte
+    jeder Euro Werbebudget wirkt messbar, über klare Account-Architektur, gezielte
     <strong>Kampagnenoptimierung</strong>, Keyword-Recherche und kontinuierliche
     Bid-Steuerung anhand von <strong>ACOS</strong> und <strong>ROAS</strong>.
     Für Marken mit größerem Datenvolumen setze ich zusätzlich auf die
     <strong>Amazon Marketing Cloud</strong>, um Attribution, Audiences und Funnel-Effekte
     formatübergreifend auszuwerten. Als <strong>Spezialist</strong> arbeite ich persönlich,
-    transparent und ohne Agentur-Overhead — direkt mit dir, deinem Account und deinen Zielen.
+    transparent und ohne Agentur-Overhead, direkt mit dir, deinem Account und deinen Zielen.
   </p>
 </aside>
 
