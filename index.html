@@ -45,15 +45,36 @@
     --serif: "Instrument Serif", "Iowan Old Style", "Apple Garamond", Georgia, serif;
     --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-    /* Hero — baked-in final values */
-    --hero-right-top: 6vh;
-    --hero-right-offset: -80px;
-    --hero-bg-opacity: 0.64;
-    --hero-scrim: 0.38;
+    /* Canvas chart vars */
+    --paper-elev:      #ffffff;
+    --paper-sunk:      #f3f3f1;
+    --hairline:        rgba(10, 10, 10, 0.08);
+    --hairline-strong: rgba(10, 10, 10, 0.14);
+    --grid-line:       rgba(10, 10, 10, 0.06);
+    --tooltip-bg:      rgba(255, 255, 255, 0.96);
+    --tooltip-bd:      rgba(10, 10, 10, 0.10);
+    --tooltip-sh:      0 12px 40px -8px rgba(10, 10, 10, 0.18), 0 2px 8px rgba(10, 10, 10, 0.04);
+    --mono:            "JetBrains Mono", ui-monospace, monospace;
 
     /* Über mich photo mask */
     --ueber-photo-mask: 27%;
     --ueber-photo-mask-right: 17%;
+  }
+
+  body.dark {
+    --paper:         #0a0a0a;
+    --paper-elev:    #161616;
+    --paper-sunk:    #060606;
+    --ink:           #fafafa;
+    --ink-soft:      #e6e6e6;
+    --ink-muted:     #8e8e8e;
+    --ink-faint:     #4a4a4a;
+    --hairline:      rgba(250, 250, 250, 0.08);
+    --hairline-strong: rgba(250, 250, 250, 0.18);
+    --grid-line:     rgba(250, 250, 250, 0.06);
+    --tooltip-bg:    rgba(20, 20, 20, 0.96);
+    --tooltip-bd:    rgba(250, 250, 250, 0.10);
+    --tooltip-sh:    0 12px 40px -8px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.25);
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -350,148 +371,468 @@
   /* ─── HERO ───────────────────────────────────────────────── */
   .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: min(100vh, 1100px);
     display: flex;
     align-items: center;
-    padding: 120px 0 80px;
+    padding: 60px 0 60px;
     overflow: hidden;
+    background: var(--paper);
   }
-  .hero-bg {
-    position: absolute;
-    inset: -8% 0;
-    background-image: url("assets/hero-background.webp");
-    background-size: cover;
-    background-position: center;
-    opacity: var(--hero-bg-opacity, 0.64);
-    z-index: 0;
-    will-change: transform, filter;
-    filter: saturate(1.05) contrast(1.04) blur(2.7px);
-    transition: filter 400ms ease, opacity 250ms ease;
-  }
-  .hero-scrim {
+  .canvas-layer {
     position: absolute;
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background:
-      linear-gradient(
-        to top,
-        rgba(250,250,250, var(--hero-scrim, 0.38)) 0%,
-        rgba(250,250,250, calc(var(--hero-scrim, 0.38) * 0.78)) 38%,
-        rgba(250,250,250, calc(var(--hero-scrim, 0.38) * 0.30)) 68%,
-        transparent 92%
-      );
   }
-  .hero-vignette {
+  .canvas-layer canvas {
     position: absolute;
     inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background: radial-gradient(ellipse at center, transparent 30%, rgba(10,10,10,0.10) 100%);
-  }
-
-  .scroll-cue {
-    position: absolute;
-    left: 50%;
-    bottom: clamp(80px, 14vh, 140px);
-    transform: translateX(-50%);
-    z-index: 4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--ink-muted);
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    opacity: 0.85;
-    transition: opacity 0.25s ease, color 0.25s ease, transform 0.25s ease;
-  }
-  .scroll-cue:hover { opacity: 1; color: var(--ink); transform: translateX(-50%) translateY(2px); }
-  .scroll-cue .cue-line {
-    position: relative;
+    width: 100%;
+    height: 100%;
     display: block;
-    width: 1px;
-    height: 48px;
-    background: linear-gradient(to bottom, rgba(10,10,10,0.05) 0%, rgba(10,10,10,0.30) 100%);
-    overflow: hidden;
+    pointer-events: auto;
   }
-  .scroll-cue .cue-line::after {
-    content: "";
+  .canvas-veil {
     position: absolute;
-    left: 0; right: 0;
-    top: -40%;
-    height: 40%;
-    background: linear-gradient(to bottom, transparent 0%, var(--accent) 100%);
-    animation: cueRun 2.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      to right,
+      var(--paper) 0%,
+      var(--paper) 50%,
+      color-mix(in oklab, var(--paper) 80%, transparent) 55%,
+      color-mix(in oklab, var(--paper) 30%, transparent) 59%,
+      color-mix(in oklab, var(--paper) 0%, transparent) 63%
+    );
   }
-  .scroll-cue svg {
-    width: 10px; height: 12px;
-    stroke: var(--accent);
-    stroke-width: 1.5;
-    fill: none;
-    animation: cueBounce 2.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  }
-  @keyframes cueRun {
-    0%   { transform: translateY(0%); opacity: 0; }
-    20%  { opacity: 1; }
-    80%  { opacity: 1; }
-    100% { transform: translateY(340%); opacity: 0; }
-  }
-  @keyframes cueBounce {
-    0%, 100% { transform: translateY(0); opacity: 0.7; }
-    50%      { transform: translateY(4px); opacity: 1; }
+  .canvas-veil-blur {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 47%, transparent 60%);
+            mask-image: linear-gradient(to right, #000 0%, #000 47%, transparent 60%);
   }
   .hero-grid {
     display: grid;
-    grid-template-columns: 55fr 45fr;
-    gap: 56px;
-    align-items: center;
+    grid-template-columns: minmax(0, clamp(460px, 43vw, 700px)) 1fr;
+    gap: clamp(36px, 4.18vw, 72px);
+    align-items: start;
     width: 100%;
   }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    min-width: 0;
+    max-width: clamp(460px, 43vw, 700px);
+  }
+  .hero-right {
+    position: relative;
+    min-width: 0;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .label .dot, .chart-head .title .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent);
+  }
+  .label .dot.live, .chart-head .title .dot.live { animation: livePulse 2.4s ease-in-out infinite; }
+  @keyframes livePulse {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 45%, transparent); }
+    50%      { box-shadow: 0 0 0 7px color-mix(in oklab, var(--accent) 0%, transparent); }
+  }
+  .label .live-txt, .chart-head .title .live-txt { color: var(--accent); font-weight: 600; letter-spacing: 0.24em; }
   .hero h1 {
     font-family: var(--serif);
     font-weight: 400;
-    font-size: clamp(56px, 8vw, 96px);
-    line-height: 1.05;
-    letter-spacing: -0.015em;
+    font-size: clamp(54px, 6.57vw, 105px);
+    line-height: 1.02;
+    letter-spacing: -0.018em;
     color: var(--ink);
-    margin: 24px 0 0;
+    margin: 0;
   }
   .hero h1 .accent {
     font-style: italic;
     color: var(--accent);
     white-space: nowrap;
   }
-  .hero-right {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    align-self: start;
-    padding-top: var(--hero-right-top, 6vh);
-    transform: translateX(var(--hero-right-offset, -80px));
-    gap: 28px;
-    transition: padding-top 250ms ease, transform 250ms ease;
-  }
   .hero-sub {
     font-family: var(--sans);
     font-weight: 300;
-    font-size: 17px;
+    font-size: clamp(15px, 1.27vw, 22px);
     line-height: 1.6;
     max-width: 42ch;
-    color: var(--ink-soft);
-    opacity: 0.85;
+    color: var(--ink-muted);
+    margin: 0;
   }
   .hero-buttons {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
-    justify-content: flex-end;
   }
+  .trust-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .trust-row .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0;
+    border-right: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .trust-row .stat .num {
+    font-family: var(--serif);
+    font-size: clamp(24px, 2.09vw, 40px);
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .trust-row .stat .lbl {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .trust-row .sep { width: 1px; height: 32px; background: var(--hairline); }
+  .chart-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 8px;
+  }
+  .chart-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-left: 2px;
+    flex-wrap: wrap;
+  }
+  .chart-head .title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .chart-head .meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+  .chart-head .meta b { color: var(--ink-muted); font-weight: 500; }
+  .pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    max-width: 600px;
+  }
+  .pill {
+    appearance: none;
+    border: 1px solid var(--hairline-strong);
+    background: var(--paper-elev);
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--ink-muted);
+    padding: 7px 12px 7px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: background 0.2s ease, color 0.2s ease,
+                border-color 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    white-space: nowrap;
+  }
+  .pill .swatch {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--ink-faint);
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+  }
+  .pill .pill-val {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    margin-left: 3px;
+    transition: color 0.2s ease;
+  }
+  .pill:hover { border-color: var(--ink-faint); color: var(--ink-soft); }
+  .pill.on {
+    color: var(--metric-color, var(--ink));
+    border-color: color-mix(in oklab, var(--metric-color, var(--ink)) 38%, transparent);
+    background: color-mix(in oklab, var(--metric-color, var(--ink)) 6%, var(--paper-elev));
+    box-shadow:
+      0 1px 2px color-mix(in oklab, var(--metric-color, var(--ink)) 12%, transparent),
+      0 0 0 0.5px color-mix(in oklab, var(--metric-color, var(--ink)) 18%, transparent) inset;
+  }
+  .pill.on .swatch {
+    background: var(--metric-color, var(--ink-faint));
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--metric-color, var(--ink-faint)) 16%, transparent);
+  }
+  .pill.on .pill-val { color: var(--metric-color, var(--ink-faint)); }
+  .pill.disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+  .stat-row {
+    display: flex;
+    gap: 22px;
+    padding: 2px 4px 0;
+    flex-wrap: wrap;
+    align-items: baseline;
+    min-height: 50px;
+  }
+  .stat-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    animation: cellIn 0.34s ease both;
+  }
+  @keyframes cellIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: none; }
+  }
+  .stat-cell .big {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    font-family: var(--serif);
+    font-size: clamp(22px, 1.94vw, 36px);
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+  }
+  .stat-cell .big .u { font-family: var(--sans); font-size: 12px; font-weight: 400; color: var(--ink-muted); }
+  .stat-cell .micro {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .stat-cell .micro .sw { width: 7px; height: 7px; border-radius: 50%; background: var(--metric-color); }
+  .stat-cell .micro .dl {
+    font-family: var(--mono);
+    font-size: 10px;
+    margin-left: 4px;
+    color: var(--metric-color);
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+  .tip {
+    position: fixed;
+    transform: translate(-50%, calc(-100% - 14px));
+    background: var(--tooltip-bg);
+    border: 1px solid var(--tooltip-bd);
+    border-radius: 10px;
+    padding: 10px 12px 11px;
+    box-shadow: var(--tooltip-sh);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    z-index: 8;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    min-width: 178px;
+  }
+  .tip.on { opacity: 1; }
+  .tip .tip-head {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .tip .tip-rows { display: flex; flex-direction: column; gap: 4px; }
+  .tip .tip-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    font-family: var(--sans);
+    font-size: 12.5px;
+  }
+  .tip .tip-line .left { display: inline-flex; align-items: center; gap: 7px; color: var(--ink-muted); }
+  .tip .tip-line .sw { width: 8px; height: 8px; border-radius: 50%; background: var(--row-color); }
+  .tip .tip-line .v { font-family: var(--mono); font-weight: 500; color: var(--ink); }
+  .chips-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 4;
+  }
+  .chip {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--metric-color);
+    color: #fff;
+    white-space: nowrap;
+    opacity: 0;
+    box-shadow: 0 4px 12px -5px color-mix(in oklab, var(--metric-color) 50%, transparent);
+    will-change: transform, opacity;
+  }
+  .tweak {
+    position: fixed;
+    right: 22px; bottom: 22px;
+    z-index: 50;
+    font-family: var(--sans);
+  }
+  .tweak-toggle {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--hairline-strong);
+    background: var(--paper-elev);
+    color: var(--ink-soft);
+    box-shadow: 0 8px 22px -8px rgba(10,10,10,0.20);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(.4,.0,.2,1), background 0.3s ease, color 0.3s ease;
+  }
+  .tweak-toggle:hover { transform: rotate(40deg); }
+  .tweak.open .tweak-toggle { transform: rotate(135deg); background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .tweak-toggle svg { width: 18px; height: 18px; }
+  .tweak-panel {
+    position: absolute;
+    right: 0; bottom: 56px;
+    width: 290px;
+    background: var(--paper-elev);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 12px;
+    padding: 14px 16px 16px;
+    box-shadow: 0 24px 60px -16px rgba(10,10,10,0.24), 0 4px 14px rgba(10,10,10,0.04);
+    transform-origin: bottom right;
+    transform: translateY(8px) scale(0.96);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.22s cubic-bezier(.4,.0,.2,1), opacity 0.18s ease;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+  .tweak.open .tweak-panel { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
+  .tweak-panel h4 {
+    margin: 0 0 12px;
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .tweak-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 13px; }
+  .tweak-row:last-child { margin-bottom: 0; }
+  .tweak-row .tw-label { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--ink-soft); }
+  .tweak-row .tw-val { font-family: var(--mono); font-size: 11px; color: var(--ink-muted); }
+  .tweak-row input[type="range"] {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 4px;
+    background: var(--hairline); border-radius: 2px; outline: none;
+  }
+  .tweak-row input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px; height: 14px;
+    background: var(--ink); border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--paper-elev);
+    box-shadow: 0 1px 4px rgba(10,10,10,0.2);
+  }
+  .tweak-row input[type="range"]::-moz-range-thumb {
+    width: 14px; height: 14px;
+    background: var(--ink); border-radius: 50%;
+    cursor: pointer; border: 2px solid var(--paper-elev);
+  }
+  .seg {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px; padding: 3px;
+    background: var(--paper-sunk);
+    border: 1px solid var(--hairline);
+    border-radius: 7px;
+  }
+  .seg button {
+    appearance: none; border: 0; background: transparent;
+    font-family: var(--sans); font-size: 11px; font-weight: 500;
+    color: var(--ink-muted);
+    padding: 5px 6px; border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  .seg button.on { background: var(--paper-elev); color: var(--ink); box-shadow: 0 1px 2px rgba(10,10,10,0.06); }
+  .toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .switch {
+    position: relative;
+    width: 36px; height: 20px;
+    background: var(--hairline-strong);
+    border-radius: 999px; cursor: pointer;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+  }
+  .switch::after {
+    content: ""; position: absolute;
+    top: 2px; left: 2px;
+    width: 16px; height: 16px;
+    background: var(--paper-elev);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(10,10,10,0.2);
+    transition: transform 0.2s cubic-bezier(.4,.0,.2,1);
+  }
+  .switch.on { background: var(--accent); }
+  .switch.on::after { transform: translateX(16px); }
+  .tw-divider { height: 1px; background: var(--hairline); margin: 10px -2px 12px; }
+  .color-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .col-pick {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; padding: 6px 8px 6px 10px;
+    background: var(--paper-sunk);
+    border: 1px solid var(--hairline);
+    border-radius: 7px; cursor: pointer;
+  }
+  .col-pick:hover { border-color: var(--hairline-strong); }
+  .col-pick .col-name { font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink-soft); }
+  .col-pick input[type="color"] {
+    -webkit-appearance: none; appearance: none;
+    width: 22px; height: 22px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 5px; padding: 0; cursor: pointer;
+    background: transparent; overflow: hidden;
+  }
+  .col-pick input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+  .col-pick input[type="color"]::-webkit-color-swatch { border: none; border-radius: 3px; }
+  .col-pick input[type="color"]::-moz-color-swatch { border: none; border-radius: 3px; }
 
   /* ─── Buttons ────────────────────────────────────────────── */
   .btn {
@@ -1317,13 +1658,21 @@
   @media (max-width: 900px) {
     :root { --pad-x: 28px; }
     .section-pad { padding: 80px 0; }
-    .hero { padding: 96px 0 72px; align-items: flex-start; }
+    .hero { padding: 80px 0 56px; align-items: flex-start; min-height: auto; }
     .hero-grid { grid-template-columns: 1fr; gap: 36px; }
-    .hero-right { text-align: left; align-items: flex-start; padding-top: 12px; align-self: auto; transform: none; }
-    .scroll-cue { display: none; }
+    .hero h1 { font-size: clamp(42px, 10vw, 60px); }
     .hero-sub { max-width: 100%; }
     .hero-buttons { justify-content: flex-start; }
-    .hero h1 { font-size: clamp(40px, 11vw, 56px); }
+    .trust-row { gap: 14px; }
+    .trust-row .stat .num { font-size: 24px; }
+    .canvas-veil { display: none; }
+    .canvas-veil-blur { display: none; }
+    .hero-right { min-height: 360px; }
+    .stat-cell .big { font-size: 22px; }
+    .chips-layer { display: none; }
+    .chart-stack { padding-left: 0; }
+    .pills { gap: 5px; }
+    .pill { font-size: 11.5px; padding: 6px 10px 6px 9px; }
     .stats { grid-template-columns: 1fr; }
     .stat { border-right: 0; border-bottom: 1px solid var(--border); }
     .stat:last-child { border-bottom: 0; }
@@ -1603,17 +1952,15 @@
 
   <!-- ─── HERO ──────────────────────────────────────────── -->
   <section class="hero" id="hero" data-screen-label="Hero">
-    <div class="hero-bg" data-parallax="0.7"></div>
-    <div class="hero-scrim" aria-hidden="true"></div>
-    <div class="hero-vignette"></div>
-    <a class="scroll-cue reveal" href="#vertrauen" style="--reveal-delay: 0.50s;" aria-label="Weiter scrollen">
-      <span class="cue-line"></span>
-      <span>Scrollen</span>
-      <svg viewBox="0 0 10 12" aria-hidden="true"><polyline points="1.5 6.5 5 10 8.5 6.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+    <div class="canvas-layer"><canvas id="chart"></canvas></div>
+    <div class="canvas-veil-blur"></div>
+    <div class="canvas-veil"></div>
+    <div class="chips-layer" id="chips"></div>
+
     <div class="wrap">
       <div class="hero-grid">
-        <div>
+        <!-- LEFT -->
+        <div class="hero-left">
           <div class="reveal" style="--reveal-delay: 0s;">
             <span class="label"><span class="tri"></span>AMAZON PPC SPEZIALIST · BERLIN</span>
           </div>
@@ -1621,8 +1968,6 @@
             Dein ACOS runter.<br />
             Deine Marge <span class="accent">rauf.</span>
           </h1>
-        </div>
-        <div class="hero-right">
           <p class="hero-sub reveal" style="--reveal-delay: 0.20s;">
             Kein Generalist. Keine Agentur. Kein Junior.
             Nur ich, Deine Kampagnen und messbare Ergebnisse.
@@ -1631,10 +1976,94 @@
             <a class="btn btn-primary" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Kostenloses Erstgespräch (15 Min.)</a>
             <a class="btn btn-secondary" href="#kontakt">Direkt schreiben</a>
           </div>
+          <div class="trust-row reveal" style="--reveal-delay: 0.40s;">
+            <div class="stat">
+              <span class="num">100+</span>
+              <span class="lbl">Marken betreut</span>
+            </div>
+            <span class="sep"></span>
+            <div class="stat">
+              <span class="num">5</span>
+              <span class="lbl">Jahre Amazon Ads</span>
+            </div>
+            <span class="sep"></span>
+            <div class="stat">
+              <span class="num">€1,4M</span>
+              <span class="lbl">verwaltet</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="hero-right">
+          <div class="chart-stack">
+            <div class="chart-head">
+              <div class="title">
+                <span class="dot live"></span><span class="live-txt">LIVE</span>
+                <span>· Account-Übersicht</span>
+              </div>
+              <div class="meta"><b>Mai 2025 – Apr 2026</b></div>
+            </div>
+            <div class="pills" id="pills"></div>
+            <div class="stat-row" id="statRow"></div>
+            <div style="flex: 1; min-height: 240px;"></div>
+          </div>
         </div>
       </div>
     </div>
+
+    <div class="tip" id="tip">
+      <div class="tip-head" id="tipHead">Jul · 2025</div>
+      <div class="tip-rows" id="tipRows"></div>
+    </div>
   </section>
+
+  <!-- Tweak panel -->
+  <div class="tweak" id="tweak">
+    <div class="tweak-panel" id="tweakPanel">
+      <h4>Tweaks</h4>
+      <div class="tweak-row">
+        <div class="tw-label"><span>Animation Speed</span><span class="tw-val" id="spdVal">1.0×</span></div>
+        <input type="range" id="spd" min="0.5" max="2" step="0.1" value="1">
+      </div>
+      <div class="tweak-row">
+        <div class="tw-label"><span>Curve Liveliness</span><span class="tw-val" id="brVal">1.0×</span></div>
+        <input type="range" id="br" min="0" max="2.5" step="0.1" value="1">
+      </div>
+      <div class="tweak-row">
+        <div class="tw-label"><span>Curve Smoothness</span><span class="tw-val" id="smVal">0.7</span></div>
+        <input type="range" id="sm" min="0" max="1" step="0.05" value="0.7">
+      </div>
+      <div class="tweak-row">
+        <div class="tw-label"><span>Chip Frequency</span></div>
+        <div class="seg" id="freq">
+          <button data-f="off">Off</button>
+          <button data-f="low">Low</button>
+          <button data-f="med" class="on">Med</button>
+          <button data-f="high">High</button>
+        </div>
+      </div>
+      <div class="tw-divider"></div>
+      <h4 style="margin-bottom:8px">Color Pool</h4>
+      <div class="color-grid" id="colorGrid">
+        <label class="col-pick"><span class="col-name">Slot 1</span><input type="color" data-slot="0" value="#2d5f3f"></label>
+        <label class="col-pick"><span class="col-name">Slot 2</span><input type="color" data-slot="1" value="#7a4a9c"></label>
+        <label class="col-pick"><span class="col-name">Slot 3</span><input type="color" data-slot="2" value="#c0883e"></label>
+        <label class="col-pick"><span class="col-name">Slot 4</span><input type="color" data-slot="3" value="#3f6ea8"></label>
+      </div>
+      <div class="tw-divider"></div>
+      <div class="tweak-row toggle-row">
+        <span class="tw-label" style="display:inline; padding:0;">Dark mode</span>
+        <span class="switch" id="darkSw"></span>
+      </div>
+    </div>
+    <button class="tweak-toggle" id="tweakBtn" aria-label="Tweaks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.12-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06A2 2 0 1 1 4.13 16.92l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1.03H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.65 8.84a1.7 1.7 0 0 0-.34-1.87l-.06-.06A2 2 0 1 1 7.08 4.08l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1.03-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1.03 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06A2 2 0 1 1 19.83 7.08l-.06.06a1.7 1.7 0 0 0-.34 1.87V9c.21.5.6.91 1.55 1.03H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1.03Z"/>
+      </svg>
+    </button>
+  </div>
 
   <!-- ─── VERTRAUEN ─────────────────────────────────────── -->
   <section class="section-pad" id="vertrauen" data-screen-label="Vertrauen">
@@ -2467,6 +2896,469 @@
   formspree('initForm', { formElement: '#kontakt-form', formId: 'xojbqrad' });
 </script>
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   Hero Chart — canvas 2D PPC performance graph
+   ═══════════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+  const STATIC = new URLSearchParams(location.search).has('pause');
+
+  const MONTHS  = ['Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez', 'Jan', 'Feb', 'Mär', 'Apr'];
+  const YEARS   = ['2025','2025','2025','2025','2025','2025','2025','2025','2026','2026','2026','2026'];
+  const SPEND   = [2500,2550,2600,2700,2750,2800,2600,2900,2700,2500,2400,2300];
+  const AD_REV  = [10200,10800,11300,11900,12100,12600,13520,13920,17010,17750,20160,21160];
+  const TOT_REV = [25500,27000,28300,29800,30200,31500,33800,34800,42500,44400,50400,52900];
+  const IMPR    = [32000,34000,38000,42000,45000,48000,52000,61000,78000,95000,114000,138000];
+  const CLICKS  = [950,1050,1150,1280,1360,1440,1610,1890,2500,3135,3876,4830];
+
+  const div = (a,b) => a.map((v,i) => v/b[i]);
+  const pct = (a,b) => a.map((v,i) => (v/b[i])*100);
+  const cpm = (s,im) => s.map((v,i) => (v/im[i])*1000);
+
+  const ROAS  = div(AD_REV, SPEND);
+  const ACOS  = pct(SPEND, AD_REV);
+  const TACOS = pct(SPEND, TOT_REV);
+  const CTR_V = pct(CLICKS, IMPR);
+  const CPC_V = div(SPEND, CLICKS);
+  const CPM_V = cpm(SPEND, IMPR);
+
+  const METRICS = {
+    revenue: { key:'revenue', label:'Umsatz', short:'Umsatz', type:'line',
+      values:AD_REV, domain:[4000,22500],
+      yTickFmt:v=>'€'+Math.round(v/1000)+'k', tipFmt:v=>'€'+Math.round(v).toLocaleString('de-DE'),
+      pillFmt:v=>'€'+Math.round(v/1000)+'k', statFmt:v=>'€'+Math.round(v).toLocaleString('de-DE'),
+      delta:'▲ +107%', breath:[0.0110,0.0070,0.31], yTicks:3 },
+    roas: { key:'roas', label:'ROAS', short:'ROAS', type:'line',
+      values:ROAS, domain:[1,12],
+      yTickFmt:v=>v.toFixed(0)+'×', tipFmt:v=>v.toFixed(1).replace('.',',')+'×',
+      pillFmt:v=>v.toFixed(1).replace('.',',')+'×', statFmt:v=>v.toFixed(1).replace('.',',')+'×',
+      delta:'▲ +125%', breath:[0.0093,0.0085,1.84], yTicks:3 },
+    acos: { key:'acos', label:'ACoS', short:'ACoS', type:'line',
+      values:ACOS, domain:[1,26],
+      yTickFmt:v=>Math.round(v)+'%', tipFmt:v=>v.toFixed(1).replace('.',',')+'%',
+      pillFmt:v=>v.toFixed(1).replace('.',',')+'%', statFmt:v=>v.toFixed(1).replace('.',',')+'%',
+      delta:'▼ −56%', breath:[0.0127,0.0060,3.21], yTicks:3 },
+    tacos: { key:'tacos', label:'TACoS', short:'TACoS', type:'line',
+      values:TACOS, domain:[0,14],
+      yTickFmt:v=>v.toFixed(0)+'%', tipFmt:v=>v.toFixed(1).replace('.',',')+'%',
+      pillFmt:v=>v.toFixed(1).replace('.',',')+'%', statFmt:v=>v.toFixed(1).replace('.',',')+'%',
+      delta:'▼ −56%', breath:[0.0081,0.0070,5.04], yTicks:3 },
+    spend: { key:'spend', label:'Spend', short:'Spend', type:'line',
+      values:SPEND, domain:[2000,5300],
+      yTickFmt:v=>'€'+(v/1000).toFixed(1).replace('.',',')+'k', tipFmt:v=>'€'+Math.round(v).toLocaleString('de-DE'),
+      pillFmt:v=>'€'+(v/1000).toFixed(1).replace('.',',')+'k', statFmt:v=>'€'+Math.round(v).toLocaleString('de-DE'),
+      delta:'▼ −8%', breath:[0.0100,0.0055,2.41], yTicks:3 },
+    impressions: { key:'impressions', label:'Impressions', short:'Impr.', type:'bar',
+      values:IMPR, domain:[0,180000],
+      yTickFmt:v=>Math.round(v/1000)+'k', tipFmt:v=>Math.round(v).toLocaleString('de-DE'),
+      pillFmt:v=>Math.round(v/1000)+'k', statFmt:v=>Math.round(v/1000).toLocaleString('de-DE')+'k',
+      delta:'▲ +331%', breath:[0.0070,0.0035,0.61], yTicks:3 },
+    ctr: { key:'ctr', label:'CTR', short:'CTR', type:'line',
+      values:CTR_V, domain:[1.5,5.0],
+      yTickFmt:v=>v.toFixed(1).replace('.',',')+'%', tipFmt:v=>v.toFixed(2).replace('.',',')+'%',
+      pillFmt:v=>v.toFixed(1).replace('.',',')+'%', statFmt:v=>v.toFixed(2).replace('.',',')+'%',
+      delta:'▲ +18%', breath:[0.0152,0.0080,4.12], yTicks:3 },
+    cpc: { key:'cpc', label:'CPC', short:'CPC', type:'line',
+      values:CPC_V, domain:[0,3.0],
+      yTickFmt:v=>'€'+v.toFixed(2).replace('.',','), tipFmt:v=>'€'+v.toFixed(2).replace('.',','),
+      pillFmt:v=>'€'+v.toFixed(2).replace('.',','), statFmt:v=>'€'+v.toFixed(2).replace('.',','),
+      delta:'▼ −82%', breath:[0.0115,0.0090,1.07], yTicks:3 },
+    cpm: { key:'cpm', label:'CPM', short:'CPM', type:'line',
+      values:CPM_V, domain:[0,80],
+      yTickFmt:v=>'€'+Math.round(v), tipFmt:v=>'€'+v.toFixed(2).replace('.',','),
+      pillFmt:v=>'€'+Math.round(v), statFmt:v=>'€'+v.toFixed(1).replace('.',','),
+      delta:'▼ −79%', breath:[0.0088,0.0075,2.78], yTicks:3 },
+  };
+  const CHIP_LIB = {
+    revenue:['Umsatz +68 %','€21,2k peak','Q2→Q3 Wachstum'],
+    roas:   ['ROAS 9,2×','+104 % ROAS','Profit-Hebel ↑'],
+    acos:   ['ACoS −51 %','22 → 11 %','Bid-Tuning aktiv'],
+    tacos:  ['TACoS −52 %','8,9 → 4,3 %','Org. Stärke ↑'],
+    spend:  ['Spend −18 %','Effizienz steigt','€2,3k Plan'],
+    impressions:['Impr. +188 %','138k Reichweite','Sichtbarkeit ↑'],
+    ctr:    ['CTR 3,5 %','Creative wirkt','Listing optimiert'],
+    cpc:    ['CPC €0,48','CPC −75 %','Bid-Klarheit'],
+    cpm:    ['CPM €17','CPM −71 %','Reichweite günstig'],
+  };
+
+  const POOL = ['#2d5f3f','#7a4a9c','#c0883e','#3f6ea8'];
+  const DEFAULT_ACTIVE = ['revenue','acos','spend','impressions'];
+  const state = {
+    activeOrder:[...DEFAULT_ACTIVE], activeColors:{}, freeColors:{},
+    displayColor:{}, fade:{},
+    drawStart:0, drawDur:1800, liveT:0, hovered:-1,
+    mouse:{x:-1,y:-1,inside:false}, chips:[], lastChipAt:0,
+    speed:1.0, smoothness:0.7, breathing:1.0, chipFreq:'med', dark:false,
+  };
+  DEFAULT_ACTIVE.forEach((k,i) => { state.activeColors[k]=POOL[i]; state.displayColor[k]=POOL[i]; });
+  Object.keys(METRICS).forEach(k => { state.fade[k]=DEFAULT_ACTIVE.includes(k)?1:0; });
+  // freeColors is a stack
+  state.freeColors = [];
+
+  const FREQ_MAP = {off:Infinity,low:9000,med:5500,high:2800};
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMob = () => window.matchMedia('(max-width: 900px)').matches;
+
+  const hero     = document.getElementById('hero');
+  const canvas   = document.getElementById('chart');
+  const ctx      = canvas.getContext('2d');
+  const chipsLyr = document.getElementById('chips');
+  const tip      = document.getElementById('tip');
+  const tipHead  = document.getElementById('tipHead');
+  const tipRows  = document.getElementById('tipRows');
+  const pillsEl  = document.getElementById('pills');
+  const statRow  = document.getElementById('statRow');
+
+  let cssCache = {};
+  function refreshCssCache() {
+    const cs = getComputedStyle(document.body);
+    cssCache = {
+      gridLine:       cs.getPropertyValue('--grid-line').trim(),
+      inkFaint:       cs.getPropertyValue('--ink-faint').trim(),
+      paperElev:      cs.getPropertyValue('--paper-elev').trim(),
+      hairlineStrong: cs.getPropertyValue('--hairline-strong').trim(),
+    };
+  }
+  function hexA(hex,a) {
+    if (!hex) return 'rgba(0,0,0,'+a+')';
+    if (hex.startsWith('rgb')) return hex;
+    let h = hex.replace('#','');
+    if (h.length===3) h=h.split('').map(c=>c+c).join('');
+    const r=parseInt(h.slice(0,2),16), g=parseInt(h.slice(2,4),16), b=parseInt(h.slice(4,6),16);
+    return 'rgba('+r+','+g+','+b+','+a+')';
+  }
+
+  let dpr=1,W=0,H=0;
+  function resize() {
+    dpr = window.devicePixelRatio||1;
+    const r = hero.getBoundingClientRect();
+    W=r.width; H=r.height;
+    canvas.width=Math.round(W*dpr); canvas.height=Math.round(H*dpr);
+    canvas.style.width=W+'px'; canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  const heroRight = document.querySelector('.hero-right');
+  function bounds() {
+    if (isMob()) {
+      const cvRect = canvas.getBoundingClientRect();
+      const sb = statRow?(statRow.getBoundingClientRect().bottom-cvRect.top):H*0.5;
+      const y0m = sb+22;
+      return {x0:40,x1:W-46,y0:y0m,y1:Math.min(H-48,y0m+230)};
+    }
+    const cvRect = canvas.getBoundingClientRect();
+    const rcRect = heroRight.getBoundingClientRect();
+    const wrapEl = document.querySelector('.hero .wrap');
+    const wrRect = wrapEl.getBoundingClientRect();
+    const rightColLeft = rcRect.left-cvRect.left;
+    const wrapRight = wrRect.right-cvRect.left;
+    const x0 = rightColLeft+12;
+    const x1 = Math.max(x0+240, wrapRight-56, W-80);
+    const statBottom = statRow?(statRow.getBoundingClientRect().bottom-cvRect.top):H*0.44;
+    const y0 = statBottom+28;
+    const y1 = Math.min(H-64, y0+H*0.32);
+    return {x0,x1,y0,y1};
+  }
+  function projectX(i,b) { return b.x0+(i/(MONTHS.length-1))*(b.x1-b.x0); }
+  function projectY(v,dom,b) { return b.y1-((v-dom[0])/(dom[1]-dom[0]))*(b.y1-b.y0); }
+
+  function liveVals(mKey,drawProg) {
+    const M=METRICS[mKey], [f,amp,phase]=M.breath;
+    const breathAmp=(M.domain[1]-M.domain[0])*amp*state.breathing;
+    return M.values.map((v,i)=>{
+      if(drawProg<1||reduced) return v;
+      const a=Math.sin(state.liveT*f+phase+i*0.42)*breathAmp;
+      const b=Math.sin(state.liveT*(f*0.32)+phase*1.7+i*0.18)*breathAmp*0.45;
+      return v+a+b;
+    });
+  }
+  function visibleVals(vals,prog) {
+    if(prog>=1) return vals;
+    const n=vals.length-1, d=prog*n, full=Math.floor(d), frac=d-full;
+    const out=vals.slice(0,full+1);
+    if(full<n){const a=vals[full],c=vals[full+1]; out.push(a+(c-a)*frac);}
+    return out;
+  }
+
+  function curvePath(pts,smooth) {
+    if(pts.length<2) return;
+    ctx.moveTo(pts[0].x,pts[0].y);
+    if(pts.length===2||smooth<=0.01){for(let i=1;i<pts.length;i++) ctx.lineTo(pts[i].x,pts[i].y); return;}
+    const t=smooth*0.5;
+    for(let i=0;i<pts.length-1;i++){
+      const p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+      const c1x=p1.x+(p2.x-p0.x)*t/1.5, c1y=p1.y+(p2.y-p0.y)*t/1.5;
+      const c2x=p2.x-(p3.x-p1.x)*t/1.5, c2y=p2.y-(p3.y-p1.y)*t/1.5;
+      ctx.bezierCurveTo(c1x,c1y,c2x,c2y,p2.x,p2.y);
+    }
+  }
+
+  function drawGrid(b) {
+    ctx.save(); ctx.strokeStyle=cssCache.gridLine; ctx.lineWidth=1;
+    for(let i=0;i<=4;i++){const y=b.y0+(i/4)*(b.y1-b.y0); ctx.beginPath(); ctx.moveTo(b.x0,y); ctx.lineTo(b.x1,y); ctx.stroke();}
+    ctx.fillStyle=cssCache.inkFaint; ctx.textAlign='center'; ctx.textBaseline='top';
+    ctx.font='500 11px Inter, sans-serif';
+    const every=isMob()?2:1;
+    MONTHS.forEach((m,i)=>{
+      if(i%every!==0&&i!==MONTHS.length-1) return;
+      ctx.fillText(m+" '"+YEARS[i].slice(2), projectX(i,b), b.y1+12);
+    });
+    ctx.restore();
+  }
+
+  function roundRect(c,x,y,w,h,tl,tr,br,bl){
+    c.beginPath(); c.moveTo(x+tl,y); c.lineTo(x+w-tr,y); c.quadraticCurveTo(x+w,y,x+w,y+tr);
+    c.lineTo(x+w,y+h-br); c.quadraticCurveTo(x+w,y+h,x+w-br,y+h);
+    c.lineTo(x+bl,y+h); c.quadraticCurveTo(x,y+h,x,y+h-bl);
+    c.lineTo(x,y+tl); c.quadraticCurveTo(x,y,x+tl,y);
+  }
+
+  function drawBars(b,M,mKey,alpha,drawProg) {
+    const vals=visibleVals(liveVals(mKey,drawProg),drawProg);
+    if(!vals.length) return;
+    const step=(b.x1-b.x0)/(MONTHS.length-1), barW=Math.min(step*0.42,42);
+    const color=state.displayColor[mKey]||'#888';
+    ctx.save();
+    for(let i=0;i<vals.length;i++){
+      const v=vals[i], x=projectX(i,b), y=projectY(v,M.domain,b), h2=b.y1-y, r=Math.min(5,barW/2);
+      const grad=ctx.createLinearGradient(0,y,0,b.y1);
+      grad.addColorStop(0,hexA(color,0.30*alpha)); grad.addColorStop(1,hexA(color,0.08*alpha));
+      ctx.fillStyle=grad; ctx.beginPath(); roundRect(ctx,x-barW/2,y,barW,h2,r,r,0,0); ctx.fill();
+      ctx.strokeStyle=hexA(color,0.55*alpha); ctx.lineWidth=1.3;
+      ctx.beginPath(); ctx.moveTo(x-barW/2+r,y); ctx.lineTo(x+barW/2-r,y); ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  function drawPoint(p,hex,alpha,isHovered,idx){
+    const pulse=reduced?1:1+Math.sin(state.liveT*0.04+idx*1.2)*0.10, baseR=3.2*pulse;
+    if(isHovered){
+      const phase=(state.liveT%70)/70, ringR=10+phase*20, ringA=(1-phase)*0.5*alpha;
+      ctx.save(); ctx.beginPath(); ctx.arc(p.x,p.y,ringR,0,Math.PI*2);
+      ctx.strokeStyle=hexA(hex,ringA); ctx.lineWidth=1.5; ctx.stroke(); ctx.restore();
+      ctx.save(); ctx.beginPath(); ctx.arc(p.x,p.y,14,0,Math.PI*2);
+      ctx.fillStyle=hexA(hex,0.14*alpha); ctx.fill(); ctx.restore();
+    }
+    ctx.save(); ctx.beginPath(); ctx.arc(p.x,p.y,baseR+3,0,Math.PI*2);
+    ctx.fillStyle=hexA(hex,0.18*alpha); ctx.fill(); ctx.restore();
+    ctx.save(); ctx.beginPath(); ctx.arc(p.x,p.y,isHovered?baseR+1.4:baseR,0,Math.PI*2);
+    ctx.fillStyle=hexA(hex,alpha); ctx.fill(); ctx.restore();
+    ctx.save(); ctx.beginPath(); ctx.arc(p.x,p.y,(isHovered?baseR+1.4:baseR)*0.42,0,Math.PI*2);
+    ctx.fillStyle=hexA(cssCache.paperElev||'#fff',alpha); ctx.fill(); ctx.restore();
+  }
+
+  function drawLine(b,M,mKey,alpha,drawProg){
+    const live=liveVals(mKey,drawProg), vals=visibleVals(live,drawProg);
+    const pts=vals.map((v,i)=>({x:projectX(i,b),y:projectY(v,M.domain,b)}));
+    if(pts.length<2) return null;
+    const color=state.displayColor[mKey]||'#888';
+    const grad=ctx.createLinearGradient(0,b.y0,0,b.y1);
+    grad.addColorStop(0,hexA(color,0.15*alpha)); grad.addColorStop(1,hexA(color,0.00));
+    ctx.save(); ctx.beginPath(); curvePath(pts,state.smoothness);
+    ctx.lineTo(pts[pts.length-1].x,b.y1); ctx.lineTo(pts[0].x,b.y1); ctx.closePath();
+    ctx.fillStyle=grad; ctx.fill(); ctx.restore();
+    ctx.save(); ctx.beginPath(); curvePath(pts,state.smoothness);
+    ctx.strokeStyle=hexA(color,0.95*alpha); ctx.lineWidth=2.4;
+    ctx.lineCap='round'; ctx.lineJoin='round'; ctx.stroke(); ctx.restore();
+    if(drawProg>=1){
+      for(let i=0;i<pts.length;i++) drawPoint(pts[i],color,alpha,state.hovered===i,i);
+    } else {
+      const fc=Math.min(pts.length,Math.floor(drawProg*(MONTHS.length-1))+1);
+      for(let i=0;i<fc;i++) drawPoint(pts[i],color,alpha,false,i);
+    }
+    return {pts,live};
+  }
+
+  function drawHoverGuide(b,x){
+    ctx.save(); ctx.strokeStyle=cssCache.hairlineStrong; ctx.setLineDash([3,4]);
+    ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(x,b.y0); ctx.lineTo(x,b.y1); ctx.stroke(); ctx.restore();
+  }
+
+  function stepFades(dt){
+    Object.keys(METRICS).forEach(k=>{
+      const target=state.activeOrder.includes(k)?1:0, cur=state.fade[k];
+      if(Math.abs(target-cur)<0.001){state.fade[k]=target;return;}
+      state.fade[k]=cur+(target-cur)*(1-Math.exp(-dt/280));
+    });
+  }
+
+  let lastNow=0;
+  function render(now){
+    if(!state.drawStart) state.drawStart=now;
+    if(!lastNow) lastNow=now;
+    const dtMs=Math.min(64,now-lastNow); lastNow=now;
+    const drawProg=reduced?1:Math.min(1,(now-state.drawStart)/state.drawDur);
+    state.liveT+=state.speed*(dtMs/16.67);
+    stepFades(dtMs);
+    ctx.clearRect(0,0,W,H);
+    const b=bounds();
+    drawGrid(b);
+    Object.keys(METRICS).forEach(k=>{
+      if(METRICS[k].type!=='bar') return;
+      const f=state.fade[k]; if(f>0.005) drawBars(b,METRICS[k],k,f,drawProg);
+    });
+    const lineRes={};
+    Object.keys(METRICS).forEach(k=>{
+      if(METRICS[k].type!=='line') return;
+      if(state.activeOrder.includes(k)) return;
+      const f=state.fade[k]; if(f>0.005) lineRes[k]=drawLine(b,METRICS[k],k,f,drawProg);
+    });
+    state.activeOrder.forEach(k=>{
+      if(METRICS[k].type!=='line') return;
+      const f=state.fade[k]; if(f>0.005) lineRes[k]=drawLine(b,METRICS[k],k,f,drawProg);
+    });
+    if(drawProg>=1&&state.hovered>=0&&state.mouse.inside){
+      drawHoverGuide(b,projectX(state.hovered,b));
+      updateTooltip(b,lineRes);
+    } else { tip.classList.remove('on'); }
+    if(drawProg>=1&&!isMob()) maybeEmitChip(now,b);
+  }
+
+  function updateTooltip(b,lineRes){
+    const i=state.hovered;
+    tipHead.textContent=MONTHS[i]+' · '+YEARS[i];
+    let html='';
+    state.activeOrder.forEach(k=>{
+      const M=METRICS[k]; let v;
+      if(M.type==='bar') v=liveVals(k,1)[i];
+      else if(lineRes[k]) v=lineRes[k].live[i];
+      else v=M.values[i];
+      const color=state.displayColor[k];
+      html+=`<div class="tip-line" style="--row-color:${color}"><span class="left"><span class="sw"></span>${M.short}</span><span class="v">${M.tipFmt(v)}</span></div>`;
+    });
+    tipRows.innerHTML=html;
+    const rect=canvas.getBoundingClientRect();
+    tip.style.left=Math.max(110,Math.min(window.innerWidth-110,rect.left+projectX(i,b)))+'px';
+    tip.style.top=Math.max(150,rect.top+b.y0)+'px';
+    tip.classList.add('on');
+  }
+
+  function maybeEmitChip(now,b){
+    const interval=FREQ_MAP[state.chipFreq];
+    if(!isFinite(interval)||now-state.lastChipAt<interval) return;
+    state.lastChipAt=now;
+    const actives=state.activeOrder.slice(); if(!actives.length) return;
+    const k=actives[Math.floor(Math.random()*actives.length)];
+    const M=METRICS[k];
+    const i=2+Math.floor(Math.random()*(MONTHS.length-2));
+    const live=liveVals(k,1), px=projectX(i,b), py=projectY(live[i],M.domain,b);
+    if(px<b.x0-10) return;
+    const text=CHIP_LIB[k][Math.floor(Math.random()*CHIP_LIB[k].length)];
+    const el=document.createElement('div');
+    el.className='chip'; el.textContent=text;
+    el.style.setProperty('--metric-color',state.displayColor[k]);
+    const rect=hero.getBoundingClientRect(), cvRect=canvas.getBoundingClientRect();
+    const rawLeft=cvRect.left-rect.left+px;
+    el.style.left=rawLeft+'px'; el.style.top=(cvRect.top-rect.top+py-18)+'px';
+    chipsLyr.appendChild(el);
+    const halfW=el.offsetWidth/2, base=cvRect.left-rect.left;
+    el.style.left=Math.max(base+b.x0+halfW,Math.min(base+b.x1-halfW,rawLeft))+'px';
+    requestAnimationFrame(()=>{
+      el.style.transition='opacity 0.5s ease, transform 5.6s linear';
+      el.style.opacity=0.78; el.style.transform='translate(-50%,-50%) translateY(-58px)';
+    });
+    setTimeout(()=>{ el.style.transition='opacity 0.8s ease, transform 5.6s linear'; el.style.opacity=0; },3800);
+    setTimeout(()=>{ if(el.parentNode) el.parentNode.removeChild(el); },4800);
+  }
+
+  function toggleMetric(k){
+    const idx=state.activeOrder.indexOf(k);
+    if(idx>=0){
+      if(state.activeOrder.length<=1) return;
+      const color=state.activeColors[k]; delete state.activeColors[k];
+      state.activeOrder.splice(idx,1); state.freeColors.push(color);
+    } else {
+      if(state.activeOrder.length>=4) return;
+      const newColor=state.freeColors.pop()||POOL[0];
+      state.activeColors[k]=newColor; state.displayColor[k]=newColor;
+      state.activeOrder.push(k);
+    }
+    syncPillUI(); syncStatRowUI();
+  }
+
+  function buildPills(){
+    const order=['revenue','acos','roas','tacos','spend','impressions','ctr','cpc','cpm'];
+    pillsEl.innerHTML=order.map(k=>{
+      const M=METRICS[k];
+      return `<button class="pill" data-metric="${k}"><span class="swatch"></span><span>${M.short}</span><span class="pill-val" data-pv="${k}">${M.pillFmt(M.values[M.values.length-1])}</span></button>`;
+    }).join('');
+    pillsEl.addEventListener('click',e=>{
+      const p=e.target.closest('.pill'); if(!p||p.classList.contains('disabled')) return;
+      toggleMetric(p.dataset.metric);
+    });
+  }
+  function syncPillUI(){
+    const atLimit=state.activeOrder.length>=4;
+    document.querySelectorAll('.pill').forEach(p=>{
+      const k=p.dataset.metric, on=state.activeOrder.includes(k);
+      p.classList.toggle('on',on); p.classList.toggle('disabled',atLimit&&!on);
+      if(on) p.style.setProperty('--metric-color',state.activeColors[k]);
+      else p.style.removeProperty('--metric-color');
+    });
+  }
+  function syncStatRowUI(){
+    statRow.innerHTML=state.activeOrder.map(k=>{
+      const M=METRICS[k], v=M.values[M.values.length-1], color=state.activeColors[k];
+      return `<div class="stat-cell" style="--metric-color:${color}"><div class="big"><span>${M.statFmt(v)}</span></div><div class="micro"><span class="sw"></span>${M.short}<span class="dl">${M.delta}</span></div></div>`;
+    }).join('');
+  }
+
+  function onMove(e){
+    const r=canvas.getBoundingClientRect();
+    state.mouse.x=e.clientX-r.left; state.mouse.y=e.clientY-r.top;
+    const b=bounds();
+    if(state.mouse.x<b.x0-12||state.mouse.x>b.x1+16||state.mouse.y<b.y0-30||state.mouse.y>b.y1+40){
+      state.mouse.inside=false; state.hovered=-1; return;
+    }
+    state.mouse.inside=true;
+    state.hovered=Math.max(0,Math.min(MONTHS.length-1,Math.round(((state.mouse.x-b.x0)/(b.x1-b.x0))*(MONTHS.length-1))));
+  }
+  function onLeave(){ state.mouse.inside=false; state.hovered=-1; tip.classList.remove('on'); }
+  hero.addEventListener('mousemove',onMove);
+  hero.addEventListener('mouseleave',onLeave);
+  hero.addEventListener('touchstart',e=>{ if(e.touches.length) onMove({clientX:e.touches[0].clientX,clientY:e.touches[0].clientY}); },{passive:true});
+  hero.addEventListener('touchmove',e=>{ if(e.touches.length) onMove({clientX:e.touches[0].clientX,clientY:e.touches[0].clientY}); },{passive:true});
+
+  const tweak=document.getElementById('tweak');
+  document.getElementById('tweakBtn').addEventListener('click',e=>{ e.stopPropagation(); tweak.classList.toggle('open'); });
+  document.getElementById('spd').addEventListener('input',e=>{ state.speed=parseFloat(e.target.value); document.getElementById('spdVal').textContent=state.speed.toFixed(1)+'×'; });
+  document.getElementById('sm').addEventListener('input',e=>{ state.smoothness=parseFloat(e.target.value); document.getElementById('smVal').textContent=state.smoothness.toFixed(2); });
+  document.getElementById('br').addEventListener('input',e=>{ state.breathing=parseFloat(e.target.value); document.getElementById('brVal').textContent=state.breathing.toFixed(1)+'×'; });
+  document.getElementById('freq').addEventListener('click',e=>{
+    const btn=e.target.closest('button'); if(!btn) return;
+    document.querySelectorAll('#freq button').forEach(x=>x.classList.remove('on'));
+    btn.classList.add('on'); state.chipFreq=btn.dataset.f; state.lastChipAt=performance.now()-4000;
+  });
+  document.getElementById('colorGrid').addEventListener('input',e=>{
+    const inp=e.target.closest('input[type="color"]'); if(!inp) return;
+    const slot=parseInt(inp.dataset.slot,10), oldColor=POOL[slot]; POOL[slot]=inp.value;
+    Object.keys(state.activeColors).forEach(k=>{ if(state.activeColors[k]===oldColor){state.activeColors[k]=inp.value; state.displayColor[k]=inp.value;} });
+    state.freeColors=state.freeColors.map(c=>c===oldColor?inp.value:c);
+    syncPillUI(); syncStatRowUI();
+  });
+  const darkSw=document.getElementById('darkSw');
+  darkSw.addEventListener('click',()=>{ state.dark=!state.dark; document.body.classList.toggle('dark',state.dark); refreshCssCache(); darkSw.classList.toggle('on',state.dark); });
+  document.addEventListener('click',e=>{ if(!tweak.contains(e.target)&&tweak.classList.contains('open')) tweak.classList.remove('open'); });
+
+  let raf=null, active=true;
+  function tick(now){ if(!active) return; render(now); raf=requestAnimationFrame(tick); }
+  document.addEventListener('visibilitychange',()=>{
+    active=!document.hidden;
+    if(active&&!raf){lastNow=0; raf=requestAnimationFrame(tick);}
+  });
+
+  refreshCssCache(); buildPills(); syncPillUI(); syncStatRowUI();
+  new ResizeObserver(()=>resize()).observe(hero);
+  resize();
+  if(STATIC){
+    state.drawDur=0; state.drawStart=performance.now()-99999; render(performance.now());
+  } else {
+    state.drawStart=0; raf=requestAnimationFrame(tick);
+  }
+})();
+</script>
 
 </body>
 </html>
