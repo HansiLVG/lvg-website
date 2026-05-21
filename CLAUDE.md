@@ -38,6 +38,25 @@ Claude Code/
     └── zertifikat-amazon-marketing-cloud.pdf  ← Zertifikats-PDF (nicht verlinkt, nur als Backup)
 ```
 
+## Persona & Kommunikation
+
+**Single Source of Truth → Notion „🎯 Persona & Kommunikation"** (im Workspace).
+Vor jeder Kommunikation im Namen von LVG (Texte, Mails, Newsletter, Outreach, Automatisierungen) gelten diese Regeln.
+
+**Zielgruppe (Kurz):** Inhaber:innen etablierter Amazon-**Eigenmarken**, DACH, 1–3 Mio. € Umsatz, 3.000–25.000 €/Monat Ad-Spend. Frustriert von Agentur-Fließband. NICHT: Reseller/Dropshipper, Budgets < 1.500 €, „mach mal billig".
+
+**Ansprache:**
+- Website/Marketing → **Du** (nahbar)
+- Erstkontakt mit Unbekannten → **Sie** (Höflichkeitsform hat Vorrang)
+- Nach dem Kennenlerngespräch → **Du** (wird aktiv geklärt, ~99 % nehmen an)
+- Besteht jemand auf Sie → beim Sie bleiben
+
+**Tonalität:** Erst Empathie, dann Sache. Ehrlich (auch unbequem). Holistisch (Listing + Bild + A+ + CTR/CVR + Wettbewerb gehören zusammen). Fachbegriffe ok, aber Erklärung anbieten. Fokus statt Fließband.
+
+**Schreibstil:** Ich-Perspektive mit Haltung, Klammer-Einschübe als Asides, Bindestriche (-) statt Gedankenstriche, „also:"/„Klar, …"/„Natürlich …", Idiome („wo der Schuh drückt"). Menschlich-unperfekt statt hochglanz.
+
+**NIE:** KI-Floskeln/Buzzword-Ketten („sauber, vollständig, nachhaltig, datengetrieben"), Passivketten, Verkaufsdruck, leere Versprechen, **Gedankenstriche (—)** (klassisches KI-Indiz).
+
 ## Design-Prinzipien (Kurzfassung)
 
 **Vollständige Spezifikation → [`DESIGN-SYSTEM.md`](DESIGN-SYSTEM.md)**
