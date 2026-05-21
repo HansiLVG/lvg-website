@@ -53,9 +53,9 @@ Vor jeder Kommunikation im Namen von LVG (Texte, Mails, Newsletter, Outreach, Au
 
 **Tonalität:** Erst Empathie, dann Sache. Ehrlich (auch unbequem). Holistisch (Listing + Bild + A+ + CTR/CVR + Wettbewerb gehören zusammen). Fachbegriffe ok, aber Erklärung anbieten. Fokus statt Fließband.
 
-**Schreibstil:** Ich-Perspektive mit Haltung, Klammer-Einschübe als Asides, Gedankenstriche, „also:"/„Klar, …"/„Natürlich …", Idiome („wo der Schuh drückt"). Menschlich-unperfekt statt hochglanz.
+**Schreibstil:** Ich-Perspektive mit Haltung, Klammer-Einschübe als Asides, Bindestriche (-) statt Gedankenstriche, „also:"/„Klar, …"/„Natürlich …", Idiome („wo der Schuh drückt"). Menschlich-unperfekt statt hochglanz.
 
-**NIE:** KI-Floskeln/Buzzword-Ketten („sauber, vollständig, nachhaltig, datengetrieben"), Passivketten, Verkaufsdruck, leere Versprechen.
+**NIE:** KI-Floskeln/Buzzword-Ketten („sauber, vollständig, nachhaltig, datengetrieben"), Passivketten, Verkaufsdruck, leere Versprechen, **Gedankenstriche (—)** (klassisches KI-Indiz).
 
 ## Design-Prinzipien (Kurzfassung)
 
