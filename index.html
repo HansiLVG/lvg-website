@@ -1316,11 +1316,10 @@
   @media (max-width: 900px) {
     :root { --pad-x: 28px; }
     .section-pad { padding: 80px 0; }
-    .hero { padding: 96px 0 72px; }
+    .hero { padding: 96px 0 72px; align-items: flex-start; }
     .hero-grid { grid-template-columns: 1fr; gap: 36px; }
     .hero-right { text-align: left; align-items: flex-start; padding-top: 12px; align-self: auto; transform: none; }
-    .scroll-cue { bottom: 24px; font-size: 9px; }
-    .scroll-cue .cue-line { height: 28px; }
+    .scroll-cue { display: none; }
     .hero-sub { max-width: 100%; }
     .hero-buttons { justify-content: flex-start; }
     .hero h1 { font-size: clamp(40px, 11vw, 56px); }
