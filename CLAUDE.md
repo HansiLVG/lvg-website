@@ -64,6 +64,16 @@ Claude Code/
 |---|---|---|---|
 | 96 / 74 | 100 / 100 | 100 / 100 | 100 / 100 |
 
+> Stand vor der Kernsanierung. Nach den Mai-2026-Änderungen (Rechner, neue Sektionen) Lighthouse + PageSpeed neu prüfen.
+
+### Kernsanierung Mai 2026 (Commits 31c0585 → 3620b17)
+Vollständiger Conversion-/SEO-/Psychologie-Umbau auf Basis des Second-Brain-Wissens:
+- **URL-Struktur:** Leistungsseiten sind jetzt Keyword-Ordner-URLs (`/amazon-ppc-audit/`, `/amazon-ppc-management/`, `/amazon-ppc-strategie/`). Alte `.html`-Dateien sind noindex meta-refresh **Redirects**. Asset-Pfade in den Ordnerdateien absolut (`/assets/...`).
+- **SEO:** Title/Meta/H1/H2 keyword- und CTA-optimiert; "Dein Budget verdient"-H2-Schema aufgelöst; Nav um "Preise" ergänzt; sitemap.xml + JSON-LD auf neue URLs; ItemList-Schema für Case Studies.
+- **Homepage:** Loss-Frame-Hero + Knappheit, **ACOS-Rechner als Lead-Magnet** (Live-Berechnung + E-Mail-Capture, Mailchimp-Platzhalter `data-mailchimp-endpoint`), Cost of Inaction, Rufus-Hook, **Freelancer-vs-Agentur-Sektion**, Case Studies (STAR) direkt nach Leistungen, Cert als **statische Karten** (inkl. AMC), Ablauf 30/60/90 + QBR, P&L-Positionierung, FAQ nach Einwandbehandlung (8 Fragen).
+- **Leistungsseiten:** 4-Layer-Audit-Framework + SQP, Flywheel/TACOS/Looker/Events/AMC/KI-Tools, Rufus-Readiness + Honeymoon-Period. Alle > 500 Wörter.
+- **Preisseite:** Decoy-Reihenfolge (Scale → Growth → Starter), Competitor-Anchoring, ROI-Rechnung, Umlaut-Fix.
+
 ### Was implementiert ist
 - **Hero:** Animierter Canvas-2D-PPC-Performancegraph (9 Metriken, 12 Monate, Breathing, Floating Chips, Hover-Tooltip, Metric-Pills, Tweak-Panel) — Natur-Foto-Hero ersetzt. Commit: `a017fb0`
 - Vollständige Website: Startseite + 3 Leistungsseiten + Impressum + Datenschutz + 404
@@ -99,9 +109,12 @@ Keine aktiven Feature-Branches. `feature/hero-data-viz` wurde in `main` gemergt 
 
 ### Offene TODOs
 - [ ] **404.html** als Custom-Error-Page beim Hoster eintragen
-- [ ] **Zertifikats-Badges** auf `index.html` — Akkordeon-Cards (text-only) sind als Platzhalter eingebaut. Badge-Bilder liegen in assets/ bereit (`badge-sponsored-ads.avif`, `badge-marketing-cloud.png`), werden aber erst eingebaut wenn bessere/offizielle Bilder gefunden wurden. PDFs nicht verlinkt (Datenschutz). Credly nicht verfügbar (kein Zugriff auf alten Arbeitgeber-Account).
-- [ ] **Newsletter / E-Mail-Automation** — Brevo (brevo.com, kostenlos bis 300 Mails/Tag, EU-Server). Signup-Formular als neue Section einbauen, Double Opt-In in Brevo aktivieren, automatisierte Welcome-Sequenz aufbauen. **Datenschutzerklärung muss dann um Brevo-Abschnitt ergänzt werden.**
-- [ ] **PageSpeed Insights** prüfen — Site ist live unter lvg-ppc.de, reale Core Web Vitals jetzt messbar.
+- [ ] **Lead-Magnet scharfschalten** (Notion-Task 25.05.) — ACOS-Rechner + E-Mail-Formular sind gebaut. Offen: Mailchimp einrichten, Form-Action in `data-mailchimp-endpoint` (in `index.html`, `#leadmagnet-form`) eintragen, Checkliste-PDF "7 Amazon PPC-Fehler", 5-Mail-Nurture-Sequenz, **Datenschutz um Mailchimp-Abschnitt ergänzen**.
+- [ ] **Zertifikats-Badge-Bilder** — Cert sind jetzt sichtbare statische Karten (text-only). Badge-Bilder (`badge-sponsored-ads.avif`, `badge-marketing-cloud.png`) erst einbauen, wenn offizielle Bilder vorliegen. PDFs nicht verlinkt (Datenschutz).
+- [ ] **PageSpeed / Lighthouse neu prüfen** nach Kernsanierung (Rechner + neue Sektionen). Mobile war 74.
+- [ ] **GSC:** neue Ordner-URLs einreichen, alte URLs werden per Redirect übernommen.
+- [ ] **WCAG-Kontrast** für `--ink-muted`/`--ink-soft` auf `--paper` gegenchecken (Ziel 4,5:1).
+- [ ] **Blog (Phase 5, ab Monat 2):** BOFU-Artikel Freelancer-vs-Agentur, Audit-Kosten, ACOS senken.
 
 ## Technische Besonderheiten
 
