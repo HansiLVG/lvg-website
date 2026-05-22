@@ -82,6 +82,7 @@
     --border-strong: rgba(250, 250, 250, 0.18);
   }
   body.dark nav.nav { background: rgba(10, 10, 10, 0.88); }
+  body.dark .hero-right { box-shadow: 0 4px 32px -8px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(250,250,250,0.04); }
   body.dark .noise { mix-blend-mode: screen; }
   body.dark .btn-secondary { border-color: rgba(250, 250, 250, 0.45); }
   body.dark .wave-bg path { stroke: rgba(250, 250, 250, 0.04) !important; }
@@ -408,7 +409,7 @@
   .canvas-layer {
     position: absolute;
     inset: 0;
-    z-index: 0;
+    z-index: 1;
     pointer-events: none;
   }
   .canvas-layer canvas {
@@ -417,7 +418,7 @@
     width: 100%;
     height: 100%;
     display: block;
-    pointer-events: auto;
+    pointer-events: none;
   }
   .hero .wrap { width: 100%; max-width: 1600px; }
   @media (min-width: 1921px) {
@@ -439,10 +440,14 @@
   .hero-right {
     position: relative;
     min-width: 0;
-    align-self: stretch;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: var(--paper-elev);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 18px;
+    padding: 22px 26px;
+    box-shadow: 0 4px 32px -10px rgba(10,10,10,0.10), 0 1px 3px rgba(10,10,10,0.04);
   }
   .label .dot, .chart-head .title .dot {
     width: 6px; height: 6px; border-radius: 50%;
@@ -538,10 +543,6 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding-left: 8px;
-    padding-right: 0;
-    flex: 1;
-    min-height: 0;
   }
   .chart-head {
     display: flex;
@@ -1677,10 +1678,9 @@
     .hero-buttons { justify-content: flex-start; }
     .trust-row { gap: 14px; }
     .trust-row .stat .num { font-size: 24px; }
-    .hero-right { min-height: 360px; }
+    .hero-right { min-height: 360px; border-radius: 14px; padding: 16px 18px; }
     .stat-cell .big { font-size: 22px; }
     .chips-layer { display: none; }
-    .chart-stack { padding-left: 0; padding-right: 0; }
     .pills { gap: 5px; }
     .pill { font-size: 11.5px; padding: 6px 10px 6px 9px; }
     .stats { grid-template-columns: 1fr; }
@@ -2384,7 +2384,7 @@
             </div>
             <div class="pills" id="pills"></div>
             <div class="stat-row" id="statRow"></div>
-            <div style="flex: 1; min-height: 240px;"></div>
+            <div style="height: clamp(260px, 32vh, 420px);"></div>
           </div>
           <!-- Tweak panel — anchored to chart panel top-right -->
           <div class="tweak" id="tweak">
@@ -3839,15 +3839,16 @@
   function drawBars(b,M,mKey,alpha,drawProg) {
     const vals=visibleVals(liveVals(mKey,drawProg),drawProg);
     if(!vals.length) return;
-    const step=(b.x1-b.x0)/(MONTHS.length-1), barW=Math.min(step*0.42,42);
+    const step=(b.x1-b.x0)/(MONTHS.length-1), barW=Math.min(step*0.36,34);
     const color=state.displayColor[mKey]||'#888';
     ctx.save();
+    ctx.beginPath(); ctx.rect(b.x0,b.y0,b.x1-b.x0,b.y1-b.y0); ctx.clip();
     for(let i=0;i<vals.length;i++){
-      const v=vals[i], x=projectX(i,b), y=projectY(v,M.domain,b), h2=b.y1-y, r=Math.min(5,barW/2);
+      const v=vals[i], x=projectX(i,b), y=projectY(v,M.domain,b), h2=b.y1-y, r=Math.min(4,barW/2);
       const grad=ctx.createLinearGradient(0,y,0,b.y1);
-      grad.addColorStop(0,hexA(color,0.30*alpha)); grad.addColorStop(1,hexA(color,0.08*alpha));
+      grad.addColorStop(0,hexA(color,0.22*alpha)); grad.addColorStop(1,hexA(color,0.04*alpha));
       ctx.fillStyle=grad; ctx.beginPath(); roundRect(ctx,x-barW/2,y,barW,h2,r,r,0,0); ctx.fill();
-      ctx.strokeStyle=hexA(color,0.55*alpha); ctx.lineWidth=1.3;
+      ctx.strokeStyle=hexA(color,0.48*alpha); ctx.lineWidth=1.2;
       ctx.beginPath(); ctx.moveTo(x-barW/2+r,y); ctx.lineTo(x+barW/2-r,y); ctx.stroke();
     }
     ctx.restore();
