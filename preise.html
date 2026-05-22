@@ -493,6 +493,16 @@
     background: var(--ink);
     border-color: var(--ink);
   }
+  .card-roi {
+    background: var(--accent-glow);
+    border-radius: 3px;
+    padding: 14px 16px;
+    margin-top: 20px;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
 
   /* ─── One-time services ──────────────────────────────── */
   .onetime-grid {
@@ -865,11 +875,12 @@
   <div class="nav-inner">
     <a class="brand" href="index.html">Leon-Vincent Gamradt</a>
     <div class="nav-links">
-      <a href="account-audit.html">Account-Audit</a>
-      <a href="strategie-aufbau.html">Strategie-Aufbau</a>
-      <a href="kampagnen-management.html">Kampagnen-Management</a>
+      <a href="/amazon-ppc-audit/">Account-Audit</a>
+      <a href="/amazon-ppc-strategie/">Strategie-Aufbau</a>
+      <a href="/amazon-ppc-management/">Kampagnen-Management</a>
       <a href="ueber-mich.html">Über mich</a>
       <a href="faq.html">FAQ</a>
+      <a href="preise.html" class="is-active" aria-current="page">Preise</a>
     </div>
     <div class="nav-right">
       <a class="cta-link" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Gespräch buchen</a>
@@ -881,12 +892,13 @@
   <div class="nav-mobile-wrap" aria-hidden="true">
     <div class="nav-mobile-inner">
       <div class="nav-mobile-links">
-        <a href="account-audit.html">Account-Audit</a>
-        <a href="strategie-aufbau.html">Strategie-Aufbau</a>
-        <a href="kampagnen-management.html">Kampagnen-Management</a>
+        <a href="/amazon-ppc-audit/">Account-Audit</a>
+        <a href="/amazon-ppc-strategie/">Strategie-Aufbau</a>
+        <a href="/amazon-ppc-management/">Kampagnen-Management</a>
         <div class="nav-mobile-divider"></div>
         <a href="ueber-mich.html">Über mich</a>
         <a href="faq.html">FAQ</a>
+      <a href="preise.html" class="is-active" aria-current="page">Preise</a>
         <div class="nav-mobile-divider"></div>
         <a class="nav-mobile-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Gespräch buchen →</a>
       </div>
@@ -907,7 +919,7 @@
       <p class="page-lede reveal" style="--reveal-delay: 0.20s;">
         Kein Stundensatz, keine Agentur-Overhead-Aufschläge.
         Der Preis richtet sich nach dem Wert, den gute PPC-Arbeit
-        fur Deinen Account schafft — und nach Deinem Budget als Ausgangspunkt.
+        für Deinen Account schafft — und nach Deinem Budget als Ausgangspunkt.
       </p>
     </div>
   </section>
@@ -923,68 +935,22 @@
       <div class="section-head reveal" style="--reveal-delay: 0.08s;">
         <h2>Retainer-Pakete</h2>
         <p>
-          Drei klar abgegrenzte Pakete. Wähle das, das zu Deinem
-          aktuellen Werbebudget und Betreuungsbedarf passt.
-          Alle Pakete: <strong style="color: var(--ink);">3 Monate Mindestlaufzeit</strong>,
+          Zum Einordnen: Vergleichbare Agentur-Betreuung kostet meist
+          <strong style="color: var(--ink);">3.500 bis 8.000 EUR im Monat</strong>,
+          oft mit Junior und Account-Manager dazwischen. Meine Pakete starten
+          deutlich darunter, bei direkter Betreuung durch mich. Alle Pakete:
+          <strong style="color: var(--ink);">3 Monate Mindestlaufzeit</strong>,
           danach monatlich mit 4 Wochen Frist kündbar.
         </p>
       </div>
 
       <div class="pricing-grid">
 
-        <!-- Starter -->
+        <!-- Scale -->
         <div class="pricing-card reveal" style="--reveal-delay: 0.12s;">
           <div class="card-badge-placeholder"></div>
-          <h3 class="card-name">Starter</h3>
-          <p class="card-tagline">Fur Accounts mit solidem Fundament — klare Optimierung, ohne Overengineering.</p>
-          <div class="card-price">
-            <span class="price-ab">ab</span>
-            <span class="price-amount">1.200</span>
-            <span class="price-unit">EUR / Monat</span>
-          </div>
-          <p class="price-note">zzgl. 19% MwSt. · ab 3 Monate</p>
-          <div class="card-divider"></div>
-          <ul class="card-features">
-            <li><span class="feat-tri" aria-hidden="true"></span><span>Bis <strong>8.000 EUR</strong> monatlicher Ad Spend</span></li>
-            <li><span class="feat-tri" aria-hidden="true"></span><span><strong>1 Marktplatz</strong> (DE oder AT/CH)</span></li>
-            <li><span class="feat-tri" aria-hidden="true"></span><span>Sponsored Products &amp; Sponsored Brands</span></li>
-            <li><span class="feat-tri" aria-hidden="true"></span><span>Wöchentliche Bid- &amp; Keyword-Optimierung</span></li>
-            <li><span class="feat-tri" aria-hidden="true"></span><span>Monatlicher Report + 30-Min-Call</span></li>
-            <li><span class="feat-tri" aria-hidden="true"></span><span>Onboarding Quick-Audit inklusive</span></li>
-          </ul>
-          <a class="card-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Erstgespräch buchen</a>
-        </div>
-
-        <!-- Growth (Featured) -->
-        <div class="pricing-card is-featured reveal" style="--reveal-delay: 0.20s;">
-          <div class="card-badge"><span class="tri" style="border-bottom-color: var(--accent);"></span>EMPFOHLEN</div>
-          <h3 class="card-name">Growth</h3>
-          <p class="card-tagline">Fur Brands in der Wachstumsphase — alle Formate, zwei Märkte, engere Taktung.</p>
-          <div class="card-price">
-            <span class="price-ab">ab</span>
-            <span class="price-amount">2.200</span>
-            <span class="price-unit">EUR / Monat</span>
-          </div>
-          <p class="price-note">zzgl. 19% MwSt. · ab 3 Monate</p>
-          <div class="card-divider"></div>
-          <ul class="card-features">
-            <li><span class="feat-tri" aria-hidden="true"></span><span>Bis <strong>20.000 EUR</strong> monatlicher Ad Spend</span></li>
-            <li><span class="feat-tri" aria-hidden="true"></span><span><strong>2 Marktplätze</strong> (z.B. DE + FR oder DE + AT)</span></li>
-            <li><span class="feat-tri" aria-hidden="true"></span><span>SP, SB, SD — alle Kampagnenformate</span></li>
-            <li><span class="feat-tri" aria-hidden="true"></span><span>Tägliche Bid-Kontrolle, wöchentliche Deep-Dives</span></li>
-            <li><span class="feat-tri" aria-hidden="true"></span><span>Wöchentliches schriftliches Update</span></li>
-            <li><span class="feat-tri" aria-hidden="true"></span><span>Monatlicher Review-Call (60 Min)</span></li>
-            <li><span class="feat-tri" aria-hidden="true"></span><span>ASIN- &amp; Competitor-Targeting aktiv</span></li>
-            <li><span class="feat-tri" aria-hidden="true"></span><span>Onboarding Quick-Audit inklusive</span></li>
-          </ul>
-          <a class="card-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Erstgespräch buchen</a>
-        </div>
-
-        <!-- Scale -->
-        <div class="pricing-card reveal" style="--reveal-delay: 0.28s;">
-          <div class="card-badge-placeholder"></div>
           <h3 class="card-name">Scale</h3>
-          <p class="card-tagline">Vollbetreuung fur Brands mit hohem Spend und Skalierungsambition.</p>
+          <p class="card-tagline">Vollbetreuung für Brands mit hohem Spend und Skalierungsambition.</p>
           <div class="card-price">
             <span class="price-ab">ab</span>
             <span class="price-amount">3.800</span>
@@ -1005,11 +971,64 @@
           <a class="card-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Erstgespräch buchen</a>
         </div>
 
+        <!-- Growth (Featured) -->
+        <div class="pricing-card is-featured reveal" style="--reveal-delay: 0.20s;">
+          <div class="card-badge"><span class="tri" style="border-bottom-color: var(--accent);"></span>EMPFOHLEN</div>
+          <h3 class="card-name">Growth</h3>
+          <p class="card-tagline">Für Brands in der Wachstumsphase: alle Formate, zwei Märkte, engere Taktung.</p>
+          <div class="card-price">
+            <span class="price-ab">ab</span>
+            <span class="price-amount">2.200</span>
+            <span class="price-unit">EUR / Monat</span>
+          </div>
+          <p class="price-note">zzgl. 19% MwSt. · ab 3 Monate</p>
+          <div class="card-divider"></div>
+          <ul class="card-features">
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Bis <strong>20.000 EUR</strong> monatlicher Ad Spend</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span><strong>2 Marktplätze</strong> (z.B. DE + FR oder DE + AT)</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>SP, SB, SD, alle Kampagnenformate</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Tägliche Bid-Kontrolle, wöchentliche Deep-Dives</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Wöchentliches schriftliches Update</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Monatlicher Review-Call (60 Min)</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>ASIN- &amp; Competitor-Targeting aktiv</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Onboarding Quick-Audit inklusive</span></li>
+          </ul>
+          <div class="card-roi">
+            Rechenbeispiel: Bei 20.000 EUR Spend und einer ACOS-Senkung von 30% auf
+            20% sparst Du rund 2.000 EUR im Monat. Das Paket hat sich damit selbst
+            getragen, bevor wir über Wachstum reden.
+          </div>
+          <a class="card-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Erstgespräch buchen</a>
+        </div>
+
+        <!-- Starter -->
+        <div class="pricing-card reveal" style="--reveal-delay: 0.28s;">
+          <div class="card-badge-placeholder"></div>
+          <h3 class="card-name">Starter</h3>
+          <p class="card-tagline">Für Accounts mit solidem Fundament: klare Optimierung, ohne Overengineering.</p>
+          <div class="card-price">
+            <span class="price-ab">ab</span>
+            <span class="price-amount">1.200</span>
+            <span class="price-unit">EUR / Monat</span>
+          </div>
+          <p class="price-note">zzgl. 19% MwSt. · ab 3 Monate</p>
+          <div class="card-divider"></div>
+          <ul class="card-features">
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Bis <strong>8.000 EUR</strong> monatlicher Ad Spend</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span><strong>1 Marktplatz</strong> (DE oder AT/CH)</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Sponsored Products &amp; Sponsored Brands</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Wöchentliche Bid- &amp; Keyword-Optimierung</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Monatlicher Report + 30-Min-Call</span></li>
+            <li><span class="feat-tri" aria-hidden="true"></span><span>Onboarding Quick-Audit inklusive</span></li>
+          </ul>
+          <a class="card-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Erstgespräch buchen</a>
+        </div>
+
       </div>
 
       <p class="pricing-footer-note reveal" style="--reveal-delay: 0.36s;">
         Die Pakete sind Orientierungsrahmen, kein Festpreis-Katalog.
-        Scope, Marktplatz-Anzahl und Honorar stimmen wir im Erstgesprach
+        Scope, Marktplatz-Anzahl und Honorar stimmen wir im Erstgespräch
         auf Deinen Account und Deine Ziele ab.
       </p>
 
@@ -1017,19 +1036,19 @@
         <h3>Alternativ: Hybrid-Modell</h3>
         <p>
           Niedriger Fixbetrag als Basis, der Rest richtet sich nach Deinem
-          monatlichen Ad Spend. Sinnvoll, wenn Du mit uberschaubarem Budget
-          startest &mdash; und ich profitiere automatisch mit, wenn Dein Account
-          wachst. Kein Fehlanreiz, Budget kunstlich hochzuhalten:
+          monatlichen Ad Spend. Sinnvoll, wenn Du mit überschaubarem Budget
+          startest, und ich profitiere automatisch mit, wenn Dein Account
+          wächst. Kein Fehlanreiz, Budget künstlich hochzuhalten:
           wir optimieren auf Effizienz, nicht auf Volumen.
         </p>
         <div class="hybrid-example">
           <strong>Beispiel Growth-Hybrid:</strong> 900&nbsp;EUR Basis
           + 8&nbsp;% des monatlichen Ad Spends.<br>
           Bei 10.000&nbsp;EUR Spend: <strong>1.700&nbsp;EUR gesamt</strong>
-          (statt ab 2.200&nbsp;EUR Flat) &mdash; gunstigerer Einstieg fur Dich,
-          Upside fur mich bei Deinem Wachstum.<br>
-          Bei 20.000&nbsp;EUR Spend: <strong>2.500&nbsp;EUR gesamt</strong>
-          &mdash; skaliert fair mit dem Account.
+          (statt ab 2.200&nbsp;EUR Flat), günstigerer Einstieg für Dich,
+          Upside für mich bei Deinem Wachstum.<br>
+          Bei 20.000&nbsp;EUR Spend: <strong>2.500&nbsp;EUR gesamt</strong>,
+          skaliert fair mit dem Account.
         </div>
       </div>
 
@@ -1048,7 +1067,7 @@
         <h2>Einstieg ohne Retainer</h2>
         <p>
           Nicht jedes Projekt braucht laufende Betreuung. Account-Audit und
-          Strategie-Aufbau sind abgeschlossene Projekte — sie stehen fur sich
+          Strategie-Aufbau sind abgeschlossene Projekte — sie stehen für sich
           oder bereiten einen Retainer vor.
         </p>
       </div>
@@ -1058,12 +1077,12 @@
           <p class="onetime-name">Account-Audit</p>
           <p class="onetime-price">ab 350 EUR</p>
           <p class="onetime-desc">
-            Vollstandige Analyse Deines Amazon Ads Accounts: Struktur, Gebote,
+            Vollständige Analyse Deines Amazon Ads Accounts: Struktur, Gebote,
             Targeting, Suchterme, Budget-Effizienz. Ergebnis: schriftlicher Report
             mit priorisierten Handlungsempfehlungen und ROI-Einschätzung.
             Lieferzeit 3–5 Werktage nach Zugang.
           </p>
-          <a class="onetime-link" href="account-audit.html">Mehr zum Account-Audit &rarr;</a>
+          <a class="onetime-link" href="/amazon-ppc-audit/">Mehr zum Account-Audit &rarr;</a>
         </div>
         <div class="onetime-card reveal" style="--reveal-delay: 0.20s;">
           <p class="onetime-name">Strategie &amp; Aufbau</p>
@@ -1071,10 +1090,10 @@
           <p class="onetime-desc">
             Kompletter Neuaufbau Deiner Amazon PPC Kampagnen-Struktur:
             Keyword-Recherche, Kampagnenarchitektur, Targeting-Strategie,
-            Launch-Planung. Ideal fur neue Accounts oder nach einem Amazon Ads Reset.
-            Preis nach Scope-Gesprach.
+            Launch-Planung. Ideal für neue Accounts oder nach einem Amazon Ads Reset.
+            Preis nach Scope-Gespräch.
           </p>
-          <a class="onetime-link" href="strategie-aufbau.html">Mehr zum Strategie-Aufbau &rarr;</a>
+          <a class="onetime-link" href="/amazon-ppc-strategie/">Mehr zum Strategie-Aufbau &rarr;</a>
         </div>
       </div>
     </div>
@@ -1098,7 +1117,7 @@
           <p class="note-value">
             <strong>3 Monate</strong> — Amazon PPC braucht eine Anlaufphase.
             Bid-Algorithmen konsolidieren sich nach 4–6 Wochen; vorher sind Urteile
-            uber Erfolg oder Misserfolg statistisch bedeutungslos.
+            über Erfolg oder Misserfolg statistisch bedeutungslos.
           </p>
         </div>
         <div class="note-item reveal" style="--reveal-delay: 0.18s;">
@@ -1121,16 +1140,16 @@
           <span class="note-label">Onboarding</span>
           <p class="note-value">
             Zwischen Vertragsschluss und erstem Optimierungs-Tag liegen
-            typischerweise <strong>5–10 Werktage</strong> fur Zugang, Analyse
+            typischerweise <strong>5–10 Werktage</strong> für Zugang, Analyse
             und Strukturplanung.
           </p>
         </div>
         <div class="note-item reveal" style="--reveal-delay: 0.36s;">
           <span class="note-label">Scope-Erweiterung</span>
           <p class="note-value">
-            Wenn Spend oder Märkte dauerhaft uber die Paket-Grenzen wachsen,
+            Wenn Spend oder Märkte dauerhaft über die Paket-Grenzen wachsen,
             sprechen wir ein Upgrade ab. <strong>Kein automatischer Aufpreis</strong>
-            fur gelegentliche Spitzen (Saisonales, Prime Day).
+            für gelegentliche Spitzen (Saisonales, Prime Day).
           </p>
         </div>
         <div class="note-item reveal" style="--reveal-delay: 0.42s;">
