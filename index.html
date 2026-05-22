@@ -409,7 +409,7 @@
   .canvas-layer {
     position: absolute;
     inset: 0;
-    z-index: 1;
+    z-index: 3;
     pointer-events: none;
   }
   .canvas-layer canvas {
@@ -3775,12 +3775,14 @@
     const rcRect = heroRight.getBoundingClientRect();
     const rightColLeft = rcRect.left-cvRect.left;
     const rightColRight = rcRect.right-cvRect.left;
-    const x0 = rightColLeft+12;
-    const x1 = Math.max(x0+240, rightColRight-6);
+    const rightColTop = rcRect.top-cvRect.top;
+    const rightColBottom = rcRect.bottom-cvRect.top;
+    const x0 = rightColLeft+1;
+    const x1 = rightColRight-1;
     const statBottom = statRow?(statRow.getBoundingClientRect().bottom-cvRect.top):H*0.44;
     const y0 = statBottom+28;
-    const y1 = Math.min(H-64, y0+H*0.32);
-    return {x0,x1,y0,y1};
+    const y1 = Math.min(rightColBottom-36, y0+H*0.32);
+    return {x0,x1,y0,y1,clip:{x:rightColLeft,y:rightColTop,w:rcRect.width,h:rcRect.height}};
   }
   function projectX(i,b) { return b.x0+(i/(MONTHS.length-1))*(b.x1-b.x0); }
   function projectY(v,dom,b) { return b.y1-((v-dom[0])/(dom[1]-dom[0]))*(b.y1-b.y0); }
@@ -3819,12 +3821,14 @@
   function drawGrid(b) {
     ctx.save(); ctx.strokeStyle=cssCache.gridLine; ctx.lineWidth=1;
     for(let i=0;i<=4;i++){const y=b.y0+(i/4)*(b.y1-b.y0); ctx.beginPath(); ctx.moveTo(b.x0,y); ctx.lineTo(b.x1,y); ctx.stroke();}
-    ctx.fillStyle=cssCache.inkFaint; ctx.textAlign='center'; ctx.textBaseline='top';
+    ctx.fillStyle=cssCache.inkFaint; ctx.textBaseline='top';
     ctx.font='500 11px Inter, sans-serif';
     const every=isMob()?2:1;
     MONTHS.forEach((m,i)=>{
       if(i%every!==0&&i!==MONTHS.length-1) return;
-      ctx.fillText(m+" '"+YEARS[i].slice(2), projectX(i,b), b.y1+12);
+      const px=projectX(i,b), txt=m+" '"+YEARS[i].slice(2);
+      ctx.textAlign=i===0?'left':i===MONTHS.length-1?'right':'center';
+      ctx.fillText(txt,px,b.y1+12);
     });
     ctx.restore();
   }
@@ -3916,6 +3920,7 @@
     stepFades(dtMs);
     ctx.clearRect(0,0,W,H);
     const b=bounds();
+    if(b.clip){ctx.save();roundRect(ctx,b.clip.x,b.clip.y,b.clip.w,b.clip.h,17,17,17,17);ctx.clip();}
     drawGrid(b);
     Object.keys(METRICS).forEach(k=>{
       if(METRICS[k].type!=='bar') return;
@@ -3931,8 +3936,9 @@
       if(METRICS[k].type!=='line') return;
       const f=state.fade[k]; if(f>0.005) lineRes[k]=drawLine(b,METRICS[k],k,f,drawProg);
     });
+    if(drawProg>=1&&state.hovered>=0&&state.mouse.inside) drawHoverGuide(b,projectX(state.hovered,b));
+    if(b.clip) ctx.restore();
     if(drawProg>=1&&state.hovered>=0&&state.mouse.inside){
-      drawHoverGuide(b,projectX(state.hovered,b));
       updateTooltip(b,lineRes);
     } else { tip.classList.remove('on'); }
     if(drawProg>=1&&!isMob()) maybeEmitChip(now,b);
