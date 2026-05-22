@@ -1784,6 +1784,76 @@
     color: var(--accent);
   }
 
+  /* ─── Section: Ergebnisse (Case Studies) ───────────────── */
+  .cases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 0;
+  }
+  .case-card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    cursor: default;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .case-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+  .case-cat {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .case-numbers { display: flex; flex-direction: column; gap: 14px; }
+  .case-row { display: flex; flex-direction: column; gap: 3px; }
+  .case-change {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-family: var(--serif);
+    font-size: clamp(20px, 1.8vw, 30px);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .case-change .before { color: var(--ink-muted); }
+  .case-change .arr { font-family: var(--sans); font-size: 13px; color: var(--ink-faint); }
+  .case-change .after { color: var(--accent); }
+  .case-change-lbl {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .case-note {
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .cases-disclaimer {
+    margin-top: 28px;
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--ink-muted);
+    opacity: 0.75;
+  }
+  @media (max-width: 900px) {
+    .cases { grid-template-columns: 1fr; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -2108,10 +2178,10 @@
         </div>
         <div class="stat">
           <div class="stat-num-wrap">
-            <span class="stat-num">7-stellig</span>
+            <span class="stat-num">€6 Mio.+</span>
             <svg class="stat-tri" viewBox="0 0 12 10" aria-hidden="true"><polygon points="6,1 11,9 1,9"/></svg>
           </div>
-          <div class="stat-label">verwalteter Ad Spend</div>
+          <div class="stat-label">generierter Umsatz</div>
         </div>
         <div class="stat">
           <div class="stat-num-wrap">
@@ -2225,8 +2295,8 @@
             <h3 class="leistung-bold">Du weißt immer, wo Dein Geld landet und warum.</h3>
             <div class="leistung-text">
               Laufende Optimierung Deiner Sponsored Products, Sponsored Brands und
-              Sponsored Display Kampagnen, mit wöchentlichem Reporting, das Du auch
-              ohne PPC-Kenntnisse verstehst.
+              Sponsored Display Kampagnen. Klarer Fokus auf ACOS, ROAS und Marge —
+              transparent, messbar, ohne Agentur-Overhead.
             </div>
           </div>
         </div>
@@ -2457,6 +2527,95 @@
       </p>
     </div>
   </section>
+
+  <hr class="divider" />
+
+  <!-- ─── ERGEBNISSE ──────────────────────────────────────── -->
+  <section class="section-pad" id="ergebnisse" data-screen-label="Ergebnisse">
+    <div class="wrap">
+      <div class="reveal"><span class="label"><span class="tri"></span>AUS DER PRAXIS</span></div>
+      <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
+        Dein Budget verdient <span class="accent">messbare Ergebnisse.</span>
+      </h2>
+
+      <div class="cases reveal" style="--reveal-delay: 0.20s;">
+        <div class="case-card">
+          <div class="case-cat">Heimwerken &amp; Baumarkt</div>
+          <div class="case-numbers">
+            <div class="case-row">
+              <div class="case-change">
+                <span class="before">30k</span>
+                <span class="arr">→</span>
+                <span class="after">80k €</span>
+              </div>
+              <div class="case-change-lbl">Umsatz / Monat</div>
+            </div>
+            <div class="case-row">
+              <div class="case-change">
+                <span class="before">35%</span>
+                <span class="arr">→</span>
+                <span class="after">20%</span>
+              </div>
+              <div class="case-change-lbl">ACOS</div>
+            </div>
+          </div>
+          <div class="case-note">in 4 Wochen</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-cat">Industriebedarf</div>
+          <div class="case-numbers">
+            <div class="case-row">
+              <div class="case-change">
+                <span class="before">30k</span>
+                <span class="arr">→</span>
+                <span class="after">75k €</span>
+              </div>
+              <div class="case-change-lbl">Umsatz / Monat</div>
+            </div>
+            <div class="case-row">
+              <div class="case-change">
+                <span class="before">~35%</span>
+                <span class="arr">→</span>
+                <span class="after">15%</span>
+              </div>
+              <div class="case-change-lbl">ACOS</div>
+            </div>
+          </div>
+          <div class="case-note">in 2 Monaten</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-cat">Büro &amp; Ausstattung</div>
+          <div class="case-numbers">
+            <div class="case-row">
+              <div class="case-change">
+                <span class="before">100k</span>
+                <span class="arr">→</span>
+                <span class="after">120k €</span>
+              </div>
+              <div class="case-change-lbl">Umsatz / Monat</div>
+            </div>
+            <div class="case-row">
+              <div class="case-change">
+                <span class="before">20%</span>
+                <span class="arr">→</span>
+                <span class="after">12%</span>
+              </div>
+              <div class="case-change-lbl">ACOS</div>
+            </div>
+          </div>
+          <div class="case-note">8 Accounts parallel</div>
+        </div>
+      </div>
+
+      <p class="cases-disclaimer reveal" style="--reveal-delay: 0.40s;">
+        Alle Angaben aus realen Projekten. Kunden- und Markennamen aus Datenschutzgründen anonymisiert.
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider" />
 
   <!-- ─── KONTAKT ───────────────────────────────────────── -->
   <section class="section-pad kontakt-section" id="kontakt" data-screen-label="Kontakt">
