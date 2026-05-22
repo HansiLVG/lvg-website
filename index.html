@@ -138,17 +138,17 @@
     overflow: hidden;
     -webkit-mask-image: linear-gradient(to right,
       rgba(0,0,0,1) 0%,
-      rgba(0,0,0,0.55) 14%,
-      rgba(0,0,0,0) 27%,
-      rgba(0,0,0,0) 73%,
-      rgba(0,0,0,0.55) 86%,
+      rgba(0,0,0,0.55) 12%,
+      rgba(0,0,0,0) 24%,
+      rgba(0,0,0,0) 76%,
+      rgba(0,0,0,0.55) 88%,
       rgba(0,0,0,1) 100%);
             mask-image: linear-gradient(to right,
       rgba(0,0,0,1) 0%,
-      rgba(0,0,0,0.55) 14%,
-      rgba(0,0,0,0) 27%,
-      rgba(0,0,0,0) 73%,
-      rgba(0,0,0,0.55) 86%,
+      rgba(0,0,0,0.55) 12%,
+      rgba(0,0,0,0) 24%,
+      rgba(0,0,0,0) 76%,
+      rgba(0,0,0,0.55) 88%,
       rgba(0,0,0,1) 100%);
   }
   .wave-bg svg { width: 100%; height: 100%; display: block; }
@@ -507,6 +507,12 @@
     max-width: 42ch;
     color: var(--ink-muted);
     margin: 0;
+  }
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-self: flex-start;
   }
   .hero-buttons {
     display: flex;
@@ -2313,8 +2319,8 @@
   <div id="wave-dev-panel" style="display:none">
     <label><span>Wave Intensity</span><span id="wv-val">0.40</span></label>
     <input type="range" id="wv" min="0" max="0.40" step="0.01" value="0.40">
-    <label style="margin-top:8px"><span>Fade-Breite</span><span id="wf-val">27%</span></label>
-    <input type="range" id="wf" min="15" max="45" step="1" value="27">
+    <label style="margin-top:8px"><span>Fade-Breite</span><span id="wf-val">24%</span></label>
+    <input type="range" id="wf" min="15" max="45" step="1" value="24">
   </div>
   <button id="wave-dev-toggle">~ Wellen</button>
 </div>
@@ -2378,27 +2384,29 @@
             Kein Generalist, keine Agentur, kein Junior. Nur ich, Dein Account
             und wöchentliche Ergebnisse, die Du verstehst.
           </p>
-          <div class="hero-buttons reveal" style="--reveal-delay: 0.30s;">
-            <a class="btn btn-primary" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Kostenloses Erstgespräch (15 Min.)</a>
-            <a class="btn btn-secondary" href="#acos-rechner">Optimierungspotenzial berechnen</a>
-          </div>
-          <p class="hero-reassure reveal" style="--reveal-delay: 0.35s;">
-            3 Monate Mindestlaufzeit, danach monatlich kündbar.
-          </p>
-          <div class="trust-row reveal" style="--reveal-delay: 0.40s;">
-            <div class="stat">
-              <span class="num">100+</span>
-              <span class="lbl">betreute Accounts</span>
+          <div class="hero-cta-group">
+            <div class="hero-buttons reveal" style="--reveal-delay: 0.30s;">
+              <a class="btn btn-primary" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Kostenloses Erstgespräch (15 Min.)</a>
+              <a class="btn btn-secondary" href="#acos-rechner">Optimierungspotenzial berechnen</a>
             </div>
-            <span class="sep"></span>
-            <div class="stat">
-              <span class="num">5</span>
-              <span class="lbl">Jahre Amazon Ads</span>
-            </div>
-            <span class="sep"></span>
-            <div class="stat">
-              <span class="num">€1,4M</span>
-              <span class="lbl">verwaltet</span>
+            <p class="hero-reassure reveal" style="--reveal-delay: 0.35s;">
+              3 Monate Mindestlaufzeit, danach monatlich kündbar.
+            </p>
+            <div class="trust-row reveal" style="--reveal-delay: 0.40s;">
+              <div class="stat">
+                <span class="num">100+</span>
+                <span class="lbl">betreute Accounts</span>
+              </div>
+              <span class="sep"></span>
+              <div class="stat">
+                <span class="num">5</span>
+                <span class="lbl">Jahre Amazon Ads</span>
+              </div>
+              <span class="sep"></span>
+              <div class="stat">
+                <span class="num">€1,4M</span>
+                <span class="lbl">verwaltet</span>
+              </div>
             </div>
           </div>
         </div>
@@ -4108,7 +4116,7 @@
       if(el) el.setAttribute('stroke',stroke);
     });
   }
-  let fadePct = 27;
+  let fadePct = 24;
   function applyWaveMask() {
     const half=fadePct/2;
     const mid1=fadePct, mid2=100-fadePct;
@@ -4143,8 +4151,12 @@
     if(tweakEl){
       tweakEl.style.position='fixed';
       tweakEl.style.bottom='20px';
-      tweakEl.style.right='100px';
+      tweakEl.style.right='110px';
       tweakEl.style.zIndex='9999';
+      tweakEl.style.display='flex';
+      // Panel nach oben öffnen statt nach unten
+      const tweakPanelEl=document.getElementById('tweakPanel');
+      if(tweakPanelEl){ tweakPanelEl.style.top='auto'; tweakPanelEl.style.bottom='52px'; }
       document.body.appendChild(tweakEl);
     }
   }
