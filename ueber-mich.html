@@ -307,6 +307,7 @@
   /* ─── Page hero / Titel ──────────────────────────────── */
   .page-head {
     position: relative;
+    z-index: 2;
     overflow: hidden;
     padding: 120px 0 72px;
   }
@@ -334,13 +335,19 @@
   .page-head-text { flex: 1; }
   .page-head-portrait {
     flex-shrink: 0;
-    width: clamp(180px, 22%, 280px);
+    width: clamp(280px, 38%, 480px);
     height: auto;
-    max-height: clamp(280px, 46vh, 420px);
+    max-height: clamp(380px, 60vh, 560px);
     object-fit: cover;
     object-position: center top;
-    -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, #000 22%, #000 82%, transparent 100%),
+      linear-gradient(to bottom, #000 75%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, transparent 0%, #000 22%, #000 82%, transparent 100%),
+      linear-gradient(to bottom, #000 75%, transparent 100%);
+    mask-composite: intersect;
   }
 
   h1.page-title {
@@ -580,6 +587,7 @@
   /* ─── CTA-Block (identisch zu index.html) ────────────── */
   .cta-section {
     position: relative;
+    z-index: 2;
     background: var(--cta-dark);
     color: #fff;
     overflow: hidden;
