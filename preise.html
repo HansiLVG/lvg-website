@@ -714,6 +714,27 @@
     border-color: rgba(255,255,255,0.55);
   }
 
+  /* ─── SEO text block ─────────────────────────────────────── */
+  .seo-block {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px var(--pad-x) 56px;
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    text-align: center;
+    text-wrap: pretty;
+  }
+  .seo-block a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: opacity 0.2s ease;
+  }
+  .seo-block a:hover { opacity: 0.7; }
+
   /* ─── Footer ─────────────────────────────────────────── */
   footer {
     position: relative;
@@ -1196,6 +1217,18 @@
   </section>
 
 </main>
+
+<aside class="seo-block" aria-label="Über diese Seite">
+  <p>
+    Transparente Preise für <a href="/amazon-ppc-management/"><strong>Amazon PPC Kampagnen-Management</strong></a>,
+    <a href="/amazon-ppc-audit/">Account-Audit</a> und
+    <a href="/amazon-ppc-strategie/">Strategie-Aufbau</a> — als <strong>Freelancer</strong>
+    ohne Agentur-Overhead, direkt und persönlich. Mehr über meinen Werdegang und meine
+    Qualifikationen auf der <a href="ueber-mich.html">Über-mich-Seite</a>, häufige Fragen
+    zur Zusammenarbeit im <a href="faq.html">FAQ</a>. Ergebnisse aus der Praxis und
+    Erstgespräch-Buchung auf der <a href="index.html">Startseite</a>.
+  </p>
+</aside>
 
 <footer>
   <div class="wrap">

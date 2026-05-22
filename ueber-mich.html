@@ -684,6 +684,27 @@
   .cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; }
   .cookie-actions .btn { padding: 10px 16px; font-size: 12px; }
 
+  /* ─── SEO text block ─────────────────────────────────────── */
+  .seo-block {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px var(--pad-x) 56px;
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    text-align: center;
+    text-wrap: pretty;
+  }
+  .seo-block a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: opacity 0.2s ease;
+  }
+  .seo-block a:hover { opacity: 0.7; }
+
   /* ─── Footer-Nav (spiegelt Haupt-Nav) ───────────────── */
   footer {
     position: relative;
@@ -1073,6 +1094,20 @@
   </section>
 
 </main>
+
+<aside class="seo-block" aria-label="Über diese Seite">
+  <p>
+    Als <strong>Amazon PPC Freelancer</strong> aus <strong>Berlin</strong> biete ich persönliches
+    <a href="amazon-ppc-management/">Kampagnen-Management</a>, einmalige
+    <a href="amazon-ppc-audit/">Account-Audits</a> und den
+    <a href="amazon-ppc-strategie/">Strategie-Aufbau</a> für neue oder bestehende
+    <strong>Amazon Ads</strong> Accounts. Detaillierte Informationen zu Paketen und
+    Konditionen findest Du auf der <a href="preise.html">Preisseite</a>.
+    Häufige Fragen zur Zusammenarbeit — von Onboarding bis Kündigung — beantworte ich im
+    <a href="faq.html">FAQ</a>. Alle Leistungen, Ergebnisse aus der Praxis und die
+    Möglichkeit zur Erstgespräch-Buchung findest Du auf der <a href="index.html">Startseite</a>.
+  </p>
+</aside>
 
 <footer>
   <div class="wrap">
