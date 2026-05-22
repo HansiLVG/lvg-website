@@ -83,6 +83,10 @@
   }
   body.dark nav.nav { background: rgba(10, 10, 10, 0.88); }
   body.dark .hero-right { box-shadow: 0 4px 32px -8px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(250,250,250,0.04); }
+  #heroRight.graph-dark {
+    background: #0a0a0a;
+    box-shadow: 0 4px 32px -8px rgba(0,0,0,0.60), 0 0 0 0.5px rgba(250,250,250,0.04);
+  }
   body.dark .noise { mix-blend-mode: screen; }
   body.dark .btn-secondary { border-color: rgba(250, 250, 250, 0.45); }
   /* wave-bg path strokes are set dynamically via applyWaveColors() */
@@ -153,27 +157,6 @@
   }
   .wave-bg svg { width: 100%; height: 100%; display: block; }
   .wave-bg path { fill: none; stroke-width: 1.25; }
-
-  /* ─── Dev: floating wave control (localhost only) ─────────── */
-  #wave-dev {
-    position: fixed; bottom: 20px; right: 20px; z-index: 9999;
-    font-family: var(--sans); font-size: 12px;
-  }
-  #wave-dev-panel {
-    background: rgba(10,10,10,0.88); backdrop-filter: blur(8px);
-    border: 1px solid rgba(250,250,250,0.15); border-radius: 10px;
-    padding: 12px 14px; margin-bottom: 8px; min-width: 180px;
-    color: #fafafa;
-  }
-  #wave-dev-panel label { display: flex; justify-content: space-between; margin-bottom: 6px; color: rgba(250,250,250,0.6); }
-  #wave-dev-panel input[type=range] { width: 100%; accent-color: #7a4a9c; }
-  #wave-dev-toggle {
-    display: block; margin-left: auto;
-    background: rgba(10,10,10,0.88); border: 1px solid rgba(250,250,250,0.25);
-    border-radius: 8px; color: #fafafa; font-size: 11px; padding: 5px 10px;
-    cursor: pointer; backdrop-filter: blur(8px);
-  }
-  #wave-dev-toggle:hover { border-color: rgba(250,250,250,0.5); }
 
   /* ─── Navigation ─────────────────────────────────────────── */
   nav.nav {
@@ -781,9 +764,9 @@
     will-change: transform, opacity;
   }
   .tweak {
-    display: none;
-    position: absolute;
-    right: 0; top: 0;
+    display: flex;
+    align-items: center;
+    position: relative;
     z-index: 50;
     font-family: var(--sans);
   }
@@ -805,8 +788,7 @@
   .tweak-toggle svg { width: 18px; height: 18px; }
   .tweak-panel {
     position: absolute;
-    right: 0; top: 52px;
-    bottom: auto;
+    right: 0; top: auto; bottom: 52px;
     width: 290px;
     background: var(--paper-elev);
     border: 1px solid var(--hairline-strong);
@@ -2354,17 +2336,6 @@
   </svg>
 </div>
 
-<!-- Dev: wave intensity control (localhost only, injected via JS) -->
-<div id="wave-dev" style="display:none">
-  <div id="wave-dev-panel" style="display:none">
-    <label><span>Wave Intensity</span><span id="wv-val">0.40</span></label>
-    <input type="range" id="wv" min="0" max="0.40" step="0.01" value="0.40">
-    <label style="margin-top:8px"><span>Fade-Breite</span><span id="wf-val">24%</span></label>
-    <input type="range" id="wf" min="15" max="45" step="1" value="24">
-  </div>
-  <button id="wave-dev-toggle">~ Wellen</button>
-</div>
-
 <!-- Noise overlay -->
 <div class="noise" aria-hidden="true"></div>
 
@@ -2452,7 +2423,7 @@
         </div>
 
         <!-- RIGHT -->
-        <div class="hero-right">
+        <div class="hero-right" id="heroRight">
           <div class="chart-stack">
             <div class="chart-head">
               <div class="title">
@@ -2465,57 +2436,56 @@
                   <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg>
                 </button>
                 <div class="meta"><b>Mai 2025 – Apr 2026</b></div>
+                <div class="tweak" id="tweak">
+                  <div class="tweak-panel" id="tweakPanel">
+                    <h4>Tweaks</h4>
+                    <div class="tweak-row">
+                      <div class="tw-label"><span>Animation Speed</span><span class="tw-val" id="spdVal">1.0×</span></div>
+                      <input type="range" id="spd" min="0.5" max="2" step="0.1" value="1">
+                    </div>
+                    <div class="tweak-row">
+                      <div class="tw-label"><span>Curve Liveliness</span><span class="tw-val" id="brVal">1.0×</span></div>
+                      <input type="range" id="br" min="0" max="2.5" step="0.1" value="1">
+                    </div>
+                    <div class="tweak-row">
+                      <div class="tw-label"><span>Curve Smoothness</span><span class="tw-val" id="smVal">0.7</span></div>
+                      <input type="range" id="sm" min="0" max="1" step="0.05" value="0.7">
+                    </div>
+                    <div class="tweak-row">
+                      <div class="tw-label"><span>Chip Frequency</span></div>
+                      <div class="seg" id="freq">
+                        <button data-f="off">Off</button>
+                        <button data-f="low">Low</button>
+                        <button data-f="med" class="on">Med</button>
+                        <button data-f="high">High</button>
+                      </div>
+                    </div>
+                    <div class="tw-divider"></div>
+                    <h4 style="margin-bottom:8px">Color Pool</h4>
+                    <div class="color-grid" id="colorGrid">
+                      <label class="col-pick"><span class="col-name">Slot 1</span><input type="color" data-slot="0" value="#2d5f3f"></label>
+                      <label class="col-pick"><span class="col-name">Slot 2</span><input type="color" data-slot="1" value="#7a4a9c"></label>
+                      <label class="col-pick"><span class="col-name">Slot 3</span><input type="color" data-slot="2" value="#c0883e"></label>
+                      <label class="col-pick"><span class="col-name">Slot 4</span><input type="color" data-slot="3" value="#3f6ea8"></label>
+                    </div>
+                    <div class="tw-divider"></div>
+                    <div class="tweak-row toggle-row">
+                      <span class="tw-label" style="display:inline; padding:0;">Graph Dark</span>
+                      <span class="switch" id="darkSw"></span>
+                    </div>
+                  </div>
+                  <button class="tweak-toggle" id="tweakBtn" aria-label="Tweaks">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="3"/>
+                      <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.12-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06A2 2 0 1 1 4.13 16.92l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1.03H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.65 8.84a1.7 1.7 0 0 0-.34-1.87l-.06-.06A2 2 0 1 1 7.08 4.08l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1.03-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1.03 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06A2 2 0 1 1 19.83 7.08l-.06.06a1.7 1.7 0 0 0-.34 1.87V9c.21.5.6.91 1.55 1.03H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1.03Z"/>
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
             <div class="pills" id="pills"></div>
             <div class="stat-row" id="statRow"></div>
             <div style="height: clamp(260px, 32vh, 420px);"></div>
-          </div>
-          <!-- Tweak panel — anchored to chart panel top-right -->
-          <div class="tweak" id="tweak">
-            <div class="tweak-panel" id="tweakPanel">
-              <h4>Tweaks</h4>
-              <div class="tweak-row">
-                <div class="tw-label"><span>Animation Speed</span><span class="tw-val" id="spdVal">1.0×</span></div>
-                <input type="range" id="spd" min="0.5" max="2" step="0.1" value="1">
-              </div>
-              <div class="tweak-row">
-                <div class="tw-label"><span>Curve Liveliness</span><span class="tw-val" id="brVal">1.0×</span></div>
-                <input type="range" id="br" min="0" max="2.5" step="0.1" value="1">
-              </div>
-              <div class="tweak-row">
-                <div class="tw-label"><span>Curve Smoothness</span><span class="tw-val" id="smVal">0.7</span></div>
-                <input type="range" id="sm" min="0" max="1" step="0.05" value="0.7">
-              </div>
-              <div class="tweak-row">
-                <div class="tw-label"><span>Chip Frequency</span></div>
-                <div class="seg" id="freq">
-                  <button data-f="off">Off</button>
-                  <button data-f="low">Low</button>
-                  <button data-f="med" class="on">Med</button>
-                  <button data-f="high">High</button>
-                </div>
-              </div>
-              <div class="tw-divider"></div>
-              <h4 style="margin-bottom:8px">Color Pool</h4>
-              <div class="color-grid" id="colorGrid">
-                <label class="col-pick"><span class="col-name">Slot 1</span><input type="color" data-slot="0" value="#2d5f3f"></label>
-                <label class="col-pick"><span class="col-name">Slot 2</span><input type="color" data-slot="1" value="#7a4a9c"></label>
-                <label class="col-pick"><span class="col-name">Slot 3</span><input type="color" data-slot="2" value="#c0883e"></label>
-                <label class="col-pick"><span class="col-name">Slot 4</span><input type="color" data-slot="3" value="#3f6ea8"></label>
-              </div>
-              <div class="tw-divider"></div>
-              <div class="tweak-row toggle-row">
-                <span class="tw-label" style="display:inline; padding:0;">Dark mode</span>
-                <span class="switch" id="darkSw"></span>
-              </div>
-            </div>
-            <button class="tweak-toggle" id="tweakBtn" aria-label="Tweaks">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.12-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06A2 2 0 1 1 4.13 16.92l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1.03H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.65 8.84a1.7 1.7 0 0 0-.34-1.87l-.06-.06A2 2 0 1 1 7.08 4.08l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1.03-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1.03 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06A2 2 0 1 1 19.83 7.08l-.06.06a1.7 1.7 0 0 0-.34 1.87V9c.21.5.6.91 1.55 1.03H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1.03Z"/>
-              </svg>
-            </button>
           </div>
         </div>
       </div>
@@ -4158,50 +4128,7 @@
       if(el) el.setAttribute('stroke',stroke);
     });
   }
-  let fadePct = 24;
-  function applyWaveMask() {
-    const half=fadePct/2;
-    const mid1=fadePct, mid2=100-fadePct;
-    const stop1=Math.max(0,fadePct-half), stop2=Math.min(100,100-fadePct+half);
-    const v=`linear-gradient(to right,rgba(0,0,0,1) 0%,rgba(0,0,0,0.55) ${stop1}%,rgba(0,0,0,0) ${mid1}%,rgba(0,0,0,0) ${mid2}%,rgba(0,0,0,0.55) ${stop2}%,rgba(0,0,0,1) 100%)`;
-    const bg=document.getElementById('waveBg');
-    if(bg){ bg.style.webkitMaskImage=v; bg.style.maskImage=v; }
-  }
-
   applyWaveColors();
-  if(['localhost','127.0.0.1'].includes(location.hostname)) {
-    const devWrap=document.getElementById('wave-dev');
-    const devPanel=document.getElementById('wave-dev-panel');
-    const devToggle=document.getElementById('wave-dev-toggle');
-    devWrap.style.display='block';
-    devToggle.addEventListener('click',()=>{
-      const open=devPanel.style.display==='block';
-      devPanel.style.display=open?'none':'block';
-    });
-    document.getElementById('wv').addEventListener('input',e=>{
-      waveOpacity=parseFloat(e.target.value);
-      document.getElementById('wv-val').textContent=waveOpacity.toFixed(2);
-      applyWaveColors();
-    });
-    document.getElementById('wf').addEventListener('input',e=>{
-      fadePct=parseInt(e.target.value,10);
-      document.getElementById('wf-val').textContent=fadePct+'%';
-      applyWaveMask();
-    });
-    // Zahnrad (Hero-Tweaks) aus dem Hero herauslösen und fixed platzieren
-    const tweakEl=document.getElementById('tweak');
-    if(tweakEl){
-      tweakEl.style.position='fixed';
-      tweakEl.style.bottom='20px';
-      tweakEl.style.right='110px';
-      tweakEl.style.zIndex='9999';
-      tweakEl.style.display='flex';
-      // Panel nach oben öffnen statt nach unten
-      const tweakPanelEl=document.getElementById('tweakPanel');
-      if(tweakPanelEl){ tweakPanelEl.style.top='auto'; tweakPanelEl.style.bottom='52px'; }
-      document.body.appendChild(tweakEl);
-    }
-  }
 
   document.getElementById('colorGrid').addEventListener('input',e=>{
     const inp=e.target.closest('input[type="color"]'); if(!inp) return;
@@ -4215,14 +4142,13 @@
   const dmBtn=document.getElementById('dm-btn');
   function applyDark(d){
     state.dark=d;
-    document.body.classList.toggle('dark',d);
+    document.getElementById('heroRight').classList.toggle('graph-dark',d);
     refreshCssCache();
     darkSw.classList.toggle('on',d);
-    if(dmBtn) dmBtn.classList.toggle('dm-on',d);
-    localStorage.setItem('lvg-dark',d?'1':'0');
+    localStorage.setItem('lvg-graph-dark',d?'1':'0');
   }
   // Apply saved preference on load
-  if(localStorage.getItem('lvg-dark')==='1'){ state.dark=true; document.body.classList.add('dark'); darkSw.classList.add('on'); if(dmBtn) dmBtn.classList.add('dm-on'); }
+  if(localStorage.getItem('lvg-graph-dark')==='1'){ state.dark=true; document.getElementById('heroRight').classList.add('graph-dark'); darkSw.classList.add('on'); }
   darkSw.addEventListener('click',()=>applyDark(!state.dark));
   if(dmBtn) dmBtn.addEventListener('click',()=>applyDark(!state.dark));
   document.addEventListener('click',e=>{ if(!tweak.contains(e.target)&&tweak.classList.contains('open')) tweak.classList.remove('open'); });

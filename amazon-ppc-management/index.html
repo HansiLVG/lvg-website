@@ -70,11 +70,13 @@
     z-index: 1;
     overflow: hidden;
     -webkit-mask-image: linear-gradient(to right,
-      rgba(0,0,0,1) 0%, rgba(0,0,0,0.22) 28%,
-      rgba(0,0,0,0.22) 72%, rgba(0,0,0,1) 100%);
+      rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 12%,
+      rgba(0,0,0,0) 24%, rgba(0,0,0,0) 76%,
+      rgba(0,0,0,0.55) 88%, rgba(0,0,0,1) 100%);
             mask-image: linear-gradient(to right,
-      rgba(0,0,0,1) 0%, rgba(0,0,0,0.22) 28%,
-      rgba(0,0,0,0.22) 72%, rgba(0,0,0,1) 100%);
+      rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 12%,
+      rgba(0,0,0,0) 24%, rgba(0,0,0,0) 76%,
+      rgba(0,0,0,0.55) 88%, rgba(0,0,0,1) 100%);
   }
   .wave-bg svg { width: 100%; height: 100%; display: block; }
   .wave-bg path { fill: none; stroke-width: 1.25; }
@@ -777,7 +779,7 @@
   }
   body.dark nav.nav { background: rgba(10, 10, 10, 0.88); }
   body.dark .noise { mix-blend-mode: screen; }
-  body.dark .wave-bg path { stroke: rgba(250, 250, 250, 0.04) !important; }
+
   body.dark .btn-secondary { border-color: rgba(250, 250, 250, 0.45); }
   body.dark .btn-secondary:hover { background: rgba(250, 250, 250, 0.06); }
   body.dark .cta-section { background: #161616; }
@@ -858,10 +860,10 @@
 <!-- Wellen-Hintergrund -->
 <div class="wave-bg" aria-hidden="true">
   <svg viewBox="0 0 1600 1000" preserveAspectRatio="none">
-    <path id="wave1" d="M -200 720 C 200 640, 500 660, 800 580 S 1300 480, 1800 380" stroke="rgba(45,95,63,0.040)"></path>
-    <path id="wave2" d="M -200 820 C 250 760, 600 780, 900 700 S 1350 600, 1800 520" stroke="rgba(45,95,63,0.048)"></path>
-    <path id="wave3" d="M -200 920 C 300 880, 700 860, 1000 800 S 1400 720, 1800 660" stroke="rgba(45,95,63,0.055)"></path>
-    <path id="wave4" d="M -200 540 C 280 580, 580 480, 880 520 S 1320 440, 1800 300" stroke="rgba(45,95,63,0.060)"></path>
+    <path id="wave1" d="M -200 720 C 200 640, 500 660, 800 580 S 1300 480, 1800 380" stroke="rgba(45,95,63,0.40)"></path>
+    <path id="wave2" d="M -200 820 C 250 760, 600 780, 900 700 S 1350 600, 1800 520" stroke="rgba(122,74,156,0.40)"></path>
+    <path id="wave3" d="M -200 920 C 300 880, 700 860, 1000 800 S 1400 720, 1800 660" stroke="rgba(192,136,62,0.40)"></path>
+    <path id="wave4" d="M -200 540 C 280 580, 580 480, 880 520 S 1320 440, 1800 300" stroke="rgba(63,110,168,0.40)"></path>
   </svg>
 </div>
 
