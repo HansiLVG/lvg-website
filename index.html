@@ -2420,10 +2420,10 @@
 <!-- Animated wave background (whole page) -->
 <div class="wave-bg" id="waveBg" aria-hidden="true">
   <svg viewBox="0 0 1600 1000" preserveAspectRatio="none">
-    <path id="wave1" d="M -200 720 C 200 640, 500 660, 800 580 S 1300 480, 1800 380" stroke="rgba(45,95,63,0.07)"></path>
-    <path id="wave2" d="M -200 820 C 250 760, 600 780, 900 700 S 1350 600, 1800 520" stroke="rgba(122,74,156,0.07)"></path>
-    <path id="wave3" d="M -200 920 C 300 880, 700 860, 1000 800 S 1400 720, 1800 660" stroke="rgba(192,136,62,0.07)"></path>
-    <path id="wave4" d="M -200 540 C 280 580, 580 480, 880 520 S 1320 440, 1800 300" stroke="rgba(63,110,168,0.07)"></path>
+    <path id="wave1" d="M -200 580 C 200 542, 500 552, 800 514 S 1300 467, 1800 420" stroke="rgba(45,95,63,0.07)"></path>
+    <path id="wave2" d="M -200 670 C 250 642, 600 651, 900 614 S 1350 567, 1800 530" stroke="rgba(122,74,156,0.07)"></path>
+    <path id="wave3" d="M -200 780 C 300 762, 700 753, 1000 727 S 1400 692, 1800 665" stroke="rgba(192,136,62,0.07)"></path>
+    <path id="wave4" d="M -200 420 C 280 438, 580 393, 880 411 S 1320 374, 1800 310" stroke="rgba(63,110,168,0.07)"></path>
   </svg>
 </div>
 
@@ -3308,10 +3308,10 @@
     <div class="cta-vignette"></div>
     <div class="cta-wave" aria-hidden="true">
       <svg viewBox="0 0 1600 1000" preserveAspectRatio="none">
-        <path id="cwave1" d="M -200 720 C 200 640, 500 660, 800 580 S 1300 480, 1800 380" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none"></path>
-        <path id="cwave2" d="M -200 820 C 250 760, 600 780, 900 700 S 1350 600, 1800 520" stroke="rgba(255,255,255,0.05)" stroke-width="1.5" fill="none"></path>
-        <path id="cwave3" d="M -200 920 C 300 880, 700 860, 1000 800 S 1400 720, 1800 660" stroke="rgba(255,255,255,0.04)" stroke-width="1.5" fill="none"></path>
-        <path id="cwave4" d="M -200 540 C 280 580, 580 480, 880 520 S 1320 440, 1800 300" stroke="rgba(255,255,255,0.045)" stroke-width="1.5" fill="none"></path>
+        <path id="cwave1" d="M -200 580 C 200 542, 500 552, 800 514 S 1300 467, 1800 420" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none"></path>
+        <path id="cwave2" d="M -200 670 C 250 642, 600 651, 900 614 S 1350 567, 1800 530" stroke="rgba(255,255,255,0.05)" stroke-width="1.5" fill="none"></path>
+        <path id="cwave3" d="M -200 780 C 300 762, 700 753, 1000 727 S 1400 692, 1800 665" stroke="rgba(255,255,255,0.04)" stroke-width="1.5" fill="none"></path>
+        <path id="cwave4" d="M -200 420 C 280 438, 580 393, 880 411 S 1320 374, 1800 310" stroke="rgba(255,255,255,0.045)" stroke-width="1.5" fill="none"></path>
       </svg>
     </div>
     <div class="wrap cta-content">
@@ -3491,50 +3491,50 @@
   const waveDefs = [
     {
       id: 'wave1',
-      base: { y0: 720, y1: 380 },
+      base: { y0: 580, y1: 420 },
       cps: [
-        [200,  640, 40, 50, 0.0],
-        [500,  660, 50, 59, 0.7],
-        [800,  580, 55, 55, 1.4],
-        [1100, 540, 46, 63, 2.1],
-        [1300, 480, 37, 53, 2.8],
-        [1600, 420, 28, 57, 3.5],
+        [200,  542, 40, 50, 0.0],
+        [500,  552, 50, 59, 0.7],
+        [800,  514, 55, 55, 1.4],
+        [1100, 495, 46, 63, 2.1],
+        [1300, 467, 37, 53, 2.8],
+        [1600, 438, 28, 57, 3.5],
       ],
     },
     {
       id: 'wave2',
-      base: { y0: 820, y1: 520 },
+      base: { y0: 670, y1: 530 },
       cps: [
-        [250,  760, 32, 67, 1.5],
-        [600,  780, 50, 61, 2.2],
-        [900,  700, 60, 57, 2.9],
-        [1200, 660, 50, 65, 3.6],
-        [1350, 600, 37, 55, 4.3],
-        [1600, 560, 28, 59, 5.0],
+        [250,  642, 32, 67, 1.5],
+        [600,  651, 50, 61, 2.2],
+        [900,  614, 60, 57, 2.9],
+        [1200, 595, 50, 65, 3.6],
+        [1350, 567, 37, 55, 4.3],
+        [1600, 549, 28, 59, 5.0],
       ],
     },
     {
       id: 'wave3',
-      base: { y0: 920, y1: 660 },
+      base: { y0: 780, y1: 665 },
       cps: [
-        [300,  880, 25, 74, 3.0],
-        [700,  860, 37, 68, 3.7],
-        [1000, 800, 41, 63, 4.4],
-        [1300, 760, 37, 70, 5.1],
-        [1400, 720, 28, 61, 5.8],
-        [1600, 700, 21, 67, 0.5],
+        [300,  762, 25, 74, 3.0],
+        [700,  753, 37, 68, 3.7],
+        [1000, 727, 41, 63, 4.4],
+        [1300, 709, 37, 70, 5.1],
+        [1400, 692, 28, 61, 5.8],
+        [1600, 683, 21, 67, 0.5],
       ],
     },
     {
       id: 'wave4',
-      base: { y0: 540, y1: 300 },
+      base: { y0: 420, y1: 310 },
       cps: [
-        [280,  580, 23, 80, 4.5],
-        [580,  480, 32, 72, 5.2],
-        [880,  520, 41, 76, 5.9],
-        [1080, 500, 32, 68, 0.6],
-        [1320, 440, 28, 78, 1.3],
-        [1600, 360, 21, 74, 2.0],
+        [280,  438, 23, 80, 4.5],
+        [580,  393, 32, 72, 5.2],
+        [880,  411, 41, 76, 5.9],
+        [1080, 402, 32, 68, 0.6],
+        [1320, 374, 28, 78, 1.3],
+        [1600, 338, 21, 74, 2.0],
       ],
     },
   ];
@@ -3870,7 +3870,8 @@
     cpm:    ['CPM €17','CPM −71 %','Reichweite günstig'],
   };
 
-  const POOL = ['#2d5f3f','#7a4a9c','#c0883e','#3f6ea8'];
+  const POOL      = ['#2d5f3f','#7a4a9c','#c0883e','#3f6ea8'];
+  const POOL_DARK = ['#6ab58a','#c088e8','#e8b870','#82b0e0'];
   const DEFAULT_ACTIVE = ['revenue','acos','spend','impressions'];
   const state = {
     activeOrder:[...DEFAULT_ACTIVE], activeColors:{}, freeColors:{},
@@ -4242,9 +4243,12 @@
     return [r,g,b];
   }
   function applyWaveColors() {
+    const isDark = document.body.classList.contains('dark');
+    const pool   = isDark ? POOL_DARK : POOL;
+    const opac   = isDark ? 0.28 : waveOpacity;
     [1,2,3,4].forEach((n,i)=>{
-      const [r,g,b]=hexToRgb(POOL[i]);
-      const stroke=`rgba(${r},${g},${b},${waveOpacity})`;
+      const [r,g,b]=hexToRgb(pool[i]);
+      const stroke=`rgba(${r},${g},${b},${opac})`;
       const el=document.getElementById('wave'+n);
       if(el) el.setAttribute('stroke',stroke);
     });
@@ -4271,10 +4275,11 @@
   function applyPageDark(d){
     document.body.classList.toggle('dark',d);
     localStorage.setItem('lvg-page-dark',d?'1':'0');
+    applyWaveColors();
   }
   // Apply saved preferences on load
   if(localStorage.getItem('lvg-graph-dark')==='1'){ state.dark=true; document.getElementById('heroRight').classList.add('graph-dark'); darkSw.classList.add('on'); }
-  if(localStorage.getItem('lvg-page-dark')==='1'){ document.body.classList.add('dark'); }
+  if(localStorage.getItem('lvg-page-dark')==='1'){ document.body.classList.add('dark'); applyWaveColors(); }
   darkSw.addEventListener('click',()=>applyDark(!state.dark));
   if(dmBtn) dmBtn.addEventListener('click',()=>applyPageDark(!document.body.classList.contains('dark')));
   document.addEventListener('click',e=>{ if(!tweak.contains(e.target)&&!tweakPanel.contains(e.target)&&tweak.classList.contains('open')) closeTweak(); });
@@ -4360,6 +4365,7 @@
 </script>
 
 <script src="_dev-image-lab.js"></script>
+<script src="_dev-waves-tool.js"></script>
 
 </body>
 </html>
