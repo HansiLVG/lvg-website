@@ -4262,12 +4262,12 @@
   }
   function applyPageDark(d){
     document.body.classList.toggle('dark',d);
-    localStorage.setItem('lvg-page-dark',d?'1':'0');
+    localStorage.setItem('lvg-dark',d?'1':'0');
     applyWaveColors();
   }
   // Apply saved preferences on load
   if(localStorage.getItem('lvg-graph-dark')==='1'){ state.dark=true; document.getElementById('heroRight').classList.add('graph-dark'); darkSw.classList.add('on'); }
-  if(localStorage.getItem('lvg-page-dark')==='1'){ document.body.classList.add('dark'); applyWaveColors(); }
+  if(localStorage.getItem('lvg-dark')==='1'){ document.body.classList.add('dark'); applyWaveColors(); }
   darkSw.addEventListener('click',()=>applyDark(!state.dark));
   if(dmBtn) dmBtn.addEventListener('click',()=>applyPageDark(!document.body.classList.contains('dark')));
   document.addEventListener('click',e=>{ if(!tweak.contains(e.target)&&!tweakPanel.contains(e.target)&&tweak.classList.contains('open')) closeTweak(); });
