@@ -963,17 +963,17 @@
   }
   .btn:hover { transform: scale(1.04); }
   .btn-primary {
-    background: linear-gradient(160deg, #3d7852 0%, #2a5838 100%);
+    background: linear-gradient(160deg, #56b87e 0%, #2d6642 100%);
     color: #fff;
-    border-color: #264f33;
-    box-shadow: 0 2px 14px rgba(45,95,63,0.32), inset 0 1px 0 rgba(255,255,255,0.12);
+    border-color: #236038;
+    box-shadow: 0 3px 20px rgba(40,120,70,0.50), 0 1px 0 rgba(255,255,255,0.18) inset;
     letter-spacing: 0.03em;
     padding: 15px 28px;
   }
   .btn-primary:hover {
-    background: linear-gradient(160deg, #4a8a62 0%, #346848 100%);
-    border-color: #2d6040;
-    box-shadow: 0 4px 22px rgba(45,95,63,0.44), inset 0 1px 0 rgba(255,255,255,0.16);
+    background: linear-gradient(160deg, #65cc8e 0%, #357a4e 100%);
+    border-color: #2d7048;
+    box-shadow: 0 6px 32px rgba(40,120,70,0.65), 0 1px 0 rgba(255,255,255,0.22) inset;
     transform: translateY(-2px) scale(1.02);
   }
   .btn-secondary {
@@ -3708,10 +3708,10 @@
     const fmt = (n) => Math.round(n).toLocaleString('de-DE');
 
     function resultBg(saving) {
-      if (saving <= 0)   return '#0d1f14';
-      if (saving < 1000) return '#161e08';
-      if (saving < 3000) return '#1e1500';
-      return '#280f00';
+      if (saving <= 0)   return '#0d2018';
+      if (saving < 1000) return '#1e2200';
+      if (saving < 3000) return '#3a1400';
+      return '#8b1500';
     }
 
     function recalc() {
