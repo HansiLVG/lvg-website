@@ -2067,6 +2067,13 @@
     margin: 12px 0 0;
   }
   .leadmagnet-privacy a { color: var(--ink-muted); text-decoration: underline; text-underline-offset: 2px; }
+  .leadmagnet-coming-soon {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin: 0;
+    font-style: italic;
+  }
   @media (max-width: 900px) {
     .rechner { grid-template-columns: 1fr; gap: 18px; }
     .rechner-cta { flex-direction: column; gap: 14px; }
@@ -2774,18 +2781,7 @@
             <strong>„7 Amazon PPC-Fehler, die Dein Budget verbrennen"</strong>
             plus Deine vollständige Auswertung per E-Mail.
           </p>
-          <!-- Mailchimp-Anbindung: data-mailchimp-endpoint mit echter Form-Action befüllen (siehe Notion-Task) -->
-          <form class="leadmagnet-form" id="leadmagnet-form" data-mailchimp-endpoint="" novalidate>
-            <input type="email" id="lm-email" name="EMAIL" placeholder="Deine E-Mail-Adresse" required />
-            <button class="btn btn-secondary" type="submit">Checkliste anfordern</button>
-          </form>
-          <div class="leadmagnet-success" id="leadmagnet-success" hidden>
-            Danke. Sobald der Versand scharf geschaltet ist, bekommst Du die Checkliste in Dein Postfach.
-          </div>
-          <p class="leadmagnet-privacy">
-            Kein Spam. Abmeldung jederzeit möglich. Details in der
-            <a href="/datenschutz.html">Datenschutzerklärung</a>.
-          </p>
+          <p class="leadmagnet-coming-soon">Wird in der nächsten Woche fertiggestellt. Schau bald wieder vorbei.</p>
         </div>
       </div>
     </div>
