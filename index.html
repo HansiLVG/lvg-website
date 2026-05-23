@@ -787,8 +787,7 @@
   .tweak.open .tweak-toggle { transform: rotate(135deg); background: var(--ink); color: var(--paper); border-color: var(--ink); }
   .tweak-toggle svg { width: 18px; height: 18px; }
   .tweak-panel {
-    position: absolute;
-    right: 0; top: 52px; bottom: auto;
+    position: fixed;
     width: 290px;
     background: var(--paper-elev);
     border: 1px solid var(--hairline-strong);
@@ -802,8 +801,9 @@
     transition: transform 0.22s cubic-bezier(.4,.0,.2,1), opacity 0.18s ease;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
+    z-index: 1000;
   }
-  .tweak.open .tweak-panel { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
+  .tweak-panel.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
   .tweak-panel h4 {
     margin: 0 0 12px;
     font-family: var(--sans);
@@ -883,16 +883,55 @@
   }
   .col-pick:hover { border-color: var(--hairline-strong); }
   .col-pick .col-name { font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink-soft); }
-  .col-pick input[type="color"] {
-    -webkit-appearance: none; appearance: none;
-    width: 22px; height: 22px;
-    border: 1px solid var(--hairline-strong);
-    border-radius: 5px; padding: 0; cursor: pointer;
-    background: transparent; overflow: hidden;
+  .col-pick input[type="color"] { display: none; }
+  .col-swatch {
+    width: 22px; height: 22px; border-radius: 5px; flex-shrink: 0;
+    border: 1.5px solid rgba(0,0,0,0.18);
+    transition: transform 0.14s ease, box-shadow 0.14s ease;
+    cursor: pointer;
   }
-  .col-pick input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
-  .col-pick input[type="color"]::-webkit-color-swatch { border: none; border-radius: 3px; }
-  .col-pick input[type="color"]::-moz-color-swatch { border: none; border-radius: 3px; }
+  .col-swatch:hover { transform: scale(1.14); box-shadow: 0 2px 8px rgba(0,0,0,0.22); }
+  /* ─── Custom color picker popup ─────────────────────────── */
+  .cp-popup {
+    position: fixed; z-index: 1100;
+    background: var(--paper-elev, #fff);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 11px;
+    padding: 10px;
+    box-shadow: 0 20px 48px -8px rgba(10,10,10,0.28), 0 4px 14px rgba(10,10,10,0.08);
+    display: none;
+    animation: cpFadeIn 0.14s ease;
+  }
+  @keyframes cpFadeIn { from { opacity:0; transform:translateY(-4px) scale(0.97); } to { opacity:1; transform:translateY(0) scale(1); } }
+  .cp-popup.open { display: block; }
+  .cp-presets { display: grid; grid-template-columns: repeat(6,22px); gap: 5px; margin-bottom: 9px; }
+  .cp-dot {
+    width: 22px; height: 22px; border-radius: 5px; cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: transform 0.12s ease;
+  }
+  .cp-dot:hover { transform: scale(1.18); }
+  .cp-dot.active { border-color: var(--ink); box-shadow: 0 0 0 2px var(--paper-elev), 0 0 0 3.5px var(--ink); }
+  .cp-hex {
+    display: flex; align-items: center; gap: 6px;
+    border-top: 1px solid var(--hairline); padding-top: 8px;
+  }
+  .cp-hex-swatch { width: 26px; height: 26px; border-radius: 5px; border: 1px solid var(--hairline-strong); flex-shrink: 0; }
+  .cp-hex-input {
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em;
+    border: 1px solid var(--hairline-strong); border-radius: 6px;
+    padding: 4px 7px; flex: 1; min-width: 0;
+    background: var(--paper-sunk); color: var(--ink); outline: none;
+  }
+  .cp-hex-input:focus { border-color: var(--accent); }
+  .cp-apply {
+    font-family: var(--sans); font-size: 11px; font-weight: 600;
+    padding: 4px 10px; border-radius: 6px;
+    background: var(--ink); color: var(--paper);
+    border: none; cursor: pointer; white-space: nowrap;
+    transition: opacity 0.12s ease;
+  }
+  .cp-apply:hover { opacity: 0.8; }
 
   /* ─── Buttons ────────────────────────────────────────────── */
   .btn {
@@ -1160,7 +1199,7 @@
     inset: -6% 0;
     background-size: cover;
     background-position: center;
-    opacity: 0.47;
+    opacity: 0.13;
     z-index: 0;
     will-change: transform, filter;
     filter: saturate(1.05) contrast(1.04) blur(0.8px);
@@ -1294,6 +1333,31 @@
   }
   .problem-section .wrap,
   .ergebnisse-section .wrap { position: relative; z-index: 1; }
+
+  /* ─── Neue Section-Hintergründe ─────────────────────────── */
+  .vertrauen-section, .rechner-section, .vergleich-section, .faq-section {
+    position: relative;
+    overflow: hidden;
+  }
+  .vertrauen-section .wrap, .rechner-section .wrap,
+  .vergleich-section .wrap, .faq-section .wrap { position: relative; z-index: 1; }
+
+  .vertrauen-bg, .acos-rechner-bg, .vergleich-bg, .faq-bg {
+    position: absolute;
+    inset: -6% 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    will-change: transform, filter;
+    filter: saturate(1.02) contrast(1.04) blur(1px);
+    -webkit-mask-image: radial-gradient(ellipse 90% 100% at 50% 50%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.2) 100%);
+            mask-image: radial-gradient(ellipse 90% 100% at 50% 50%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.2) 100%);
+    transition: filter 400ms ease;
+  }
+  .vertrauen-bg    { opacity: 0.08; }
+  .acos-rechner-bg { opacity: 0.08; }
+  .vergleich-bg    { opacity: 0.11; }
+  .faq-bg          { opacity: 0.02; }
   .ablauf-steps {
     display: flex;
     flex-direction: column;
@@ -2463,10 +2527,10 @@
                     <div class="tw-divider"></div>
                     <h4 style="margin-bottom:8px">Color Pool</h4>
                     <div class="color-grid" id="colorGrid">
-                      <label class="col-pick"><span class="col-name">Slot 1</span><input type="color" data-slot="0" value="#2d5f3f"></label>
-                      <label class="col-pick"><span class="col-name">Slot 2</span><input type="color" data-slot="1" value="#7a4a9c"></label>
-                      <label class="col-pick"><span class="col-name">Slot 3</span><input type="color" data-slot="2" value="#c0883e"></label>
-                      <label class="col-pick"><span class="col-name">Slot 4</span><input type="color" data-slot="3" value="#3f6ea8"></label>
+                      <div class="col-pick"><span class="col-name">Slot 1</span><span class="col-swatch" data-slot="0" style="background:#2d5f3f"></span><input type="color" data-slot="0" value="#2d5f3f"></div>
+                      <div class="col-pick"><span class="col-name">Slot 2</span><span class="col-swatch" data-slot="1" style="background:#7a4a9c"></span><input type="color" data-slot="1" value="#7a4a9c"></div>
+                      <div class="col-pick"><span class="col-name">Slot 3</span><span class="col-swatch" data-slot="2" style="background:#c0883e"></span><input type="color" data-slot="2" value="#c0883e"></div>
+                      <div class="col-pick"><span class="col-name">Slot 4</span><span class="col-swatch" data-slot="3" style="background:#3f6ea8"></span><input type="color" data-slot="3" value="#3f6ea8"></div>
                     </div>
                     <div class="tw-divider"></div>
                     <div class="tweak-row toggle-row">
@@ -2500,7 +2564,8 @@
   <hr class="divider" />
 
   <!-- ─── VERTRAUEN ─────────────────────────────────────── -->
-  <section class="section-pad" id="vertrauen" data-screen-label="Vertrauen">
+  <section class="section-pad vertrauen-section" id="vertrauen" data-screen-label="Vertrauen">
+    <div class="vertrauen-bg" data-parallax="0.45" data-bg="assets/bg-vertrauen.webp"></div>
     <div class="wrap">
       <div class="reveal"><span class="label"><span class="tri"></span>VERTRAUEN AUF EINEN BLICK</span></div>
       <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
@@ -2568,7 +2633,7 @@
 
   <!-- ─── PROBLEM ───────────────────────────────────────── -->
   <section class="section-pad problem-section" id="problem" data-screen-label="Problem">
-    <div class="problem-bg" data-parallax="0.45" data-bg="assets/problem-bg.webp"></div>
+    <div class="problem-bg" style="display:none"></div>
     <div class="wrap">
       <div class="reveal"><span class="label"><span class="tri"></span>KENNST DU DAS?</span></div>
       <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
@@ -2623,6 +2688,7 @@
 
   <!-- ─── ACOS-RECHNER (Lead-Magnet) ────────────────────── -->
   <section class="section-pad rechner-section" id="acos-rechner" data-screen-label="ACOS-Rechner">
+    <div class="acos-rechner-bg" data-parallax="0.45" data-bg="assets/bg-acos-rechner.webp"></div>
     <div class="wrap">
       <div class="reveal"><span class="label"><span class="tri"></span>KOSTENLOSER ACOS-CHECK</span></div>
       <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
@@ -2748,7 +2814,8 @@
   <hr class="divider" />
 
   <!-- ─── FREELANCER VS. AGENTUR ────────────────────────── -->
-  <section class="section-pad" id="vergleich" data-screen-label="Freelancer vs. Agentur">
+  <section class="section-pad vergleich-section" id="vergleich" data-screen-label="Freelancer vs. Agentur">
+    <div class="vergleich-bg" data-parallax="0.45" data-bg="assets/bg-vergleich.webp"></div>
     <div class="wrap">
       <div class="reveal"><span class="label"><span class="tri"></span>DIE ALTERNATIVE ZUR AGENTUR</span></div>
       <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
@@ -2791,7 +2858,7 @@
 
   <!-- ─── ERGEBNISSE ──────────────────────────────────────── -->
   <section class="section-pad ergebnisse-section" id="ergebnisse" data-screen-label="Ergebnisse">
-    <div class="ergebnisse-bg" data-parallax="0.45" data-bg="assets/ergebnisse-bg.webp"></div>
+    <div class="ergebnisse-bg" style="display:none"></div>
     <div class="wrap">
       <div class="reveal"><span class="label"><span class="tri"></span>AUS DER PRAXIS</span></div>
       <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
@@ -2890,7 +2957,7 @@
 
   <!-- ─── ÜBER MICH ─────────────────────────────────────── -->
   <section class="section-pad ueber-section" id="ueber-mich" data-screen-label="Über mich">
-    <div class="ueber-bg" data-parallax="0.55" data-bg="assets/water-flow.webp"></div>
+    <div class="ueber-bg" data-parallax="0.55" data-bg="assets/bg-ueber-mich.webp"></div>
     <img
       class="ueber-portrait reveal"
       src="assets/portrait-bw-medium.webp"
@@ -2946,7 +3013,7 @@
 
   <!-- ─── ABLAUF ────────────────────────────────────────── -->
   <section class="section-pad ablauf-section" id="ablauf" data-screen-label="Ablauf">
-    <div class="ablauf-bg" data-parallax="0.45" data-bg="assets/valley-mist.webp"></div>
+    <div class="ablauf-bg" style="display:none"></div>
     <div class="wrap ablauf-content">
       <div class="reveal"><span class="label"><span class="tri"></span>SO LÄUFT'S AB</span></div>
       <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
@@ -2999,7 +3066,8 @@
   </section>
 
   <!-- ─── FAQ ───────────────────────────────────────────── -->
-  <section class="section-pad" id="faq" data-screen-label="FAQ">
+  <section class="section-pad faq-section" id="faq" data-screen-label="FAQ">
+    <div class="faq-bg" data-parallax="0.45" data-bg="assets/bg-faq.webp"></div>
     <div class="wrap">
       <div class="reveal"><span class="label"><span class="tri"></span>HÄUFIGE FRAGEN</span></div>
       <h2 class="peak reveal" style="--reveal-delay: 0.10s;">
@@ -4109,7 +4177,17 @@
   hero.addEventListener('touchmove',e=>{ if(e.touches.length) onMove({clientX:e.touches[0].clientX,clientY:e.touches[0].clientY}); },{passive:true});
 
   const tweak=document.getElementById('tweak');
-  document.getElementById('tweakBtn').addEventListener('click',e=>{ e.stopPropagation(); tweak.classList.toggle('open'); });
+  const tweakPanel=document.getElementById('tweakPanel');
+  document.body.appendChild(tweakPanel);
+  const tweakBtn=document.getElementById('tweakBtn');
+  function positionTweakPanel(){
+    const r=tweakBtn.getBoundingClientRect();
+    tweakPanel.style.top=(r.bottom+8)+'px';
+    tweakPanel.style.right=(window.innerWidth-r.right)+'px';
+  }
+  function openTweak(){ positionTweakPanel(); tweak.classList.add('open'); tweakPanel.classList.add('open'); }
+  function closeTweak(){ tweak.classList.remove('open'); tweakPanel.classList.remove('open'); }
+  tweakBtn.addEventListener('click',e=>{ e.stopPropagation(); tweak.classList.contains('open')?closeTweak():openTweak(); });
   document.getElementById('spd').addEventListener('input',e=>{ state.speed=parseFloat(e.target.value); document.getElementById('spdVal').textContent=state.speed.toFixed(1)+'×'; });
   document.getElementById('sm').addEventListener('input',e=>{ state.smoothness=parseFloat(e.target.value); document.getElementById('smVal').textContent=state.smoothness.toFixed(2); });
   document.getElementById('br').addEventListener('input',e=>{ state.breathing=parseFloat(e.target.value); document.getElementById('brVal').textContent=state.breathing.toFixed(1)+'×'; });
@@ -4159,7 +4237,59 @@
   if(localStorage.getItem('lvg-page-dark')==='1'){ document.body.classList.add('dark'); }
   darkSw.addEventListener('click',()=>applyDark(!state.dark));
   if(dmBtn) dmBtn.addEventListener('click',()=>applyPageDark(!document.body.classList.contains('dark')));
-  document.addEventListener('click',e=>{ if(!tweak.contains(e.target)&&tweak.classList.contains('open')) tweak.classList.remove('open'); });
+  document.addEventListener('click',e=>{ if(!tweak.contains(e.target)&&!tweakPanel.contains(e.target)&&tweak.classList.contains('open')) closeTweak(); });
+
+  // ─── Custom color picker ─────────────────────────────────────
+  const CP_COLORS=['#2d5f3f','#4a8c5c','#6bb07a','#a8d4b0','#1e4d8c','#3f6ea8','#5a9ad4','#89bef0','#5a2d8c','#7a4a9c','#9b6abf','#c090e0','#c03a3a','#c0703a','#c0883e','#d4a85c','#1e6e6e','#2d8c8c','#50b0b0','#80d4d4','#0a0a0a','#4a4a4a','#8e8e8e','#e8e0d8'];
+  const cpEl=document.createElement('div');
+  cpEl.className='cp-popup';
+  cpEl.innerHTML='<div class="cp-presets">'+CP_COLORS.map(c=>'<span class="cp-dot" style="background:'+c+'" data-color="'+c+'"></span>').join('')+'</div><div class="cp-hex"><span class="cp-hex-swatch" id="cpSwatch"></span><input class="cp-hex-input" id="cpHex" type="text" maxlength="7" spellcheck="false"><button class="cp-apply" id="cpApply">OK</button></div>';
+  document.body.appendChild(cpEl);
+  let cpSlot=-1;
+  function cpApplyColor(hex){
+    if(!/^#[0-9a-fA-F]{6}$/.test(hex)) return;
+    const inp=document.querySelector('#colorGrid input[data-slot="'+cpSlot+'"]');
+    const sw=document.querySelector('#colorGrid .col-swatch[data-slot="'+cpSlot+'"]');
+    if(!inp||!sw) return;
+    inp.value=hex; sw.style.background=hex;
+    inp.dispatchEvent(new Event('input',{bubbles:true}));
+    cpEl.querySelectorAll('.cp-dot').forEach(d=>d.classList.toggle('active',d.dataset.color===hex));
+    document.getElementById('cpHex').value=hex;
+    document.getElementById('cpSwatch').style.background=hex;
+  }
+  cpEl.addEventListener('click',e=>{
+    e.stopPropagation();
+    const dot=e.target.closest('.cp-dot'); if(dot) cpApplyColor(dot.dataset.color);
+  });
+  document.getElementById('cpApply').addEventListener('click',e=>{
+    e.stopPropagation();
+    let v=document.getElementById('cpHex').value.trim();
+    if(!v.startsWith('#')) v='#'+v;
+    cpApplyColor(v);
+  });
+  document.getElementById('cpHex').addEventListener('input',e=>{
+    let v=e.target.value.trim(); if(!v.startsWith('#')) v='#'+v;
+    if(/^#[0-9a-fA-F]{6}$/.test(v)) document.getElementById('cpSwatch').style.background=v;
+  });
+  document.getElementById('cpHex').addEventListener('keydown',e=>{
+    if(e.key!=='Enter') return; e.preventDefault();
+    let v=e.target.value.trim(); if(!v.startsWith('#')) v='#'+v; cpApplyColor(v);
+  });
+  document.getElementById('colorGrid').addEventListener('click',e=>{
+    const sw=e.target.closest('.col-swatch'); if(!sw) return;
+    e.stopPropagation();
+    cpSlot=parseInt(sw.dataset.slot,10);
+    const r=sw.getBoundingClientRect();
+    const popW=192;
+    let left=r.left; if(left+popW>window.innerWidth-8) left=window.innerWidth-popW-8;
+    cpEl.style.top=(r.bottom+6)+'px'; cpEl.style.left=left+'px';
+    const cur=document.querySelector('#colorGrid input[data-slot="'+cpSlot+'"]').value;
+    document.getElementById('cpHex').value=cur;
+    document.getElementById('cpSwatch').style.background=cur;
+    cpEl.querySelectorAll('.cp-dot').forEach(d=>d.classList.toggle('active',d.dataset.color===cur));
+    cpEl.classList.add('open');
+  });
+  document.addEventListener('click',e=>{ if(cpEl.classList.contains('open')&&!cpEl.contains(e.target)) cpEl.classList.remove('open'); });
 
   let raf=null, active=true, paused=false;
   function tick(now){ if(!active||paused){ raf=null; return; } render(now); raf=requestAnimationFrame(tick); }
@@ -4188,6 +4318,8 @@
   }
 })();
 </script>
+
+<script src="_dev-image-lab.js"></script>
 
 </body>
 </html>
