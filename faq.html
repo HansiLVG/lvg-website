@@ -220,7 +220,7 @@
     font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--ink);
+    color: var(--accent);
     text-decoration: none;
     padding-bottom: 2px;
     position: relative;
@@ -232,7 +232,7 @@
     left: 0; right: 100%;
     bottom: 0;
     height: 1px;
-    background: var(--ink);
+    background: var(--accent);
     transition: right 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .nav a.cta-link:hover::after { right: 0; }
@@ -546,11 +546,19 @@
   }
   .btn:hover { transform: scale(1.04); }
   .btn-primary {
-    background: var(--accent);
+    background: linear-gradient(160deg, #3d7852 0%, #2a5838 100%);
     color: #fff;
-    border-color: var(--accent);
+    border-color: #264f33;
+    box-shadow: 0 2px 14px rgba(45,95,63,0.32), inset 0 1px 0 rgba(255,255,255,0.12);
+    letter-spacing: 0.03em;
+    padding: 15px 28px;
   }
-  .btn-primary:hover { background: var(--accent-soft); border-color: var(--accent-soft); }
+  .btn-primary:hover {
+    background: linear-gradient(160deg, #4a8a62 0%, #346848 100%);
+    border-color: #2d6040;
+    box-shadow: 0 4px 22px rgba(45,95,63,0.44), inset 0 1px 0 rgba(255,255,255,0.16);
+    transform: translateY(-2px) scale(1.02);
+  }
   .btn-secondary {
     background: transparent;
     color: var(--ink);
@@ -1495,5 +1503,7 @@
     });
   })();
   </script>
+<script src="_dev-image-lab.js"></script>
+
 </body>
 </html>
