@@ -226,10 +226,11 @@
   }
   @media (max-width: 1100px) {
     .nav-burger { display: flex; }
+    .nav a.cta-link { display: none; }
     .nav-mobile-wrap {
       display: grid;
       grid-template-rows: 0fr;
-      transition: grid-template-rows 0.38s cubic-bezier(0.22,1,0.36,1);
+      transition: grid-template-rows 0.26s cubic-bezier(0.22,1,0.36,1);
     }
     nav.is-open .nav-mobile-wrap { grid-template-rows: 1fr; }
   }
@@ -309,7 +310,7 @@
     font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--ink);
+    color: var(--accent);
     text-decoration: none;
     padding-bottom: 2px;
     position: relative;
@@ -321,7 +322,7 @@
     left: 0; right: 100%;
     bottom: 0;
     height: 1px;
-    background: var(--ink);
+    background: var(--accent);
     transition: right 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .nav a.cta-link:hover::after { right: 0; }
@@ -963,17 +964,17 @@
   }
   .btn:hover { transform: scale(1.04); }
   .btn-primary {
-    background: linear-gradient(160deg, #56b87e 0%, #2d6642 100%);
+    background: linear-gradient(160deg, #3d7852 0%, #2a5838 100%);
     color: #fff;
-    border-color: #236038;
-    box-shadow: 0 3px 20px rgba(40,120,70,0.50), 0 1px 0 rgba(255,255,255,0.18) inset;
+    border-color: #264f33;
+    box-shadow: 0 2px 14px rgba(45,95,63,0.32), inset 0 1px 0 rgba(255,255,255,0.12);
     letter-spacing: 0.03em;
     padding: 15px 28px;
   }
   .btn-primary:hover {
-    background: linear-gradient(160deg, #65cc8e 0%, #357a4e 100%);
-    border-color: #2d7048;
-    box-shadow: 0 6px 32px rgba(40,120,70,0.65), 0 1px 0 rgba(255,255,255,0.22) inset;
+    background: linear-gradient(160deg, #4a8a62 0%, #346848 100%);
+    border-color: #2d6040;
+    box-shadow: 0 4px 22px rgba(45,95,63,0.44), inset 0 1px 0 rgba(255,255,255,0.16);
     transform: translateY(-2px) scale(1.02);
   }
   .btn-secondary {
@@ -1806,6 +1807,8 @@
   /* ─── Selection ──────────────────────────────────────────── */
   ::selection { background: var(--accent); color: #fff; }
 
+  .chart-spacer { height: clamp(260px, 32vh, 420px); }
+
   /* ─── Responsive ─────────────────────────────────────────── */
   @media (max-width: 900px) {
     :root { --pad-x: 28px; }
@@ -1817,11 +1820,14 @@
     .hero-buttons { justify-content: flex-start; }
     .trust-row { gap: 14px; }
     .trust-row .stat .num { font-size: 24px; }
-    .hero-right { min-height: 360px; border-radius: 14px; padding: 16px 18px; }
+    .hero-right { min-height: 260px; border-radius: 14px; padding: 16px 18px; }
     .stat-cell .big { font-size: 22px; }
     .chips-layer { display: none; }
     .pills { gap: 5px; }
     .pill { font-size: 11.5px; padding: 6px 10px 6px 9px; }
+    .pill:not(.on) { display: none; }
+    .tweak { display: none; }
+    .chart-spacer { height: 190px; }
     .stats { grid-template-columns: 1fr; }
     .stat { border-right: 0; border-bottom: 1px solid var(--border); }
     .stat:last-child { border-bottom: 0; }
@@ -2558,6 +2564,7 @@
                       <span class="tw-label" style="display:inline; padding:0;">Graph Dark</span>
                       <span class="switch" id="darkSw"></span>
                     </div>
+
                   </div>
                   <button class="tweak-toggle" id="tweakBtn" aria-label="Tweaks">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -2570,7 +2577,7 @@
             </div>
             <div class="pills" id="pills"></div>
             <div class="stat-row" id="statRow"></div>
-            <div style="height: clamp(260px, 32vh, 420px);"></div>
+            <div class="chart-spacer"></div>
           </div>
         </div>
       </div>
