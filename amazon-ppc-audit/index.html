@@ -565,16 +565,25 @@
   const cookieBanner = document.getElementById('cookie-banner');
   if (cookieBanner) {
     const STORAGE_KEY = 'lvg-cookie-consent';
+    function applyConsent(choice) {
+      const granted = choice === 'accepted';
+      gtag('consent', 'update', {
+        analytics_storage: granted ? 'granted' : 'denied',
+        ad_storage: 'denied'
+      });
+    }
     let stored = null;
     try { stored = localStorage.getItem(STORAGE_KEY); } catch (_) {}
     if (stored === 'accepted' || stored === 'declined') {
+      applyConsent(stored);
       cookieBanner.remove();
     } else {
       cookieBanner.addEventListener('click', (ev) => {
         const target = ev.target.closest('[data-cookie]');
         if (!target) return;
-        const choice = target.getAttribute('data-cookie');
-        try { localStorage.setItem(STORAGE_KEY, choice === 'accept' ? 'accepted' : 'declined'); } catch (_) {}
+        const choice = target.getAttribute('data-cookie') === 'accept' ? 'accepted' : 'declined';
+        try { localStorage.setItem(STORAGE_KEY, choice); } catch (_) {}
+        applyConsent(choice);
         cookieBanner.classList.add('is-hidden');
         setTimeout(() => { cookieBanner.remove(); }, 320);
       });

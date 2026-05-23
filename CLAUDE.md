@@ -102,6 +102,7 @@ Vollständiger Conversion-/SEO-/Psychologie-Umbau auf Basis des Second-Brain-Wis
   - `faq.html`: FAQPage (10 Fragen)
   - `ueber-mich.html`: Person
   - Alle 3 Leistungsseiten: Service-Schema inkl. Preisrange
+- **CSS-Extraktion** (Commit `dbe1107`, Mai 2026): ~22.000 Zeilen duplizierter `<style>`-Code aus 8 HTML-Dateien in `assets/styles.css` zentralisiert (-5.228 Zeilen netto). Jede Seite hat nur noch seitenspezifische Overrides inline. `index.html` + `404.html` bewusst ausgelassen (zu unterschiedliche Struktur).
 
 ### Aktive Feature-Branches
 
