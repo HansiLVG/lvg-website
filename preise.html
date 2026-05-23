@@ -129,6 +129,7 @@
     color: var(--ink-muted);
     text-decoration: none;
     padding: 6px 0;
+    white-space: nowrap;
     transition: color 0.2s ease;
   }
   .nav-links a:hover { color: var(--ink); }
@@ -211,6 +212,7 @@
     text-decoration: none;
     padding-bottom: 2px;
     position: relative;
+    white-space: nowrap;
   }
   .nav a.cta-link::after {
     content: "";
@@ -263,6 +265,23 @@
   }
 
   /* ─── Page Header ────────────────────────────────────── */
+  .page-head-cta {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 2px;
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid var(--ink);
+    transition: opacity 0.2s ease;
+  }
+  .page-head-cta:hover { opacity: 0.82; }
   .page-head {
     position: relative;
     z-index: 2;
@@ -613,6 +632,8 @@
   .cta-section {
     position: relative;
     z-index: 2;
+    background: var(--cta-dark);
+    color: #fff;
     overflow: hidden;
   }
   .cta-bg {
@@ -948,6 +969,9 @@
         Der Preis richtet sich nach dem Wert, den gute PPC-Arbeit
         für Deinen Account schafft — und nach Deinem Budget als Ausgangspunkt.
       </p>
+      <div class="reveal" style="--reveal-delay: 0.30s; margin-top: 36px;">
+        <a class="page-head-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Kostenloses Erstgespräch buchen</a>
+      </div>
     </div>
   </section>
 

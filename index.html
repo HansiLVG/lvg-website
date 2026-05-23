@@ -958,16 +958,24 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     white-space: nowrap;
   }
   .btn:hover { transform: scale(1.04); }
   .btn-primary {
-    background: var(--accent);
+    background: linear-gradient(160deg, #3d7852 0%, #2a5838 100%);
     color: #fff;
-    border-color: var(--accent);
+    border-color: #264f33;
+    box-shadow: 0 2px 14px rgba(45,95,63,0.32), inset 0 1px 0 rgba(255,255,255,0.12);
+    letter-spacing: 0.03em;
+    padding: 15px 28px;
   }
-  .btn-primary:hover { background: var(--accent-soft); border-color: var(--accent-soft); }
+  .btn-primary:hover {
+    background: linear-gradient(160deg, #4a8a62 0%, #346848 100%);
+    border-color: #2d6040;
+    box-shadow: 0 4px 22px rgba(45,95,63,0.44), inset 0 1px 0 rgba(255,255,255,0.16);
+    transform: translateY(-2px) scale(1.02);
+  }
   .btn-secondary {
     background: transparent;
     color: var(--ink);
@@ -1128,7 +1136,7 @@
   }
 
   /* ─── Section: Leistungen ────────────────────────────────── */
-  .leistungen-section { background: var(--paper); position: relative; overflow: hidden; }
+  .leistungen-section { position: relative; overflow: hidden; }
   .leistungen-wrap { position: relative; }
   .leistungen-detail {
     position: absolute;
@@ -1204,6 +1212,7 @@
   .ueber-section {
     position: relative;
     overflow: hidden;
+    background: var(--paper);
   }
   .ueber-bg {
     position: absolute;
@@ -1349,6 +1358,7 @@
   .vertrauen-section, .rechner-section, .vergleich-section, .faq-section {
     position: relative;
     overflow: hidden;
+    background: var(--paper);
   }
   .vertrauen-section .wrap, .rechner-section .wrap,
   .vergleich-section .wrap, .faq-section .wrap { position: relative; z-index: 1; }
@@ -1951,7 +1961,7 @@
     padding-right: 18px;
   }
   .rechner-result {
-    background: var(--accent);
+    background: #0e1511;
     border-radius: 4px;
     padding: 32px;
     display: flex;
@@ -1959,6 +1969,7 @@
     justify-content: center;
     color: #fff;
     min-height: 180px;
+    transition: background-color 0.7s ease;
   }
   .rechner-result-empty {
     font-family: var(--sans);
@@ -1992,7 +2003,7 @@
   }
   .rechner-cta {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
     flex-wrap: wrap;
     margin-top: 32px;
@@ -2001,7 +2012,6 @@
     font-family: var(--sans);
     font-size: 13px;
     color: var(--ink-muted);
-    padding-top: 14px;
   }
   .rechner-leadmagnet {
     flex: 1;
@@ -2464,7 +2474,7 @@
           </div>
           <h1 class="reveal" style="--reveal-delay: 0.10s;">
             Schluss mit dem ACOS-Rätselraten.<br />
-            <span class="accent">Amazon PPC</span>, der messbar wirkt.
+            <span class="accent">Amazon PPC</span>, das messbar wirkt.
           </h1>
           <p class="hero-sub reveal" style="--reveal-delay: 0.20s;">
             Kein Generalist, keine Agentur, kein Junior. Nur ich, Dein Account
@@ -3690,26 +3700,38 @@
   const calcAcos  = document.getElementById('calc-acos');
   if (calcSpend && calcAcos) {
     const TARGET_ACOS = 20; // gut geführter Durchschnitt
-    const empty   = document.getElementById('calc-empty');
-    const filled  = document.getElementById('calc-filled');
-    const savingEl = document.getElementById('calc-saving');
-    const subEl   = document.getElementById('calc-sub');
+    const empty     = document.getElementById('calc-empty');
+    const filled    = document.getElementById('calc-filled');
+    const savingEl  = document.getElementById('calc-saving');
+    const subEl     = document.getElementById('calc-sub');
+    const resultBox = document.getElementById('calc-result');
     const fmt = (n) => Math.round(n).toLocaleString('de-DE');
+
+    function resultBg(saving) {
+      if (saving <= 0)   return '#0d1f14';
+      if (saving < 1000) return '#161e08';
+      if (saving < 3000) return '#1e1500';
+      return '#280f00';
+    }
 
     function recalc() {
       const spend = parseFloat(calcSpend.value);
       const acos  = parseFloat(calcAcos.value);
       if (!(spend > 0) || !(acos > 0)) {
-        filled.hidden = true; empty.hidden = false; return;
+        filled.hidden = true; empty.hidden = false;
+        if (resultBox) resultBox.style.backgroundColor = '';
+        return;
       }
       empty.hidden = true; filled.hidden = false;
       if (acos <= TARGET_ACOS) {
         savingEl.textContent = '0';
         subEl.textContent = 'Dein ACOS liegt schon im guten Bereich. Dann geht es eher um Skalierung und organisches Wachstum als um Einsparung. Genau das schauen wir uns im Erstgespräch an.';
+        if (resultBox) resultBox.style.backgroundColor = resultBg(0);
       } else {
         const monthly = spend * (acos - TARGET_ACOS) / 100;
         savingEl.textContent = fmt(monthly);
         subEl.textContent = 'Das sind rund ' + fmt(monthly * 12) + ' EUR im Jahr, die zwischen Deiner aktuellen Steuerung und einem ACOS von ' + TARGET_ACOS + '% liegen. Richtwert, keine Garantie.';
+        if (resultBox) resultBox.style.backgroundColor = resultBg(monthly);
       }
     }
     calcSpend.addEventListener('input', recalc);
