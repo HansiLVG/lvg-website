@@ -292,7 +292,6 @@
   .page-head-bg {
     position: absolute;
     inset: 0;
-    background-image: url("assets/preise-bg.webp");
     background-size: cover;
     background-position: center 40%;
     filter: saturate(0.2) brightness(1.15) blur(1.5px);
@@ -639,7 +638,6 @@
   .cta-bg {
     position: absolute;
     inset: 0;
-    background-image: url("assets/cta-background.webp");
     background-size: cover;
     background-position: center;
     filter: saturate(0.15) brightness(0.28) blur(2px);
@@ -958,7 +956,7 @@
 
   <!-- ─── Page Header ───────────────────────────────── -->
   <section class="page-head" id="head" data-screen-label="Preise — Header">
-    <div class="page-head-bg" data-parallax="0.5"></div>
+    <div class="page-head-bg" data-parallax="0.5" data-bg="/assets/preise-bg.webp"></div>
     <div class="wrap">
       <div class="reveal"><span class="label"><span class="tri"></span>PREISE &middot; PAKETE</span></div>
       <h1 class="page-title reveal" style="--reveal-delay: 0.10s;">
@@ -1217,7 +1215,7 @@
 
   <!-- ─── CTA ───────────────────────────────────────── -->
   <section class="cta-section" id="cta" data-screen-label="CTA">
-    <div class="cta-bg" data-parallax="0.65"></div>
+    <div class="cta-bg" data-parallax="0.65" data-bg="/assets/cta-background.webp"></div>
     <div class="cta-fade top" aria-hidden="true"></div>
     <div class="cta-fade bottom" aria-hidden="true"></div>
     <div class="cta-vignette"></div>
@@ -1289,6 +1287,22 @@
 <script>
 (() => {
   'use strict';
+
+  // ─────────────────────────────────────────────────────
+  // Lazy-load CSS background images
+  // ─────────────────────────────────────────────────────
+  const bgEls = document.querySelectorAll('[data-bg]');
+  if (bgEls.length) {
+    const bgIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.backgroundImage = `url("${e.target.dataset.bg}")`;
+          bgIO.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+    bgEls.forEach((el) => bgIO.observe(el));
+  }
 
   // ─── Reveal ────────────────────────────────────────
   const reveals = document.querySelectorAll('.reveal');

@@ -317,7 +317,6 @@
   .page-head-bg {
     position: absolute;
     inset: -8% 0;
-    background-image: url("/assets/strategie-bg.webp");
     background-size: cover;
     background-position: center;
     opacity: 0.18;
@@ -583,7 +582,6 @@
   .cta-bg {
     position: absolute;
     inset: -25% 0;
-    background-image: url("/assets/cta-background.webp");
     background-size: cover;
     background-position: center;
     opacity: 0.28;
@@ -913,7 +911,7 @@
 
   <!-- ─── Titel ───────────────────────────────────────── -->
   <section class="page-head" id="head" data-screen-label="Strategie-Aufbau — Titel">
-    <div class="page-head-bg" data-parallax="0.5"></div>
+    <div class="page-head-bg" data-parallax="0.5" data-bg="/assets/strategie-bg.webp"></div>
     <div class="wrap">
       <div class="reveal"><span class="label"><span class="tri"></span>LEISTUNG · AMAZON PPC STRATEGIE</span></div>
       <h1 class="page-title reveal" style="--reveal-delay: 0.10s;">
@@ -1084,7 +1082,7 @@
 
   <!-- ─── CTA ─────────────────────────────────────────── -->
   <section class="cta-section" id="cta" data-screen-label="CTA">
-    <div class="cta-bg" data-parallax="0.65"></div>
+    <div class="cta-bg" data-parallax="0.65" data-bg="/assets/cta-background.webp"></div>
     <div class="cta-fade top" aria-hidden="true"></div>
     <div class="cta-fade bottom" aria-hidden="true"></div>
     <div class="cta-vignette"></div>
@@ -1158,6 +1156,22 @@
 <script>
 (() => {
   'use strict';
+
+  // ─────────────────────────────────────────────────────
+  // Lazy-load CSS background images
+  // ─────────────────────────────────────────────────────
+  const bgEls = document.querySelectorAll('[data-bg]');
+  if (bgEls.length) {
+    const bgIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.backgroundImage = `url("${e.target.dataset.bg}")`;
+          bgIO.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+    bgEls.forEach((el) => bgIO.observe(el));
+  }
 
   // ─────────────────────────────────────────────────────
   // Reveal observer (identisch zu index.html)
