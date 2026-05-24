@@ -44,7 +44,7 @@
     --ink: #0a0a0a;
     --ink-strong: #1a1a1a;
     --ink-soft: #4a4a4a;
-    --ink-muted: #6e6e6e;
+    --ink-muted: #696969;
     --ink-faint: #c0c0c0;
     --border: rgba(10, 10, 10, 0.08);
     --border-strong: rgba(10, 10, 10, 0.18);
@@ -2491,7 +2491,7 @@
           <div class="reveal" style="--reveal-delay: 0s;">
             <span class="label"><span class="tri"></span>AMAZON PPC FREELANCER · DACH</span>
           </div>
-          <h1 class="reveal" style="--reveal-delay: 0.10s;">
+          <h1 class="reveal hero-lcp" style="--reveal-delay: 0.10s;">
             Schluss mit dem ACOS-Rätselraten.<br />
             <span class="accent">Amazon PPC</span>, das messbar wirkt.
           </h1>
@@ -2542,18 +2542,18 @@
                 <div class="meta"><b>Mai 2025 – Apr 2026</b></div>
                 <div class="tweak" id="tweak">
                   <div class="tweak-panel" id="tweakPanel">
-                    <h4>Tweaks</h4>
+                    <div class="tw-title">Tweaks</div>
                     <div class="tweak-row">
                       <div class="tw-label"><span>Animation Speed</span><span class="tw-val" id="spdVal">1.0×</span></div>
-                      <input type="range" id="spd" min="0.5" max="2" step="0.1" value="1">
+                      <input type="range" id="spd" min="0.5" max="2" step="0.1" value="1" aria-label="Animation Speed">
                     </div>
                     <div class="tweak-row">
                       <div class="tw-label"><span>Curve Liveliness</span><span class="tw-val" id="brVal">1.0×</span></div>
-                      <input type="range" id="br" min="0" max="2.5" step="0.1" value="1">
+                      <input type="range" id="br" min="0" max="2.5" step="0.1" value="1" aria-label="Curve Liveliness">
                     </div>
                     <div class="tweak-row">
                       <div class="tw-label"><span>Curve Smoothness</span><span class="tw-val" id="smVal">0.7</span></div>
-                      <input type="range" id="sm" min="0" max="1" step="0.05" value="0.7">
+                      <input type="range" id="sm" min="0" max="1" step="0.05" value="0.7" aria-label="Curve Smoothness">
                     </div>
                     <div class="tweak-row">
                       <div class="tw-label"><span>Chip Frequency</span></div>
@@ -2565,12 +2565,12 @@
                       </div>
                     </div>
                     <div class="tw-divider"></div>
-                    <h4 style="margin-bottom:8px">Color Pool</h4>
+                    <div class="tw-title" style="margin-bottom:8px">Color Pool</div>
                     <div class="color-grid" id="colorGrid">
-                      <div class="col-pick"><span class="col-name">Slot 1</span><span class="col-swatch" data-slot="0" style="background:#2d5f3f"></span><input type="color" data-slot="0" value="#2d5f3f"></div>
-                      <div class="col-pick"><span class="col-name">Slot 2</span><span class="col-swatch" data-slot="1" style="background:#7a4a9c"></span><input type="color" data-slot="1" value="#7a4a9c"></div>
-                      <div class="col-pick"><span class="col-name">Slot 3</span><span class="col-swatch" data-slot="2" style="background:#c0883e"></span><input type="color" data-slot="2" value="#c0883e"></div>
-                      <div class="col-pick"><span class="col-name">Slot 4</span><span class="col-swatch" data-slot="3" style="background:#3f6ea8"></span><input type="color" data-slot="3" value="#3f6ea8"></div>
+                      <div class="col-pick"><span class="col-name">Slot 1</span><span class="col-swatch" data-slot="0" style="background:#2d5f3f"></span><input type="color" data-slot="0" value="#2d5f3f" aria-label="Farbe Slot 1"></div>
+                      <div class="col-pick"><span class="col-name">Slot 2</span><span class="col-swatch" data-slot="1" style="background:#7a4a9c"></span><input type="color" data-slot="1" value="#7a4a9c" aria-label="Farbe Slot 2"></div>
+                      <div class="col-pick"><span class="col-name">Slot 3</span><span class="col-swatch" data-slot="2" style="background:#c0883e"></span><input type="color" data-slot="2" value="#c0883e" aria-label="Farbe Slot 3"></div>
+                      <div class="col-pick"><span class="col-name">Slot 4</span><span class="col-swatch" data-slot="3" style="background:#3f6ea8"></span><input type="color" data-slot="3" value="#3f6ea8" aria-label="Farbe Slot 4"></div>
                     </div>
                     <div class="tw-divider"></div>
                     <div class="tweak-row toggle-row">
@@ -4303,7 +4303,7 @@
   const CP_COLORS=['#2d5f3f','#4a8c5c','#6bb07a','#a8d4b0','#1e4d8c','#3f6ea8','#5a9ad4','#89bef0','#5a2d8c','#7a4a9c','#9b6abf','#c090e0','#c03a3a','#c0703a','#c0883e','#d4a85c','#1e6e6e','#2d8c8c','#50b0b0','#80d4d4','#0a0a0a','#4a4a4a','#8e8e8e','#e8e0d8'];
   const cpEl=document.createElement('div');
   cpEl.className='cp-popup';
-  cpEl.innerHTML='<div class="cp-presets">'+CP_COLORS.map(c=>'<span class="cp-dot" style="background:'+c+'" data-color="'+c+'"></span>').join('')+'</div><div class="cp-hex"><span class="cp-hex-swatch" id="cpSwatch"></span><input class="cp-hex-input" id="cpHex" type="text" maxlength="7" spellcheck="false"><button class="cp-apply" id="cpApply">OK</button></div>';
+  cpEl.innerHTML='<div class="cp-presets">'+CP_COLORS.map(c=>'<span class="cp-dot" style="background:'+c+'" data-color="'+c+'"></span>').join('')+'</div><div class="cp-hex"><span class="cp-hex-swatch" id="cpSwatch"></span><input class="cp-hex-input" id="cpHex" type="text" maxlength="7" spellcheck="false" aria-label="Hex-Farbcode"><button class="cp-apply" id="cpApply">OK</button></div>';
   document.body.appendChild(cpEl);
   let cpSlot=-1;
   function cpApplyColor(hex){
