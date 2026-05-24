@@ -2870,7 +2870,7 @@
             <li>Ich persönlich, jeden Tag an Deinem Account</li>
             <li>Direkter Draht, kein Puffer</li>
             <li>Flat-Pauschale, Anreiz für Effizienz statt Volumen</li>
-            <li>Ab 800 EUR im Monat</li>
+            <li>Pakete ab 1.200 EUR im Monat</li>
             <li>Reaktion in Stunden</li>
             <li>Maximal sechs Marken gleichzeitig</li>
           </ul>
@@ -3113,10 +3113,12 @@
           <div class="faq-a-wrap"><div class="faq-a-inner">
             <div class="faq-a">
               Verständlich, das ist meist die erste Frage. Für Account-Audits gibt
-              es einen Festpreis, für laufendes Management eine monatliche Pauschale
-              ab 800 Euro, je nach Werbebudget. Zum Vergleich: vergleichbare Agentur-
-              Betreuung liegt bei 3.500 bis 8.000 Euro im Monat, oft mit Junior und
-              Account-Manager dazwischen. Wenn ich bei 10.000 Euro Ad Spend Deinen
+              es einen Festpreis ab 350 Euro, für laufendes Management monatliche
+              Pauschalen je nach Werbebudget und Scope, Details auf der
+              <a class="accent-link" href="/preise.html">Preisseite</a>.
+              Zum Vergleich: vergleichbare Agentur-Betreuung liegt bei 3.500 bis
+              8.000 Euro im Monat, oft mit Junior und Account-Manager dazwischen.
+              Wenn ich bei 10.000 Euro Ad Spend Deinen
               ACOS von 30% auf 20% senke, sparst Du rund 1.000 Euro im Monat. Die
               Betreuung rechnet sich dann von selbst. Konkrete Zahlen klären wir im
               Erstgespräch.
@@ -3797,11 +3799,11 @@
 
   const MONTHS  = ['Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez', 'Jan', 'Feb', 'Mär', 'Apr'];
   const YEARS   = ['2025','2025','2025','2025','2025','2025','2025','2025','2026','2026','2026','2026'];
-  const SPEND   = [2500,2900,2300,2750,2650,2800,2600,2900,2700,2500,2400,2300];
-  const AD_REV  = [10200,13000,11400,14200,11500,13200,13520,13920,17010,17750,20160,21160];
-  const TOT_REV = [25500,32500,28500,35500,28750,33000,33800,34800,42500,44400,50400,52900];
-  const IMPR    = [32000,44000,30000,51000,36000,48000,52000,61000,78000,95000,114000,138000];
-  const CLICKS  = [950,1280,880,1560,980,1440,1700,1890,2500,3135,3876,4830];
+  const SPEND   = [25340.83,29180.47,23450.19,27680.62,26120.34,28340.91,25870.57,29450.28,27180.73,25340.46,24120.85,23480.37];
+  const AD_REV  = [103420.47,129750.83,113680.29,141800.64,114950.38,133420.91,136840.57,140150.23,169430.78,178920.45,203680.62,214850.93];
+  const TOT_REV = [258550.17,324380.72,284200.43,354500.89,287380.56,333550.24,342100.68,350375.31,423575.84,447300.57,509200.19,537125.62];
+  const IMPR    = [320000,440000,300000,510000,360000,480000,520000,610000,780000,950000,1140000,1380000];
+  const CLICKS  = [9500,12800,8800,15600,9800,14400,17000,18900,25000,31350,38760,48300];
 
   const div = (a,b) => a.map((v,i) => v/b[i]);
   const pct = (a,b) => a.map((v,i) => (v/b[i])*100);
@@ -3816,9 +3818,9 @@
 
   const METRICS = {
     revenue: { key:'revenue', label:'Umsatz', short:'Umsatz', type:'line',
-      values:AD_REV, domain:[4000,22500],
+      values:AD_REV, domain:[40000,225000],
       yTickFmt:v=>'€'+Math.round(v/1000)+'k', tipFmt:v=>'€'+Math.round(v).toLocaleString('de-DE'),
-      pillFmt:v=>'€'+Math.round(v/1000)+'k', statFmt:v=>'€'+Math.round(v).toLocaleString('de-DE'),
+      pillFmt:v=>'€'+Math.round(v/1000)+'k', statFmt:v=>'€'+v.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}),
       delta:'▲ +107%', breath:[0.0110,0.0070,0.31], yTicks:3 },
     roas: { key:'roas', label:'ROAS', short:'ROAS', type:'line',
       values:ROAS, domain:[1,12],
@@ -3836,14 +3838,14 @@
       pillFmt:v=>v.toFixed(1).replace('.',',')+'%', statFmt:v=>v.toFixed(1).replace('.',',')+'%',
       delta:'▼ −56%', breath:[0.0081,0.0070,5.04], yTicks:3 },
     spend: { key:'spend', label:'Spend', short:'Spend', type:'line',
-      values:SPEND, domain:[2000,5300],
+      values:SPEND, domain:[20000,53000],
       yTickFmt:v=>'€'+(v/1000).toFixed(1).replace('.',',')+'k', tipFmt:v=>'€'+Math.round(v).toLocaleString('de-DE'),
-      pillFmt:v=>'€'+(v/1000).toFixed(1).replace('.',',')+'k', statFmt:v=>'€'+Math.round(v).toLocaleString('de-DE'),
+      pillFmt:v=>'€'+(v/1000).toFixed(1).replace('.',',')+'k', statFmt:v=>'€'+v.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}),
       delta:'▼ −8%', breath:[0.0100,0.0055,2.41], yTicks:3 },
     impressions: { key:'impressions', label:'Impressions', short:'Impr.', type:'bar',
-      values:IMPR, domain:[0,180000],
-      yTickFmt:v=>Math.round(v/1000)+'k', tipFmt:v=>Math.round(v).toLocaleString('de-DE'),
-      pillFmt:v=>Math.round(v/1000)+'k', statFmt:v=>Math.round(v/1000).toLocaleString('de-DE')+'k',
+      values:IMPR, domain:[0,1800000],
+      yTickFmt:v=>v>=1000000?(v/1000000).toFixed(1).replace('.',',')+'M':Math.round(v/1000)+'k', tipFmt:v=>Math.round(v).toLocaleString('de-DE'),
+      pillFmt:v=>v>=1000000?(v/1000000).toFixed(1).replace('.',',')+'M':Math.round(v/1000)+'k', statFmt:v=>v>=1000000?(v/1000000).toFixed(1).replace('.',',')+'M':Math.round(v/1000).toLocaleString('de-DE')+'k',
       delta:'▲ +331%', breath:[0.0070,0.0035,0.61], yTicks:3 },
     ctr: { key:'ctr', label:'CTR', short:'CTR', type:'line',
       values:CTR_V, domain:[1.5,5.0],
@@ -4125,6 +4127,11 @@
       html+=`<div class="tip-line" style="--row-color:${color}"><span class="left"><span class="sw"></span>${M.short}</span><span class="v">${M.tipFmt(v)}</span></div>`;
     });
     tipRows.innerHTML=html;
+    pillsEl.querySelectorAll('[data-pv]').forEach(el=>{
+      const k=el.dataset.pv; const M=METRICS[k]; if(!M) return;
+      let v; if(M.type==='bar') v=liveVals(k,1)[i]; else v=M.values[i];
+      el.textContent=M.pillFmt(v);
+    });
     const rect=canvas.getBoundingClientRect();
     tip.style.left=Math.max(110,Math.min(window.innerWidth-110,rect.left+projectX(i,b)))+'px';
     tip.style.top=Math.max(150,rect.top+b.y0)+'px';
@@ -4214,7 +4221,12 @@
     state.mouse.inside=true;
     state.hovered=Math.max(0,Math.min(MONTHS.length-1,Math.round(((state.mouse.x-b.x0)/(b.x1-b.x0))*(MONTHS.length-1))));
   }
-  function onLeave(){ state.mouse.inside=false; state.hovered=-1; tip.classList.remove('on'); }
+  function onLeave(){
+    state.mouse.inside=false; state.hovered=-1; tip.classList.remove('on');
+    pillsEl.querySelectorAll('[data-pv]').forEach(el=>{
+      const M=METRICS[el.dataset.pv]; if(M) el.textContent=M.pillFmt(M.values[M.values.length-1]);
+    });
+  }
   hero.addEventListener('mousemove',onMove);
   hero.addEventListener('mouseleave',onLeave);
   hero.addEventListener('touchstart',e=>{ if(e.touches.length) onMove({clientX:e.touches[0].clientX,clientY:e.touches[0].clientY}); },{passive:true});
