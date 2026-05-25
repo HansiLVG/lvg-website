@@ -37,28 +37,26 @@
   .hero-portrait {
     position: absolute;
     top: 0; right: 0; bottom: 0;
-    width: 44%;
+    width: 40%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    /* Y-Offset nach unten: zeigt Schultern + Oberkörper statt nur Gesicht */
+    object-position: center 22%;
     z-index: 1;
-    /* Nur Links-fade — kein Bottom-gradient (dark-mode-kompatibel) */
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 28%);
-            mask-image: linear-gradient(to right, transparent 0%, #000 28%);
     filter: saturate(0) contrast(1.08);
     opacity: 0.82;
   }
   .page-head .wrap {
     z-index: 2;
-    padding-right: 40%;
+    padding-right: 41%;
   }
   /* Mobile portrait shown below text content */
   .hero-portrait-mobile {
     display: none;
   }
   @media (max-width: 1100px) {
-    .hero-portrait { width: 46%; }
-    .page-head .wrap { padding-right: 42%; }
+    .hero-portrait { width: 44%; }
+    .page-head .wrap { padding-right: 45%; }
   }
   @media (max-width: 900px) {
     .hero-portrait { display: none; }
