@@ -37,26 +37,51 @@
   .hero-portrait {
     position: absolute;
     top: 0; right: 0; bottom: 0;
-    width: 38%;
+    width: 40%;
+    height: 100%;
     object-fit: cover;
-    object-position: 50% 10%;
+    object-position: center top;
     z-index: 1;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 22%, #000 88%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0%, #000 22%, #000 88%, transparent 100%);
-    filter: saturate(0) contrast(1.05);
-    opacity: 0.88;
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, #000 20%, #000 100%),
+      linear-gradient(to bottom, #000 55%, transparent 100%);
+            mask-image:
+      linear-gradient(to right, transparent 0%, #000 20%, #000 100%),
+      linear-gradient(to bottom, #000 55%, transparent 100%);
+    -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+    filter: saturate(0) contrast(1.08);
+    opacity: 0.82;
   }
   .page-head .wrap {
     z-index: 2;
-    padding-right: 42%;
+    padding-right: 44%;
+  }
+  /* Mobile portrait shown below text content */
+  .hero-portrait-mobile {
+    display: none;
   }
   @media (max-width: 1100px) {
-    .hero-portrait { width: 42%; }
-    .page-head .wrap { padding-right: 46%; }
+    .hero-portrait { width: 44%; }
+    .page-head .wrap { padding-right: 48%; }
   }
   @media (max-width: 900px) {
     .hero-portrait { display: none; }
     .page-head .wrap { padding-right: var(--pad-x); }
+    .hero-portrait-mobile {
+      display: block;
+      width: calc(100% + 2 * var(--pad-x));
+      margin-left: calc(-1 * var(--pad-x));
+      margin-right: calc(-1 * var(--pad-x));
+      margin-top: 36px;
+      height: 320px;
+      object-fit: cover;
+      object-position: center 22%;
+      filter: saturate(0) contrast(1.08);
+      opacity: 0.80;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 65%, transparent 100%);
+              mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 65%, transparent 100%);
+    }
   }
 </style>
 <!-- Google tag (gtag.js) — Consent Mode v2 -->
@@ -218,6 +243,16 @@ body.dark .li-badge-sub{color:#999}
           <span class="li-badge-cta">Profil ansehen ↗</span>
         </a>
       </div>
+      <img
+        class="hero-portrait-mobile"
+        src="/assets/portrait-bw-medium-800.webp"
+        alt="Portrait Leon-Vincent Gamradt"
+        aria-hidden="true"
+        width="800"
+        height="1121"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   </section>
 
