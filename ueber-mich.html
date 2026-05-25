@@ -37,33 +37,28 @@
   .hero-portrait {
     position: absolute;
     top: 0; right: 0; bottom: 0;
-    width: 40%;
+    width: 52%;
     height: 100%;
     object-fit: cover;
     object-position: center top;
     z-index: 1;
-    -webkit-mask-image:
-      linear-gradient(to right, transparent 0%, #000 20%, #000 100%),
-      linear-gradient(to bottom, #000 55%, transparent 100%);
-            mask-image:
-      linear-gradient(to right, transparent 0%, #000 20%, #000 100%),
-      linear-gradient(to bottom, #000 55%, transparent 100%);
-    -webkit-mask-composite: source-in;
-            mask-composite: intersect;
+    /* Nur Links-fade — kein Bottom-gradient (dark-mode-kompatibel) */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 32%);
+            mask-image: linear-gradient(to right, transparent 0%, #000 32%);
     filter: saturate(0) contrast(1.08);
     opacity: 0.82;
   }
   .page-head .wrap {
     z-index: 2;
-    padding-right: 44%;
+    padding-right: 52%;
   }
   /* Mobile portrait shown below text content */
   .hero-portrait-mobile {
     display: none;
   }
   @media (max-width: 1100px) {
-    .hero-portrait { width: 44%; }
-    .page-head .wrap { padding-right: 48%; }
+    .hero-portrait { width: 55%; }
+    .page-head .wrap { padding-right: 55%; }
   }
   @media (max-width: 900px) {
     .hero-portrait { display: none; }
@@ -79,8 +74,9 @@
       object-position: center 22%;
       filter: saturate(0) contrast(1.08);
       opacity: 0.80;
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 65%, transparent 100%);
-              mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 65%, transparent 100%);
+      /* Nur sanfter Top/Bottom-Übergang, kein Links/Rechts */
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 72%, transparent 100%);
+              mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 72%, transparent 100%);
     }
   }
 </style>
