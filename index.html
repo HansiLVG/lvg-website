@@ -1823,7 +1823,8 @@
     .hero-buttons { justify-content: flex-start; }
     .trust-row { gap: 14px; }
     .trust-row .stat .num { font-size: 24px; }
-    .hero-right { min-height: 260px; border-radius: 14px; padding: 16px 18px; }
+    .hero-right { display: none; }
+    .canvas-layer { display: none; }
     .stat-cell .big { font-size: 22px; }
     .chips-layer { display: none; }
     .pills { gap: 5px; }
@@ -3043,7 +3044,8 @@ body.dark .li-badge-sub{color:#999}
           </p>
           <p class="reveal" style="--reveal-delay: 0.50s;">
             Ich arbeite nicht mit einem Team. Ich arbeite mit Dir, direkt, transparent
-            und mit vollem Fokus auf Deinen Account.
+            und mit vollem Fokus auf Deinen Account. Monatliche Reports, die Du intern
+            vorzeigen kannst, ohne Übersetzungsarbeit.
           </p>
           <p class="reveal" style="--reveal-delay: 0.60s;">
             <a href="/ueber-mich.html" style="color: var(--accent); text-decoration: none; font-family: var(--sans); font-size: 14px; font-weight: 500; letter-spacing: 0.05em;">Mehr über mich →</a>
@@ -3304,10 +3306,10 @@ body.dark .li-badge-sub{color:#999}
     </div>
     <div class="wrap cta-content">
       <div class="cta-stack">
-        <span class="reveal" style="--reveal-delay: 0.00s;">Mehr Aufmerksamkeit.</span>
-        <span class="reveal" style="--reveal-delay: 0.12s;">Mehr Kontrolle.</span>
-        <span class="reveal" style="--reveal-delay: 0.24s;">Mehr Transparenz.</span>
-        <span class="reveal" style="--reveal-delay: 0.36s;">Mehr Marge.</span>
+        <span class="reveal" style="--reveal-delay: 0.00s;">Weniger ACOS-Rätselraten.</span>
+        <span class="reveal" style="--reveal-delay: 0.12s;">Mehr Marge, die auf Deinem Konto bleibt.</span>
+        <span class="reveal" style="--reveal-delay: 0.24s;">Wöchentliche Updates, die Du verstehst.</span>
+        <span class="reveal" style="--reveal-delay: 0.36s;">Einer, der Deinen Account wirklich kennt.</span>
         <span class="last reveal" style="--reveal-delay: 0.48s;">Vor allem: mehr als Du gerade rausholst.</span>
       </div>
       <h2 class="cta-close reveal" style="--reveal-delay: 0.72s;">Lass uns reden.</h2>
@@ -3777,6 +3779,7 @@ body.dark .li-badge-sub{color:#999}
    ═══════════════════════════════════════════════════════════════ */
 (function () {
   'use strict';
+  if (window.matchMedia('(max-width: 900px)').matches) return;
   const STATIC = new URLSearchParams(location.search).has('pause');
 
   const MONTHS  = ['Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez', 'Jan', 'Feb', 'Mär', 'Apr'];
