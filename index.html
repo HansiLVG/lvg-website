@@ -1772,9 +1772,9 @@
   /* ─── Reveal animations ──────────────────────────────────── */
   .reveal {
     opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(8px);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
     transition-delay: var(--reveal-delay, 0s);
     will-change: opacity, transform;
   }
@@ -3430,9 +3430,7 @@ body.dark .li-badge-sub{color:#999}
     entries.forEach((e) => {
       if (e.isIntersecting) {
         e.target.classList.add('in');
-      } else {
-        e.target.classList.remove('in');
-        e.target.removeAttribute('data-settled');
+        io.unobserve(e.target);
       }
     });
   }, { threshold: 0.10, rootMargin: '0px 0px -8% 0px' });

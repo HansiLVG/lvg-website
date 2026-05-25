@@ -435,9 +435,7 @@
     entries.forEach((e) => {
       if (e.isIntersecting) {
         e.target.classList.add('in');
-      } else {
-        e.target.classList.remove('in');
-        e.target.removeAttribute('data-settled');
+        io.unobserve(e.target);
       }
     });
   }, { threshold: 0.10, rootMargin: '0px 0px -8% 0px' });
