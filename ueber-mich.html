@@ -38,29 +38,28 @@
     position: absolute;
     top: 0; right: 0; bottom: 0;
     /* Breiter → Gesicht rückt nach links (Mitte = 100% − Breite/2) */
-    width: 56%;
+    width: 50%;
     height: 100%;
     object-fit: cover;
     object-position: center 22%;
     z-index: 1;
     /* Links- und Rechts-Fade, kein Bottom */
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 26%, #000 88%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0%, #000 26%, #000 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 24%, #000 88%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, #000 24%, #000 88%, transparent 100%);
     filter: saturate(0) contrast(1.08);
     opacity: 0.82;
   }
   .page-head .wrap {
     z-index: 2;
-    /* Weniger als Portraitbreite → Text hat Luft, Fade überbrückt den Rest */
-    padding-right: 43%;
+    padding-right: 42%;
   }
   /* Mobile portrait shown below text content */
   .hero-portrait-mobile {
     display: none;
   }
   @media (max-width: 1100px) {
-    .hero-portrait { width: 58%; }
-    .page-head .wrap { padding-right: 47%; }
+    .hero-portrait { width: 52%; }
+    .page-head .wrap { padding-right: 45%; }
   }
   @media (max-width: 900px) {
     .hero-portrait { display: none; }
