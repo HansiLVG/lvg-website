@@ -37,15 +37,15 @@
   .hero-portrait {
     position: absolute;
     top: 0; right: 0; bottom: 0;
-    /* Breiter → Gesicht rückt nach links (Mitte = 100% − Breite/2) */
-    width: 50%;
+    /* left statt right: Gesicht bleibt links auch bei kleinerer Breite */
+    left: 47%;
+    width: 43%;
     height: 100%;
     object-fit: cover;
     object-position: center 22%;
     z-index: 1;
-    /* Links- und Rechts-Fade, kein Bottom */
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 24%, #000 88%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0%, #000 24%, #000 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 22%, #000 84%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, #000 22%, #000 84%, transparent 100%);
     filter: saturate(0) contrast(1.08);
     opacity: 0.82;
   }
@@ -58,7 +58,7 @@
     display: none;
   }
   @media (max-width: 1100px) {
-    .hero-portrait { width: 52%; }
+    .hero-portrait { left: 43%; width: 46%; }
     .page-head .wrap { padding-right: 45%; }
   }
   @media (max-width: 900px) {
