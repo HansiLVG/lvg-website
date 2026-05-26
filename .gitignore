@@ -5,9 +5,6 @@ desktop.ini
 node_modules/
 package-lock.json
 
-# V2 Design (lokal, nicht öffentlich)
-_dev-*.html
-v2/
-DESIGN-SYSTEM-V2.md
+# Lokale Dev-Tools (Playwright Screenshots)
 screenshot.js
 package.json
