@@ -4,3 +4,10 @@ desktop.ini
 .claude/
 node_modules/
 package-lock.json
+
+# V2 Design (lokal, nicht öffentlich)
+_dev-*.html
+v2/
+DESIGN-SYSTEM-V2.md
+screenshot.js
+package.json
