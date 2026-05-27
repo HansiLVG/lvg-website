@@ -19,6 +19,7 @@ website-main/
 ├── amazon-ppc-management/index.html ← Leistungsseite Management
 ├── amazon-ppc-strategie/index.html ← Leistungsseite Strategie
 ├── preise/index.html               ← Pricing
+├── rechner/index.html              ← Rechner-Hub (ACOS, Break-Even, Max-CPC, Budget; weitere demnächst)
 ├── blog/index.html                 ← Blog-Übersicht
 │   └── amazon-ppc-freelancer-vs-agentur/index.html
 │   └── amazon-ppc-tacos-vs-acos/index.html

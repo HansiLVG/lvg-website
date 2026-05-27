@@ -1,21 +1,21 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="de-DE">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Amazon PPC Blog · Tipps und Strategien · Leon-Vincent Gamradt</title>
-  <meta name="description" content="Amazon PPC Blog von Leon-Vincent Gamradt: praxisnahe Tipps zu ACOS, Kampagnenstruktur, Freelancer vs. Agentur und mehr." />
+  <title>Amazon PPC Rechner · ACOS, Break-Even, Max-CPC berechnen · lvg-ppc.de</title>
+  <meta name="description" content="Kostenlose Amazon PPC Rechner: ACOS-Rechner, Break-Even ACOS, maximaler CPC und Budget-Planer. Kenne Deine Zahlen, bevor Du bietest." />
 
-  <link rel="canonical" href="https://lvg-ppc.de/blog/" />
+  <link rel="canonical" href="https://lvg-ppc.de/rechner/" />
   <meta name="robots" content="index, follow" />
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
   <meta property="og:site_name" content="LVG PPC · Leon-Vincent Gamradt" />
-  <meta property="og:title" content="Amazon PPC Blog · Tipps und Strategien · Leon-Vincent Gamradt" />
-  <meta property="og:description" content="Praxisnahe Tipps zu ACOS, Kampagnenstruktur und Amazon PPC, direkt aus der Account-Praxis." />
-  <meta property="og:url" content="https://lvg-ppc.de/blog/" />
+  <meta property="og:title" content="Amazon PPC Rechner · ACOS, Break-Even, Max-CPC" />
+  <meta property="og:description" content="Kostenlose Amazon PPC Rechner: ACOS, Break-Even ACOS, maximaler CPC und Budget-Planer. Direkt im Browser, ohne Anmeldung." />
+  <meta property="og:url" content="https://lvg-ppc.de/rechner/" />
   <meta property="og:image" content="https://lvg-ppc.de/assets/logo-primary.svg" />
   <meta property="og:image:alt" content="LVG PPC, Amazon PPC Spezialist Berlin" />
 
@@ -30,11 +30,20 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Blog",
-    "url": "https://lvg-ppc.de/blog/",
-    "name": "Amazon PPC Blog, Leon-Vincent Gamradt",
+    "@type": "ItemList",
+    "@id": "https://lvg-ppc.de/rechner/#list",
+    "url": "https://lvg-ppc.de/rechner/",
+    "name": "Amazon PPC Rechner",
+    "description": "Kostenlose Rechner für Amazon PPC: ACOS, Break-Even ACOS, Max-CPC, Budget-Planer.",
     "inLanguage": "de-DE",
-    "author": { "@id": "https://lvg-ppc.de/#person" }
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ACOS-Rechner",
+        "url": "https://lvg-ppc.de/#rechner"
+      }
+    ]
   }
   </script>
 </head>
@@ -62,14 +71,14 @@
         <a href="../ueber-mich.html">Über mich</a>
         <a href="../faq.html">FAQ</a>
         <div class="nav-group">
-          <a href="../rechner/" class="nav-group-trigger active">
+          <a href="#" class="nav-group-trigger active">
             Tools
             <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </a>
           <div class="nav-dropdown" role="menu">
-            <a href="#" role="menuitem" class="active"><strong>Blog</strong><small>Amazon PPC Artikel</small></a>
+            <a href="../blog/" role="menuitem"><strong>Blog</strong><small>Amazon PPC Artikel</small></a>
             <a href="../glossar/" role="menuitem"><strong>Glossar</strong><small>PPC-Begriffe erklärt</small></a>
-            <a href="../rechner/" role="menuitem"><strong>Rechner</strong><small>ACOS, Bid, Budget</small></a>
+            <a href="#" role="menuitem" class="active"><strong>Rechner</strong><small>ACOS, Bid, Budget</small></a>
           </div>
         </div>
       </div>
@@ -93,51 +102,89 @@
         <a href="../preise/">Preise</a>
         <a href="../ueber-mich.html">Über mich</a>
         <a href="../faq.html">FAQ</a>
-        <a href="#">Blog</a>
+        <a href="../blog/">Blog</a>
         <a href="../glossar/">Glossar</a>
-        <a href="../rechner/">Rechner</a>
+        <a href="#">Rechner</a>
         <a href="../kontakt.html">Kontakt</a>
       </div>
     </div>
   </nav>
+
+  <!-- ═══════════ COOKIE BANNER ═══════════ -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie-Hinweis">
+    <div class="cookie-banner-grid">
+      <p>Diese Website nutzt Cookies für anonyme Statistik (Google Analytics, IP anonymisiert). Details in der <a href="../datenschutz.html">Datenschutzerklärung</a>.</p>
+      <div class="cookie-banner-buttons">
+        <button class="btn btn-ghost btn-sm" id="cookie-decline" type="button">Ablehnen</button>
+        <button class="btn btn-primary btn-sm" id="cookie-accept" type="button">Akzeptieren</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ═══════════ SUB-HERO ═══════════ -->
   <header class="sub-hero sub-hero-shader">
     <canvas id="gradient-canvas-sub" data-transition-in></canvas>
     <div class="sub-hero-fade"></div>
     <div class="sub-hero-inner wrap">
-      <span class="eyebrow">Amazon PPC Blog</span>
-      <h1 class="reveal" style="--reveal-delay: 0.06s;">Praxis statt Theorie.</h1>
+      <span class="eyebrow">Amazon PPC Rechner</span>
+      <h1 class="reveal" style="--reveal-delay: 0.06s;">Kenne Deine Zahlen, bevor Du bietest.</h1>
       <p class="lead reveal" style="--reveal-delay: 0.12s;">
-        Ehrliche Einblicke in Amazon Advertising, direkt aus der täglichen Account-Arbeit.
+        Kostenlose Rechner für die wichtigsten Amazon PPC Kennzahlen. Direkt im Browser, ohne Anmeldung, ohne Dateneingabe an Dritte.
       </p>
     </div>
   </header>
 
-  <!-- ═══════════ BLOG-LISTE ═══════════ -->
+  <!-- ═══════════ RECHNER-LISTE ═══════════ -->
   <main>
     <section style="padding: 80px 0 120px;">
       <div class="wrap" style="max-width: 800px;">
 
         <div class="blog-list">
 
-          <a class="blog-card reveal" href="amazon-ppc-tacos-vs-acos/">
-            <div class="blog-card-meta">Amazon PPC · Mai 2026 · 8 Min. Lesezeit</div>
-            <div class="blog-card-title">TACOS statt ACOS: Warum die meisten Amazon-Seller die falsche Metrik optimieren</div>
+          <a class="blog-card reveal" href="../#rechner">
+            <div class="blog-card-meta">Effizienz · Kampagnenebene · Grundlage</div>
+            <div class="blog-card-title">ACOS-Rechner</div>
             <p class="blog-card-teaser">
-              ACOS sagt Dir, wie teuer Deine Werbung war. TACOS sagt Dir, ob Dein Gesamtgeschäft auf Amazon funktioniert. Warum dieser Unterschied Deine Strategie verändert.
+              Berechne Deinen ACOS aus Werbeausgaben und Werbeumsatz. Und schätze ab, wie weit Du von Deinem Ziel-ACOS entfernt bist.
             </p>
-            <span class="blog-card-link">Artikel lesen ↗</span>
+            <span class="blog-card-link">Rechner öffnen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="amazon-ppc-freelancer-vs-agentur/">
-            <div class="blog-card-meta">Amazon PPC · Mai 2026 · 7 Min. Lesezeit</div>
-            <div class="blog-card-title">Amazon PPC Freelancer vs. Agentur: Was ist besser?</div>
+          <div class="blog-card reveal" style="opacity: 0.45; cursor: default; pointer-events: none;">
+            <div class="blog-card-meta">Marge · Profitabilität · Pflicht-Grundlage &nbsp;&nbsp;<strong style="color: var(--accent); font-weight: 600;">Demnächst</strong></div>
+            <div class="blog-card-title">Break-Even ACOS-Rechner</div>
             <p class="blog-card-teaser">
-              Ein ehrlicher Vergleich von Kosten, Qualität und Transparenz, von jemandem, der auf beiden Seiten gestanden hat.
+              Welcher ACOS ist für Dein Produkt maximal tragbar? Eingabe: Verkaufspreis, COGS, Versandkosten, Amazon-Fees. Ergebnis: Break-Even ACOS und ACOS-Ziel bei gewünschter Gewinnmarge.
             </p>
-            <span class="blog-card-link">Artikel lesen ↗</span>
-          </a>
+            <span class="blog-card-link">Demnächst verfügbar</span>
+          </div>
+
+          <div class="blog-card reveal" style="opacity: 0.45; cursor: default; pointer-events: none;">
+            <div class="blog-card-meta">Gebotsstrategie · CPC · Auktion &nbsp;&nbsp;<strong style="color: var(--accent); font-weight: 600;">Demnächst</strong></div>
+            <div class="blog-card-title">Max-CPC-Rechner</div>
+            <p class="blog-card-teaser">
+              Was darf ein Klick maximal kosten? Eingabe: Conversion Rate, Verkaufspreis, Ziel-ACOS. Ergebnis: maximaler CPC als Bietgrenze.
+            </p>
+            <span class="blog-card-link">Demnächst verfügbar</span>
+          </div>
+
+          <div class="blog-card reveal" style="opacity: 0.45; cursor: default; pointer-events: none;">
+            <div class="blog-card-meta">Planung · Budget · Skalierung &nbsp;&nbsp;<strong style="color: var(--accent); font-weight: 600;">Demnächst</strong></div>
+            <div class="blog-card-title">Budget-Planer</div>
+            <p class="blog-card-teaser">
+              Wie viel Werbebudget brauchst Du für ein Umsatzziel? Eingabe: Ziel-Umsatz, Ziel-ACOS. Ergebnis: benötigtes Ad-Budget und erwarteter organischer Anteil.
+            </p>
+            <span class="blog-card-link">Demnächst verfügbar</span>
+          </div>
+
+          <div class="blog-card reveal" style="opacity: 0.45; cursor: default; pointer-events: none;">
+            <div class="blog-card-meta">Kennzahlen · Umrechnung · Schnellhilfe &nbsp;&nbsp;<strong style="color: var(--accent); font-weight: 600;">Demnächst</strong></div>
+            <div class="blog-card-title">ROAS/ACOS-Konverter</div>
+            <p class="blog-card-teaser">
+              ACOS in ROAS umrechnen und umgekehrt. Sofort einsatzbereit für alle, die zwischen Google-Sprache und Amazon-Sprache wechseln.
+            </p>
+            <span class="blog-card-link">Demnächst verfügbar</span>
+          </div>
 
         </div>
 
@@ -150,8 +197,8 @@
       <div class="cta-fade"></div>
       <div class="wrap">
         <span class="eyebrow reveal">Kontakt</span>
-        <h2 class="reveal" style="--reveal-delay: 0.06s;">Lass uns reden. <span class="arrow">↗</span></h2>
-        <p class="lead reveal" style="--reveal-delay: 0.12s;">15 Minuten. Kein Pitch. Scope und Preis klären wir gemeinsam im Erstgespräch.</p>
+        <h2 class="reveal" style="--reveal-delay: 0.06s;">Zahlen gut, Account immer noch unklar? <span class="arrow">↗</span></h2>
+        <p class="lead reveal" style="--reveal-delay: 0.12s;">15 Minuten Erstgespräch, kein Pitch. Ich sage Dir, wo Dein Account aktuell steht und was als Nächstes sinnvoll ist.</p>
         <div class="kontakt-grid reveal" style="--reveal-delay: 0.18s; max-width: 720px; margin: 48px auto 0;">
           <a class="kontakt-card kontakt-card-primary" href="../kontakt.html#termin">
             <div class="k-icon">
@@ -207,8 +254,9 @@
         <div class="seo-footer-col">
           <h3>Ressourcen</h3>
           <ul>
-            <li><a href="#">Blog</a></li>
-            <li><a href="../index.html#rechner">ACOS-Rechner</a></li>
+            <li><a href="../blog/">Blog</a></li>
+            <li><a href="../glossar/">Glossar</a></li>
+            <li><a href="#">Rechner</a></li>
             <li><a href="../faq.html">FAQ</a></li>
           </ul>
         </div>
@@ -229,7 +277,7 @@
       </div>
       <div class="seo-footer-text">
         <p>
-          Der <strong>Amazon PPC Blog</strong> von <strong>Leon-Vincent Gamradt</strong> aus <strong>Berlin</strong> liefert praxisnahe Einblicke in <strong>Amazon Advertising</strong>: ACOS-Optimierung, Kampagnenstruktur, Keyword-Recherche und ehrliche Vergleiche, direkt aus der täglichen Account-Arbeit. Zu den Leistungen: <a href="../amazon-ppc-management/">Kampagnen-Management</a>, <a href="../amazon-ppc-audit/">Account-Audit</a> oder <a href="../amazon-ppc-strategie/">Strategie-Aufbau</a>.
+          Die <strong>Amazon PPC Rechner</strong> von <strong>Leon-Vincent Gamradt</strong> helfen Sellern und Vendoren, ihre wichtigsten Kennzahlen zu berechnen: <strong>ACOS</strong>, Break-Even ACOS, maximaler CPC und Budget-Planer. Direkt im Browser, ohne Anmeldung. Wer tiefer einsteigen will: das <a href="../glossar/">Amazon PPC Glossar</a>, der <a href="../blog/">Blog</a> oder ein <a href="../amazon-ppc-audit/">Account-Audit</a>.
         </p>
       </div>
     </div>
