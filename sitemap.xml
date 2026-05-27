@@ -106,6 +106,41 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lvg-ppc.de/glossar/sponsored-products/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/sponsored-brands/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/sponsored-display/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/match-types/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/negative-keywords/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/auto-vs-manual-kampagne/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/placement-top-of-search/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lvg-ppc.de/impressum.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
