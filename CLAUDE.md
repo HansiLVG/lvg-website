@@ -96,7 +96,7 @@ Vollständige Spezifikation V2-Design: siehe `../website-v2-dev/DESIGN-SYSTEM-V2
 
 ### Deployed
 - Vollständige V2-Site live auf lvg-ppc.de (HTTPS via GitHub Pages, Custom Domain).
-- 16 HTML-Seiten (Homepage + 3 Leistungs-Ordner-URLs + Preise + Über-mich + FAQ + Kontakt + Blog mit 2 Artikeln + Legal + 404 + Lead-Magnet).
+- 23 HTML-Seiten (Homepage + 3 Leistungs-Ordner-URLs + Preise + Über-mich + FAQ + Kontakt + Blog mit 2 Artikeln + Glossar Tier 1+2 mit 15 Seiten (Übersicht + 14 Begriffe) + Legal + 404 + Lead-Magnet).
 - Blog-Automation läuft als Remote-Routine (Donnerstags, siehe Routine-ID in Memory).
 
 ### Lead-Funnel (Status 2026-05)
@@ -109,8 +109,11 @@ Vollständige Spezifikation V2-Design: siehe `../website-v2-dev/DESIGN-SYSTEM-V2
 - [ ] **Cert-Badge-Bilder** einbauen (`badge-sponsored-ads.avif`, `badge-marketing-cloud.png`) sobald die offiziellen Bilder vorliegen. PDFs liegen als Backup, werden bewusst nicht verlinkt (Datenschutz).
 - [ ] **Lead-Magnet Live-URL** — entscheiden ob `lead-magnet/` öffentlich verlinkbar oder nur per E-Mail-Versand nach Download. Aktuell `noindex`.
 - [ ] **PageSpeed/Lighthouse Benchmark** für V2 neu erheben (V1-Werte aus alter Doku sind nicht mehr aussagekräftig).
-- [ ] **WCAG-Kontrast** für `--text-muted` (38% Opacity) auf `--bg` gegenchecken — die Werte sind sehr leise, AAA evtl. unterschritten.
-- [ ] **Datenschutz aktualisieren** — Whatamesh-Library (lokal gehostet) erwähnen.
+- [ ] **WCAG-Kontrast** für `--text-muted` (38% Opacity) auf `--bg` gecheckt: 3,28:1 (rechnerisch). Besteht WCAG AA für Großtext (3:1), fällt unter AA für Normaltext (4,5:1). Bewusste Design-Entscheidung, solange text-muted nur für Sekundärinformationen (Metadaten, Captions) eingesetzt wird.
+- [x] **Datenschutz aktualisiert** — Whatamesh-Library (lokal gehostet) als Sektion 7 eingetragen (28.05.2026).
+- [x] **Glossar Tier 2** — 7 Kampagnen-Mechanik-Seiten live (28.05.2026): Sponsored Products, Sponsored Brands, Sponsored Display, Match Types, Negative Keywords, Auto vs. Manual Kampagne, Placement Top of Search.
+- [ ] **Glossar Search-Console-Submission** — Alle 14 Glossar-URLs in GSC zur Indexierung einreichen.
+- [ ] **Glossar Tier 3** — Search Term Report, AMC, DSP, Bid Strategy, Bulk Sheet. Erst wenn Tier 1+2 erste Rankings zeigen (ca. 4-8 Wochen nach Indexierung).
 
 ## Workflow-Regeln
 
