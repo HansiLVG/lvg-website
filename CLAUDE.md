@@ -1,145 +1,135 @@
-# CLAUDE.md — LVG Website
+# CLAUDE.md — LVG Website (V2)
 
 Persönliche Website von Leon-Vincent Gamradt, Amazon PPC Spezialist Berlin.
 Statische HTML/CSS/JS-Website, kein Framework, kein Build-Schritt.
+Live auf [lvg-ppc.de](https://lvg-ppc.de) via GitHub Pages (Repo `HansiLVG/lvg-website`, Branch `main`).
+
+**V2-Design-Sprache:** Dark / Data-First / SaaS-Look. Space Grotesk + Inter, Hellgrün-Akzent, animierter WebGL-Mesh-Hintergrund.
 
 ## Projektstruktur
 
 ```
-Claude Code/
-├── index.html                  ← Startseite (One-Pager)
-├── ueber-mich.html             ← Neue Unterseite: Über Leon-Vincent
-├── faq.html                    ← Neue Unterseite: 10 häufige Fragen
-├── account-audit.html          ← Leistungsseite
-├── strategie-aufbau.html       ← Leistungsseite
-├── kampagnen-management.html   ← Leistungsseite
+website-main/
+├── index.html                      ← Homepage (Hero + Leistungen + ACOS-Rechner + …)
+├── ueber-mich.html                 ← Über mich
+├── faq.html                        ← Häufige Fragen
+├── kontakt.html                    ← Kontaktformular + Cal.com
+├── leistungen/index.html           ← Leistungs-Übersicht
+├── amazon-ppc-audit/index.html     ← Leistungsseite Audit (Keyword-Ordner-URL)
+├── amazon-ppc-management/index.html ← Leistungsseite Management
+├── amazon-ppc-strategie/index.html ← Leistungsseite Strategie
+├── preise/index.html               ← Pricing
+├── blog/index.html                 ← Blog-Übersicht
+│   └── amazon-ppc-freelancer-vs-agentur/index.html
+│   └── amazon-ppc-tacos-vs-acos/index.html
 ├── impressum.html
-├── datenschutz.html            ← Finalisiert (DSGVO-konform, Mai 2026)
+├── datenschutz.html
 ├── 404.html
-├── sitemap.xml                 ← Google Search Console
-├── CNAME                       ← Custom Domain: lvg-ppc.de
-├── DESIGN-SYSTEM.md            ← Vollständige technische Spezifikation
-└── assets/
-    ├── fonts/                  ← Selbst gehostet (kein Google Fonts CDN)
-    │   ├── fonts.css
-    │   ├── instrument-serif-regular.woff2
-    │   ├── instrument-serif-italic.woff2
-    │   └── inter-latin.woff2
-    ├── LVG_Logo.png / .webp
-    ├── portrait*.webp          ← Mehrere Varianten (bw-light/medium/strong, colour)
-    ├── hero-background.webp
-    ├── cta-background.webp
-    ├── water-flow.webp
-    ├── valley-mist.webp
-    ├── leistungen-detail.webp
-    ├── badge-sponsored-ads.avif        ← Amazon Ads Certified – Sponsored Ads | Advanced
-    ├── badge-marketing-cloud.png       ← Amazon Ads Certified – Marketing Cloud
-    ├── zertifikat-sponsored-ads.pdf    ← Zertifikats-PDF (nicht verlinkt, nur als Backup)
-    └── zertifikat-amazon-marketing-cloud.pdf  ← Zertifikats-PDF (nicht verlinkt, nur als Backup)
+├── lead-magnet/index.html          ← PDF-Druckvorlage „7 Amazon PPC-Fehler", noindex
+├── sitemap.xml                     ← Google Search Console
+├── robots.txt
+├── llms.txt                        ← Hinweise für KI-Crawler
+├── CNAME                           ← lvg-ppc.de
+├── site.webmanifest
+├── apple-touch-icon.png
+├── android-chrome-{192,512}.png
+├── assets/
+│   ├── styles.css                  ← Zentraler Styles (alle Seiten)
+│   ├── app.js                      ← Interaktion (Cookie-Banner, Reveal, ACOS-Rechner)
+│   ├── whatamesh.js                ← WebGL-Mesh-Gradient-Library (lokal gehostet)
+│   ├── logo-primary.svg            ← Hauptlogo (Nav, Footer)
+│   ├── logo-favicon.svg            ← Favicon-SVG
+│   ├── amazon-ppc-spezialist-berlin.webp ← Portrait (Hero + Über mich)
+│   ├── badge-sponsored-ads.avif    ← Cert-Badge (geplant einzubauen)
+│   ├── badge-marketing-cloud.png   ← Cert-Badge (geplant einzubauen)
+│   ├── zertifikat-sponsored-ads.pdf            ← Backup, nicht verlinkt
+│   └── zertifikat-amazon-marketing-cloud.pdf   ← Backup, nicht verlinkt
+├── fonts/
+│   ├── space-grotesk-latin.woff2   ← Variable 300–700
+│   └── inter-latin.woff2           ← Variable 300–700
+├── _dev-server.js                  ← Lokaler Dev-Server (`node _dev-server.js`)
+└── _dev-editor.js                  ← Visueller Editor (Alt+E im Browser, lokal injiziert)
 ```
 
-## Design-Prinzipien (Kurzfassung)
+Vollständige Spezifikation V2-Design: siehe `../website-v2-dev/DESIGN-SYSTEM-V2.md` im Workspace-Repo.
 
-**Vollständige Spezifikation → [`DESIGN-SYSTEM.md`](DESIGN-SYSTEM.md)**
+## Design-Prinzipien V2 (Kurzfassung)
 
-- **Typografie:** Instrument Serif (Headlines, Peaks, Zahlen) + Inter (Body, Labels)
-- **Farben:** Monochrom Paper/Ink + sparsamer Waldgrün-Akzent `#2d5f3f`
-- **Motiv:** Aufwärts-Dreieck (▲) als wiederkehrendes Akzent-Element
-- **Atmosphäre:** Animierte Wellen (SVG/RAF) + Parallax + Scroll-Blur — das Design "atmet"
-- **Prinzip:** Grün-Akzent nur an 6 definierten Stellen. Kein Hintergrundfarbe-Hover. Nur Scale + Farbshift.
+- **Typografie:** Space Grotesk (Headlines, Labels, Zahlen) + Inter (Body, Buttons)
+- **Farben:** Dunkler Hintergrund (`#0e1117`), heller Text auf 4 Opazitäten, Hellgrün-Akzent `#22c55e`
+- **Daten-Palette:** Orange `#FF9900` · Blue `#3b82f6` · Purple `#8B5CF6` (nur in Charts/Sparklines)
+- **Hero-Hintergrund:** Animierter WebGL-Mesh-Gradient via Whatamesh
+- **Hover-Pattern:** `translateY(-1px/-2px)` + `border-color` strong, kein Hintergrundfarbe-Hover
+- **Reveal:** IntersectionObserver-basierte Einblend-Animationen mit `--reveal-delay`
 
-## Wichtige CSS-Tokens
+## CSS-Tokens (Auszug)
 
 ```css
---paper: #fafafa      --ink: #0a0a0a        --accent: #2d5f3f
---ink-soft: #4a4a4a   --ink-muted: #6e6e6e  --accent-soft: #4a7c59
---maxw: 1240px        --pad-x: 64px (→ 28px mobile)
---serif: "Instrument Serif"    --sans: "Inter"
+--bg:           #0e1117;
+--bg-card:      #131820;
+--bg-elevated:  #1a2030;
+--text:         #f0f0f0;
+--text-soft:    rgba(240,240,240,0.65);
+--text-muted:   rgba(240,240,240,0.38);
+--accent:       #22c55e;
+--accent-dim:   rgba(34,197,94,0.12);
+--accent-border:rgba(34,197,94,0.22);
+--border:       rgba(255,255,255,0.07);
+--border-strong:rgba(255,255,255,0.14);
+--maxw:  clamp(1100px, 80vw, 1440px);
+--pad-x: 64px;
+--serif: "Space Grotesk", system-ui, sans-serif;
+--sans:  "Inter", system-ui, sans-serif;
 ```
+
+## Technische Bausteine
+
+- **WebGL-Mesh-Hintergrund** (`whatamesh.js`, lokal): Hero-Canvas mit animiertem 4-Farben-Mesh, GPU-beschleunigt. `prefers-reduced-motion`-Fallback.
+- **Cookie-Banner + Consent Mode:** Akzeptieren/Ablehnen vor GA-Aktivierung.
+- **Reveal-Animationen:** `class="reveal"` + optional `--reveal-delay` Inline-Style, IntersectionObserver-basiert.
+- **JSON-LD-Schema:** Inline pro Seite (Person, ProfessionalService, WebSite auf Homepage; FAQPage, Service, BlogPosting auf Subseiten).
+- **Selbst gehostete Fonts:** Space Grotesk + Inter aus `/fonts/`, kein Google-CDN (DSGVO + Performance).
+- **Print-Stylesheets:** Lead-Magnet hat eigenes `@page A4`-Setup.
 
 ## Aktueller Stand
 
-### Lighthouse-Scores (Desktop / Mobile)
-| Performance | Accessibility | Best Practices | SEO |
-|---|---|---|---|
-| 96 / 74 | 100 / 100 | 100 / 100 | 100 / 100 |
+### Deployed
+- Vollständige V2-Site live auf lvg-ppc.de (HTTPS via GitHub Pages, Custom Domain).
+- 16 HTML-Seiten (Homepage + 3 Leistungs-Ordner-URLs + Preise + Über-mich + FAQ + Kontakt + Blog mit 2 Artikeln + Legal + 404 + Lead-Magnet).
+- Blog-Automation läuft als Remote-Routine (Donnerstags, siehe Routine-ID in Memory).
 
-> Stand vor der Kernsanierung. Nach den Mai-2026-Änderungen (Rechner, neue Sektionen) Lighthouse + PageSpeed neu prüfen.
+### Lead-Funnel (Status 2026-05)
+- ACOS-Rechner auf Homepage mit E-Mail-Capture (Mailchimp-Platzhalter `data-mailchimp-endpoint` in `#leadmagnet-form`).
+- Lead-Magnet PDF-Druckvorlage: `lead-magnet/index.html` (Browser → „Als PDF speichern"). V2-Hellvariante, 13 Seiten. Drafts der Nurture-Sequenz liegen im Vault unter `04 Projekte/Lead-Funnel Drafts/`.
 
-### Kernsanierung Mai 2026 (Commits 31c0585 → 3620b17)
-Vollständiger Conversion-/SEO-/Psychologie-Umbau auf Basis des Second-Brain-Wissens:
-- **URL-Struktur:** Leistungsseiten sind jetzt Keyword-Ordner-URLs (`/amazon-ppc-audit/`, `/amazon-ppc-management/`, `/amazon-ppc-strategie/`). Alte `.html`-Dateien sind noindex meta-refresh **Redirects**. Asset-Pfade in den Ordnerdateien absolut (`/assets/...`).
-- **SEO:** Title/Meta/H1/H2 keyword- und CTA-optimiert; "Dein Budget verdient"-H2-Schema aufgelöst; Nav um "Preise" ergänzt; sitemap.xml + JSON-LD auf neue URLs; ItemList-Schema für Case Studies.
-- **Homepage:** Loss-Frame-Hero + Knappheit, **ACOS-Rechner als Lead-Magnet** (Live-Berechnung + E-Mail-Capture, Mailchimp-Platzhalter `data-mailchimp-endpoint`), Cost of Inaction, Rufus-Hook, **Freelancer-vs-Agentur-Sektion**, Case Studies (STAR) direkt nach Leistungen, Cert als **statische Karten** (inkl. AMC), Ablauf 30/60/90 + QBR, P&L-Positionierung, FAQ nach Einwandbehandlung (8 Fragen).
-- **Leistungsseiten:** 4-Layer-Audit-Framework + SQP, Flywheel/TACOS/Looker/Events/AMC/KI-Tools, Rufus-Readiness + Honeymoon-Period. Alle > 500 Wörter.
-- **Preisseite:** Decoy-Reihenfolge (Scale → Growth → Starter), Competitor-Anchoring, ROI-Rechnung, Umlaut-Fix.
+## Offene TODOs
 
-### Was implementiert ist
-- **Hero:** Animierter Canvas-2D-PPC-Performancegraph (9 Metriken, 12 Monate, Breathing, Floating Chips, Hover-Tooltip, Metric-Pills, Tweak-Panel) — Natur-Foto-Hero ersetzt. Commit: `a017fb0`
-- Vollständige Website: Startseite + 3 Leistungsseiten + Impressum + Datenschutz + 404
-- Neue Unterseiten: `ueber-mich.html` (basierend auf CV, Businessplan, Arbeitszeugnis) und `faq.html` (10 Fragen: Märkte, Kampagnenformate, Onboarding, proaktives Consulting)
-- Nav-Links auf allen Seiten zeigen auf `ueber-mich.html` / `faq.html`; Teaser-Links am Ende der Sections auf index.html
-- Fonts selbst gehostet → FCP < 1s (war 3,1s mit Google CDN)
-- WCAG AA Farbkontrast-konform
-- Google Analytics 4 (`G-CMYKYVVJM3`), Consent Mode v2, anonymize_ip: true, Conversion-Tracking auf CTAs
-- Cookie-Banner mit `applyConsent()` — GA wird nur nach Zustimmung aktiviert; GA Consent Mode v2 auf allen Seiten aktiv
-- Cookie-Banner, Parallax, Reveal-Animationen (bi-direktional), animierte Wellen
-- Wellen: Opacity und Bewegung in Session 3 feinabgestimmt (träger, breiter)
-- Datenschutzerklärung finalisiert: GitHub Pages, Formspree, Cal.com, GA4 (Consent Mode v2), LinkedIn, selbst gehostete Fonts
-- Zertifikats-Badges als Akkordeon-Cards im Vertrauensbereich auf index.html (text-only, kein PDF-Link aus Datenschutzgründen)
-- Step-Akkordeons auf allen 3 Leistungsseiten — Ablauf/Vorgehen-Listen sind klickbar interaktiv (Grid-Rows-Trick)
-- Mobile Hamburger-Menü auf index.html + allen Subpages: animiertes Dropdown, schließt bei Outside-Click und Swipe
-- Mobile: Portrait-Bild unter Text in der Über-mich-Section; Portrait größer + flush with section bottom
-- Staggered Reveal-Animationen + Hover-Interaktionen auf allen Leistungsseiten
-- Footer auf allen Seiten vereinfacht (nur Back-Link, Name, Legal-Links — kein Nav/Brand/CTA)
-- Datenschutz: Reveal-Animationen deaktiviert (Inhalt sofort sichtbar)
-- Impressum: Telefonnummer entfernt
-- Copy: KI-Muster (sauber, vollständig, nachhaltig, datengetrieben, Passivketten) aus allen Leistungsseiten entfernt
-- Custom Domain **lvg-ppc.de** live mit HTTPS (GitHub Pages, CNAME)
-- sitemap.xml erstellt + in Google Search Console eingereicht
-- Schema.org Structured Data (JSON-LD) auf allen Content-Seiten:
-  - `index.html`: Person + ProfessionalService + WebSite
-  - `faq.html`: FAQPage (10 Fragen)
-  - `ueber-mich.html`: Person
-  - Alle 3 Leistungsseiten: Service-Schema inkl. Preisrange
-- **CSS-Extraktion** (Commit `dbe1107`, Mai 2026): ~22.000 Zeilen duplizierter `<style>`-Code aus 8 HTML-Dateien in `assets/styles.css` zentralisiert (-5.228 Zeilen netto). Jede Seite hat nur noch seitenspezifische Overrides inline. `index.html` + `404.html` bewusst ausgelassen (zu unterschiedliche Struktur).
-
-### Aktive Feature-Branches
-
-Keine aktiven Feature-Branches. `feature/hero-data-viz` wurde in `main` gemergt (Commit `a017fb0`).
-
-### Offene TODOs
-- [ ] **404.html** als Custom-Error-Page beim Hoster eintragen
-- [ ] **Lead-Magnet scharfschalten** (Notion-Task 25.05.) — ACOS-Rechner + E-Mail-Formular sind gebaut. Offen: Mailchimp einrichten, Form-Action in `data-mailchimp-endpoint` (in `index.html`, `#leadmagnet-form`) eintragen, Checkliste-PDF "7 Amazon PPC-Fehler", 5-Mail-Nurture-Sequenz, **Datenschutz um Mailchimp-Abschnitt ergänzen**.
-- [ ] **Zertifikats-Badge-Bilder** — Cert sind jetzt sichtbare statische Karten (text-only). Badge-Bilder (`badge-sponsored-ads.avif`, `badge-marketing-cloud.png`) erst einbauen, wenn offizielle Bilder vorliegen. PDFs nicht verlinkt (Datenschutz).
-- [ ] **PageSpeed / Lighthouse neu prüfen** nach Kernsanierung (Rechner + neue Sektionen). Mobile war 74.
-- [ ] **GSC:** neue Ordner-URLs einreichen, alte URLs werden per Redirect übernommen.
-- [ ] **WCAG-Kontrast** für `--ink-muted`/`--ink-soft` auf `--paper` gegenchecken (Ziel 4,5:1).
-- [ ] **Blog (Phase 5, ab Monat 2):** BOFU-Artikel Freelancer-vs-Agentur, Audit-Kosten, ACOS senken.
-
-## Technische Besonderheiten
-
-- **Akkordeons** (FAQ, Cert-Badges, Step-Items): Grid-Rows-Trick `0fr → 1fr`, kein `max-height`. Step-Akkordeons zusätzlich mit `translateY`-Fade auf `.step-desc`.
-- **Parallax**: `data-parallax="<factor>"` Attribut, `intensity = (mob?0.08:0.12)*factor`, cap 56/32px
-- **Scroll-Blur**: +0.6px auf bestehenden filter während Scroll, 200ms Debounce
-- **Wellen**: 4 SVG-Pfade, requestAnimationFrame, pausiert bei `document.hidden`
-- **Reveal**: IntersectionObserver bi-direktional (kein `once`), threshold 0.10
-- **Mobile**: Zwei Breakpoints — 1100px (Nav vereinfacht) und 900px (Layout kollabiert)
-- **Mobile Nav**: Hamburger-Button öffnet Dropdown via `grid-rows`-Trick; schließt bei Outside-Click (`document.addEventListener`) und Touch-Swipe nach oben
-- **Schema.org**: JSON-LD inline in `<head>`, Typen: Person + ProfessionalService + WebSite (index.html), FAQPage (faq.html), Person (ueber-mich.html), Service inkl. Preisrange (Leistungsseiten)
-- **Tweaks-Panel**: React/Babel UMD, Hero-Feintuning live im Browser
+- [ ] **Mailchimp einrichten** — Form-Action in `data-mailchimp-endpoint` eintragen, Nurture-Sequenz aus Vault übernehmen, Datenschutz um Mailchimp-Abschnitt ergänzen.
+- [ ] **Cert-Badge-Bilder** einbauen (`badge-sponsored-ads.avif`, `badge-marketing-cloud.png`) sobald die offiziellen Bilder vorliegen. PDFs liegen als Backup, werden bewusst nicht verlinkt (Datenschutz).
+- [ ] **Lead-Magnet Live-URL** — entscheiden ob `lead-magnet/` öffentlich verlinkbar oder nur per E-Mail-Versand nach Download. Aktuell `noindex`.
+- [ ] **PageSpeed/Lighthouse Benchmark** für V2 neu erheben (V1-Werte aus alter Doku sind nicht mehr aussagekräftig).
+- [ ] **WCAG-Kontrast** für `--text-muted` (38% Opacity) auf `--bg` gegenchecken — die Werte sind sehr leise, AAA evtl. unterschritten.
+- [ ] **Datenschutz aktualisieren** — Whatamesh-Library (lokal gehostet) erwähnen.
 
 ## Workflow-Regeln
 
-**Commits:** Jede inhaltliche Änderung bekommt einen eigenen Commit (gut für Nachvollziehbarkeit).
+**Commits:** Jede inhaltliche Änderung bekommt einen eigenen Commit. Sprechende Commit-Messages.
 
-**Push-Zeitpunkt:** Erst am Ende eines logischen Themenblocks pushen, nicht nach jeder Einzeldatei.
-Ausnahmen: explizites „push" vom User (Live-Test gewünscht) oder Sessionende.
-**Beim Verlassen des Arbeitsplatzes immer pushen** — als Backup und für sauberen Stand beim nächsten Start.
+**Push-Zeitpunkt:** Erst am Ende eines logischen Themenblocks pushen, nicht nach jeder Einzeldatei. Ausnahmen: explizites „push" vom User oder Sessionende. **Beim Verlassen des Arbeitsplatzes immer pushen.**
 
-**Nach jedem Push:** CLAUDE.md TODOs aktualisieren + erledigte Notion-Tasks abhaken.
+**Nach jedem Push:** TODOs hier aktualisieren + erledigte Notion-Tasks abhaken.
+
+**Stilregeln für sichtbare Texte (HART):**
+- **Keine Gedankenstriche (— oder –)** in Website-Texten, auch nicht bei Bereichen (`20 bis 30 Prozent` statt `20–30`). Punkt oder Komma stattdessen. Ausnahme nur als gestalterisches Mittel in Überschriften.
+- **Keine KI-Floskeln** (sauber, vollständig, nachhaltig, datengetrieben, ganzheitlich, strategisch). Wurden bewusst aus allen Leistungsseiten entfernt.
+- Korrekte Umlaute (ä, ö, ü, ß) überall.
+- Du-Anrede konsequent.
 
 **Session-Log (automatisch):** Am Ende jeder erkennbar abgeschlossenen Claude Code Session wird ein strukturierter Eintrag an die heutige Daily-Briefing-Seite in Notion angehängt.
 - Notion Daily Briefings DB: `65db8b3231bd450c9d5c5f90f821362e`
 - Format: `📌 Session [HH:MM] — [Thema in 5 Worten]` + Bullets: Erledigt / Geändert (Dateien/Repos) / Offen geblieben
-- Nur wenn etwas Konkretes umgesetzt wurde — keine Logs für reine Beratungs-Sessions ohne Änderungen
+- Nur wenn etwas Konkretes umgesetzt wurde — keine Logs für reine Beratungs-Sessions.
+
+## V2-Migration (historisch)
+
+Die Website wurde von V1 (hell, editorial, Instrument Serif + Waldgrün) auf V2 (Dark/Data-First, Space Grotesk + Hellgrün) umgestellt. Die V1-Dokumentation, V1-Assets und V1-Dev-Tools wurden 2026-05-27 vollständig entfernt (`assets/` von 28 auf 9 Dateien geschrumpft). Bei Inkonsistenzen oder „komischen Resten" in zukünftigen Audits: gegen diesen Stand prüfen.
