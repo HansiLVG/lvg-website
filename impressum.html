@@ -1,411 +1,172 @@
-﻿<!DOCTYPE html>
-<html lang="de">
+﻿<!doctype html>
+<html lang="de-DE">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/png" href="assets/LVG_Logo.png" />
-<title>Impressum | Leon-Vincent Gamradt, Amazon PPC Spezialist Berlin</title>
-<meta name="description" content="Impressum von Leon-Vincent Gamradt, Amazon PPC-Spezialist aus Berlin." />
-<meta name="robots" content="noindex, follow" />
-<link rel="canonical" href="https://lvg-ppc.de/impressum.html" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:locale" content="de_DE" />
-<meta property="og:site_name" content="Leon-Vincent Gamradt, Amazon PPC Spezialist" />
-<meta property="og:title" content="Impressum | Leon-Vincent Gamradt" />
-<meta property="og:description" content="Impressum von Leon-Vincent Gamradt, Amazon PPC-Spezialist aus Berlin." />
-<meta property="og:url" content="https://lvg-ppc.de/impressum.html" />
+  <title>Impressum · Leon-Vincent Gamradt · lvg-ppc.de</title>
+  <meta name="description" content="Impressum von Leon-Vincent Gamradt, Amazon PPC Spezialist aus Berlin." />
 
-<link rel="stylesheet" href="/assets/fonts/fonts.css" />
-<link rel="stylesheet" href="/assets/styles.css" />
-<style>
-  /* ─── Seitenspezifisch: Impressum ────────────────────────── */
-  h1.peak {
-    font-family: var(--serif);
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(36px, 4.6vw, 56px);
-    line-height: 1.12;
-    color: var(--accent);
-    margin: 22px 0 56px;
-    max-width: 22ch;
-    letter-spacing: -0.008em;
-  }
-  .legal {
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-    max-width: 68ch;
-    border-top: 1px solid var(--border);
-    padding-top: 36px;
-  }
-  .legal-block { display: flex; flex-direction: column; gap: 10px; }
-  .legal-block h2 {
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: 13px;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    margin: 0;
-  }
-  .legal-block p {
-    margin: 0;
-    font-family: var(--sans);
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--ink-soft);
-    opacity: 0.92;
-  }
-  .legal-block p strong { font-weight: 500; color: var(--ink); opacity: 1; }
-  .legal-block a {
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid var(--border);
-    transition: border-color 0.2s ease;
-  }
-  .legal-block a:hover { border-bottom-color: var(--accent); }
-  .foot-back { margin-right: 4px; }
-  @media (max-width: 900px) {
-    .section-pad { padding: 80px 0; }
-  }
-</style>
-<!-- Google tag (gtag.js) — Consent Mode v2 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMYKYVVJM3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    analytics_storage: 'denied',
-    ad_storage: 'denied',
-    wait_for_update: 500
-  });
-  gtag('js', new Date());
-  gtag('config', 'G-CMYKYVVJM3', {
-    anonymize_ip: true,
-    cookie_flags: 'SameSite=None;Secure'
-  });
-</script>
+  <link rel="canonical" href="https://lvg-ppc.de/impressum.html" />
+  <meta name="robots" content="noindex, follow" />
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Alle CTA-Buttons (Gespräch buchen)
-    document.querySelectorAll('a[href="#cta"], a.cta-link').forEach(function(el) {
-      el.addEventListener('click', function() {
-        gtag('event', 'cta_click', {
-          event_category: 'engagement',
-          event_label: el.textContent.trim()
-        });
-      });
-    });
+  <link rel="icon" type="image/svg+xml" href="assets/logo-favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-    // Mailto-Links
-    document.querySelectorAll('a[href^="mailto"]').forEach(function(el) {
-      el.addEventListener('click', function() {
-        gtag('event', 'contact_click', {
-          event_category: 'engagement',
-          event_label: 'email'
-        });
-      });
-    });
-  });
-</script>
+  <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body data-screen-label="Impressum"><script>if(localStorage.getItem('lvg-dark')==='1')document.body.classList.add('dark');</script>
+<body>
 
-
-<div class="noise" aria-hidden="true"></div>
-
-<nav class="nav" aria-label="Hauptnavigation">
-  <div class="nav-inner">
-    <a class="brand" href="/">Leon-Vincent Gamradt</a>
-    <div class="nav-links">
-      <a href="/amazon-ppc-audit/">Account-Audit</a>
-      <a href="/amazon-ppc-strategie/">Strategie-Aufbau</a>
-      <a href="/amazon-ppc-management/">Kampagnen-Management</a>
-      <a href="/ueber-mich.html">Über mich</a>
-      <a href="/faq.html">FAQ</a>
-      <a href="/preise.html">Preise</a>
-      <a href="/blog/">Blog</a>
-    </div>
-    <a class="cta-link" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Gespräch buchen</a>
-    <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="nav-mobile-wrap" aria-hidden="true">
-    <div class="nav-mobile-inner">
-      <div class="nav-mobile-links">
-        <a href="/amazon-ppc-audit/">Account-Audit</a>
-        <a href="/amazon-ppc-strategie/">Strategie-Aufbau</a>
-        <a href="/amazon-ppc-management/">Kampagnen-Management</a>
-        <div class="nav-mobile-divider"></div>
-        <a href="/ueber-mich.html">Über mich</a>
-        <a href="/faq.html">FAQ</a>
-        <a href="/preise.html">Preise</a>
-        <a href="/blog/">Blog</a>
-        <div class="nav-mobile-divider"></div>
-        <a class="nav-mobile-cta" href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener">Gespräch buchen →</a>
+  <!-- ═══════════ NAV ═══════════ -->
+  <nav class="nav is-transparent" id="nav">
+    <div class="nav-inner">
+      <a href="./" class="nav-brand" aria-label="LVG PPC Startseite">
+        <img src="assets/logo-primary.svg" alt="LVG PPC" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-group">
+          <a href="leistungen/" class="nav-group-trigger">
+            Leistungen
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown" role="menu">
+            <a href="amazon-ppc-audit/" role="menuitem"><strong>Account-Audit</strong><small>Diagnose in 48 Stunden</small></a>
+            <a href="amazon-ppc-strategie/" role="menuitem"><strong>Strategie-Aufbau</strong><small>Vollständiger Neuaufbau</small></a>
+            <a href="amazon-ppc-management/" role="menuitem"><strong>Kampagnenmanagement</strong><small>Laufende Betreuung</small></a>
+          </div>
+        </div>
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="faq.html">FAQ</a>
+        <a href="preise/">Preise</a>
+        <a href="blog/">Blog</a>
+      </div>
+      <div class="nav-right">
+        <a href="kontakt.html#formular" class="btn btn-ghost btn-sm nav-cta-secondary">Schreib mir</a>
+        <a href="kontakt.html#termin" class="btn btn-primary btn-sm">Gespräch buchen <span class="arrow">↗</span></a>
+        <button class="nav-hamb" aria-label="Menü öffnen" id="hamb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" y1="8" x2="20" y2="8" />
+            <line x1="4" y1="16" x2="20" y2="16" />
+          </svg>
+        </button>
       </div>
     </div>
-  </div>
-</nav>
+    <div class="nav-mobile" id="navMobile">
+      <div class="nav-mobile-inner">
+        <a href="leistungen/">Leistungen</a>
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="faq.html">FAQ</a>
+        <a href="preise/">Preise</a>
+        <a href="blog/">Blog</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+    </div>
+  </nav>
 
-<main id="top">
-  <section class="section-pad" id="impressum">
+  <!-- ═══════════ INHALT ═══════════ -->
+  <main class="legal-section">
     <div class="wrap">
-      <div class="reveal"><span class="label"><span class="tri"></span>IMPRESSUM</span></div>
-      <h1 class="peak reveal" style="--reveal-delay: 0.10s;">
-        Rechtliche Angaben.
-      </h1>
+      <h1>Impressum</h1>
 
-      <div class="legal">
-        <div class="legal-block reveal" style="--reveal-delay: 0.20s;">
-          <h2>Angaben gemäß § 5 TMG</h2>
-          <p>
-            <strong>Leon-Vincent Gamradt</strong><br />
-            Uhlandstr. 23<br />
-            13156 Berlin<br />
-            Deutschland
-          </p>
+      <h2>Angaben gemäß § 5 TMG</h2>
+      <p>
+        Leon-Vincent Gamradt<br />
+        Uhlandstr. 23<br />
+        13156 Berlin<br />
+        Deutschland
+      </p>
+
+      <h2>Kontakt</h2>
+      <p>
+        E-Mail: <a href="mailto:l.gamradt@lvg-ppc.de">l.gamradt@lvg-ppc.de</a>
+      </p>
+
+      <h2>Umsatzsteuer-ID</h2>
+      <p>
+        Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
+        DE462124937
+      </p>
+
+      <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+      <p>
+        Leon-Vincent Gamradt<br />
+        Uhlandstr. 23<br />
+        13156 Berlin
+      </p>
+
+      <h2>Haftung für Inhalte</h2>
+      <p>
+        Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten
+        nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich als
+        Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
+        Informationen zu überwachen oder nach Umständen zu forschen, die auf eine
+        rechtswidrige Tätigkeit hinweisen.
+      </p>
+
+      <p style="margin-top: 48px; color: var(--text-muted); font-size: 13px;">
+        <a href="index.html">← Zurück zur Startseite</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- ═══════════ SEO-FOOTER ═══════════ -->
+  <aside class="seo-footer" aria-label="Sitemap">
+    <div class="wrap">
+      <div class="seo-footer-grid">
+        <div class="seo-footer-col">
+          <h3>Leistungen</h3>
+          <ul>
+            <li><a href="amazon-ppc-audit/">Account-Audit</a></li>
+            <li><a href="amazon-ppc-strategie/">Strategie-Aufbau</a></li>
+            <li><a href="amazon-ppc-management/">Kampagnen-Management</a></li>
+            <li><a href="preise/">Preise</a></li>
+          </ul>
         </div>
-
-        <div class="legal-block reveal" style="--reveal-delay: 0.25s;">
-          <h2>Kontakt</h2>
-          <p>
-            E-Mail: <a href="mailto:l.gamradt@lvg-ppc.de">l.gamradt@lvg-ppc.de</a>
-          </p>
+        <div class="seo-footer-col">
+          <h3>Ressourcen</h3>
+          <ul>
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="index.html#rechner">ACOS-Rechner</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
         </div>
-
-        <div class="legal-block reveal" style="--reveal-delay: 0.30s;">
-          <h2>Umsatzsteuer-ID</h2>
-          <p>
-            Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-            <strong>DE462124937</strong>
-          </p>
+        <div class="seo-footer-col">
+          <h3>Über</h3>
+          <ul>
+            <li><a href="ueber-mich.html">Über mich</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
         </div>
-
-        <div class="legal-block reveal" style="--reveal-delay: 0.35s;">
-          <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
-          <p>
-            <strong>Leon-Vincent Gamradt</strong><br />
-            Uhlandstr. 23<br />
-            13156 Berlin
-          </p>
-        </div>
-
-        <div class="legal-block reveal" style="--reveal-delay: 0.40s;">
-          <h2>Haftung für Inhalte</h2>
-          <p>
-            Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte
-            auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
-            Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
-            verpflichtet, übermittelte oder gespeicherte fremde Informationen
-            zu überwachen oder nach Umständen zu forschen, die auf eine
-            rechtswidrige Tätigkeit hinweisen.
-          </p>
+        <div class="seo-footer-col">
+          <h3>Rechtliches</h3>
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
         </div>
       </div>
+      <div class="seo-footer-text">
+        <p>
+          <strong>Leon-Vincent Gamradt</strong> · selbstständiger <strong>Amazon PPC Spezialist</strong> aus <strong>Berlin</strong>. Alle Leistungen im Überblick: <a href="amazon-ppc-management/">Kampagnen-Management</a>, <a href="amazon-ppc-audit/">Account-Audit</a> und <a href="amazon-ppc-strategie/">Strategie-Aufbau</a>. Mehr zur Person auf der <a href="ueber-mich.html">Über-mich-Seite</a>.
+        </p>
+      </div>
     </div>
-  </section>
-</main>
+  </aside>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-text">
-      <a class="foot-back" href="/">← Zurück zur Startseite</a>
-      <span class="foot-sep">·</span>
-      Leon-Vincent Gamradt, Amazon PPC Spezialist, Berlin
-      &nbsp;·&nbsp; <a href="/impressum.html">Impressum</a>
-      &nbsp;·&nbsp; <a href="/datenschutz.html">Datenschutz</a>
-      &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/leon-vincent-gamradt-224613297" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo-primary.svg" alt="LVG PPC" />
+        <span class="copy">© 2026 Leon-Vincent Gamradt</span>
+      </div>
+
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Cookie banner -->
-<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie-Hinweis">
-  <div class="cookie-text">
-    Diese Website verwendet ausschließlich technisch notwendige Cookies sowie
-    optionale Cookies zur anonymen Reichweitenmessung. Details in der
-    <a href="/datenschutz.html">Datenschutzerklärung</a>.
-  </div>
-  <div class="cookie-actions">
-    <button class="btn btn-primary" type="button" data-cookie="accept">Akzeptieren</button>
-    <button class="btn btn-ghost" type="button" data-cookie="decline">Ablehnen</button>
-  </div>
-</div>
-
-<script>
-(() => {
-  'use strict';
-
-  // Reveal observer
-  // ─── Stagger reveals within content grids ──────────────
-  document.querySelectorAll('.section-grid, .legal').forEach(function(grid) {
-    grid.classList.remove('reveal');
-    grid.style.removeProperty('--reveal-delay');
-    var targets = grid.querySelectorAll('h2, h3.lede, .tri-list > li, .step-list > li, .grid-body > p, .legal-block');
-    targets.forEach(function(el, i) {
-      if (!el.classList.contains('reveal')) el.classList.add('reveal');
-      el.style.setProperty('--reveal-delay', (0.05 + i * 0.05) + 's');
-    });
-  });
-
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.10, rootMargin: '0px 0px -8% 0px' });
-  reveals.forEach((el) => {
-    io.observe(el);
-    el.addEventListener('transitionend', (ev) => {
-      if ((ev.propertyName === 'transform' || ev.propertyName === 'opacity')
-          && el.classList.contains('in')) {
-        el.setAttribute('data-settled', '1');
-      }
-    });
-  });
-
-  // Wave animation — same morphing logic as index.html
-  const waveDefs = [
-    { id: 'wave1', base: { y0: 620, y1: 280 },
-      cps: [[200,540,18,26,0.0],[500,560,22,31,0.7],[800,480,24,29,1.4],[1100,440,20,33,2.1],[1300,380,16,28,0.5],[1600,320,12,30,1.0]] },
-    { id: 'wave2', base: { y0: 720, y1: 420 },
-      cps: [[250,660,14,35,0.4],[600,680,22,32,1.1],[900,600,26,30,1.8],[1200,560,22,34,2.5],[1350,500,16,29,0.9],[1600,460,12,31,1.6]] },
-    { id: 'wave3', base: { y0: 820, y1: 560 },
-      cps: [[300,780,11,39,0.3],[700,760,16,36,1.0],[1000,700,18,33,1.7],[1300,660,16,37,2.4],[1400,620,12,32,0.8],[1600,600,9,35,1.5]] },
-    { id: 'wave4', base: { y0: 440, y1: 200 },
-      cps: [[280,480,10,42,1.2],[580,380,14,38,2.0],[880,420,18,40,0.6],[1080,400,14,36,2.7],[1320,340,12,41,1.4],[1600,260,9,39,0.2]] },
-  ];
-
-  function buildPath(def, t) {
-    const { y0, y1 } = def.base;
-    const c = def.cps.map(([x, y, amp, freq, phase]) => {
-      const yo = y + Math.sin((t / 1000) * (2 * Math.PI / freq) + phase) * amp;
-      return [x, yo];
-    });
-    const [c0, c1, c2, c3, c4, c5] = c;
-    return `M -200 ${y0}
-            C ${c0[0]} ${c0[1]}, ${c1[0]} ${c1[1]}, ${c2[0]} ${c2[1]}
-            S ${c3[0]} ${c3[1]}, ${c4[0]} ${c4[1]}
-            S ${c5[0]} ${c5[1]}, 1800 ${y1}`;
-  }
-
-  const wavePaths = waveDefs.map((d) => ({ def: d, el: document.getElementById(d.id) }));
-  let waveStart = performance.now();
-  let waveRAF = null;
-  let pageVisible = !document.hidden;
-  function tickWaves(now) {
-    if (!pageVisible) { waveRAF = null; return; }
-    const t = now - waveStart;
-    wavePaths.forEach(({ def, el }) => {
-      const d = buildPath(def, t);
-      if (el) el.setAttribute('d', d);
-    });
-    waveRAF = requestAnimationFrame(tickWaves);
-  }
-  waveRAF = requestAnimationFrame(tickWaves);
-  document.addEventListener('visibilitychange', () => {
-    pageVisible = !document.hidden;
-    if (pageVisible) {
-      waveStart = performance.now() - (waveStart % 100000);
-      if (!waveRAF) waveRAF = requestAnimationFrame(tickWaves);
-    }
-  });
-
-  // Cookie banner
-  const cookieBanner = document.getElementById('cookie-banner');
-  if (cookieBanner) {
-    const STORAGE_KEY = 'lvg-cookie-consent';
-    function applyConsent(choice) {
-      const granted = choice === 'accepted';
-      gtag('consent', 'update', {
-        analytics_storage: granted ? 'granted' : 'denied',
-        ad_storage: 'denied'
-      });
-    }
-    let stored = null;
-    try { stored = localStorage.getItem(STORAGE_KEY); } catch (_) {}
-    if (stored === 'accepted' || stored === 'declined') {
-      applyConsent(stored);
-      cookieBanner.remove();
-    } else {
-      cookieBanner.addEventListener('click', (ev) => {
-        const target = ev.target.closest('[data-cookie]');
-        if (!target) return;
-        const choice = target.getAttribute('data-cookie') === 'accept' ? 'accepted' : 'declined';
-        try { localStorage.setItem(STORAGE_KEY, choice); } catch (_) {}
-        applyConsent(choice);
-        cookieBanner.classList.add('is-hidden');
-        setTimeout(() => { cookieBanner.remove(); }, 320);
-      });
-    }
-  }
-})();
-</script>
-
-
-<script>
-(function() {
-  var navEl = document.querySelector('nav.nav');
-  var burgerBtn = document.querySelector('.nav-burger');
-  var navMobileWrap = document.querySelector('.nav-mobile-wrap');
-  function closeMobileNav() {
-    navEl.classList.remove('is-open');
-    burgerBtn.setAttribute('aria-expanded', 'false');
-    burgerBtn.setAttribute('aria-label', 'Menü öffnen');
-    navMobileWrap.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-  if (burgerBtn) {
-    burgerBtn.addEventListener('click', function() {
-      var isOpen = navEl.classList.toggle('is-open');
-      burgerBtn.setAttribute('aria-expanded', String(isOpen));
-      burgerBtn.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
-      navMobileWrap.setAttribute('aria-hidden', String(!isOpen));
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    document.querySelectorAll('.nav-mobile-links a').forEach(function(a) {
-      a.addEventListener('click', closeMobileNav);
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeMobileNav();
-    });
-    document.addEventListener('click', function(e) {
-      if (navEl.classList.contains('is-open') && !navEl.contains(e.target)) closeMobileNav();
-    });
-    var touchStartY = 0;
-    document.addEventListener('touchstart', function(e) { touchStartY = e.touches[0].clientY; }, { passive: true });
-    document.addEventListener('touchmove', function(e) {
-      if (navEl.classList.contains('is-open') && Math.abs(e.touches[0].clientY - touchStartY) > 30) closeMobileNav();
-    }, { passive: true });
-  }
-})();
-</script>
-  <button id="dm-btn" class="dm-btn" aria-label="Dark mode umschalten">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  </button>
-  <script>
-  (function(){
-    var b=document.getElementById('dm-btn');
-    b.classList.toggle('dm-on',document.body.classList.contains('dark'));
-    b.addEventListener('click',function(){
-      var d=!document.body.classList.contains('dark');
-      document.body.classList.toggle('dark',d);
-      b.classList.toggle('dm-on',d);
-      localStorage.setItem('lvg-dark',d?'1':'0');
-    });
-  })();
-  </script>
-
-<script src="/waves.js"></script>
-
+  <script src="assets/app.js" defer></script>
 </body>
 </html>
