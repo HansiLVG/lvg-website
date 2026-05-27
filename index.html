@@ -387,7 +387,7 @@
       <div class="highlight-box reveal" style="margin-top: 40px;">
         <span class="label">Was dahintersteckt</span>
         <p>
-          Ich kenne diese Sätze. Ich höre sie fast in jedem ersten Gespräch. Wenn Dir einer davon bekannt vorkommt, liegt das selten am Budget, sondern an Struktur, Geboten oder Targeting. Manchmal liegt es auch am Listing selbst. Wenn Dein Produkt nicht die Fragen beantwortet, die Käufer und Amazons KI-Suche (Rufus) stellen, rettet mehr Budget gar nichts. Genau da fange ich an.
+          Ich kenne diese Sätze. Ich höre sie fast in jedem ersten Gespräch. Wenn Dir einer davon bekannt vorkommt, liegt das selten am Budget, sondern an Struktur, Geboten oder Targeting. Häufig fehlt auch die Funnel-Sicht: Sponsored Products konvertieren, aber Sponsored Brands erschließen keine neuen Käufer. Was Du als ACOS-Problem siehst, ist oft ein Wachstumsproblem. Manchmal liegt es auch am Listing selbst. Wenn Dein Produkt nicht die Fragen beantwortet, die Käufer und Amazons KI-Suche (Rufus) stellen, rettet mehr Budget gar nichts. Genau da fange ich an.
         </p>
         <p>
           Und jeder Monat, in dem das so bleibt, kostet weiter. Bei 10.000 Euro Ad Spend und 30% ACOS verlierst Du rund 1.000 Euro im Monat an Budget, das keine Conversion bringt. Das sind 12.000 Euro im Jahr, die zwischen schlechter und sauberer Steuerung liegen.
@@ -448,6 +448,8 @@
               <span class="label">Du verlierst aktuell pro Monat</span>
               <span class="num" id="out-loss">− € 2.050</span>
             </div>
+
+            <div class="calc-steps" id="calc-steps"></div>
           </div>
         </div>
 
@@ -517,7 +519,7 @@
           <div>
             <div class="l-bold">Du weißt immer, wo Dein Geld landet und warum.</div>
             <div class="l-text">
-              Laufende Optimierung Deiner Sponsored Products, Sponsored Brands und Sponsored Display Kampagnen. Klarer Fokus auf ACOS, ROAS und Marge, transparent, messbar, ohne Agentur-Overhead.
+              Laufende Optimierung Deiner Sponsored Products, Sponsored Brands und Sponsored Display Kampagnen. Nicht als Einzelkampagnen, sondern als zusammenhängenden Funnel. Klarer Fokus auf ACOS, ROAS und Marge, transparent, messbar, ohne Agentur-Overhead.
             </div>
             <a href="amazon-ppc-management/" class="l-link">Mehr erfahren <span class="arrow">↗</span></a>
           </div>
@@ -668,7 +670,7 @@
           <span class="s-idx">Ab Tag 90</span>
           <h3>Skalieren</h3>
           <div class="duration">echte Datenbasis, quartalsweise QBR</div>
-          <p>Skalierungsentscheidungen auf echter Datenbasis. Quartalsweise reviewen wir gemeinsam die Auswirkung auf Deine Marge, nicht nur auf den ACOS.</p>
+          <p>Sponsored Products laufen stabil, jetzt baut Sponsored Brands neue Reichweite auf. Quartalsweise reviewen wir, welche Kampagnentypen echte Neukunden bringen und wo Budget frei wird.</p>
         </div>
       </div>
 
@@ -714,6 +716,10 @@
         <div class="faq-item">
           <button class="faq-q" type="button"><span>Warum nicht einfach einen Marketing-Generalisten?</span><span class="plus" aria-hidden="true"></span></button>
           <div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">Amazon PPC hat eigene Algorithmen, eigene Metriken, eigene Fallstricke. Ich mache ausschließlich Amazon PPC, seit fünf Jahren. Fokus schlägt Breite.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button"><span>Reichen Sponsored Products allein?</span><span class="plus" aria-hidden="true"></span></button>
+          <div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">Für den Einstieg ja. Auf Dauer nein. SP konvertieren bestehenden Suchbedarf, erschließen aber keine neuen Käufer. Dafür sind Sponsored Brands da. Welcher Kampagnentyp wirklich neue Kunden bringt und welcher nur bestehende Käufer teuer erneut anspricht, das macht Amazon Marketing Cloud sichtbar. Ich setze AMC bei passenden Accounts gezielt ein.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button"><span>Was passiert, wenn ich unzufrieden bin?</span><span class="plus" aria-hidden="true"></span></button>
@@ -877,6 +883,7 @@
       var outPotential = document.getElementById('out-potential');
       var outDiff      = document.getElementById('out-diff');
       var outLoss      = document.getElementById('out-loss');
+      var stepsEl      = document.getElementById('calc-steps');
       if (!eSpend || !eAcos || !eMarge) return;
 
       function fmtEur(n) {
@@ -884,13 +891,17 @@
         var v = Math.abs(Math.round(n));
         return sign + '€ ' + v.toLocaleString('de-DE');
       }
+      function fmtN(n) {
+        return '€ ' + Math.round(Math.abs(n)).toLocaleString('de-DE');
+      }
 
       function recalc() {
         var spend = Math.max(0, parseFloat(eSpend.value) || 0);
         var acos  = Math.max(0, Math.min(100, parseFloat(eAcos.value)  || 0)) / 100;
         var marge = Math.max(0, Math.min(100, parseFloat(eMarge.value) || 0)) / 100;
         var revenue = acos > 0 ? spend / acos : 0;
-        var current = revenue * marge - spend;
+        var rohmarge = revenue * marge;
+        var current = rohmarge - spend;
         var newAcos = Math.max(0.01, acos - 0.10);
         var newRev = spend / newAcos;
         var potential = newRev * marge - spend;
@@ -899,6 +910,18 @@
         outPotential.textContent = fmtEur(potential);
         outDiff.textContent      = fmtEur(diff);
         if (outLoss) outLoss.textContent = '− ' + fmtEur(potential - current);
+        if (stepsEl) {
+          var acosStr  = acos.toFixed(2).replace('.', ',');
+          var margeStr = marge.toFixed(2).replace('.', ',');
+          stepsEl.innerHTML =
+            '<div class="calc-steps-title">Schritt für Schritt:</div>' +
+            '<div class="calc-step"><span class="cs-label">Werbe-Umsatz</span>' +
+            '<span class="cs-eq">' + fmtN(spend) + ' ÷ ' + acosStr + ' = <b>' + fmtN(revenue) + '</b></span></div>' +
+            '<div class="calc-step"><span class="cs-label">Rohmarge</span>' +
+            '<span class="cs-eq">' + fmtN(revenue) + ' × ' + margeStr + ' = <b>' + fmtN(rohmarge) + '</b></span></div>' +
+            '<div class="calc-step cs-result"><span class="cs-label">Nettoprofit</span>' +
+            '<span class="cs-eq">' + fmtN(rohmarge) + ' − ' + fmtN(spend) + ' = <b>' + fmtEur(current) + '</b></span></div>';
+        }
       }
       [eSpend, eAcos, eMarge].forEach(function (el) { el.addEventListener('input', recalc); });
       recalc();
