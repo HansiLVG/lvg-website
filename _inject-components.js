@@ -60,6 +60,7 @@ const FILES = [
   { file: 'glossar/negative-keywords/index.html',                         activePage: 'glossar'    },
   { file: 'glossar/auto-vs-manual-kampagne/index.html',                   activePage: 'glossar'    },
   { file: 'glossar/placement-top-of-search/index.html',                   activePage: 'glossar'    },
+  { file: 'rechner/acos/index.html',                                       activePage: 'rechner'    },
 ];
 
 // ─── NAV TEMPLATE ───────────────────────────────────────────────────────────

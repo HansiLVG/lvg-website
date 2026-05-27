@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>ACOS-Rechner · Amazon PPC Einsparpotenzial berechnen · lvg-ppc.de</title>
+  <meta name="description" content="Berechne kostenlos, wie viel Dein ACOS Dich kostet. Einsparpotenzial pro Monat und Jahr, ROAS-Toggle, Break-Even-Interpretation. Direkt im Browser, ohne Anmeldung." />
+
+  <link rel="canonical" href="https://lvg-ppc.de/rechner/acos/" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="LVG PPC · Leon-Vincent Gamradt" />
+  <meta property="og:title" content="ACOS-Rechner · Amazon PPC Einsparpotenzial berechnen" />
+  <meta property="og:description" content="Wie viel kostet Dich Dein aktueller ACOS? Berechne Einsparpotenzial, Ziel-ACOS und Wachstumspotenzial direkt im Browser." />
+  <meta property="og:url" content="https://lvg-ppc.de/rechner/acos/" />
+  <meta property="og:image" content="https://lvg-ppc.de/assets/logo-primary.svg" />
+  <meta property="og:image:alt" content="LVG PPC, Amazon PPC Spezialist Berlin" />
+
+  <link rel="icon" type="image/svg+xml" href="../../assets/logo-favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../../assets/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": "https://lvg-ppc.de/rechner/acos/#app",
+    "url": "https://lvg-ppc.de/rechner/acos/",
+    "name": "Amazon PPC ACOS-Rechner",
+    "description": "Kostenloser ACOS-Rechner für Amazon PPC: Einsparpotenzial, Wachstumspotenzial, ROAS-Toggle und Break-Even-Interpretation direkt im Browser.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "inLanguage": "de-DE",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "author": {
+      "@type": "Person",
+      "name": "Leon-Vincent Gamradt",
+      "url": "https://lvg-ppc.de/ueber-mich.html"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ═══════════ NAV ═══════════ -->
+  <nav class="nav is-transparent" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand" aria-label="LVG PPC Startseite">
+        <img src="/assets/logo-primary.svg" alt="LVG PPC" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-group">
+          <a href="/leistungen/" class="nav-group-trigger">
+            Leistungen
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown" role="menu">
+            <a href="/amazon-ppc-audit/" role="menuitem"><strong>Account-Audit</strong><small>Diagnose in 48 Stunden</small></a>
+            <a href="/amazon-ppc-strategie/" role="menuitem"><strong>Strategie-Aufbau</strong><small>Vollständiger Neuaufbau</small></a>
+            <a href="/amazon-ppc-management/" role="menuitem"><strong>Kampagnenmanagement</strong><small>Laufende Betreuung</small></a>
+          </div>
+        </div>
+        <a href="/preise/">Preise</a>
+        <a href="/ueber-mich.html">Über mich</a>
+        <a href="/faq.html">FAQ</a>
+        <div class="nav-group">
+          <a href="#" class="nav-group-trigger active">
+            Tools
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown" role="menu">
+            <a href="/blog/" role="menuitem"><strong>Blog</strong><small>Amazon PPC Artikel</small></a>
+            <a href="/glossar/" role="menuitem"><strong>Glossar</strong><small>PPC-Begriffe erklärt</small></a>
+            <a href="#" role="menuitem" class="active"><strong>Rechner</strong><small>ACOS, Bid, Budget</small></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <a href="/kontakt.html#formular" class="btn btn-ghost btn-sm nav-cta-secondary">Schreib mir</a>
+        <a href="/kontakt.html#termin" class="btn btn-primary btn-sm">Gespräch buchen <span class="arrow">↗</span></a>
+        <button class="nav-hamb" aria-label="Menü öffnen" id="hamb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" y1="8" x2="20" y2="8" />
+            <line x1="4" y1="16" x2="20" y2="16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <div class="nav-mobile-inner">
+        <a href="/leistungen/">Leistungen</a>
+        <a href="/amazon-ppc-audit/" class="nav-sub">Account-Audit</a>
+        <a href="/amazon-ppc-strategie/" class="nav-sub">Strategie-Aufbau</a>
+        <a href="/amazon-ppc-management/" class="nav-sub nav-sub-end">Kampagnen-Management</a>
+        <a href="/preise/">Preise</a>
+        <a href="/ueber-mich.html">Über mich</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/blog/">Blog</a>
+        <a href="/glossar/">Glossar</a>
+        <a href="#" class="active">Rechner</a>
+        <a href="/kontakt.html">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ COOKIE BANNER ═══════════ -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie-Hinweis">
+    <div class="cookie-banner-grid">
+      <p>Diese Website nutzt Cookies für anonyme Statistik (Google Analytics, IP anonymisiert). Details in der <a href="../../datenschutz.html">Datenschutzerklärung</a>.</p>
+      <div class="cookie-banner-buttons">
+        <button class="btn btn-ghost btn-sm" id="cookie-decline" type="button">Ablehnen</button>
+        <button class="btn btn-primary btn-sm" id="cookie-accept" type="button">Akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ SUB-HERO ═══════════ -->
+  <header class="sub-hero sub-hero-shader">
+    <canvas id="gradient-canvas-sub" data-transition-in></canvas>
+    <div class="sub-hero-fade"></div>
+    <div class="sub-hero-inner wrap">
+      <span class="eyebrow"><a href="/rechner/">Amazon PPC Rechner</a> · ACOS</span>
+      <h1 class="reveal" style="--reveal-delay: 0.06s;">Was kostet Dich Dein aktueller ACOS?</h1>
+      <p class="lead reveal" style="--reveal-delay: 0.12s;">
+        Gib Deinen monatlichen Ad Spend und ACOS ein. Der Rechner zeigt Dir sofort, wie weit Du von einem effizienten Ziel-ACOS entfernt bist und was das in Euro bedeutet.
+      </p>
+    </div>
+  </header>
+
+  <!-- ═══════════ ACOS RECHNER (VOLLVERSION) ═══════════ -->
+  <main>
+    <section class="calc-section" id="rechner" style="padding-top: 80px;">
+      <div class="wrap">
+
+        <div class="calc-card reveal">
+          <div class="calc-grid">
+            <div class="calc-inputs">
+              <div class="calc-field">
+                <label for="calc-spend">Monatlicher Ad Spend <span class="calc-tip" data-tip="Dein gesamtes monatliches Amazon PPC-Budget (Sponsored Products, Brands, Display)">ℹ</span></label>
+                <div class="input-wrap">
+                  <input type="number" id="calc-spend" value="9500" min="0" step="500" />
+                  <span class="unit">€</span>
+                </div>
+              </div>
+              <div class="calc-field">
+                <div class="calc-field-header">
+                  <label for="calc-acos" id="calc-metric-label">Aktueller ACOS <span class="calc-tip" data-tip="Advertising Cost of Sale: Werbekosten ÷ Werberlös × 100. Niedriger = effizienter.">ℹ</span></label>
+                  <button type="button" class="calc-toggle-btn" id="calc-toggle">ROAS eingeben</button>
+                </div>
+                <div class="input-wrap" id="acos-wrap">
+                  <input type="number" id="calc-acos" value="34" min="0" max="100" step="0.1" />
+                  <span class="unit">%</span>
+                </div>
+                <div class="input-wrap" id="roas-wrap" hidden>
+                  <input type="number" id="calc-roas" value="2.9" min="0.1" step="0.1" />
+                  <span class="unit">×</span>
+                </div>
+                <div class="calc-scale" aria-hidden="true">
+                  <div class="calc-scale-bar"></div>
+                  <div class="calc-scale-marker" id="calc-scale-marker" style="left: 50%;"></div>
+                  <div class="calc-scale-labels" id="calc-scale-labels">
+                    <span>0 %</span>
+                    <span>20 %</span>
+                    <span>40 %</span>
+                    <span>60 %+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-outputs">
+              <div class="calc-out-row" id="calc-out-empty">
+                <span class="label">Trag beide Werte ein, um Dein Potenzial zu sehen.</span>
+              </div>
+              <div class="calc-out-filled" id="calc-out-filled" hidden>
+                <div class="calc-out-row soft-good">
+                  <span class="label">Einsparpotenzial pro Monat</span>
+                  <span class="num" id="out-saving-month" style="font-size:1.6rem;">€ 1.330</span>
+                </div>
+                <div class="calc-out-row highlight">
+                  <span class="label">Pro Jahr <span class="arrow">↗</span></span>
+                  <span class="num" id="out-saving-year">€ 15.960</span>
+                </div>
+                <div class="calc-out-row loss">
+                  <span class="label">In 3 Jahren entgehen Dir</span>
+                  <span class="num" id="out-3year" style="font-size:1.6rem;">€ 47.880</span>
+                </div>
+                <div class="calc-out-row">
+                  <span class="label" id="out-compare-label">ACOS aktuell → Ziel</span>
+                  <span class="num" id="out-roas-compare" style="font-size:1.4rem;">34 % → 20 %</span>
+                </div>
+                <div class="calc-out-row calc-out-full">
+                  <span class="label" id="out-sub">Die zwischen Deiner aktuellen Steuerung und einem ACOS von 20 % liegen. Richtwert, keine Garantie.</span>
+                </div>
+                <div class="calc-interpret calc-out-full" id="out-interpret"></div>
+                <div class="calc-context-hint calc-out-full">
+                  Hinweis: Tatsächliches Einsparpotenzial hängt von deiner Branche, Marktsättigung und Marge ab. Diese Schätzung ist indikativ, kein Versprechen.
+                </div>
+              </div>
+              <div class="calc-out-good" id="calc-out-good" hidden>
+                <div class="calc-out-row">
+                  <span class="label" id="out-good-label">Dein ACOS liegt im Sweet Spot. Hier geht es eher um Skalierung und organisches Wachstum.</span>
+                </div>
+                <div class="calc-interpret calc-out-full" id="out-good-interpret"></div>
+              </div>
+              <div class="calc-out-growth" id="calc-out-growth" hidden>
+                <div class="calc-out-row soft-good">
+                  <span class="label">Wachstumspotenzial pro Monat</span>
+                  <span class="num" id="out-growth-month" style="font-size:1.6rem;">€ 0</span>
+                </div>
+                <div class="calc-out-row highlight">
+                  <span class="label">Pro Jahr <span class="arrow">↗</span></span>
+                  <span class="num" id="out-growth-year">€ 0</span>
+                </div>
+                <div class="calc-out-row">
+                  <span class="label" id="out-growth-compare-label">ACOS aktuell → Wachstums-Ziel</span>
+                  <span class="num" id="out-growth-compare" style="font-size:1.4rem;">8 % → 20 %</span>
+                </div>
+                <div class="calc-out-row calc-out-full">
+                  <span class="label">Bei gleicher Marge pro Sale, aber mehr Reichweite. Richtwert, keine Garantie.</span>
+                </div>
+                <div class="calc-interpret calc-out-full" id="out-growth-interpret"></div>
+                <div class="calc-context-hint calc-out-full">
+                  Hinweis: Wachstumspotenzial hängt von deiner Branche, Marktgröße und Konkurrenzdichte ab. In gesättigten Nischen ist mehr Reichweite anspruchsvoller als in jungen Märkten.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-email">
+            <div class="calc-email-head">
+              <div>
+                <h3>Bekomme die 7 häufigsten Amazon PPC-Fehler als PDF.</h3>
+                <p>Kurze Checkliste, sofort umsetzbar. Keine weiteren Mails ohne Deine Zustimmung.</p>
+              </div>
+              <form class="calc-email-form" data-mailchimp-endpoint="" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').innerHTML='Gesendet ✓';">
+                <input type="email" placeholder="deine@email.de" required />
+                <button class="btn btn-primary btn-sm" type="submit">PDF anfordern <span class="arrow">↗</span></button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════ FINAL CTA ═══════════ -->
+    <section class="final-cta" id="kontakt">
+      <canvas id="gradient-canvas-cta" data-transition-in></canvas>
+      <div class="cta-fade"></div>
+      <div class="wrap">
+        <span class="eyebrow reveal">Kontakt</span>
+        <h2 class="reveal" style="--reveal-delay: 0.06s;">Zahlen gut, Account immer noch unklar? <span class="arrow">↗</span></h2>
+        <p class="lead reveal" style="--reveal-delay: 0.12s;">15 Minuten Erstgespräch, kein Pitch. Ich sage Dir, wo Dein Account aktuell steht und was als Nächstes sinnvoll ist.</p>
+        <div class="kontakt-grid reveal" style="--reveal-delay: 0.18s; max-width: 720px; margin: 48px auto 0;">
+          <a class="kontakt-card kontakt-card-primary" href="../../kontakt.html#termin">
+            <div class="k-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <div class="k-label">Erstgespräch buchen</div>
+            <div class="k-sub">15 Min. via Cal.eu</div>
+            <span class="k-arrow">↗</span>
+          </a>
+          <a class="kontakt-card" href="../../kontakt.html#formular">
+            <div class="k-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/>
+              </svg>
+            </div>
+            <div class="k-label">Formular ausfüllen</div>
+            <div class="k-sub">Budget, Setup, Ziele in einem Schritt</div>
+            <span class="k-arrow">↗</span>
+          </a>
+          <a class="kontakt-card" href="https://www.linkedin.com/in/leon-vincent-gamradt-224613297" target="_blank" rel="noopener noreferrer me">
+            <div class="k-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.063 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div class="k-label">LinkedIn</div>
+            <div class="k-sub">vernetzen oder Nachricht</div>
+            <span class="k-arrow">↗</span>
+          </a>
+        </div>
+        <div class="trust reveal" style="--reveal-delay: 0.24s;">
+          <span>Amazon Ads Certified</span>
+          <span>Direkter Kontakt</span>
+          <span>Kein Lock-in</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════ SEO-FOOTER ═══════════ -->
+  <aside class="seo-footer" aria-label="Sitemap">
+    <div class="wrap">
+      <div class="seo-footer-grid">
+        <div class="seo-footer-col">
+          <h3>Leistungen</h3>
+          <ul>
+            <li><a href="/amazon-ppc-audit/">Account-Audit</a></li>
+            <li><a href="/amazon-ppc-strategie/">Strategie-Aufbau</a></li>
+            <li><a href="/amazon-ppc-management/">Kampagnen-Management</a></li>
+            <li><a href="/preise/">Preise</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Ressourcen</h3>
+          <ul>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/glossar/">Glossar</a></li>
+            <li><a href="/rechner/">Rechner</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Über</h3>
+          <ul>
+            <li><a href="/ueber-mich.html">Über mich</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Rechtliches</h3>
+          <ul>
+            <li><a href="/impressum.html">Impressum</a></li>
+            <li><a href="/datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="seo-footer-text">
+        <p>
+          Der <strong>ACOS-Rechner</strong> von <strong>Leon-Vincent Gamradt</strong> (Amazon PPC Spezialist, Berlin) berechnet Dein Einsparpotenzial auf Basis von Ad Spend und aktuellem ACOS. Für alle weiteren Rechner: <a href="/rechner/">Rechner-Übersicht</a>. Begriffe erklärt im <a href="/glossar/acos/">ACOS-Glossar</a>. Tiefer einsteigen mit einem <a href="/amazon-ppc-audit/">Account-Audit</a>.
+        </p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="../../assets/logo-primary.svg" alt="LVG PPC" />
+        <span class="copy">© 2026 Leon-Vincent Gamradt</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/whatamesh.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var staticBg =
+        "radial-gradient(ellipse 70% 50% at 28% 28%, rgba(34,197,94,0.42), transparent 60%)," +
+        "radial-gradient(ellipse 60% 50% at 82% 60%, rgba(30,64,175,0.48), transparent 60%)," +
+        "radial-gradient(ellipse 60% 55% at 60% 92%, rgba(107,33,168,0.42), transparent 60%)," +
+        "#0f172a";
+      ['gradient-canvas-sub', 'gradient-canvas-cta'].forEach(function (id) {
+        var canvas = document.getElementById(id);
+        if (canvas) canvas.style.background = staticBg;
+        try {
+          if (typeof Gradient !== 'undefined' && canvas) {
+            var g = new Gradient();
+            g.initGradient('#' + id);
+          }
+        } catch (err) { console.warn('Gradient init failed', err); }
+      });
+    });
+  </script>
+
+  <script>
+    // ACOS Rechner: Vollversion
+    (function () {
+      var eSpend    = document.getElementById('calc-spend');
+      var eAcos     = document.getElementById('calc-acos');
+      var eRoas     = document.getElementById('calc-roas');
+      var acosWrap  = document.getElementById('acos-wrap');
+      var roasWrap  = document.getElementById('roas-wrap');
+      var toggleBtn = document.getElementById('calc-toggle');
+      var metricLbl = document.getElementById('calc-metric-label');
+      var outEmpty      = document.getElementById('calc-out-empty');
+      var outFilled     = document.getElementById('calc-out-filled');
+      var outGood       = document.getElementById('calc-out-good');
+      var outSavingYear  = document.getElementById('out-saving-year');
+      var outSavingMonth = document.getElementById('out-saving-month');
+      var out3Year       = document.getElementById('out-3year');
+      var outRoasComp    = document.getElementById('out-roas-compare');
+      var outCompareLbl  = document.getElementById('out-compare-label');
+      var outInterpret   = document.getElementById('out-interpret');
+      var outGrowth         = document.getElementById('calc-out-growth');
+      var outGrowthMonth    = document.getElementById('out-growth-month');
+      var outGrowthYear     = document.getElementById('out-growth-year');
+      var outGrowthCompare  = document.getElementById('out-growth-compare');
+      var outGrowthCompLbl  = document.getElementById('out-growth-compare-label');
+      var outGrowthInterpret = document.getElementById('out-growth-interpret');
+      var outGoodInterpret  = document.getElementById('out-good-interpret');
+      var outGoodLabel      = document.getElementById('out-good-label');
+      var scaleMarker       = document.getElementById('calc-scale-marker');
+      var scaleLabels       = document.getElementById('calc-scale-labels');
+      if (!eSpend || !eAcos) return;
+
+      var TARGET = 20;
+      var GROWTH_TARGET = 18;
+      var TARGET_ROAS = (100 / TARGET).toFixed(1).replace('.', ',');
+      var SCALE_MAX = 70;
+      var useRoas = false;
+
+      function fmt(n) { return '€ ' + Math.round(n).toLocaleString('de-DE'); }
+      function fmtR(n, dec) { return n.toLocaleString('de-DE', { minimumFractionDigits: dec, maximumFractionDigits: dec }); }
+
+      var canonicalAcos = parseFloat(eAcos.value) || 0;
+      function getAcos() { return canonicalAcos; }
+
+      function classify(acos) {
+        var cents = Math.round(acos);
+        if (acos < 2)   return { lvl: 'lvl-aurora',      mode: 'extreme', text: 'Ungewöhnlich niedrig. Sicher, dass du nicht ACOS und ROAS verwechselt hast? Werte unter 2 % ACOS (bzw. ROAS über 50) sind sehr selten und meist ein Eingabefehler. Falls nicht: Glückwunsch, du hast einen außergewöhnlich effizienten Account.' };
+        if (acos < 10)  return { lvl: 'lvl-aurora',      mode: 'growth',  text: 'Sehr niedriger ACOS. Du fährst voll auf Marge optimiert. Das ist nicht falsch, aber du lässt damit Reichweite und Wachstum liegen. Eine moderate Anhebung bringt oft signifikant mehr Sales-Umsatz, ohne unter Break-Even zu fallen.' };
+        if (acos < 15)  return { lvl: 'lvl-very-good',   mode: 'growth',  text: 'Sehr effizient. Prüf, ob das der gewollte Trade-off zwischen Marge und Wachstum ist. Im Wachstumsmodus liegt hier oft noch Sales-Umsatz brach.' };
+        if (acos <= 22) return { lvl: 'lvl-good',        mode: 'good',    text: 'Sweet Spot für die meisten Brands. Solider Profit pro Sale bei gesunder Reichweite. Hebel jetzt: Skalierung, TACOS-Reduktion durch organischen Halo, neue Märkte.' };
+        if (acos <= 28) return { lvl: 'lvl-good-edge',   mode: 'good',    text: 'Knapp über dem Sweet Spot. Noch im gesunden Bereich, aber kleine strukturelle Anpassungen (Negatives, Match-Type-Hygiene) holen dich zurück ins Zentrum.' };
+        if (acos <= 38) return { lvl: 'lvl-warn',        mode: 'save',    text: cents + ' Cent pro Euro Umsatz. Optimierungs-Zone. Mit Negative Keywords, Match-Type-Hygiene und Brand/Generic-Trennung holst du das oft in 2 bis 4 Wochen ins Sweet-Spot-Niveau.' };
+        if (acos <= 50) return { lvl: 'lvl-warn-strong', mode: 'save',    text: cents + ' Cent pro Euro Umsatz. Hier ist meist ein Strukturproblem im Spiel. Listing-CVR und Kampagnenarchitektur prüfen, nicht nur an Bids drehen.' };
+        return            { lvl: 'lvl-bad',              mode: 'save',    text: cents + ' Cent pro Euro Umsatz. Kritisch. Ausnahme: Launch-Phasen können temporär 80 bis 150 % ACOS rechtfertigen, um Sales-Velocity und Ranking aufzubauen. Bei laufendem Produkt: dringend Audit.' };
+      }
+
+      function recalc() {
+        var spend = parseFloat(eSpend.value) || 0;
+        var acos  = getAcos();
+        if (!(spend > 0) || !(acos > 0)) {
+          outEmpty.hidden  = false;
+          outFilled.hidden = true;
+          outGood.hidden   = true;
+          if (outGrowth) outGrowth.hidden = true;
+          return;
+        }
+        outEmpty.hidden = true;
+
+        var c = classify(acos);
+
+        if (scaleMarker) {
+          var pos = Math.max(0, Math.min(100, (acos / SCALE_MAX) * 100));
+          scaleMarker.style.left = pos + '%';
+        }
+        if (scaleLabels) {
+          var sp = scaleLabels.querySelectorAll('span');
+          if (sp.length === 4) {
+            if (useRoas) {
+              sp[0].textContent = '∞ ×';
+              sp[1].textContent = '5 ×';
+              sp[2].textContent = '2,5 ×';
+              sp[3].textContent = '1,4 ×';
+            } else {
+              sp[0].textContent = '0 %';
+              sp[1].textContent = '20 %';
+              sp[2].textContent = '40 %';
+              sp[3].textContent = '60 %+';
+            }
+          }
+        }
+
+        var activeWrap = useRoas ? roasWrap : acosWrap;
+        activeWrap.classList.remove('lvl-aurora', 'lvl-very-good', 'lvl-good', 'lvl-good-edge', 'lvl-warn', 'lvl-warn-strong', 'lvl-bad');
+        activeWrap.classList.add(c.lvl);
+
+        outFilled.hidden = true;
+        outGood.hidden   = true;
+        if (outGrowth) outGrowth.hidden = true;
+
+        if (c.mode === 'good') {
+          outGood.hidden = false;
+          if (outGoodLabel) outGoodLabel.textContent = 'Dein ACOS liegt im Sweet Spot. Hier geht es eher um Skalierung und organisches Wachstum.';
+          if (outGoodInterpret) outGoodInterpret.textContent = c.text;
+          return;
+        }
+
+        if (c.mode === 'extreme') {
+          outGood.hidden = false;
+          if (outGoodLabel) outGoodLabel.textContent = c.text;
+          if (outGoodInterpret) outGoodInterpret.textContent = '';
+          return;
+        }
+
+        if (c.mode === 'growth' && outGrowth) {
+          outGrowth.hidden = false;
+          var currentSales = spend / (acos / 100);
+          var headroom     = Math.max(0, TARGET - acos) / TARGET;
+          var growthMonth  = Math.min(currentSales * Math.min(0.5, headroom * 0.9), spend * 6);
+          outGrowthMonth.textContent = fmt(growthMonth);
+          outGrowthYear.textContent  = fmt(growthMonth * 12);
+          if (useRoas) {
+            outGrowthCompLbl.textContent = 'ROAS aktuell → Wachstums-Ziel';
+            var currentRoasG = 100 / acos;
+            outGrowthCompare.textContent = fmtR(currentRoasG, 1) + ' → ' + (100 / GROWTH_TARGET).toFixed(1).replace('.', ',');
+          } else {
+            outGrowthCompLbl.textContent = 'ACOS aktuell → Wachstums-Ziel';
+            outGrowthCompare.textContent = Math.round(acos) + ' % → ' + GROWTH_TARGET + ' %';
+          }
+          if (outGrowthInterpret) outGrowthInterpret.textContent = c.text;
+          return;
+        }
+
+        // mode === 'save'
+        outFilled.hidden = false;
+        var monthly      = spend * (acos - TARGET) / 100;
+        var yearly       = monthly * 12;
+        var currentRoas  = 100 / acos;
+        outSavingMonth.textContent = fmt(monthly);
+        outSavingYear.textContent  = fmt(yearly);
+        out3Year.textContent       = fmt(yearly * 3);
+        if (useRoas) {
+          outCompareLbl.textContent = 'ROAS aktuell → Ziel';
+          outRoasComp.textContent   = fmtR(currentRoas, 1) + ' → ' + TARGET_ROAS;
+        } else {
+          outCompareLbl.textContent = 'ACOS aktuell → Ziel';
+          outRoasComp.textContent   = Math.round(acos) + ' % → ' + TARGET + ' %';
+        }
+        if (outInterpret) outInterpret.textContent = c.text;
+      }
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+          useRoas = !useRoas;
+          if (useRoas) {
+            eRoas.value = canonicalAcos > 0 ? (100 / canonicalAcos).toFixed(2) : '';
+            acosWrap.hidden = true;
+            roasWrap.hidden = false;
+            metricLbl.firstChild.textContent = 'Aktueller ROAS ';
+            toggleBtn.textContent = 'ACOS eingeben';
+          } else {
+            eAcos.value = canonicalAcos > 0 ? canonicalAcos.toFixed(1) : '';
+            roasWrap.hidden = true;
+            acosWrap.hidden = false;
+            metricLbl.firstChild.textContent = 'Aktueller ACOS ';
+            toggleBtn.textContent = 'ROAS eingeben';
+          }
+          recalc();
+        });
+      }
+
+      var recalcTimer = null;
+      function scheduleRecalc() {
+        if (recalcTimer) clearTimeout(recalcTimer);
+        recalcTimer = setTimeout(recalc, 350);
+      }
+      eSpend.addEventListener('input', scheduleRecalc);
+      eAcos.addEventListener('input', function () {
+        canonicalAcos = parseFloat(eAcos.value) || 0;
+        scheduleRecalc();
+      });
+      eRoas.addEventListener('input', function () {
+        var r = parseFloat(eRoas.value);
+        canonicalAcos = r > 0 ? 100 / r : 0;
+        scheduleRecalc();
+      });
+      recalc();
+    })();
+  </script>
+
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>
