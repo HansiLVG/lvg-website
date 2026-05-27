@@ -1,21 +1,21 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="de-DE">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Amazon PPC Blog · Tipps und Strategien · Leon-Vincent Gamradt</title>
-  <meta name="description" content="Amazon PPC Blog von Leon-Vincent Gamradt: praxisnahe Tipps zu ACOS, Kampagnenstruktur, Freelancer vs. Agentur und mehr." />
+  <title>Amazon PPC Glossar · Begriffe einfach erklärt · Leon-Vincent Gamradt</title>
+  <meta name="description" content="Amazon PPC Glossar von Leon-Vincent Gamradt: ACOS, TACOS, ROAS und mehr. Definitionen, Formeln und Optimierungs-Hebel aus der Account-Praxis." />
 
-  <link rel="canonical" href="https://lvg-ppc.de/blog/" />
+  <link rel="canonical" href="https://lvg-ppc.de/glossar/" />
   <meta name="robots" content="index, follow" />
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
   <meta property="og:site_name" content="LVG PPC · Leon-Vincent Gamradt" />
-  <meta property="og:title" content="Amazon PPC Blog · Tipps und Strategien · Leon-Vincent Gamradt" />
-  <meta property="og:description" content="Praxisnahe Tipps zu ACOS, Kampagnenstruktur und Amazon PPC, direkt aus der Account-Praxis." />
-  <meta property="og:url" content="https://lvg-ppc.de/blog/" />
+  <meta property="og:title" content="Amazon PPC Glossar · Begriffe einfach erklärt" />
+  <meta property="og:description" content="Definitionen, Formeln und Optimierungs-Hebel zu den wichtigsten Amazon-PPC-Begriffen, aus der Account-Praxis." />
+  <meta property="og:url" content="https://lvg-ppc.de/glossar/" />
   <meta property="og:image" content="https://lvg-ppc.de/assets/logo-primary.svg" />
   <meta property="og:image:alt" content="LVG PPC, Amazon PPC Spezialist Berlin" />
 
@@ -30,11 +30,21 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Blog",
-    "url": "https://lvg-ppc.de/blog/",
-    "name": "Amazon PPC Blog, Leon-Vincent Gamradt",
+    "@type": "DefinedTermSet",
+    "@id": "https://lvg-ppc.de/glossar/#termset",
+    "url": "https://lvg-ppc.de/glossar/",
+    "name": "Amazon PPC Glossar",
+    "description": "Glossar wichtiger Amazon-PPC-Begriffe mit Definitionen, Formeln und Optimierungs-Hebeln.",
     "inLanguage": "de-DE",
-    "author": { "@id": "https://lvg-ppc.de/#person" }
+    "hasDefinedTerm": [
+      { "@id": "https://lvg-ppc.de/glossar/acos/#term" },
+      { "@id": "https://lvg-ppc.de/glossar/tacos/#term" },
+      { "@id": "https://lvg-ppc.de/glossar/roas/#term" },
+      { "@id": "https://lvg-ppc.de/glossar/cpc/#term" },
+      { "@id": "https://lvg-ppc.de/glossar/ctr/#term" },
+      { "@id": "https://lvg-ppc.de/glossar/conversion-rate/#term" },
+      { "@id": "https://lvg-ppc.de/glossar/impression-share/#term" }
+    ]
   }
   </script>
 </head>
@@ -61,8 +71,8 @@
         <a href="../ueber-mich.html">Über mich</a>
         <a href="../faq.html">FAQ</a>
         <a href="../preise/">Preise</a>
-        <a href="#" class="active">Blog</a>
-        <a href="../glossar/">Glossar</a>
+        <a href="../blog/">Blog</a>
+        <a href="#" class="active">Glossar</a>
       </div>
       <div class="nav-right">
         <a href="../kontakt.html#formular" class="btn btn-ghost btn-sm nav-cta-secondary">Schreib mir</a>
@@ -84,52 +94,112 @@
         <a href="../ueber-mich.html" class="nav-sub-end">Über mich</a>
         <a href="../faq.html">FAQ</a>
         <a href="../preise/">Preise</a>
-        <a href="#">Blog</a>
-        <a href="../glossar/">Glossar</a>
+        <a href="../blog/">Blog</a>
+        <a href="#">Glossar</a>
         <a href="../kontakt.html">Kontakt</a>
       </div>
     </div>
   </nav>
+
+  <!-- ═══════════ COOKIE BANNER ═══════════ -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie-Hinweis">
+    <div class="cookie-banner-grid">
+      <p>Diese Website nutzt Cookies für anonyme Statistik (Google Analytics, IP anonymisiert). Details in der <a href="../datenschutz.html">Datenschutzerklärung</a>.</p>
+      <div class="cookie-banner-buttons">
+        <button class="btn btn-ghost btn-sm" id="cookie-decline" type="button">Ablehnen</button>
+        <button class="btn btn-primary btn-sm" id="cookie-accept" type="button">Akzeptieren</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ═══════════ SUB-HERO ═══════════ -->
   <header class="sub-hero sub-hero-shader">
     <canvas id="gradient-canvas-sub" data-transition-in></canvas>
     <div class="sub-hero-fade"></div>
     <div class="sub-hero-inner wrap">
-      <span class="eyebrow">Amazon PPC Blog</span>
-      <h1 class="reveal" style="--reveal-delay: 0.06s;">Praxis statt Theorie.</h1>
+      <span class="eyebrow">Amazon PPC Glossar</span>
+      <h1 class="reveal" style="--reveal-delay: 0.06s;">Amazon PPC Begriffe einfach erklärt.</h1>
       <p class="lead reveal" style="--reveal-delay: 0.12s;">
-        Ehrliche Einblicke in Amazon Advertising, direkt aus der täglichen Account-Arbeit.
+        Die wichtigsten Amazon-PPC-Begriffe mit Formeln, Rechenbeispielen und Optimierungs-Hebeln. Aus der Account-Praxis, nicht aus dem Lehrbuch.
       </p>
     </div>
   </header>
 
-  <!-- ═══════════ BLOG-LISTE ═══════════ -->
+  <!-- ═══════════ GLOSSAR-LISTE ═══════════ -->
   <main>
     <section style="padding: 80px 0 120px;">
       <div class="wrap" style="max-width: 800px;">
 
         <div class="blog-list">
 
-          <a class="blog-card reveal" href="amazon-ppc-tacos-vs-acos/">
-            <div class="blog-card-meta">Amazon PPC · Mai 2026 · 8 Min. Lesezeit</div>
-            <div class="blog-card-title">TACOS statt ACOS: Warum die meisten Amazon-Seller die falsche Metrik optimieren</div>
+          <a class="blog-card reveal" href="acos/">
+            <div class="blog-card-meta">KPI · Effizienz · Kampagnenebene</div>
+            <div class="blog-card-title">ACOS</div>
             <p class="blog-card-teaser">
-              ACOS sagt Dir, wie teuer Deine Werbung war. TACOS sagt Dir, ob Dein Gesamtgeschäft auf Amazon funktioniert. Warum dieser Unterschied Deine Strategie verändert.
+              Advertising Cost of Sales. Das Verhältnis von Werbeausgaben zu Werbeumsatz. Die zentrale Effizienz-Kennzahl im Amazon-PPC-Management, aber nur sinnvoll im Verhältnis zur Marge.
             </p>
-            <span class="blog-card-link">Artikel lesen ↗</span>
+            <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="amazon-ppc-freelancer-vs-agentur/">
-            <div class="blog-card-meta">Amazon PPC · Mai 2026 · 7 Min. Lesezeit</div>
-            <div class="blog-card-title">Amazon PPC Freelancer vs. Agentur: Was ist besser?</div>
+          <a class="blog-card reveal" href="tacos/">
+            <div class="blog-card-meta">KPI · Strategie · Account-Ebene</div>
+            <div class="blog-card-title">TACOS</div>
             <p class="blog-card-teaser">
-              Ein ehrlicher Vergleich von Kosten, Qualität und Transparenz, von jemandem, der auf beiden Seiten gestanden hat.
+              Total Advertising Cost of Sales. Werbeausgaben im Verhältnis zum Gesamtumsatz. Die wichtigste Kennzahl auf Account-Ebene, weil sie auch organische Umsätze einbezieht.
             </p>
-            <span class="blog-card-link">Artikel lesen ↗</span>
+            <span class="blog-card-link">Definition lesen ↗</span>
+          </a>
+
+          <a class="blog-card reveal" href="roas/">
+            <div class="blog-card-meta">KPI · Effizienz · Performance-Marketing</div>
+            <div class="blog-card-title">ROAS</div>
+            <p class="blog-card-teaser">
+              Return on Ad Spend. Werbeumsatz je investiertem Werbe-Euro. Auf Amazon der Kehrwert des ACOS, im Performance-Marketing oft die gewohntere Sprache.
+            </p>
+            <span class="blog-card-link">Definition lesen ↗</span>
+          </a>
+
+          <a class="blog-card reveal" href="cpc/">
+            <div class="blog-card-meta">KPI · Kosten · Auktion</div>
+            <div class="blog-card-title">CPC</div>
+            <p class="blog-card-teaser">
+              Cost per Click. Der tatsächliche Preis je Klick, nicht zu verwechseln mit dem Bid. Ergebnis der Amazon-Auktion und ein direkter Treiber von ACOS und ROAS.
+            </p>
+            <span class="blog-card-link">Definition lesen ↗</span>
+          </a>
+
+          <a class="blog-card reveal" href="ctr/">
+            <div class="blog-card-meta">KPI · Funnel · Anzeigen-Performance</div>
+            <div class="blog-card-title">CTR</div>
+            <p class="blog-card-teaser">
+              Click-Through Rate. Anteil der Klicks an den Impressionen. Misst, ob Deine Anzeige im Suchergebnis funktioniert. Wird primär durch Hauptbild, Titel und Bewertungen bestimmt.
+            </p>
+            <span class="blog-card-link">Definition lesen ↗</span>
+          </a>
+
+          <a class="blog-card reveal" href="conversion-rate/">
+            <div class="blog-card-meta">KPI · Funnel · Listing</div>
+            <div class="blog-card-title">Conversion Rate</div>
+            <p class="blog-card-teaser">
+              Anteil der Klicks, die zu einer Bestellung führen. Auf Amazon deutlich höher als bei Webshops und der eigentliche Hebel hinter ACOS, ROAS und TACOS. Wird im Listing entschieden, nicht im Kampagnenmanager.
+            </p>
+            <span class="blog-card-link">Definition lesen ↗</span>
+          </a>
+
+          <a class="blog-card reveal" href="impression-share/">
+            <div class="blog-card-meta">KPI · Sichtbarkeit · Auktion</div>
+            <div class="blog-card-title">Impression Share</div>
+            <p class="blog-card-teaser">
+              Anteil der erhaltenen Impressionen an den möglichen Impressionen. Zeigt, wo Du Reichweite verschenkst, vor allem relevant für die Verteidigung von Brand-Keywords.
+            </p>
+            <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
         </div>
+
+        <p style="margin-top: 48px; text-align: center; color: var(--text-muted); font-size: 15px;">
+          Weitere Begriffe folgen. Geplant sind unter anderem Sponsored Products, Sponsored Brands, Sponsored Display, Match Types, Negative Keywords und Placement.
+        </p>
 
       </div>
     </section>
@@ -140,8 +210,8 @@
       <div class="cta-fade"></div>
       <div class="wrap">
         <span class="eyebrow reveal">Kontakt</span>
-        <h2 class="reveal" style="--reveal-delay: 0.06s;">Lass uns reden. <span class="arrow">↗</span></h2>
-        <p class="lead reveal" style="--reveal-delay: 0.12s;">15 Minuten. Kein Pitch. Scope und Preis klären wir gemeinsam im Erstgespräch.</p>
+        <h2 class="reveal" style="--reveal-delay: 0.06s;">Theorie verstanden, Account immer noch unklar? <span class="arrow">↗</span></h2>
+        <p class="lead reveal" style="--reveal-delay: 0.12s;">15 Minuten Erstgespräch, kein Pitch. Ich sage Dir, wo Dein Account aktuell steht und was als Nächstes sinnvoll ist.</p>
         <div class="kontakt-grid reveal" style="--reveal-delay: 0.18s; max-width: 720px; margin: 48px auto 0;">
           <a class="kontakt-card kontakt-card-primary" href="../kontakt.html#termin">
             <div class="k-icon">
@@ -197,7 +267,8 @@
         <div class="seo-footer-col">
           <h3>Ressourcen</h3>
           <ul>
-            <li><a href="#">Blog</a></li>
+            <li><a href="../blog/">Blog</a></li>
+            <li><a href="#">Glossar</a></li>
             <li><a href="../index.html#rechner">ACOS-Rechner</a></li>
             <li><a href="../faq.html">FAQ</a></li>
           </ul>
@@ -219,7 +290,7 @@
       </div>
       <div class="seo-footer-text">
         <p>
-          Der <strong>Amazon PPC Blog</strong> von <strong>Leon-Vincent Gamradt</strong> aus <strong>Berlin</strong> liefert praxisnahe Einblicke in <strong>Amazon Advertising</strong>: ACOS-Optimierung, Kampagnenstruktur, Keyword-Recherche und ehrliche Vergleiche, direkt aus der täglichen Account-Arbeit. Zu den Leistungen: <a href="../amazon-ppc-management/">Kampagnen-Management</a>, <a href="../amazon-ppc-audit/">Account-Audit</a> oder <a href="../amazon-ppc-strategie/">Strategie-Aufbau</a>.
+          Das <strong>Amazon PPC Glossar</strong> von <strong>Leon-Vincent Gamradt</strong> erklärt die wichtigsten Begriffe rund um <strong>Amazon Advertising</strong>: ACOS, TACOS, ROAS, CPC, Sponsored Products und mehr. Definitionen, Formeln, Rechenbeispiele und Optimierungs-Hebel aus der täglichen Account-Praxis. Für tiefere Einblicke der <a href="../blog/">Blog</a>, für die Umsetzung das <a href="../amazon-ppc-management/">Kampagnen-Management</a> oder ein <a href="../amazon-ppc-audit/">Account-Audit</a>.
         </p>
       </div>
     </div>

@@ -61,6 +61,46 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://lvg-ppc.de/glossar/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/acos/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/tacos/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/roas/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/cpc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/ctr/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/conversion-rate/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/impression-share/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lvg-ppc.de/impressum.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>

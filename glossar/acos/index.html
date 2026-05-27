@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>ACOS bei Amazon PPC: Definition, Formel, Optimierung · Leon-Vincent Gamradt</title>
+  <meta name="description" content="ACOS bei Amazon PPC einfach erklärt. Definition, Formel, Rechenbeispiel, Break-even-ACOS und konkrete Optimierungs-Hebel. Vom Amazon PPC Spezialisten aus Berlin." />
+
+  <link rel="canonical" href="https://lvg-ppc.de/glossar/acos/" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="LVG PPC · Leon-Vincent Gamradt" />
+  <meta property="og:title" content="ACOS bei Amazon PPC: Definition, Formel, Optimierung" />
+  <meta property="og:description" content="ACOS einfach erklärt: Formel, Rechenbeispiel, Break-even-ACOS und konkrete Optimierungs-Hebel." />
+  <meta property="og:url" content="https://lvg-ppc.de/glossar/acos/" />
+  <meta property="og:image" content="https://lvg-ppc.de/assets/logo-primary.svg" />
+  <meta property="og:image:alt" content="LVG PPC, Amazon PPC Spezialist Berlin" />
+
+  <link rel="icon" type="image/svg+xml" href="../../assets/logo-favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../../assets/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    "@id": "https://lvg-ppc.de/glossar/acos/#term",
+    "name": "ACOS",
+    "alternateName": ["Advertising Cost of Sales", "ACoS"],
+    "description": "ACOS (Advertising Cost of Sales) ist das Verhältnis von Werbeausgaben zu durch Werbung erzieltem Umsatz auf Amazon. Formel: ACOS = Werbeausgaben ÷ Werbeumsatz × 100.",
+    "inDefinedTermSet": "https://lvg-ppc.de/glossar/",
+    "url": "https://lvg-ppc.de/glossar/acos/",
+    "termCode": "ACOS"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://lvg-ppc.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Glossar", "item": "https://lvg-ppc.de/glossar/" },
+      { "@type": "ListItem", "position": 3, "name": "ACOS", "item": "https://lvg-ppc.de/glossar/acos/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ═══════════ NAV ═══════════ -->
+  <nav class="nav is-transparent" id="nav">
+    <div class="nav-inner">
+      <a href="../../" class="nav-brand" aria-label="LVG PPC Startseite">
+        <img src="../../assets/logo-primary.svg" alt="LVG PPC" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-group">
+          <a href="../../leistungen/" class="nav-group-trigger">
+            Leistungen
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown" role="menu">
+            <a href="../../amazon-ppc-audit/" role="menuitem"><strong>Account-Audit</strong><small>Diagnose in 48 Stunden</small></a>
+            <a href="../../amazon-ppc-strategie/" role="menuitem"><strong>Strategie-Aufbau</strong><small>Vollständiger Neuaufbau</small></a>
+            <a href="../../amazon-ppc-management/" role="menuitem"><strong>Kampagnenmanagement</strong><small>Laufende Betreuung</small></a>
+          </div>
+        </div>
+        <a href="../../ueber-mich.html">Über mich</a>
+        <a href="../../faq.html">FAQ</a>
+        <a href="../../preise/">Preise</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../" class="active">Glossar</a>
+      </div>
+      <div class="nav-right">
+        <a href="../../kontakt.html#formular" class="btn btn-ghost btn-sm nav-cta-secondary">Schreib mir</a>
+        <a href="../../kontakt.html#termin" class="btn btn-primary btn-sm">Gespräch buchen <span class="arrow">↗</span></a>
+        <button class="nav-hamb" aria-label="Menü öffnen" id="hamb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" y1="8" x2="20" y2="8" />
+            <line x1="4" y1="16" x2="20" y2="16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <div class="nav-mobile-inner">
+        <a href="../../leistungen/">Leistungen</a>
+        <a href="../../ueber-mich.html">Über mich</a>
+        <a href="../../faq.html">FAQ</a>
+        <a href="../../preise/">Preise</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../">Glossar</a>
+        <a href="../../kontakt.html">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ COOKIE BANNER ═══════════ -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie-Hinweis">
+    <div class="cookie-banner-grid">
+      <p>Diese Website nutzt Cookies für anonyme Statistik (Google Analytics, IP anonymisiert). Details in der <a href="../../datenschutz.html">Datenschutzerklärung</a>.</p>
+      <div class="cookie-banner-buttons">
+        <button class="btn btn-ghost btn-sm" id="cookie-decline" type="button">Ablehnen</button>
+        <button class="btn btn-primary btn-sm" id="cookie-accept" type="button">Akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ SUB-HERO ═══════════ -->
+  <header class="sub-hero sub-hero-shader">
+    <canvas id="gradient-canvas-sub" data-transition-in></canvas>
+    <div class="sub-hero-fade"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="badge reveal" style="--reveal-delay: 0s;">
+          <span class="dot"></span>
+          Glossar · KPI · Amazon PPC
+        </span>
+        <h1 class="reveal" style="--reveal-delay: 0.06s;">
+          ACOS. <span class="arrow">↗</span>
+        </h1>
+        <p class="lead reveal" style="--reveal-delay: 0.14s;">
+          ACOS steht für Advertising Cost of Sales und misst das Verhältnis von Werbeausgaben zu dem Umsatz, der direkt durch diese Werbung erzielt wurde. Die zentrale Effizienz-Kennzahl im Amazon-PPC-Management.
+        </p>
+        <div class="hero-ctas reveal" style="--reveal-delay: 0.2s;">
+          <a href="#formel" class="btn btn-primary">Zur Formel <span class="arrow">↗</span></a>
+          <a href="../../kontakt.html#termin" class="btn btn-ghost">Gespräch buchen</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════ ARTIKEL ═══════════ -->
+  <main>
+    <section class="article-section">
+      <div class="article-wrap">
+
+        <p class="article-meta-line reveal">
+          <a href="../" style="color: var(--accent); text-decoration: none;">← Glossar</a>
+          &nbsp;·&nbsp; Amazon PPC &nbsp;·&nbsp; KPI
+        </p>
+
+        <h2 class="article-h1 reveal" style="--reveal-delay: 0.06s; font-size: clamp(28px, 4vw, 44px);">
+          Was bedeutet ACOS bei Amazon PPC?
+        </h2>
+
+        <p class="glossar-lede reveal" style="--reveal-delay: 0.12s;">
+          ACOS ist die wichtigste Effizienz-Kennzahl auf Kampagnenebene. Aber als Steuerungsgröße für den gesamten Account führt sie oft in die Irre.
+        </p>
+
+        <div class="article-body">
+
+          <h2 id="formel">Die Formel</h2>
+
+          <div class="highlight-box">
+            <p><strong>ACOS = Werbeausgaben ÷ Werbeumsatz × 100</strong></p>
+            <p style="margin-top: 8px; color: var(--text-muted);">Beispiel: 500 EUR Werbeausgaben und 2.000 EUR Werbeumsatz ergeben 25 % ACOS.</p>
+          </div>
+
+          <p>ACOS misst ausschließlich den durch Klicks auf Anzeigen generierten Umsatz. Organische Verkäufe tauchen darin nicht auf. Das ist wichtig zu verstehen, weil es den entscheidenden blinden Fleck der Kennzahl markiert.</p>
+
+          <h2>Was sagt mir ein hoher oder niedriger ACOS?</h2>
+
+          <p>Ein hoher ACOS bedeutet, dass Du viel Werbebudget für wenig Werbeumsatz ausgibst. Mögliche Ursachen: irrelevante Keywords, zu hohe Gebote, schwache Conversion auf der Produktseite oder ein Listing, das nicht überzeugt.</p>
+
+          <p>Ein niedriger ACOS bedeutet, dass Deine Werbung effizient ist. Aber Achtung: Ein sehr niedriger ACOS kann auch heißen, dass Du zu defensiv aussteuerst und Reichweite verschenkst, die Du eigentlich nutzen solltest.</p>
+
+          <p>Beide Aussagen sind ohne Kontext wertlos. Der Kontext heißt Marge.</p>
+
+          <h2>Break-even-ACOS: der einzige sinnvolle Zielwert</h2>
+
+          <p>Ein ACOS-Ziel von „unter 20 Prozent" klingt konkret, ist es aber nicht. Denn ohne zu wissen, wie hoch die tatsächliche Marge nach FBA-Kosten, Versand, Retourenquote und Amazon-Gebühren ist, ist ein ACOS-Zielwert eine Zahl ohne Bedeutung. Manchmal ist 35 % ACOS profitabel, manchmal macht man bei 15 % noch Verlust.</p>
+
+          <p>Der einzige sinnvolle Referenzwert ist der <strong>Break-even-ACOS</strong>. Das ist der ACOS, ab dem die Werbung gerade noch kostendeckend ist.</p>
+
+          <div class="highlight-box">
+            <p><strong>Break-even-ACOS = Bruttomarge in Prozent</strong></p>
+            <p style="margin-top: 8px; color: var(--text-muted);">Beispiel: Bei 30 % Bruttomarge liegt der Break-even-ACOS bei 30 %. Alles darunter ist profitabel, alles darüber ist Verlust.</p>
+          </div>
+
+          <p>Bruttomarge bedeutet hier: Verkaufspreis abzüglich aller variablen Kosten (Wareneinsatz, FBA-Gebühr, Verkaufsgebühr, Versand, Retourenkosten). Erst wenn dieser Wert steht, ergibt eine ACOS-Diskussion überhaupt Sinn.</p>
+
+          <h2>Optimierungs-Hebel: So senkst Du Deinen ACOS</h2>
+
+          <ul>
+            <li><strong>Negative Keywords:</strong> Such-Begriffe, die klicken aber nicht konvertieren, gezielt ausschließen. Der häufigste und wirksamste Hebel.</li>
+            <li><strong>Match Type Splitting:</strong> Top-Performer aus Broad-Kampagnen in Exact-Kampagnen überführen, dort gezielt hochbieten und in der Broad-Quelle ausschließen.</li>
+            <li><strong>Bid-Anpassung nach Placement:</strong> Top-of-Search performt oft anders als Product Pages. Plazierung-Modifier nutzen statt nur am Basisgebot zu drehen.</li>
+            <li><strong>Listing-Conversion:</strong> Wenn die Produktseite schlecht konvertiert, hilft kein PPC-Hebel. A+ Content, Bilder und Titel prüfen.</li>
+            <li><strong>Kampagnenstruktur:</strong> Eine saubere Trennung von Auto, Broad, Phrase und Exact verhindert, dass das gleiche Keyword in mehreren Kampagnen gegen sich selbst bietet.</li>
+          </ul>
+
+          <h2>Häufige Fehler rund um ACOS</h2>
+
+          <p><strong>Fehler 1: ACOS als alleiniges KPI.</strong> Wer nur ACOS optimiert, drückt im Zweifel das Werbebudget so weit, bis nur noch Brand-Keywords übrig bleiben. Der ACOS sieht dann grandios aus, aber der Gesamtumsatz bricht ein. Deshalb gehört <a href="../tacos/">TACOS</a> immer mit dazu.</p>
+
+          <p><strong>Fehler 2: ACOS-Ziel ohne Margenrechnung.</strong> Ein „guter" ACOS existiert nicht in absoluten Zahlen. Er existiert nur im Verhältnis zur Marge.</p>
+
+          <p><strong>Fehler 3: ACOS auf Account-Ebene optimieren.</strong> ACOS ist eine Kennzahl auf Kampagnen- oder Keyword-Ebene. Für die Steuerung des Gesamtaccounts ist TACOS die richtige Größe.</p>
+
+          <p><strong>Fehler 4: Kurzfristige Bid-Senkungen.</strong> Ein zu hoher ACOS lässt sich durch Gebots-Senkung schnell drücken. Das senkt aber auch die Impressionen, das Ranking und langfristig den organischen Umsatz. Die nachhaltige Antwort liegt in Struktur und Targeting, nicht in der Bid-Schraube.</p>
+
+          <h2>ACOS und TACOS: der Unterschied</h2>
+
+          <p>ACOS misst Werbeeffizienz im engeren Sinne. TACOS (Total ACOS) misst, wie viel Prozent des gesamten Amazon-Umsatzes für Werbung ausgegeben werden. Erst die Kombination beider Werte zeigt, ob ein Account wirklich gesund läuft.</p>
+
+          <p>Eine ausführliche Gegenüberstellung steht im Artikel <a href="../../blog/amazon-ppc-tacos-vs-acos/">TACOS statt ACOS: Warum die meisten Amazon-Seller die falsche Metrik optimieren</a>.</p>
+
+          <h2>Verwandte Begriffe</h2>
+
+          <ul>
+            <li><a href="../tacos/"><strong>TACOS</strong></a> (Total Advertising Cost of Sales): Verhältnis Werbeausgaben zu Gesamtumsatz</li>
+            <li><a href="../roas/"><strong>ROAS</strong></a> (Return on Ad Spend): Kehrwert des ACOS, beschreibt das Vielfache des Werbeumsatzes je Euro Spend</li>
+            <li><a href="../cpc/"><strong>CPC</strong></a> (Cost per Click): Was kostet Dich ein Klick auf Deine Anzeige</li>
+            <li><a href="../conversion-rate/"><strong>Conversion Rate</strong></a>: Wie viele Klicks führen zu einem Kauf</li>
+            <li><strong>Break-even-ACOS</strong>: Der ACOS-Wert, ab dem Werbung kostendeckend ist (entspricht der Bruttomarge)</li>
+          </ul>
+
+          <div class="highlight-box">
+            <p><strong>Kurz zusammengefasst:</strong> ACOS ist die zentrale Effizienz-Kennzahl auf Kampagnenebene, aber kein Ziel für sich. Sinnvoll wird die Zahl erst im Verhältnis zur Marge (Break-even-ACOS) und im Zusammenspiel mit TACOS auf Account-Ebene.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════ FINAL CTA ═══════════ -->
+  <section class="final-cta" id="kontakt">
+    <canvas id="gradient-canvas-cta" data-transition-in></canvas>
+    <div class="cta-fade"></div>
+    <div class="wrap">
+      <span class="eyebrow reveal">Audit</span>
+      <h2 class="reveal" style="--reveal-delay: 0.06s;">Dein ACOS ist zu hoch und Du weißt nicht warum? <span class="arrow">↗</span></h2>
+      <p class="lead reveal" style="--reveal-delay: 0.12s;">In 48 Stunden zeige ich Dir, wo Dein Budget verbrennt und welche drei Hebel den größten Effekt auf Deinen ACOS haben.</p>
+      <div class="kontakt-grid reveal" style="--reveal-delay: 0.18s; max-width: 720px; margin: 48px auto 0;">
+        <a class="kontakt-card kontakt-card-primary" href="../../kontakt.html#termin">
+          <div class="k-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <div class="k-label">Erstgespräch buchen</div>
+          <div class="k-sub">15 Min. via Cal.eu</div>
+          <span class="k-arrow">↗</span>
+        </a>
+        <a class="kontakt-card" href="../../kontakt.html#formular">
+          <div class="k-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/>
+            </svg>
+          </div>
+          <div class="k-label">Formular ausfüllen</div>
+          <div class="k-sub">Budget, Setup, Ziele in einem Schritt</div>
+          <span class="k-arrow">↗</span>
+        </a>
+        <a class="kontakt-card" href="https://www.linkedin.com/in/leon-vincent-gamradt-224613297" target="_blank" rel="noopener noreferrer me">
+          <div class="k-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.063 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div class="k-label">LinkedIn</div>
+          <div class="k-sub">vernetzen oder Nachricht</div>
+          <span class="k-arrow">↗</span>
+        </a>
+      </div>
+      <div class="trust reveal" style="--reveal-delay: 0.24s;">
+        <span>Amazon Ads Certified</span>
+        <span>Direkter Kontakt</span>
+        <span>Kein Lock-in</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SEO-FOOTER ═══════════ -->
+  <aside class="seo-footer" aria-label="Sitemap">
+    <div class="wrap">
+      <div class="seo-footer-grid">
+        <div class="seo-footer-col">
+          <h3>Leistungen</h3>
+          <ul>
+            <li><a href="../../amazon-ppc-audit/">Account-Audit</a></li>
+            <li><a href="../../amazon-ppc-strategie/">Strategie-Aufbau</a></li>
+            <li><a href="../../amazon-ppc-management/">Kampagnen-Management</a></li>
+            <li><a href="../../preise/">Preise</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Ressourcen</h3>
+          <ul>
+            <li><a href="../../index.html#rechner">ACOS-Rechner</a></li>
+            <li><a href="../../blog/">Blog</a></li>
+            <li><a href="../../faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Über</h3>
+          <ul>
+            <li><a href="../../ueber-mich.html">Über mich</a></li>
+            <li><a href="../../kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Rechtliches</h3>
+          <ul>
+            <li><a href="../../impressum.html">Impressum</a></li>
+            <li><a href="../../datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="seo-footer-text">
+        <p>
+          <strong>ACOS</strong> (Advertising Cost of Sales) ist die zentrale Effizienz-Kennzahl im <strong>Amazon PPC Management</strong>. Sie misst das Verhältnis von Werbeausgaben zu durch Werbung erzieltem Umsatz. Sinnvoll wird die Zahl erst im Verhältnis zur Marge (Break-even-ACOS) und im Zusammenspiel mit <strong>TACOS</strong> auf Account-Ebene. <strong>Leon-Vincent Gamradt</strong> ist Amazon PPC Spezialist aus Berlin und bietet <a href="../../amazon-ppc-audit/">Account-Audits in 48 Stunden</a> sowie laufendes <a href="../../amazon-ppc-management/">Kampagnen-Management</a>.
+        </p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="../../assets/logo-primary.svg" alt="LVG PPC" />
+        <span class="copy">© 2026 Leon-Vincent Gamradt</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════ SCRIPTS ═══════════ -->
+  <script src="../../assets/whatamesh.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var staticBg =
+        "radial-gradient(ellipse 70% 50% at 28% 28%, rgba(34,197,94,0.42), transparent 60%)," +
+        "radial-gradient(ellipse 60% 50% at 82% 60%, rgba(30,64,175,0.48), transparent 60%)," +
+        "radial-gradient(ellipse 60% 55% at 60% 92%, rgba(107,33,168,0.42), transparent 60%)," +
+        "#0f172a";
+      ['gradient-canvas-sub', 'gradient-canvas-cta'].forEach(function (id) {
+        var canvas = document.getElementById(id);
+        if (canvas) canvas.style.background = staticBg;
+        try {
+          if (typeof Gradient !== 'undefined' && canvas) {
+            var g = new Gradient();
+            g.initGradient('#' + id);
+          }
+        } catch (err) { console.warn('Gradient init failed for #' + id, err); }
+      });
+    });
+  </script>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>
