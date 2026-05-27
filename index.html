@@ -416,40 +416,51 @@
               </div>
             </div>
             <div class="calc-field">
-              <label for="calc-acos">Aktueller ACOS <span class="calc-tip" data-tip="Advertising Cost of Sale: Werbekosten ÷ Werbeerlös × 100. Niedriger = effizienter.">ℹ</span></label>
-              <div class="input-wrap">
+              <div class="calc-field-header">
+                <label for="calc-acos" id="calc-metric-label">Aktueller ACOS <span class="calc-tip" data-tip="Advertising Cost of Sale: Werbekosten ÷ Werberlös × 100. Niedriger = effizienter.">ℹ</span></label>
+                <button type="button" class="calc-toggle-btn" id="calc-toggle">ROAS eingeben</button>
+              </div>
+              <div class="input-wrap" id="acos-wrap">
                 <input type="number" id="calc-acos" value="34" min="0" max="100" step="1" />
                 <span class="unit">%</span>
               </div>
-            </div>
-            <div class="calc-field">
-              <label for="calc-marge">Bruttomarge <span class="calc-tip" data-tip="Deine Marge vor Werbekosten: Verkaufspreis minus Einkauf, Amazon-Gebühren und FBA-Kosten.">ℹ</span></label>
-              <div class="input-wrap">
-                <input type="number" id="calc-marge" value="45" min="0" max="100" step="1" />
-                <span class="unit">%</span>
+              <div class="input-wrap" id="roas-wrap" hidden>
+                <input type="number" id="calc-roas" value="2.9" min="0.1" step="0.1" />
+                <span class="unit">×</span>
               </div>
             </div>
           </div>
 
           <div class="calc-outputs">
-            <div class="calc-out-row">
-              <span class="label">Aktueller Nettoprofit / Monat</span>
-              <span class="num" id="out-current">€ 4.825</span>
+            <div class="calc-out-row" id="calc-out-empty">
+              <span class="label">Trag beide Werte ein, um Dein Potenzial zu sehen.</span>
             </div>
-            <div class="calc-out-row">
-              <span class="label">Potenzieller Profit bei ACOS −10pp</span>
-              <span class="num" id="out-potential">€ 6.875</span>
+            <div class="calc-out-filled" id="calc-out-filled" hidden>
+              <div class="calc-out-row highlight">
+                <span class="label">Einsparpotenzial pro Jahr <span class="arrow">↗</span></span>
+                <span class="num" id="out-saving-year">€ 15.960</span>
+              </div>
+              <div class="calc-out-row">
+                <span class="label">Das entspricht</span>
+                <span class="num" id="out-saving-month" style="font-size:1.6rem;">€ 1.330 / Monat</span>
+              </div>
+              <div class="calc-out-row">
+                <span class="label">In 3 Jahren entgehen Dir</span>
+                <span class="num" id="out-3year" style="font-size:1.6rem;">€ 47.880</span>
+              </div>
+              <div class="calc-out-row">
+                <span class="label">ROAS aktuell → Ziel (20 % ACOS)</span>
+                <span class="num" id="out-roas-compare" style="font-size:1.4rem;">2,9 → 5,0</span>
+              </div>
+              <div class="calc-out-row">
+                <span class="label" id="out-sub">Die zwischen Deiner aktuellen Steuerung und einem ACOS von 20 % liegen. Richtwert, keine Garantie.</span>
+              </div>
             </div>
-            <div class="calc-out-row highlight">
-              <span class="label">Optimierungspotenzial pro Jahr <span class="arrow">↗</span></span>
-              <span class="num" id="out-diff">€ 24.600</span>
+            <div class="calc-out-good" id="calc-out-good" hidden>
+              <div class="calc-out-row">
+                <span class="label">Dein ACOS liegt schon im guten Bereich. Dann geht es eher um Skalierung und organisches Wachstum.</span>
+              </div>
             </div>
-            <div class="calc-out-row danger">
-              <span class="label">Du verlierst aktuell pro Monat</span>
-              <span class="num" id="out-loss">− € 2.050</span>
-            </div>
-
-            <div class="calc-steps" id="calc-steps"></div>
           </div>
         </div>
 
@@ -876,54 +887,87 @@
   <script>
     // ACOS Rechner: Live-Berechnung
     (function () {
-      var eSpend = document.getElementById('calc-spend');
-      var eAcos  = document.getElementById('calc-acos');
-      var eMarge = document.getElementById('calc-marge');
-      var outCurrent   = document.getElementById('out-current');
-      var outPotential = document.getElementById('out-potential');
-      var outDiff      = document.getElementById('out-diff');
-      var outLoss      = document.getElementById('out-loss');
-      var stepsEl      = document.getElementById('calc-steps');
-      if (!eSpend || !eAcos || !eMarge) return;
+      var eSpend    = document.getElementById('calc-spend');
+      var eAcos     = document.getElementById('calc-acos');
+      var eRoas     = document.getElementById('calc-roas');
+      var acosWrap  = document.getElementById('acos-wrap');
+      var roasWrap  = document.getElementById('roas-wrap');
+      var toggleBtn = document.getElementById('calc-toggle');
+      var metricLbl = document.getElementById('calc-metric-label');
+      var outEmpty      = document.getElementById('calc-out-empty');
+      var outFilled     = document.getElementById('calc-out-filled');
+      var outGood       = document.getElementById('calc-out-good');
+      var outSavingYear  = document.getElementById('out-saving-year');
+      var outSavingMonth = document.getElementById('out-saving-month');
+      var out3Year       = document.getElementById('out-3year');
+      var outRoasComp    = document.getElementById('out-roas-compare');
+      if (!eSpend || !eAcos) return;
 
-      function fmtEur(n) {
-        var sign = n < 0 ? '−' : '';
-        var v = Math.abs(Math.round(n));
-        return sign + '€ ' + v.toLocaleString('de-DE');
-      }
-      function fmtN(n) {
-        return '€ ' + Math.round(Math.abs(n)).toLocaleString('de-DE');
+      var TARGET   = 20;
+      var useRoas  = false;
+      var TARGET_ROAS = (100 / TARGET).toFixed(1).replace('.', ',');
+
+      function fmt(n) { return '€ ' + Math.round(n).toLocaleString('de-DE'); }
+      function fmtRoas(n) { return n.toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 }); }
+
+      function getAcos() {
+        if (useRoas) {
+          var r = parseFloat(eRoas.value) || 0;
+          return r > 0 ? 100 / r : 0;
+        }
+        return parseFloat(eAcos.value) || 0;
       }
 
       function recalc() {
-        var spend = Math.max(0, parseFloat(eSpend.value) || 0);
-        var acos  = Math.max(0, Math.min(100, parseFloat(eAcos.value)  || 0)) / 100;
-        var marge = Math.max(0, Math.min(100, parseFloat(eMarge.value) || 0)) / 100;
-        var revenue = acos > 0 ? spend / acos : 0;
-        var rohmarge = revenue * marge;
-        var current = rohmarge - spend;
-        var newAcos = Math.max(0.01, acos - 0.10);
-        var newRev = spend / newAcos;
-        var potential = newRev * marge - spend;
-        var diff = (potential - current) * 12;
-        outCurrent.textContent   = fmtEur(current);
-        outPotential.textContent = fmtEur(potential);
-        outDiff.textContent      = fmtEur(diff);
-        if (outLoss) outLoss.textContent = '− ' + fmtEur(potential - current);
-        if (stepsEl) {
-          var acosStr  = acos.toFixed(2).replace('.', ',');
-          var margeStr = marge.toFixed(2).replace('.', ',');
-          stepsEl.innerHTML =
-            '<div class="calc-steps-title">Schritt für Schritt:</div>' +
-            '<div class="calc-step"><span class="cs-label">Werbe-Umsatz</span>' +
-            '<span class="cs-eq">' + fmtN(spend) + ' ÷ ' + acosStr + ' = <b>' + fmtN(revenue) + '</b></span></div>' +
-            '<div class="calc-step"><span class="cs-label">Rohmarge</span>' +
-            '<span class="cs-eq">' + fmtN(revenue) + ' × ' + margeStr + ' = <b>' + fmtN(rohmarge) + '</b></span></div>' +
-            '<div class="calc-step cs-result"><span class="cs-label">Nettoprofit</span>' +
-            '<span class="cs-eq">' + fmtN(rohmarge) + ' − ' + fmtN(spend) + ' = <b>' + fmtEur(current) + '</b></span></div>';
+        var spend = parseFloat(eSpend.value) || 0;
+        var acos  = getAcos();
+        if (!(spend > 0) || !(acos > 0)) {
+          outEmpty.hidden  = false;
+          outFilled.hidden = true;
+          outGood.hidden   = true;
+          return;
+        }
+        outEmpty.hidden = true;
+        if (acos <= TARGET) {
+          outFilled.hidden = true;
+          outGood.hidden   = false;
+        } else {
+          outGood.hidden   = true;
+          outFilled.hidden = false;
+          var monthly = spend * (acos - TARGET) / 100;
+          var yearly  = monthly * 12;
+          var currentRoas = 100 / acos;
+          outSavingYear.textContent  = fmt(yearly);
+          outSavingMonth.textContent = fmt(monthly) + ' / Monat';
+          out3Year.textContent       = fmt(yearly * 3);
+          outRoasComp.textContent    = fmtRoas(currentRoas) + ' → ' + TARGET_ROAS;
         }
       }
-      [eSpend, eAcos, eMarge].forEach(function (el) { el.addEventListener('input', recalc); });
+
+      // Toggle ACOS <-> ROAS
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+          useRoas = !useRoas;
+          if (useRoas) {
+            var a = parseFloat(eAcos.value) || 34;
+            eRoas.value = (100 / a).toFixed(1);
+            acosWrap.hidden = true;
+            roasWrap.hidden = false;
+            metricLbl.firstChild.textContent = 'Aktueller ROAS ';
+            toggleBtn.textContent = 'ACOS eingeben';
+          } else {
+            var r = parseFloat(eRoas.value) || 2.9;
+            eAcos.value = Math.round(100 / r);
+            roasWrap.hidden = true;
+            acosWrap.hidden = false;
+            metricLbl.firstChild.textContent = 'Aktueller ACOS ';
+            toggleBtn.textContent = 'ROAS eingeben';
+          }
+          recalc();
+        });
+      }
+
+      [eSpend, eAcos, eRoas].forEach(function (el) { if (el) el.addEventListener('input', recalc); });
       recalc();
     })();
   </script>
