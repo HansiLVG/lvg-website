@@ -1013,7 +1013,7 @@ section[id] { scroll-margin-top: 72px; }
 }
 .calc-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(180px, 240px) 1fr;
   gap: 40px;
 }
 .calc-inputs { display: flex; flex-direction: column; gap: 20px; }
@@ -1094,6 +1094,101 @@ section[id] { scroll-margin-top: 72px; }
   color: #f87171;
   font-size: 2.4rem;
 }
+.calc-out-row.loss .num { color: #f87171; }
+.calc-out-row.soft-good .num { color: #86efac; }
+.calc-out-filled { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+.calc-out-full { grid-column: 1 / -1; }
+.calc-context-hint {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 11.5px;
+  line-height: 1.5;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  margin-top: 4px;
+}
+
+/* ─── 6-stufiger ACOS-Gradient ───────────────────────────── */
+/* < 10 %: Aurora-Outline (Wachstum verschenkt, schillernd statt brav-grün) */
+.calc-field .input-wrap.lvl-aurora {
+  --aurora-angle: 0deg;
+  border: 1px solid transparent;
+  background-color: transparent;
+  background-image:
+    linear-gradient(var(--bg-card), var(--bg-card)),
+    conic-gradient(
+      from var(--aurora-angle),
+      rgba(34, 197, 94, 0.85),
+      rgba(59, 130, 246, 0.85),
+      rgba(139, 92, 246, 0.85),
+      rgba(34, 197, 94, 0.85)
+    );
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  animation: aurora-spin 6s linear infinite;
+}
+.calc-field .input-wrap.lvl-aurora input { color: #c084fc; }
+/* 10–15 %: sehr effizient */
+.calc-field .input-wrap.lvl-very-good { border-color: rgba(134,239,172,0.55); }
+.calc-field .input-wrap.lvl-very-good input { color: #86efac; }
+/* 15–22 %: Sweet Spot (intensives Grün) */
+.calc-field .input-wrap.lvl-good { border-color: rgba(34,197,94,0.55); }
+.calc-field .input-wrap.lvl-good input { color: #4ade80; }
+/* 22–28 %: Sweet-Spot-Edge (Limegrün, knapp über optimal) */
+.calc-field .input-wrap.lvl-good-edge { border-color: rgba(163,230,53,0.60); }
+.calc-field .input-wrap.lvl-good-edge input { color: #a3e635; }
+/* 28–38 %: Gelb (Optimierungs-Zone) */
+.calc-field .input-wrap.lvl-warn { border-color: rgba(251,191,36,0.65); }
+.calc-field .input-wrap.lvl-warn input { color: #fbbf24; }
+/* 35–50 %: stark warnend */
+.calc-field .input-wrap.lvl-warn-strong { border-color: rgba(249,115,22,0.65); }
+.calc-field .input-wrap.lvl-warn-strong input { color: #fb923c; }
+/* > 50 %: kritisch */
+.calc-field .input-wrap.lvl-bad  { border-color: rgba(248,113,113,0.65); }
+.calc-field .input-wrap.lvl-bad  input { color: #f87171; }
+
+/* ─── Mini-Skala unter dem Input ─────────────────────────── */
+.calc-scale {
+  margin-top: 10px;
+  position: relative;
+}
+.calc-scale-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(
+    to right,
+    #c084fc 0%,        /* Aurora-Lila <10 % */
+    #86efac 14%,       /* Hellgrün 10 % */
+    #4ade80 21%,       /* Grün 15 % */
+    #4ade80 31%,       /* Grün-Plateau bis 22 % */
+    #a3e635 40%,       /* Limegrün 28 % (Sweet-Spot-Edge) */
+    #fbbf24 50%,       /* Gelb 35 % */
+    #FF9900 60%,       /* Orange 42 % */
+    #fb923c 75%,       /* Rot-Orange 52 % */
+    #f87171 100%       /* Rot 70 %+ */
+  );
+  opacity: 0.6;
+}
+.calc-scale-marker {
+  position: absolute;
+  top: -3px;
+  width: 2px;
+  height: 12px;
+  background: var(--text);
+  border-radius: 1px;
+  transform: translateX(-50%);
+  transition: left 0.25s var(--ease, ease-out);
+  box-shadow: 0 0 0 2px var(--bg-card);
+}
+.calc-scale-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
 
 /* ─── CALC FIELD HEADER + TOGGLE ────────────────────────── */
 .calc-field-header {
@@ -1117,6 +1212,16 @@ section[id] { scroll-margin-top: 72px; }
   flex-shrink: 0;
 }
 .calc-toggle-btn:hover { color: var(--accent-soft); }
+.calc-interpret {
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text);
+  font-style: normal;
+  font-weight: 400;
+}
 
 /* ─── CALC STEPS (Herleitung) ────────────────────────────── */
 .calc-steps {
@@ -1258,6 +1363,7 @@ section[id] { scroll-margin-top: 72px; }
 @media (max-width: 820px) {
   .calc-card { padding: 28px 22px; }
   .calc-grid { grid-template-columns: 1fr; gap: 28px; }
+  .calc-out-filled { grid-template-columns: 1fr; }
   .calc-email-form { width: 100%; flex-direction: column; }
   .calc-email-form input { width: 100%; min-width: 0; }
   .calc-email-form .btn { width: 100%; justify-content: center; }

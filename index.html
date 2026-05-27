@@ -421,12 +421,22 @@
                 <button type="button" class="calc-toggle-btn" id="calc-toggle">ROAS eingeben</button>
               </div>
               <div class="input-wrap" id="acos-wrap">
-                <input type="number" id="calc-acos" value="34" min="0" max="100" step="1" />
+                <input type="number" id="calc-acos" value="34" min="0" max="100" step="0.1" />
                 <span class="unit">%</span>
               </div>
               <div class="input-wrap" id="roas-wrap" hidden>
                 <input type="number" id="calc-roas" value="2.9" min="0.1" step="0.1" />
                 <span class="unit">×</span>
+              </div>
+              <div class="calc-scale" aria-hidden="true">
+                <div class="calc-scale-bar"></div>
+                <div class="calc-scale-marker" id="calc-scale-marker" style="left: 50%;"></div>
+                <div class="calc-scale-labels" id="calc-scale-labels">
+                  <span>0 %</span>
+                  <span>20 %</span>
+                  <span>40 %</span>
+                  <span>60 %+</span>
+                </div>
               </div>
             </div>
           </div>
@@ -436,29 +446,55 @@
               <span class="label">Trag beide Werte ein, um Dein Potenzial zu sehen.</span>
             </div>
             <div class="calc-out-filled" id="calc-out-filled" hidden>
+              <div class="calc-out-row soft-good">
+                <span class="label">Einsparpotenzial pro Monat</span>
+                <span class="num" id="out-saving-month" style="font-size:1.6rem;">€ 1.330</span>
+              </div>
               <div class="calc-out-row highlight">
-                <span class="label">Einsparpotenzial pro Jahr <span class="arrow">↗</span></span>
+                <span class="label">Pro Jahr <span class="arrow">↗</span></span>
                 <span class="num" id="out-saving-year">€ 15.960</span>
               </div>
-              <div class="calc-out-row">
-                <span class="label">Das entspricht</span>
-                <span class="num" id="out-saving-month" style="font-size:1.6rem;">€ 1.330 / Monat</span>
-              </div>
-              <div class="calc-out-row">
+              <div class="calc-out-row loss">
                 <span class="label">In 3 Jahren entgehen Dir</span>
                 <span class="num" id="out-3year" style="font-size:1.6rem;">€ 47.880</span>
               </div>
               <div class="calc-out-row">
-                <span class="label">ROAS aktuell → Ziel (20 % ACOS)</span>
-                <span class="num" id="out-roas-compare" style="font-size:1.4rem;">2,9 → 5,0</span>
+                <span class="label" id="out-compare-label">ACOS aktuell → Ziel</span>
+                <span class="num" id="out-roas-compare" style="font-size:1.4rem;">34 % → 20 %</span>
               </div>
-              <div class="calc-out-row">
+              <div class="calc-out-row calc-out-full">
                 <span class="label" id="out-sub">Die zwischen Deiner aktuellen Steuerung und einem ACOS von 20 % liegen. Richtwert, keine Garantie.</span>
+              </div>
+              <div class="calc-interpret calc-out-full" id="out-interpret"></div>
+              <div class="calc-context-hint calc-out-full">
+                Hinweis: Tatsächliches Einsparpotenzial hängt von deiner Branche, Marktsättigung und Marge ab. Diese Schätzung ist indikativ, kein Versprechen.
               </div>
             </div>
             <div class="calc-out-good" id="calc-out-good" hidden>
               <div class="calc-out-row">
-                <span class="label">Dein ACOS liegt schon im guten Bereich. Dann geht es eher um Skalierung und organisches Wachstum.</span>
+                <span class="label" id="out-good-label">Dein ACOS liegt im Sweet Spot. Hier geht es eher um Skalierung und organisches Wachstum.</span>
+              </div>
+              <div class="calc-interpret calc-out-full" id="out-good-interpret"></div>
+            </div>
+            <div class="calc-out-growth" id="calc-out-growth" hidden>
+              <div class="calc-out-row soft-good">
+                <span class="label">Wachstumspotenzial pro Monat</span>
+                <span class="num" id="out-growth-month" style="font-size:1.6rem;">€ 0</span>
+              </div>
+              <div class="calc-out-row highlight">
+                <span class="label">Pro Jahr <span class="arrow">↗</span></span>
+                <span class="num" id="out-growth-year">€ 0</span>
+              </div>
+              <div class="calc-out-row">
+                <span class="label" id="out-growth-compare-label">ACOS aktuell → Wachstums-Ziel</span>
+                <span class="num" id="out-growth-compare" style="font-size:1.4rem;">8 % → 20 %</span>
+              </div>
+              <div class="calc-out-row calc-out-full">
+                <span class="label">Bei gleicher Marge pro Sale, aber mehr Reichweite. Richtwert, keine Garantie.</span>
+              </div>
+              <div class="calc-interpret calc-out-full" id="out-growth-interpret"></div>
+              <div class="calc-context-hint calc-out-full">
+                Hinweis: Wachstumspotenzial hängt von deiner Branche, Marktgröße und Konkurrenzdichte ab. In gesättigten Nischen ist mehr Reichweite anspruchsvoller als in jungen Märkten.
               </div>
             </div>
           </div>
@@ -901,21 +937,44 @@
       var outSavingMonth = document.getElementById('out-saving-month');
       var out3Year       = document.getElementById('out-3year');
       var outRoasComp    = document.getElementById('out-roas-compare');
+      var outCompareLbl  = document.getElementById('out-compare-label');
+      var outInterpret   = document.getElementById('out-interpret');
+      var outGrowth         = document.getElementById('calc-out-growth');
+      var outGrowthMonth    = document.getElementById('out-growth-month');
+      var outGrowthYear     = document.getElementById('out-growth-year');
+      var outGrowthCompare  = document.getElementById('out-growth-compare');
+      var outGrowthCompLbl  = document.getElementById('out-growth-compare-label');
+      var outGrowthInterpret = document.getElementById('out-growth-interpret');
+      var outGoodInterpret  = document.getElementById('out-good-interpret');
+      var outGoodLabel      = document.getElementById('out-good-label');
+      var scaleMarker       = document.getElementById('calc-scale-marker');
+      var scaleLabels       = document.getElementById('calc-scale-labels');
       if (!eSpend || !eAcos) return;
 
-      var TARGET   = 20;
-      var useRoas  = false;
+      var TARGET = 20;
+      var GROWTH_TARGET = 18;
       var TARGET_ROAS = (100 / TARGET).toFixed(1).replace('.', ',');
+      var SCALE_MAX = 70;
+      var useRoas = false;
 
       function fmt(n) { return '€ ' + Math.round(n).toLocaleString('de-DE'); }
-      function fmtRoas(n) { return n.toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 }); }
+      function fmtR(n, dec) { return n.toLocaleString('de-DE', { minimumFractionDigits: dec, maximumFractionDigits: dec }); }
 
-      function getAcos() {
-        if (useRoas) {
-          var r = parseFloat(eRoas.value) || 0;
-          return r > 0 ? 100 / r : 0;
-        }
-        return parseFloat(eAcos.value) || 0;
+      // Canonical-Wert (intern, ohne Rundungsverlust)
+      var canonicalAcos = parseFloat(eAcos.value) || 0;
+
+      function getAcos() { return canonicalAcos; }
+
+      function classify(acos) {
+        var cents = Math.round(acos);
+        if (acos < 2)   return { lvl: 'lvl-aurora',      mode: 'extreme', text: 'Ungewöhnlich niedrig. Sicher, dass du nicht ACOS und ROAS verwechselt hast? Werte unter 2 % ACOS (bzw. ROAS über 50) sind sehr selten und meist ein Eingabefehler. Falls nicht: Glückwunsch, du hast einen außergewöhnlich effizienten Account.' };
+        if (acos < 10)  return { lvl: 'lvl-aurora',      mode: 'growth', text: 'Sehr niedriger ACOS. Du fährst voll auf Marge optimiert. Das ist nicht falsch, aber du lässt damit Reichweite und Wachstum liegen. Eine moderate Anhebung bringt oft signifikant mehr Sales-Umsatz, ohne unter Break-Even zu fallen.' };
+        if (acos < 15)  return { lvl: 'lvl-very-good',   mode: 'growth', text: 'Sehr effizient. Prüf, ob das der gewollte Trade-off zwischen Marge und Wachstum ist. Im Wachstumsmodus liegt hier oft noch Sales-Umsatz brach.' };
+        if (acos <= 22) return { lvl: 'lvl-good',        mode: 'good',   text: 'Sweet Spot für die meisten Brands. Solider Profit pro Sale bei gesunder Reichweite. Hebel jetzt: Skalierung, TACOS-Reduktion durch organischen Halo, neue Märkte.' };
+        if (acos <= 28) return { lvl: 'lvl-good-edge',   mode: 'good',   text: 'Knapp über dem Sweet Spot. Noch im gesunden Bereich, aber kleine strukturelle Anpassungen (Negatives, Match-Type-Hygiene) holen dich zurück ins Zentrum.' };
+        if (acos <= 38) return { lvl: 'lvl-warn',        mode: 'save',   text: cents + ' Cent pro Euro Umsatz. Optimierungs-Zone. Mit Negative Keywords, Match-Type-Hygiene und Brand/Generic-Trennung holst du das oft in 2 bis 4 Wochen ins Sweet-Spot-Niveau.' };
+        if (acos <= 50) return { lvl: 'lvl-warn-strong', mode: 'save',   text: cents + ' Cent pro Euro Umsatz. Hier ist meist ein Strukturproblem im Spiel. Listing-CVR und Kampagnenarchitektur prüfen, nicht nur an Bids drehen.' };
+        return            { lvl: 'lvl-bad',              mode: 'save',   text: cents + ' Cent pro Euro Umsatz. Kritisch. Ausnahme: Launch-Phasen können temporär 80 bis 150 % ACOS rechtfertigen, um Sales-Velocity und Ranking aufzubauen. Bei laufendem Produkt: dringend Audit.' };
       }
 
       function recalc() {
@@ -925,49 +984,137 @@
           outEmpty.hidden  = false;
           outFilled.hidden = true;
           outGood.hidden   = true;
+          if (outGrowth) outGrowth.hidden = true;
           return;
         }
         outEmpty.hidden = true;
-        if (acos <= TARGET) {
-          outFilled.hidden = true;
-          outGood.hidden   = false;
-        } else {
-          outGood.hidden   = true;
-          outFilled.hidden = false;
-          var monthly = spend * (acos - TARGET) / 100;
-          var yearly  = monthly * 12;
-          var currentRoas = 100 / acos;
-          outSavingYear.textContent  = fmt(yearly);
-          outSavingMonth.textContent = fmt(monthly) + ' / Monat';
-          out3Year.textContent       = fmt(yearly * 3);
-          outRoasComp.textContent    = fmtRoas(currentRoas) + ' → ' + TARGET_ROAS;
+
+        var c = classify(acos);
+
+        // Skala-Marker (0..SCALE_MAX % ACOS auf 0..100 % Position abbilden)
+        if (scaleMarker) {
+          var pos = Math.max(0, Math.min(100, (acos / SCALE_MAX) * 100));
+          scaleMarker.style.left = pos + '%';
         }
+        // Skala-Labels auf ACOS oder ROAS umschalten (Skala selbst bleibt gleich)
+        if (scaleLabels) {
+          var sp = scaleLabels.querySelectorAll('span');
+          if (sp.length === 4) {
+            if (useRoas) {
+              sp[0].textContent = '∞ ×';
+              sp[1].textContent = '5 ×';
+              sp[2].textContent = '2,5 ×';
+              sp[3].textContent = '1,4 ×';
+            } else {
+              sp[0].textContent = '0 %';
+              sp[1].textContent = '20 %';
+              sp[2].textContent = '40 %';
+              sp[3].textContent = '60 %+';
+            }
+          }
+        }
+
+        // Input-Wrap einfärben (6 Stufen)
+        var activeWrap = useRoas ? roasWrap : acosWrap;
+        activeWrap.classList.remove('lvl-aurora', 'lvl-very-good', 'lvl-good', 'lvl-good-edge', 'lvl-warn', 'lvl-warn-strong', 'lvl-bad');
+        activeWrap.classList.add(c.lvl);
+
+        // Alle Output-Modi erst verstecken
+        outFilled.hidden = true;
+        outGood.hidden   = true;
+        if (outGrowth) outGrowth.hidden = true;
+
+        if (c.mode === 'good') {
+          outGood.hidden = false;
+          if (outGoodLabel) outGoodLabel.textContent = 'Dein ACOS liegt im Sweet Spot. Hier geht es eher um Skalierung und organisches Wachstum.';
+          if (outGoodInterpret) outGoodInterpret.textContent = c.text;
+          return;
+        }
+
+        if (c.mode === 'extreme') {
+          outGood.hidden = false;
+          if (outGoodLabel) outGoodLabel.textContent = c.text;
+          if (outGoodInterpret) outGoodInterpret.textContent = '';
+          return;
+        }
+
+        if (c.mode === 'growth' && outGrowth) {
+          outGrowth.hidden = false;
+          var currentSales = spend / (acos / 100);
+          var headroom     = Math.max(0, TARGET - acos) / TARGET;
+          // Konservativ: max +50 % Sales-Wachstum UND hard cap auf 6x Spend.
+          // Sonst wirken die Zahlen bei extrem niedrigem ACOS phantastisch.
+          var growthMonth  = Math.min(currentSales * Math.min(0.5, headroom * 0.9), spend * 6);
+          outGrowthMonth.textContent = fmt(growthMonth);
+          outGrowthYear.textContent  = fmt(growthMonth * 12);
+          if (useRoas) {
+            outGrowthCompLbl.textContent = 'ROAS aktuell → Wachstums-Ziel';
+            var currentRoasG = 100 / acos;
+            outGrowthCompare.textContent = fmtR(currentRoasG, 1) + ' → ' + (100 / GROWTH_TARGET).toFixed(1).replace('.', ',');
+          } else {
+            outGrowthCompLbl.textContent = 'ACOS aktuell → Wachstums-Ziel';
+            outGrowthCompare.textContent = Math.round(acos) + ' % → ' + GROWTH_TARGET + ' %';
+          }
+          if (outGrowthInterpret) outGrowthInterpret.textContent = c.text;
+          return;
+        }
+
+        // mode === 'save'
+        outFilled.hidden = false;
+        var monthly      = spend * (acos - TARGET) / 100;
+        var yearly       = monthly * 12;
+        var currentRoas  = 100 / acos;
+        outSavingMonth.textContent = fmt(monthly);
+        outSavingYear.textContent  = fmt(yearly);
+        out3Year.textContent       = fmt(yearly * 3);
+        if (useRoas) {
+          outCompareLbl.textContent = 'ROAS aktuell → Ziel';
+          outRoasComp.textContent   = fmtR(currentRoas, 1) + ' → ' + TARGET_ROAS;
+        } else {
+          outCompareLbl.textContent = 'ACOS aktuell → Ziel';
+          outRoasComp.textContent   = Math.round(acos) + ' % → ' + TARGET + ' %';
+        }
+        if (outInterpret) outInterpret.textContent = c.text;
       }
 
-      // Toggle ACOS <-> ROAS
+      // Toggle ACOS <-> ROAS: Display aus canonicalAcos generieren,
+      // canonicalAcos selbst bleibt unverändert -> kein Rundungsdrift.
       if (toggleBtn) {
         toggleBtn.addEventListener('click', function () {
           useRoas = !useRoas;
           if (useRoas) {
-            var a = parseFloat(eAcos.value) || 34;
-            eRoas.value = (100 / a).toFixed(1);
+            eRoas.value = canonicalAcos > 0 ? (100 / canonicalAcos).toFixed(2) : '';
             acosWrap.hidden = true;
             roasWrap.hidden = false;
-            metricLbl.firstChild.textContent = 'Aktueller ROAS ';
+            metricLbl.firstChild.textContent = 'Aktueller ROAS ';
             toggleBtn.textContent = 'ACOS eingeben';
           } else {
-            var r = parseFloat(eRoas.value) || 2.9;
-            eAcos.value = Math.round(100 / r);
+            eAcos.value = canonicalAcos > 0 ? canonicalAcos.toFixed(1) : '';
             roasWrap.hidden = true;
             acosWrap.hidden = false;
-            metricLbl.firstChild.textContent = 'Aktueller ACOS ';
+            metricLbl.firstChild.textContent = 'Aktueller ACOS ';
             toggleBtn.textContent = 'ROAS eingeben';
           }
           recalc();
         });
       }
 
-      [eSpend, eAcos, eRoas].forEach(function (el) { if (el) el.addEventListener('input', recalc); });
+      // Debounced input handler — verhindert Zwischenstände beim Tippen
+      var recalcTimer = null;
+      function scheduleRecalc() {
+        if (recalcTimer) clearTimeout(recalcTimer);
+        recalcTimer = setTimeout(recalc, 350);
+      }
+      eSpend.addEventListener('input', scheduleRecalc);
+      eAcos.addEventListener('input', function () {
+        canonicalAcos = parseFloat(eAcos.value) || 0;
+        scheduleRecalc();
+      });
+      eRoas.addEventListener('input', function () {
+        var r = parseFloat(eRoas.value);
+        canonicalAcos = r > 0 ? 100 / r : 0;
+        scheduleRecalc();
+      });
       recalc();
     })();
   </script>
