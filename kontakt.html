@@ -257,6 +257,9 @@
             <span class="field-error" data-fs-error="Nachricht"></span>
           </div>
 
+          <!-- Honeypot: für Menschen unsichtbar, Bots füllen es aus → Formspree filtert -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
           <button class="btn btn-primary form-submit" type="submit" data-fs-submit-btn>
             Nachricht senden <span class="arrow">↗</span>
           </button>
