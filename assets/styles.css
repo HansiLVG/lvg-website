@@ -370,6 +370,43 @@ section[id] { scroll-margin-top: 72px; }
 @media (max-width: 880px) {
   .nav-links { display: none; }
   .nav-hamb { display: inline-flex; }
+
+  /* Mobile: Pille → vollbreite feste Leiste bei top:0 */
+  .nav {
+    top: 0;
+    padding: 0;
+    background: rgba(14,17,23,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .nav-inner {
+    border-radius: 0;
+    max-width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    box-shadow: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 10px 20px;
+  }
+  /* Transparent-State: untere Border ausblenden */
+  .nav.is-transparent .nav-inner {
+    border-bottom-color: transparent;
+    background: transparent;
+  }
+  /* Scrolled-State: background vom .nav übernimmt */
+  .nav.is-scrolled .nav-inner {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom-color: var(--border);
+  }
+  /* Mobile Dropdown auf volle Breite */
+  .nav-mobile {
+    max-width: 100%;
+    border-radius: 0;
+  }
 }
 
 /* ─── BUTTONS ──────────────────────────────────────────────── */
