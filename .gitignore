@@ -9,6 +9,9 @@ package-lock.json
 screenshot.js
 package.json
 
+# Gated Content (nicht öffentlich auf GitHub)
+lead-magnet/
+
 # Lokale Export-/Dev-Hilfsseiten (nicht öffentlich)
 _export-*.html
 _shot.js
