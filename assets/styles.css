@@ -929,7 +929,7 @@ section[id] { scroll-margin-top: 72px; }
 }
 .problem-card .pc-icon svg { width: 16px; height: 16px; }
 
-@media (max-width: 880px) { .problem-grid { grid-template-columns: 1fr; } }
+@media (max-width: 880px) { .problem-grid { grid-template-columns: 1fr !important; } }
 
 /* ─── LEISTUNGEN ───────────────────────────────────────────── */
 .leistung-list {
@@ -3168,4 +3168,8 @@ main a[href*="/glossar/"]:hover {
 @media (max-width: 600px) {
   .search-overlay { padding-top: 80px; }
   .nav-search-btn { display: none; }
+}
+
+@media (max-width: 600px) {
+  .btn-ghost { white-space: normal; text-align: center; }
 }
