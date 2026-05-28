@@ -280,6 +280,17 @@
     btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
     navLinks.insertBefore(btn, navLinks.firstChild);
 
+    // Mobile: zweiter Such-Button in der rechten Leiste (nav-links ist mobil ausgeblendet)
+    var navRight = document.querySelector('.nav-right');
+    var mbtn = null;
+    if (navRight) {
+      mbtn = document.createElement('button');
+      mbtn.className = 'nav-search-btn nav-search-mobile';
+      mbtn.setAttribute('aria-label', 'Suche öffnen');
+      mbtn.innerHTML = btn.innerHTML;
+      navRight.insertBefore(mbtn, navRight.querySelector('.nav-hamb'));
+    }
+
     var overlay = document.createElement('div');
     overlay.className = 'search-overlay';
     overlay.setAttribute('role', 'dialog');
@@ -343,6 +354,7 @@
     }
 
     btn.addEventListener('click', open);
+    if (mbtn) mbtn.addEventListener('click', open);
     overlay.querySelector('.search-close').addEventListener('click', close);
     overlay.addEventListener('click', function (e) {
       if (e.target === overlay) close();

@@ -370,6 +370,10 @@ section[id] { scroll-margin-top: 72px; }
 @media (max-width: 880px) {
   .nav-links { display: none; }
   .nav-hamb { display: inline-flex; }
+  /* Mobile: Lupe in die rechte Leiste, CTA kompakter */
+  .nav-right { gap: 8px; }
+  .nav-right .nav-search-mobile { display: flex; }
+  .nav-right .btn-primary.btn-sm { padding: 8px 13px; font-size: 12px; }
 
   /* Mobile: Pille → vollbreite feste Leiste bei top:0 */
   .nav {
@@ -3071,6 +3075,7 @@ main a[href*="/glossar/"]:hover {
 }
 .nav-search-btn:hover { border-color: var(--accent-border); color: var(--text); }
 .nav-search-btn svg { width: 16px; height: 16px; }
+.nav-search-mobile { display: none; }
 
 .search-overlay {
   position: fixed;
