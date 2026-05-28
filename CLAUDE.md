@@ -100,12 +100,12 @@ Vollständige Spezifikation V2-Design: siehe `../website-v2-dev/DESIGN-SYSTEM-V2
 - Blog-Automation läuft als Remote-Routine (Donnerstags, siehe Routine-ID in Memory).
 
 ### Lead-Funnel (Status 2026-05)
-- ACOS-Rechner auf Homepage mit E-Mail-Capture (Mailchimp-Platzhalter `data-mailchimp-endpoint` in `#leadmagnet-form`).
+- ACOS-Rechner auf Homepage mit E-Mail-Capture via Brevo. Bestätigungsseiten live (`anmeldung-bestaetigen/`, `willkommen/`).
 - Lead-Magnet PDF-Druckvorlage: `lead-magnet/index.html` (Browser → „Als PDF speichern"). V2-Hellvariante, 13 Seiten. Drafts der Nurture-Sequenz liegen im Vault unter `04 Projekte/Lead-Funnel Drafts/`.
 
 ## Offene TODOs
 
-- [ ] **Mailchimp einrichten** — Form-Action in `data-mailchimp-endpoint` eintragen, Nurture-Sequenz aus Vault übernehmen, Datenschutz um Mailchimp-Abschnitt ergänzen.
+- [ ] **Brevo fertigstellen** — Nurture-Sequenz aus Vault in Brevo einrichten, Datenschutz um Brevo-Abschnitt ergänzen. (E-Mail-Form + Bestätigungsseiten sind live.)
 - [ ] **Cert-Badge-Bilder** einbauen (`badge-sponsored-ads.avif`, `badge-marketing-cloud.png`) sobald die offiziellen Bilder vorliegen. PDFs liegen als Backup, werden bewusst nicht verlinkt (Datenschutz).
 - [ ] **Lead-Magnet Live-URL** — entscheiden ob `lead-magnet/` öffentlich verlinkbar oder nur per E-Mail-Versand nach Download. Aktuell `noindex`.
 - [ ] **PageSpeed/Lighthouse Benchmark** für V2 neu erheben (V1-Werte aus alter Doku sind nicht mehr aussagekräftig).
