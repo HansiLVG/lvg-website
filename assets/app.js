@@ -267,6 +267,99 @@
     });
   }
 
+  /* ─── Site-Suche ─── */
+  function initSearch() {
+    var navRight = document.querySelector('.nav-right');
+    if (!navRight) return;
+
+    /* Button in Nav injizieren */
+    var btn = document.createElement('button');
+    btn.className = 'nav-search-btn';
+    btn.setAttribute('aria-label', 'Suche öffnen');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
+    navRight.insertBefore(btn, navRight.firstChild);
+
+    /* Overlay injizieren */
+    var overlay = document.createElement('div');
+    overlay.className = 'search-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-label', 'Suche');
+    overlay.innerHTML =
+      '<div class="search-overlay-box">' +
+        '<div class="search-input-wrap">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' +
+          '<input class="search-input" type="search" placeholder="Seite, Begriff oder Thema suchen…" autocomplete="off" />' +
+          '<button class="search-close" type="button">ESC</button>' +
+        '</div>' +
+        '<div class="search-results" id="search-results" hidden></div>' +
+        '<p class="search-hint">Enter zum Öffnen des ersten Treffers</p>' +
+      '</div>';
+    document.body.appendChild(overlay);
+
+    var input   = overlay.querySelector('.search-input');
+    var results = overlay.querySelector('#search-results');
+    var index   = null;
+
+    function open() {
+      overlay.classList.add('open');
+      input.focus();
+      if (!index) {
+        fetch('/search-index.json')
+          .then(function (r) { return r.json(); })
+          .then(function (data) { index = data; })
+          .catch(function () { index = []; });
+      }
+    }
+    function close() {
+      overlay.classList.remove('open');
+      input.value = '';
+      results.hidden = true;
+      results.innerHTML = '';
+    }
+
+    function search(q) {
+      q = q.toLowerCase().trim();
+      results.hidden = true;
+      results.innerHTML = '';
+      if (!q || !index) return;
+      var hits = index.filter(function (item) {
+        return (item.title + ' ' + item.desc + ' ' + item.cat).toLowerCase().includes(q);
+      }).slice(0, 7);
+      if (!hits.length) return;
+      hits.forEach(function (item) {
+        var a = document.createElement('a');
+        a.className = 'search-result';
+        a.href = item.url;
+        a.innerHTML =
+          '<span class="search-result-cat">' + item.cat + '</span>' +
+          '<span class="search-result-body">' +
+            '<div class="search-result-title">' + item.title + '</div>' +
+            '<div class="search-result-desc">' + item.desc + '</div>' +
+          '</span>';
+        a.addEventListener('click', close);
+        results.appendChild(a);
+      });
+      results.hidden = false;
+    }
+
+    btn.addEventListener('click', open);
+    overlay.querySelector('.search-close').addEventListener('click', close);
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) close();
+    });
+    input.addEventListener('input', function () { search(input.value); });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        var first = results.querySelector('.search-result');
+        if (first) { close(); window.location.href = first.href; }
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+      if ((e.key === 'k' && (e.metaKey || e.ctrlKey))) { e.preventDefault(); open(); }
+    });
+  }
+
   /* ─── Boot ─── */
   function boot() {
     initMobileNav();
@@ -276,6 +369,7 @@
     initCookieBanner();
     initUeberPortrait();
     initBrevoForm();
+    initSearch();
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
