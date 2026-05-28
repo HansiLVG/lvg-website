@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Amazon DSP erklärt · Demand-Side Platform · Glossar · Leon-Vincent Gamradt</title>
+  <meta name="description" content="Amazon DSP (Demand-Side Platform) für programmatische Display- und Video-Ads. Targeting, Budget, Use Cases und typische Fehler vom Amazon-Ads-Spezialisten erklärt." />
+
+  <link rel="canonical" href="https://lvg-ppc.de/glossar/amazon-dsp/" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="LVG PPC · Leon-Vincent Gamradt" />
+  <meta property="og:title" content="Amazon DSP erklärt" />
+  <meta property="og:description" content="Programmatische Display- und Video-Ads auf Amazon und Drittseiten. Targeting, Budget, Use Cases." />
+  <meta property="og:url" content="https://lvg-ppc.de/glossar/amazon-dsp/" />
+  <meta property="og:image" content="https://lvg-ppc.de/assets/logo-primary.svg" />
+  <meta property="og:image:alt" content="LVG PPC, Amazon PPC Spezialist Berlin" />
+
+  <link rel="icon" type="image/svg+xml" href="../../assets/logo-favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../../assets/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    "@id": "https://lvg-ppc.de/glossar/amazon-dsp/#term",
+    "name": "Amazon DSP",
+    "alternateName": ["Demand-Side Platform", "Amazon Demand-Side Platform"],
+    "description": "Amazon DSP ist die programmatische Werbeplattform für Display- und Video-Ads auf Amazon, Prime Video, IMDb und Drittseiten. Audience-basiertes Targeting statt Keywords.",
+    "inDefinedTermSet": "https://lvg-ppc.de/glossar/",
+    "url": "https://lvg-ppc.de/glossar/amazon-dsp/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://lvg-ppc.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Glossar", "item": "https://lvg-ppc.de/glossar/" },
+      { "@type": "ListItem", "position": 3, "name": "Amazon DSP", "item": "https://lvg-ppc.de/glossar/amazon-dsp/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ═══════════ NAV ═══════════ -->
+  <nav class="nav is-transparent" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand" aria-label="LVG PPC Startseite">
+        <img src="/assets/logo-primary.svg" alt="LVG PPC" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-group">
+          <a href="/leistungen/" class="nav-group-trigger">
+            Leistungen
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown" role="menu">
+            <a href="/amazon-ppc-audit/" role="menuitem"><strong>Account-Audit</strong><small>Diagnose in 48 Stunden</small></a>
+            <a href="/amazon-ppc-strategie/" role="menuitem"><strong>Strategie-Aufbau</strong><small>Vollständiger Neuaufbau</small></a>
+            <a href="/amazon-ppc-management/" role="menuitem"><strong>Kampagnenmanagement</strong><small>Laufende Betreuung</small></a>
+          </div>
+        </div>
+        <a href="/preise/">Preise</a>
+        <a href="/ueber-mich.html">Über mich</a>
+        <a href="/faq.html">FAQ</a>
+        <div class="nav-group">
+          <a href="#" class="nav-group-trigger active">
+            Tools
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown" role="menu">
+            <a href="/blog/" role="menuitem"><strong>Blog</strong><small>Amazon PPC Artikel</small></a>
+            <a href="#" role="menuitem" class="active"><strong>Glossar</strong><small>PPC-Begriffe erklärt</small></a>
+            <a href="/rechner/" role="menuitem"><strong>Rechner</strong><small>ACOS, Bid, Budget</small></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <a href="/kontakt.html#formular" class="btn btn-ghost btn-sm nav-cta-secondary">Schreib mir</a>
+        <a href="/kontakt.html#termin" class="btn btn-primary btn-sm">Gespräch buchen <span class="arrow">↗</span></a>
+        <button class="nav-hamb" aria-label="Menü öffnen" id="hamb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" y1="8" x2="20" y2="8" />
+            <line x1="4" y1="16" x2="20" y2="16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <div class="nav-mobile-inner">
+        <a href="/leistungen/">Leistungen</a>
+        <a href="/amazon-ppc-audit/" class="nav-sub">Account-Audit</a>
+        <a href="/amazon-ppc-strategie/" class="nav-sub">Strategie-Aufbau</a>
+        <a href="/amazon-ppc-management/" class="nav-sub nav-sub-end">Kampagnen-Management</a>
+        <a href="/preise/">Preise</a>
+        <a href="/ueber-mich.html">Über mich</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/blog/">Blog</a>
+        <a href="#" class="active">Glossar</a>
+        <a href="/rechner/">Rechner</a>
+        <a href="/kontakt.html">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ COOKIE BANNER ═══════════ -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie-Hinweis">
+    <div class="cookie-banner-grid">
+      <p>Diese Website nutzt Cookies für anonyme Statistik (Google Analytics, IP anonymisiert). Details in der <a href="../../datenschutz.html">Datenschutzerklärung</a>.</p>
+      <div class="cookie-banner-buttons">
+        <button class="btn btn-ghost btn-sm" id="cookie-decline" type="button">Ablehnen</button>
+        <button class="btn btn-primary btn-sm" id="cookie-accept" type="button">Akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ SUB-HERO ═══════════ -->
+  <header class="sub-hero sub-hero-shader">
+    <canvas id="gradient-canvas-sub" data-transition-in></canvas>
+    <div class="sub-hero-fade"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="badge reveal" style="--reveal-delay: 0s;">
+          <span class="dot"></span>
+          Glossar · Display · Programmatisch
+        </span>
+        <h1 class="reveal" style="--reveal-delay: 0.06s;">
+          Amazon DSP. <span class="arrow">↗</span>
+        </h1>
+        <p class="lead reveal" style="--reveal-delay: 0.14s;">
+          Amazon DSP ist die programmatische Werbeplattform für Display- und Video-Ads. Du buchst keine Keywords, sondern Zielgruppen. Und erreichst Kunden auf Amazon, Prime Video, IMDb und Drittseiten.
+        </p>
+        <div class="hero-ctas reveal" style="--reveal-delay: 0.2s;">
+          <a href="#was-ist" class="btn btn-primary">Zum Artikel <span class="arrow">↗</span></a>
+          <a href="../../kontakt.html#termin" class="btn btn-ghost">Gespräch buchen</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════ ARTIKEL ═══════════ -->
+  <main>
+    <section class="article-section" id="was-ist">
+      <div class="article-wrap">
+
+        <p class="article-meta-line reveal">
+          <a href="../" style="color: var(--accent); text-decoration: none;">← Glossar</a>
+          &nbsp;·&nbsp; Display &nbsp;·&nbsp; Programmatisch
+        </p>
+
+        <h2 class="article-h1 reveal" style="--reveal-delay: 0.06s; font-size: clamp(28px, 4vw, 44px);">
+          Was ist Amazon DSP?
+        </h2>
+
+        <p class="glossar-lede reveal" style="--reveal-delay: 0.12s;">
+          Sponsored Ads schließen den Funnel. DSP füllt ihn. Wer nur Sponsored Ads fährt, kämpft permanent in der heißesten Phase gegen Wettbewerber.
+        </p>
+
+        <div class="article-body">
+
+          <h2>Was ist Amazon DSP?</h2>
+
+          <p>DSP steht für Demand-Side Platform. Amazons DSP ermöglicht programmatische Auktion auf Audience-Ebene. Statt auf das Keyword "yogamatte" zu bieten, bietest du auf "Frauen 25 bis 44 mit Lifestyle-Interesse Yoga, die in den letzten 30 Tagen eine Yogamatten-Detail-Page besucht haben". DSP-Ads laufen als Display Banner, Video Pre-Rolls, Connected-TV-Spots und Streaming-Audio.</p>
+
+          <h2>DSP vs. Sponsored Ads: der grundlegende Unterschied</h2>
+
+          <p>Sponsored Ads sind Keyword-Auktion in der Amazon-Suche und auf Detail-Pages. DSP ist Audience-Auktion auf jedem Slot, den Amazon programmatisch verkauft. Sponsored Ads sind Pull: der Kunde sucht aktiv. DSP ist Push: du erreichst Kunden, die gerade nicht suchen.</p>
+
+          <h2>Mindestbudget und Targeting-Optionen</h2>
+
+          <p><strong>Mindestbudget:</strong> Managed Service typischerweise ab 10.000 EUR pro Monat. Self-Service ab 5.000 USD in manchen Märkten. DSP wird statistisch erst ab 5.000 bis 50.000 EUR Mediabudget pro Monat tragfähig auswertbar.</p>
+
+          <p><strong>Targeting-Optionen:</strong></p>
+          <ul>
+            <li><strong>Audiences:</strong> Lifestyle, In-Market, Lookalike</li>
+            <li><strong>Retargeting:</strong> Detail-Page-Visitors, Cart-Abandoner, Past Purchasers</li>
+            <li><strong>Contextual:</strong> Platzierung auf Seiten mit bestimmtem Inhalt im Amazon-Publisher-Netzwerk</li>
+          </ul>
+
+          <p><strong>Formate:</strong> Display Ads (static und dynamic), Video Ads (In-Stream und Out-Stream), OTT/Connected TV (Prime Video, IMDb TV), Streaming Audio, Responsive eCommerce Creative.</p>
+
+          <div class="highlight-box">
+            <p><strong>Budget-Logik in der Praxis</strong></p>
+            <p style="margin-top: 8px;">Bei 15.000 EUR Mediabudget und durchschnittlich 4 EUR CPM erreichst du rund 3,75 Mio. Impressions. Mit 0,3 Prozent Click-Through-Rate ergibt das 11.250 Klicks. Bei 8 Prozent Conversion Rate auf Detail-Page-Visit-Retargeting etwa 900 Käufe. Grobe Schätzung, die Spreizung je nach Audience und Creative ist groß.</p>
+          </div>
+
+          <h2>Optimierungs-Hebel</h2>
+
+          <p><strong>1. Retargeting-Audiences zuerst.</strong> Detail-Page-Visitors und Cart-Abandoner sind die günstigsten und stärksten DSP-Audiences. Damit startest du, bevor du Lifestyle- oder In-Market-Audiences testest.</p>
+
+          <p><strong>2. Frequency Cap setzen.</strong> Ohne Cap zeigt DSP deine Ad demselben User 50-mal pro Woche. Sinnvoller Start: 3 bis 5 Impressions pro User und Woche.</p>
+
+          <p><strong>3. Audience-Splits sauber testen.</strong> Pro Line Item nur eine Audience. Erst nach 4 bis 6 Wochen Stabilität konsolidieren.</p>
+
+          <p><strong>4. AMC für Attribution nutzen.</strong> DSP-Last-Click-ROAS sagt fast nichts. View-Through-Conversions und Cross-Channel-Effekte siehst du nur in <a href="../amazon-marketing-cloud/">Amazon Marketing Cloud</a>. Pflichtsetup für jedes ernsthafte DSP-Programm.</p>
+
+          <p><strong>5. Creative-Rotation.</strong> Mindestens 3 Creative-Varianten pro Audience, alle 4 bis 8 Wochen austauschen. Bannerblindheit ist real.</p>
+
+          <h2>Häufige Fehler</h2>
+
+          <p><strong>DSP mit Sponsored-Ads-ROAS bewerten.</strong> DSP ist Upper-Funnel. Wer nach 6 Wochen den Last-Click-ROAS misst und enttäuscht ist, hat das Setup falsch verstanden.</p>
+
+          <p><strong>Budget zu klein.</strong> Unter 5.000 EUR Mediabudget pro Monat ist DSP statistisch nicht auswertbar. Lieber Sponsored Ads ausbauen, bis das Budget reif für DSP ist.</p>
+
+          <p><strong>Kein AMC-Setup.</strong> DSP ohne AMC ist wie Auto fahren ohne Tacho. Du weißt nicht, ob du beschleunigst oder bremst.</p>
+
+          <p><strong>Alle Audiences gleichzeitig starten.</strong> 12 Line Items in Woche 1 sind unauswertbar. Retargeting zuerst, dann In-Market, dann Lifestyle.</p>
+
+          <h2>Verwandte Begriffe</h2>
+
+          <ul>
+            <li><a href="../amazon-marketing-cloud/"><strong>Amazon Marketing Cloud</strong></a>: die einzige belastbare Attribution-Quelle für DSP</li>
+            <li><a href="../sponsored-display/"><strong>Sponsored Display</strong></a>: der einfachere Einstieg in Display-Retargeting ohne DSP-Mindestbudget</li>
+            <li><a href="../tacos/"><strong>TACOS</strong></a>: wie DSP den Gesamt-TACOS mittelfristig beeinflusst</li>
+            <li><a href="../sponsored-brands/"><strong>Sponsored Brands</strong></a>: das häufigste Zusammenspiel mit DSP im Funnel</li>
+          </ul>
+
+          <div class="highlight-box">
+            <p><strong>Kurz zusammengefasst:</strong> Amazon DSP ergänzt Sponsored Ads im Upper- und Mid-Funnel. Relevant ab ca. 5.000 EUR Mediabudget pro Monat. Retargeting-Audiences zuerst aufbauen, Frequency Caps setzen, AMC für Attribution obligatorisch. DSP ohne AMC ist blind.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════ FINAL CTA ═══════════ -->
+  <section class="final-cta" id="kontakt">
+    <canvas id="gradient-canvas-cta" data-transition-in></canvas>
+    <div class="cta-fade"></div>
+    <div class="wrap">
+      <span class="eyebrow reveal">Management</span>
+      <h2 class="reveal" style="--reveal-delay: 0.06s;">DSP-Budget freigegeben, aber nicht sicher, wie du anfängst? <span class="arrow">↗</span></h2>
+      <p class="lead reveal" style="--reveal-delay: 0.12s;">DSP ohne erfahrenes Setup verbrennt Budget schneller als jede Sponsored-Ads-Kampagne. Ich begleite DSP-Setups von der Audience-Strategie über das Creative-Briefing bis zum AMC-Reporting.</p>
+      <div class="kontakt-grid reveal" style="--reveal-delay: 0.18s; max-width: 720px; margin: 48px auto 0;">
+        <a class="kontakt-card kontakt-card-primary" href="../../kontakt.html#termin">
+          <div class="k-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <div class="k-label">Erstgespräch buchen</div>
+          <div class="k-sub">15 Min. via Cal.eu</div>
+          <span class="k-arrow">↗</span>
+        </a>
+        <a class="kontakt-card" href="../../amazon-ppc-management/">
+          <div class="k-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div class="k-label">Scale-Paket</div>
+          <div class="k-sub">Amazon DSP auf Anfrage inklusive</div>
+          <span class="k-arrow">↗</span>
+        </a>
+        <a class="kontakt-card" href="../../amazon-ppc-audit/">
+          <div class="k-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <div class="k-label">Account-Audit</div>
+          <div class="k-sub">Diagnose in 48 Stunden</div>
+          <span class="k-arrow">↗</span>
+        </a>
+      </div>
+      <div class="trust reveal" style="--reveal-delay: 0.24s;">
+        <span>AMC-zertifiziert</span>
+        <span>Direkter Kontakt</span>
+        <span>Kein Lock-in</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SEO-FOOTER ═══════════ -->
+  <aside class="seo-footer" aria-label="Sitemap">
+    <div class="wrap">
+      <div class="seo-footer-grid">
+        <div class="seo-footer-col">
+          <h3>Leistungen</h3>
+          <ul>
+            <li><a href="/amazon-ppc-audit/">Account-Audit</a></li>
+            <li><a href="/amazon-ppc-strategie/">Strategie-Aufbau</a></li>
+            <li><a href="/amazon-ppc-management/">Kampagnen-Management</a></li>
+            <li><a href="/preise/">Preise</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Ressourcen</h3>
+          <ul>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/glossar/">Glossar</a></li>
+            <li><a href="/rechner/">Rechner</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Über</h3>
+          <ul>
+            <li><a href="/ueber-mich.html">Über mich</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Rechtliches</h3>
+          <ul>
+            <li><a href="/impressum.html">Impressum</a></li>
+            <li><a href="/datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="seo-footer-text">
+        <p>
+          <strong>Amazon DSP</strong> (Demand-Side Platform) ist Amazons programmatische Werbeplattform für Display- und Video-Ads auf Amazon, Prime Video, IMDb und Drittseiten. Audience-basiertes Targeting, relevant ab ca. 5.000 EUR Mediabudget pro Monat. <strong>Leon-Vincent Gamradt</strong>, AMC-zertifizierter Amazon Advertising Spezialist aus Berlin, begleitet DSP-Setups im <a href="../../amazon-ppc-management/">Scale-Paket</a>.
+        </p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="../../assets/logo-primary.svg" alt="LVG PPC" />
+        <span class="copy">© 2026 Leon-Vincent Gamradt</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════ SCRIPTS ═══════════ -->
+  <script src="../../assets/whatamesh.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var staticBg =
+        "radial-gradient(ellipse 70% 50% at 28% 28%, rgba(34,197,94,0.42), transparent 60%)," +
+        "radial-gradient(ellipse 60% 50% at 82% 60%, rgba(30,64,175,0.48), transparent 60%)," +
+        "radial-gradient(ellipse 60% 55% at 60% 92%, rgba(107,33,168,0.42), transparent 60%)," +
+        "#0f172a";
+      ['gradient-canvas-sub', 'gradient-canvas-cta'].forEach(function (id) {
+        var canvas = document.getElementById(id);
+        if (canvas) canvas.style.background = staticBg;
+        try {
+          if (typeof Gradient !== 'undefined' && canvas) {
+            var g = new Gradient();
+            g.initGradient('#' + id);
+          }
+        } catch (err) { console.warn('Gradient init failed for #' + id, err); }
+      });
+    });
+  </script>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

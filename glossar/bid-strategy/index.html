@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Bid Strategy bei Amazon PPC erklärt · Glossar · Leon-Vincent Gamradt</title>
+  <meta name="description" content="Bid Strategy bei Amazon PPC. Down only, Up and down und Fixed Bids im Vergleich. Mit Rechenbeispiel und Tipps zur richtigen Auswahl für deine Kampagnen." />
+
+  <link rel="canonical" href="https://lvg-ppc.de/glossar/bid-strategy/" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="LVG PPC · Leon-Vincent Gamradt" />
+  <meta property="og:title" content="Bid Strategy bei Amazon PPC erklärt" />
+  <meta property="og:description" content="Down only, Up and down und Fixed Bids im Vergleich. Welche Bid Strategy passt zu welcher Kampagne?" />
+  <meta property="og:url" content="https://lvg-ppc.de/glossar/bid-strategy/" />
+  <meta property="og:image" content="https://lvg-ppc.de/assets/logo-primary.svg" />
+  <meta property="og:image:alt" content="LVG PPC, Amazon PPC Spezialist Berlin" />
+
+  <link rel="icon" type="image/svg+xml" href="../../assets/logo-favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../../assets/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    "@id": "https://lvg-ppc.de/glossar/bid-strategy/#term",
+    "name": "Bid Strategy",
+    "alternateName": ["Dynamic Bids", "Gebotsstrategie"],
+    "description": "Die Bid Strategy steuert, wie Amazon das Gebot in Echtzeit anpasst. Drei Optionen: Dynamic Bids down only, Dynamic Bids up and down und Fixed Bids.",
+    "inDefinedTermSet": "https://lvg-ppc.de/glossar/",
+    "url": "https://lvg-ppc.de/glossar/bid-strategy/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://lvg-ppc.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Glossar", "item": "https://lvg-ppc.de/glossar/" },
+      { "@type": "ListItem", "position": 3, "name": "Bid Strategy", "item": "https://lvg-ppc.de/glossar/bid-strategy/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ═══════════ NAV ═══════════ -->
+  <nav class="nav is-transparent" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand" aria-label="LVG PPC Startseite">
+        <img src="/assets/logo-primary.svg" alt="LVG PPC" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-group">
+          <a href="/leistungen/" class="nav-group-trigger">
+            Leistungen
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown" role="menu">
+            <a href="/amazon-ppc-audit/" role="menuitem"><strong>Account-Audit</strong><small>Diagnose in 48 Stunden</small></a>
+            <a href="/amazon-ppc-strategie/" role="menuitem"><strong>Strategie-Aufbau</strong><small>Vollständiger Neuaufbau</small></a>
+            <a href="/amazon-ppc-management/" role="menuitem"><strong>Kampagnenmanagement</strong><small>Laufende Betreuung</small></a>
+          </div>
+        </div>
+        <a href="/preise/">Preise</a>
+        <a href="/ueber-mich.html">Über mich</a>
+        <a href="/faq.html">FAQ</a>
+        <div class="nav-group">
+          <a href="#" class="nav-group-trigger active">
+            Tools
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown" role="menu">
+            <a href="/blog/" role="menuitem"><strong>Blog</strong><small>Amazon PPC Artikel</small></a>
+            <a href="#" role="menuitem" class="active"><strong>Glossar</strong><small>PPC-Begriffe erklärt</small></a>
+            <a href="/rechner/" role="menuitem"><strong>Rechner</strong><small>ACOS, Bid, Budget</small></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <a href="/kontakt.html#formular" class="btn btn-ghost btn-sm nav-cta-secondary">Schreib mir</a>
+        <a href="/kontakt.html#termin" class="btn btn-primary btn-sm">Gespräch buchen <span class="arrow">↗</span></a>
+        <button class="nav-hamb" aria-label="Menü öffnen" id="hamb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" y1="8" x2="20" y2="8" />
+            <line x1="4" y1="16" x2="20" y2="16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <div class="nav-mobile-inner">
+        <a href="/leistungen/">Leistungen</a>
+        <a href="/amazon-ppc-audit/" class="nav-sub">Account-Audit</a>
+        <a href="/amazon-ppc-strategie/" class="nav-sub">Strategie-Aufbau</a>
+        <a href="/amazon-ppc-management/" class="nav-sub nav-sub-end">Kampagnen-Management</a>
+        <a href="/preise/">Preise</a>
+        <a href="/ueber-mich.html">Über mich</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/blog/">Blog</a>
+        <a href="#" class="active">Glossar</a>
+        <a href="/rechner/">Rechner</a>
+        <a href="/kontakt.html">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ COOKIE BANNER ═══════════ -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie-Hinweis">
+    <div class="cookie-banner-grid">
+      <p>Diese Website nutzt Cookies für anonyme Statistik (Google Analytics, IP anonymisiert). Details in der <a href="../../datenschutz.html">Datenschutzerklärung</a>.</p>
+      <div class="cookie-banner-buttons">
+        <button class="btn btn-ghost btn-sm" id="cookie-decline" type="button">Ablehnen</button>
+        <button class="btn btn-primary btn-sm" id="cookie-accept" type="button">Akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ SUB-HERO ═══════════ -->
+  <header class="sub-hero sub-hero-shader">
+    <canvas id="gradient-canvas-sub" data-transition-in></canvas>
+    <div class="sub-hero-fade"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="badge reveal" style="--reveal-delay: 0s;">
+          <span class="dot"></span>
+          Glossar · Kampagnensteuerung · Gebote
+        </span>
+        <h1 class="reveal" style="--reveal-delay: 0.06s;">
+          Bid Strategy. <span class="arrow">↗</span>
+        </h1>
+        <p class="lead reveal" style="--reveal-delay: 0.14s;">
+          Die Bid Strategy steuert, wie Amazon dein Gebot in Echtzeit anpasst. Sie ist der direkte Hebel zwischen Reichweite und Effizienz deiner Kampagnen.
+        </p>
+        <div class="hero-ctas reveal" style="--reveal-delay: 0.2s;">
+          <a href="#was-ist" class="btn btn-primary">Zum Artikel <span class="arrow">↗</span></a>
+          <a href="../../kontakt.html#termin" class="btn btn-ghost">Gespräch buchen</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════ ARTIKEL ═══════════ -->
+  <main>
+    <section class="article-section" id="was-ist">
+      <div class="article-wrap">
+
+        <p class="article-meta-line reveal">
+          <a href="../" style="color: var(--accent); text-decoration: none;">← Glossar</a>
+          &nbsp;·&nbsp; Kampagnensteuerung &nbsp;·&nbsp; Gebote
+        </p>
+
+        <h2 class="article-h1 reveal" style="--reveal-delay: 0.06s; font-size: clamp(28px, 4vw, 44px);">
+          Was ist die Bid Strategy bei Amazon PPC?
+        </h2>
+
+        <p class="glossar-lede reveal" style="--reveal-delay: 0.12s;">
+          Die falsche Bid Strategy kostet entweder Sichtbarkeit oder Budget. Meistens beides abwechselnd.
+        </p>
+
+        <div class="article-body">
+
+          <h2>Was ist eine Bid Strategy?</h2>
+
+          <p>Die Bid Strategy ist eine Einstellung auf Kampagnen-Ebene bei Sponsored Products. Sie legt fest, ob Amazon dein Gebot auf Basis der Conversion-Wahrscheinlichkeit anhebt, senkt oder unverändert lässt. Amazon nutzt dafür interne Signale wie Suchanfrage, Kaufhistorie und Wettbewerb. Du wählst die Strategie pro Kampagne, nicht pro Keyword.</p>
+
+          <h2>Die drei Optionen im Vergleich</h2>
+
+          <p><strong>Dynamic Bids — down only</strong><br />
+          Amazon senkt dein Gebot, wenn ein Klick unwahrscheinlich zur Conversion führt. Anheben ist nicht möglich. Das ist die defensive Variante und der Standard für neue Kampagnen ohne Daten-Basis.</p>
+
+          <p><strong>Dynamic Bids — up and down</strong><br />
+          Amazon darf dein Gebot um bis zu 100 Prozent erhöhen (auf Top-of-Search-Placements) oder um bis zu 50 Prozent auf anderen Placements. Bei niedriger Conversion-Wahrscheinlichkeit wird gesenkt. Gut für Kampagnen, die nachweislich profitabel laufen.</p>
+
+          <p><strong>Fixed Bids</strong><br />
+          Dein Gebot bleibt exakt so, wie du es eingestellt hast. Keine Anpassung durch Amazon. Maximale Kontrolle, ideal für saubere Test-Setups.</p>
+
+          <div class="highlight-box">
+            <p><strong>Rechenbeispiel: Up and down</strong></p>
+            <p style="margin-top: 8px;">Du setzt ein Gebot von 0,50 EUR. Bei Up and down kann Amazon daraus machen:</p>
+            <ul style="margin-top: 8px;">
+              <li>Top of Search, hohe Conversion-Wahrscheinlichkeit: bis zu 1,00 EUR (+100 Prozent)</li>
+              <li>Product Pages, hohe Conversion-Wahrscheinlichkeit: bis zu 0,75 EUR (+50 Prozent)</li>
+              <li>Beliebiges Placement, niedrige Conversion-Wahrscheinlichkeit: zum Beispiel 0,30 EUR</li>
+            </ul>
+            <p style="margin-top: 8px; color: var(--text-muted);">Dein durchschnittlicher CPC kann also deutlich vom Basisgebot abweichen.</p>
+          </div>
+
+          <h2>Welche Strategie wähle ich wann?</h2>
+
+          <p><strong>Start mit Down only.</strong> Neue Kampagnen ohne Conversion-Historie laufen am stabilsten. Du sammelst Daten, ohne dass Amazon dein Gebot nach oben treibt.</p>
+
+          <p><strong>Wechsel zu Up and down, wenn Daten da sind.</strong> Sobald eine Kampagne 50 oder mehr Conversions hat und der ACOS unter deinem Ziel liegt, ist Up and down einen Test wert. Du nutzt dann Amazons Algorithmus, um profitable Klicks aggressiver zu sichern.</p>
+
+          <p><strong>Fixed Bids für Tests.</strong> Wenn du ein neues Keyword-Set oder ein neues Produkt testest, gibt dir Fixed Bids saubere CPC-Werte ohne Algorithmus-Verzerrung.</p>
+
+          <p><strong>Top-of-Search Placement Modifier separat steuern.</strong> Der Placement Modifier (zum Beispiel +50 Prozent auf Top of Search) wirkt zusätzlich zur Bid Strategy. Bei Up and down kannst du also doppelte Erhöhungen bekommen. Rechne das durch, bevor du beides hochziehst.</p>
+
+          <h2>Häufige Fehler</h2>
+
+          <p><strong>Up and down ohne Daten-Basis.</strong> Eine neue Kampagne auf Up and down zu starten heißt, dass Amazon Gebote erhöht, bevor du weißt, ob die Klicks konvertieren. Budget verbrennt schnell.</p>
+
+          <p><strong>Fixed Bids ohne Monitoring.</strong> Fixed Bids geben Kontrolle, aber keine Automatik. Wenn du das Setup einmal aufsetzt und nicht mehr ansiehst, verpasst du Reaktionen auf Marktveränderungen.</p>
+
+          <p><strong>Bid Strategy mit Placement Modifier verwechseln.</strong> Beides beeinflusst dein effektives Gebot, aber unabhängig voneinander. Ein +100 Prozent Placement Modifier auf Top of Search plus Up and down kann dein Gebot vervierfachen.</p>
+
+          <p><strong>Alle Kampagnen mit derselben Strategie.</strong> Eine Brand-Defense-Kampagne hat andere Anforderungen als eine Discovery-Auto-Kampagne. Eine einheitliche Bid Strategy für alles ist eine vergebene Chance.</p>
+
+          <h2>Verwandte Begriffe</h2>
+
+          <ul>
+            <li><a href="../placement-top-of-search/"><strong>Placement: Top of Search</strong></a>: wie Placement Modifier und Bid Strategy zusammenwirken</li>
+            <li><a href="../cpc/"><strong>CPC</strong></a>: der tatsächliche Preis je Klick, der durch die Bid Strategy beeinflusst wird</li>
+            <li><a href="../acos/"><strong>ACOS</strong></a>: die Kennzahl, auf deren Basis du die richtige Strategie wählst</li>
+            <li><a href="../auto-vs-manual-kampagne/"><strong>Auto vs. Manual Kampagne</strong></a>: Auto-Kampagnen empfehlen sich standardmäßig mit Down only</li>
+          </ul>
+
+          <div class="highlight-box">
+            <p><strong>Kurz zusammengefasst:</strong> Start mit Down only, wechsle zu Up and down erst wenn Conversion-Daten da sind, und nutze Fixed Bids für kontrollierte Tests. Nie alle Kampagnen mit derselben Strategie betreiben.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════ FINAL CTA ═══════════ -->
+  <section class="final-cta" id="kontakt">
+    <canvas id="gradient-canvas-cta" data-transition-in></canvas>
+    <div class="cta-fade"></div>
+    <div class="wrap">
+      <span class="eyebrow reveal">Audit</span>
+      <h2 class="reveal" style="--reveal-delay: 0.06s;">Nicht sicher, welche Bid Strategy für welche Kampagne passt? <span class="arrow">↗</span></h2>
+      <p class="lead reveal" style="--reveal-delay: 0.12s;">Ein Audit zeigt, ob Up and down zu früh aktiviert wurde und wo Budget durch falsche Strategie-Wahl unnötig verbrennt.</p>
+      <div class="kontakt-grid reveal" style="--reveal-delay: 0.18s; max-width: 720px; margin: 48px auto 0;">
+        <a class="kontakt-card kontakt-card-primary" href="../../kontakt.html#termin">
+          <div class="k-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <div class="k-label">Erstgespräch buchen</div>
+          <div class="k-sub">15 Min. via Cal.eu</div>
+          <span class="k-arrow">↗</span>
+        </a>
+        <a class="kontakt-card" href="../../amazon-ppc-audit/">
+          <div class="k-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <div class="k-label">Account-Audit</div>
+          <div class="k-sub">Diagnose in 48 Stunden</div>
+          <span class="k-arrow">↗</span>
+        </a>
+        <a class="kontakt-card" href="../../amazon-ppc-management/">
+          <div class="k-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div class="k-label">Laufendes Management</div>
+          <div class="k-sub">Strategie-Wahl pro Kampagne inklusive</div>
+          <span class="k-arrow">↗</span>
+        </a>
+      </div>
+      <div class="trust reveal" style="--reveal-delay: 0.24s;">
+        <span>Amazon Ads Certified</span>
+        <span>Direkter Kontakt</span>
+        <span>Kein Lock-in</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SEO-FOOTER ═══════════ -->
+  <aside class="seo-footer" aria-label="Sitemap">
+    <div class="wrap">
+      <div class="seo-footer-grid">
+        <div class="seo-footer-col">
+          <h3>Leistungen</h3>
+          <ul>
+            <li><a href="/amazon-ppc-audit/">Account-Audit</a></li>
+            <li><a href="/amazon-ppc-strategie/">Strategie-Aufbau</a></li>
+            <li><a href="/amazon-ppc-management/">Kampagnen-Management</a></li>
+            <li><a href="/preise/">Preise</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Ressourcen</h3>
+          <ul>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/glossar/">Glossar</a></li>
+            <li><a href="/rechner/">Rechner</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Über</h3>
+          <ul>
+            <li><a href="/ueber-mich.html">Über mich</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Rechtliches</h3>
+          <ul>
+            <li><a href="/impressum.html">Impressum</a></li>
+            <li><a href="/datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="seo-footer-text">
+        <p>
+          Die <strong>Bid Strategy</strong> bei <strong>Amazon PPC</strong> legt fest, ob Amazon das Gebot in Echtzeit anpasst: Dynamic Bids down only, up and down oder Fixed Bids. Die richtige Wahl hängt von Conversion-Daten und Kampagnen-Reife ab. <strong>Leon-Vincent Gamradt</strong>, Amazon PPC Spezialist aus Berlin, übernimmt im <a href="../../amazon-ppc-management/">laufenden Management</a> die Strategie-Wahl pro Kampagne. Für eine schnelle Diagnose: <a href="../../amazon-ppc-audit/">Account-Audit in 48 Stunden</a>.
+        </p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="../../assets/logo-primary.svg" alt="LVG PPC" />
+        <span class="copy">© 2026 Leon-Vincent Gamradt</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════ SCRIPTS ═══════════ -->
+  <script src="../../assets/whatamesh.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var staticBg =
+        "radial-gradient(ellipse 70% 50% at 28% 28%, rgba(34,197,94,0.42), transparent 60%)," +
+        "radial-gradient(ellipse 60% 50% at 82% 60%, rgba(30,64,175,0.48), transparent 60%)," +
+        "radial-gradient(ellipse 60% 55% at 60% 92%, rgba(107,33,168,0.42), transparent 60%)," +
+        "#0f172a";
+      ['gradient-canvas-sub', 'gradient-canvas-cta'].forEach(function (id) {
+        var canvas = document.getElementById(id);
+        if (canvas) canvas.style.background = staticBg;
+        try {
+          if (typeof Gradient !== 'undefined' && canvas) {
+            var g = new Gradient();
+            g.initGradient('#' + id);
+          }
+        } catch (err) { console.warn('Gradient init failed for #' + id, err); }
+      });
+    });
+  </script>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>
