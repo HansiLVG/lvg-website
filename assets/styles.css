@@ -2986,7 +2986,6 @@ a[href*="/glossar/"] {
   text-decoration-color: rgba(34, 197, 94, 0.3);
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
-  transition: color .15s, text-decoration-color .15s;
 }
 a[href*="/glossar/"]:hover {
   color: var(--accent);
