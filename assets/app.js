@@ -267,96 +267,87 @@
     });
   }
 
-  /* ─── Site-Suche ─── */
+  /* ─── Site-Suche: Inline Nav-Bar ─── */
   function initSearch() {
+    var navInner = document.querySelector('.nav-inner');
     var navLinks = document.querySelector('.nav-links');
-    if (!navLinks) return;
+    var navBrand = document.querySelector('.nav-brand');
+    if (!navInner || !navLinks || !navBrand) return;
 
-    /* Button als erstes Element in nav-links injizieren (direkt links von "Leistungen") */
-    var btn = document.createElement('button');
-    btn.className = 'nav-search-btn';
-    btn.setAttribute('aria-label', 'Suche öffnen');
-    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
-    navLinks.insertBefore(btn, navLinks.firstChild);
+    navBrand.style.flex = '0 0 auto';
 
-    /* Overlay injizieren */
-    var overlay = document.createElement('div');
-    overlay.className = 'search-overlay';
-    overlay.setAttribute('role', 'dialog');
-    overlay.setAttribute('aria-label', 'Suche');
-    overlay.innerHTML =
-      '<div class="search-overlay-box">' +
-        '<div class="search-input-wrap">' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' +
-          '<input class="search-input" type="search" placeholder="Seite, Begriff oder Thema suchen…" autocomplete="off" />' +
-          '<button class="search-close" type="button">ESC</button>' +
-        '</div>' +
-        '<div class="search-results" id="search-results" hidden></div>' +
-        '<p class="search-hint">Enter zum Öffnen des ersten Treffers</p>' +
+    var bar = document.createElement('div');
+    bar.className = 'nav-search-bar';
+    bar.innerHTML =
+      '<div class="nav-search-wrap">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' +
+        '<input class="nav-search-input" type="search" placeholder="Seite oder Begriff suchen…" autocomplete="off" />' +
+        '<span class="nav-search-kbd">⌘K</span>' +
       '</div>';
-    document.body.appendChild(overlay);
+    navInner.insertBefore(bar, navLinks);
 
-    var input   = overlay.querySelector('.search-input');
-    var results = overlay.querySelector('#search-results');
-    var index   = null;
+    var input = bar.querySelector('.nav-search-input');
+    var index = null;
+    var dropdown = null;
 
-    function open() {
-      overlay.classList.add('open');
-      input.focus();
-      if (!index) {
-        fetch('/search-index.json')
-          .then(function (r) { return r.json(); })
-          .then(function (data) { index = data; })
-          .catch(function () { index = []; });
-      }
-    }
-    function close() {
-      overlay.classList.remove('open');
-      input.value = '';
-      results.hidden = true;
-      results.innerHTML = '';
+    function loadIndex(cb) {
+      if (index) { cb(); return; }
+      fetch('/search-index.json')
+        .then(function (r) { return r.json(); })
+        .then(function (d) { index = d; cb(); })
+        .catch(function () { index = []; cb(); });
     }
 
-    function search(q) {
-      q = q.toLowerCase().trim();
-      results.hidden = true;
-      results.innerHTML = '';
-      if (!q || !index) return;
-      var hits = index.filter(function (item) {
-        return (item.title + ' ' + item.desc + ' ' + item.cat).toLowerCase().includes(q);
-      }).slice(0, 7);
+    function closeDropdown() {
+      if (dropdown) { dropdown.remove(); dropdown = null; }
+    }
+
+    function showDropdown(hits) {
+      closeDropdown();
       if (!hits.length) return;
+      dropdown = document.createElement('div');
+      dropdown.className = 'nav-search-dropdown';
       hits.forEach(function (item) {
         var a = document.createElement('a');
-        a.className = 'search-result';
+        a.className = 'nav-search-item';
         a.href = item.url;
         a.innerHTML =
-          '<span class="search-result-cat">' + item.cat + '</span>' +
-          '<span class="search-result-body">' +
-            '<div class="search-result-title">' + item.title + '</div>' +
-            '<div class="search-result-desc">' + item.desc + '</div>' +
-          '</span>';
-        a.addEventListener('click', close);
-        results.appendChild(a);
+          '<span class="nav-search-item-cat">' + item.cat + '</span>' +
+          '<span class="nav-search-item-title">' + item.title + '</span>';
+        a.addEventListener('mousedown', function (e) {
+          e.preventDefault();
+          window.location.href = item.url;
+        });
+        dropdown.appendChild(a);
       });
-      results.hidden = false;
+      bar.appendChild(dropdown);
     }
 
-    btn.addEventListener('click', open);
-    overlay.querySelector('.search-close').addEventListener('click', close);
-    overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) close();
+    input.addEventListener('input', function () {
+      var q = input.value.toLowerCase().trim();
+      if (!q) { closeDropdown(); return; }
+      loadIndex(function () {
+        var hits = index.filter(function (item) {
+          return (item.title + ' ' + item.desc + ' ' + item.cat).toLowerCase().includes(q);
+        }).slice(0, 6);
+        showDropdown(hits);
+      });
     });
-    input.addEventListener('input', function () { search(input.value); });
+
     input.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') {
-        var first = results.querySelector('.search-result');
-        if (first) { close(); window.location.href = first.href; }
+      if (e.key === 'Escape') { input.value = ''; closeDropdown(); input.blur(); }
+      if (e.key === 'Enter' && dropdown) {
+        var first = dropdown.querySelector('.nav-search-item');
+        if (first) { window.location.href = first.href; }
       }
     });
+
+    input.addEventListener('blur', function () {
+      setTimeout(closeDropdown, 150);
+    });
+
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && overlay.classList.contains('open')) close();
-      if ((e.key === 'k' && (e.metaKey || e.ctrlKey))) { e.preventDefault(); open(); }
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); input.focus(); }
     });
   }
 
