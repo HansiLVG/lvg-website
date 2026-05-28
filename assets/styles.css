@@ -166,19 +166,20 @@ section[id] { scroll-margin-top: 72px; }
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 999px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.20);
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 24px;
   transition: background 0.25s var(--ease), backdrop-filter 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
+.nav-left { display: flex; align-items: center; gap: 16px; }
 .nav-brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex: 1;
+  flex: 0 0 auto;
 }
-.nav-brand img { height: 36px; width: auto; }
+.nav-brand img { height: 36px; width: auto; flex-shrink: 0; }
 .nav-links {
   display: flex;
   gap: 32px;
@@ -195,7 +196,7 @@ section[id] { scroll-margin-top: 72px; }
 }
 .nav-links a:hover { color: var(--text); }
 .nav-links a.active { color: var(--accent); }
-.nav-right { display: flex; align-items: center; gap: 16px; flex: 1; justify-content: flex-end; }
+.nav-right { display: flex; align-items: center; gap: 16px; justify-content: flex-end; }
 @media (max-width: 880px) { .nav-cta-secondary { display: none; } }
 .nav-hamb {
   display: none;
@@ -381,6 +382,8 @@ section[id] { scroll-margin-top: 72px; }
     -webkit-backdrop-filter: blur(12px);
   }
   .nav-inner {
+    display: flex;
+    justify-content: space-between;
     border-radius: 0;
     width: 100%;
     max-width: 100%;
@@ -3054,7 +3057,7 @@ main a[href*="/glossar/"]:hover {
 /* ─── Site-Suche: Inline Nav-Bar ─── */
 .nav-search-bar {
   flex: 1;
-  max-width: 320px;
+  max-width: 200px;
   position: relative;
 }
 .nav-search-wrap {
