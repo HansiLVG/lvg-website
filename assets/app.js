@@ -258,15 +258,59 @@
       btn.disabled = true;
       btn.innerHTML = 'Wird gesendet…';
 
+      sessionStorage.setItem('brevo_email', email);
+      sessionStorage.setItem('brevo_vorname', firstname);
+      sessionStorage.setItem('brevo_endpoint', endpoint);
+
       fetch(endpoint, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'EMAIL=' + encodeURIComponent(email) + '&FIRSTNAME=' + encodeURIComponent(firstname) + '&email_address_check=&locale=de'
+        body: 'EMAIL=' + encodeURIComponent(email) + '&VORNAME=' + encodeURIComponent(firstname) + '&email_address_check=&locale=de'
       }).finally(function () {
         window.location.href = '/anmeldung-bestaetigen/';
       });
     });
+  }
+
+  /* ─── Brevo Erneut-Senden (Bestätigungsseite) ─── */
+  function initResendTimer() {
+    var wrap = document.getElementById('resend-wrap');
+    if (!wrap) return;
+    var email    = sessionStorage.getItem('brevo_email');
+    var vorname  = sessionStorage.getItem('brevo_vorname');
+    var endpoint = sessionStorage.getItem('brevo_endpoint');
+    if (!email || !endpoint) return;
+
+    wrap.style.display = 'block';
+    var countdown = document.getElementById('resend-countdown');
+    var btn       = document.getElementById('resend-btn');
+    var seconds   = 30;
+
+    var timer = setInterval(function () {
+      seconds--;
+      if (seconds > 0) {
+        countdown.textContent = seconds;
+      } else {
+        clearInterval(timer);
+        btn.innerHTML = 'Erneut senden';
+        btn.style.color = 'var(--accent)';
+        btn.style.cursor = 'pointer';
+        btn.style.textDecoration = 'underline';
+        btn.addEventListener('click', function () {
+          btn.textContent = 'Gesendet ✓';
+          btn.style.color = 'var(--text-muted)';
+          btn.style.cursor = 'default';
+          btn.style.textDecoration = 'none';
+          fetch(endpoint, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: 'EMAIL=' + encodeURIComponent(email) + '&VORNAME=' + encodeURIComponent(vorname || '') + '&email_address_check=&locale=de'
+          });
+        }, { once: true });
+      }
+    }, 1000);
   }
 
   /* ─── Site-Suche ─── */
@@ -381,6 +425,7 @@
     initCookieBanner();
     initUeberPortrait();
     initBrevoForm();
+    initResendTimer();
     initSearch();
   }
   if (document.readyState === 'loading') {
