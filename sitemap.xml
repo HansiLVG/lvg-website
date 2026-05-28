@@ -146,6 +146,31 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lvg-ppc.de/glossar/search-term-report/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/bid-strategy/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/amazon-marketing-cloud/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/bulk-sheet/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/amazon-dsp/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lvg-ppc.de/impressum.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
