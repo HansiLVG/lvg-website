@@ -274,7 +274,10 @@
     var navBrand = document.querySelector('.nav-brand');
     if (!navInner || !navLinks || !navBrand) return;
 
-    navBrand.style.flex = '0 0 auto';
+    var navLeft = document.createElement('div');
+    navLeft.className = 'nav-left';
+    navInner.insertBefore(navLeft, navBrand);
+    navLeft.appendChild(navBrand);
 
     var bar = document.createElement('div');
     bar.className = 'nav-search-bar';
@@ -284,7 +287,7 @@
         '<input class="nav-search-input" type="search" placeholder="Seite oder Begriff suchen…" autocomplete="off" />' +
         '<span class="nav-search-kbd">⌘K</span>' +
       '</div>';
-    navInner.insertBefore(bar, navLinks);
+    navLeft.appendChild(bar);
 
     var input = bar.querySelector('.nav-search-input');
     var index = null;
