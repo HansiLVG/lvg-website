@@ -248,9 +248,11 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var emailInput = form.querySelector('input[type="email"]');
+      var emailInput = form.querySelector('input[name="email"]');
+      var firstnameInput = form.querySelector('input[name="firstname"]');
       var btn = form.querySelector('button[type="submit"]');
       var email = emailInput ? emailInput.value.trim() : '';
+      var firstname = firstnameInput ? firstnameInput.value.trim() : '';
       if (!email) return;
 
       btn.disabled = true;
@@ -260,7 +262,7 @@
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'EMAIL=' + encodeURIComponent(email) + '&email_address_check=&locale=de'
+        body: 'EMAIL=' + encodeURIComponent(email) + '&FIRSTNAME=' + encodeURIComponent(firstname) + '&email_address_check=&locale=de'
       }).finally(function () {
         window.location.href = '/anmeldung-bestaetigen/';
       });
