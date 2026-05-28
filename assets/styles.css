@@ -196,7 +196,7 @@ section[id] { scroll-margin-top: 72px; }
 .nav-links a:hover { color: var(--text); }
 .nav-links a.active { color: var(--accent); }
 .nav-right { display: flex; align-items: center; gap: 16px; flex: 1; justify-content: flex-end; }
-@media (max-width: 880px) { .nav-cta-secondary { display: none; } }
+@media (max-width: 880px) { .nav-right .nav-cta-secondary { display: none; } }
 .nav-hamb {
   display: none;
   background: none;
