@@ -48,8 +48,6 @@ website-main/
 ├── fonts/
 │   ├── space-grotesk-latin.woff2   ← Variable 300–700
 │   └── inter-latin.woff2           ← Variable 300–700
-├── _dev-server.js                  ← Lokaler Dev-Server (`node _dev-server.js`)
-└── _dev-editor.js                  ← Visueller Editor (Alt+E im Browser, lokal injiziert)
 ```
 
 Vollständige Spezifikation V2-Design: siehe `../website-v2-dev/DESIGN-SYSTEM-V2.md` im Workspace-Repo.
