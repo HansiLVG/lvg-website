@@ -239,6 +239,34 @@
     });
   }
 
+  /* ─── Brevo E-Mail-Formular ─── */
+  function initBrevoForm() {
+    var form = document.querySelector('.calc-email-form');
+    if (!form) return;
+    var endpoint = form.getAttribute('data-brevo-endpoint');
+    if (!endpoint) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var emailInput = form.querySelector('input[type="email"]');
+      var btn = form.querySelector('button[type="submit"]');
+      var email = emailInput ? emailInput.value.trim() : '';
+      if (!email) return;
+
+      btn.disabled = true;
+      btn.innerHTML = 'Wird gesendet…';
+
+      fetch(endpoint, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'EMAIL=' + encodeURIComponent(email) + '&email_address_check=&locale=de'
+      }).finally(function () {
+        window.location.href = '/anmeldung-bestaetigen/';
+      });
+    });
+  }
+
   /* ─── Boot ─── */
   function boot() {
     initMobileNav();
@@ -247,6 +275,7 @@
     initReveal();
     initCookieBanner();
     initUeberPortrait();
+    initBrevoForm();
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
