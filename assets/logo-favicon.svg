@@ -1,6 +1,3 @@
-<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="LVG PPC — Favicon">
-  <rect x="0" y="0" width="200" height="200" rx="20" ry="20" fill="#22c55e"></rect>
-  <g transform="rotate(-45 100 100)" fill="#FFFFFF">
-    <polygon points="15,86 135,86 135,60 180,100 135,140 135,114 15,114"></polygon>
-  </g>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="LVG PPC Favicon">
+  <polygon points="8,12 92,12 50,88" fill="#22c55e"/>
 </svg>

@@ -71,8 +71,9 @@
         <div class="name">Dreieck-Icon</div>
         <div class="meta">logo-icon.svg &mdash; quadratisch, transparenter Hintergrund</div>
         <div class="buttons">
-          <button onclick="exportPNG('icon', 512)">PNG 512x512</button>
-          <button onclick="exportPNG('icon', 1024)">PNG 1024x1024</button>
+          <button onclick="exportPNG('icon', 1024)">PNG 1024</button>
+          <button onclick="exportPNG('icon', 2048)">PNG 2048</button>
+          <button onclick="exportPNG('icon', 4096)">PNG 4K (4096)</button>
         </div>
         <div class="status" id="status-icon"></div>
       </div>
@@ -86,8 +87,9 @@
         <div class="name">Wordmark</div>
         <div class="meta">logo-wordmark.svg &mdash; reines Textlogo, transparent</div>
         <div class="buttons">
-          <button onclick="exportPNG('wordmark', 800)">PNG 800px</button>
           <button onclick="exportPNG('wordmark', 1600)">PNG 1600px</button>
+          <button onclick="exportPNG('wordmark', 2400)">PNG 2400px</button>
+          <button onclick="exportPNG('wordmark', 3840)">PNG 4K (3840px)</button>
         </div>
         <div class="status" id="status-wordmark"></div>
       </div>
@@ -101,8 +103,9 @@
         <div class="name">Logo gesamt</div>
         <div class="meta">logo-primary.svg &mdash; Funnel + Wordmark, transparent</div>
         <div class="buttons">
-          <button onclick="exportPNG('primary', 1200)">PNG 1200px</button>
+          <button onclick="exportPNG('primary', 1600)">PNG 1600px</button>
           <button onclick="exportPNG('primary', 2400)">PNG 2400px</button>
+          <button onclick="exportPNG('primary', 3840)">PNG 4K (3840px)</button>
         </div>
         <div class="status" id="status-primary"></div>
       </div>
@@ -116,9 +119,9 @@
 
   <script>
     const configs = {
-      icon:     { src: 'assets/logo-icon.svg',     vw: 200,  vh: 200  },
-      wordmark: { src: 'assets/logo-wordmark.svg', vw: 310,  vh: 235  },
-      primary:  { src: 'assets/logo-primary.svg',  vw: 560,  vh: 235  },
+      icon:     { src: 'assets/logo-icon.svg',     vw: 281.4,  vh: 281.4 },
+      wordmark: { src: 'assets/logo-wordmark.svg', vw: 231.17, vh: 213   },
+      primary:  { src: 'assets/logo-primary.svg',  vw: 472.17, vh: 213   },
     };
 
     let fontBase64 = null;
