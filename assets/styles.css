@@ -234,7 +234,9 @@ section[id] { scroll-margin-top: 72px; }
 }
 .nav-mobile.open { grid-template-rows: 1fr; }
 .nav-mobile-inner {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: calc(100dvh - 80px);
   display: flex; flex-direction: column;
   gap: 4px;
   padding: 0 var(--pad-x);
@@ -416,18 +418,8 @@ section[id] { scroll-margin-top: 72px; }
     max-width: 100%;
     border-radius: 0;
   }
-  /* Leistungs-Sub-Links im Hamburger-Menü */
-  .nav-mobile a.nav-sub {
-    font-size: 11px;
-    padding: 8px 0 8px 16px;
-    color: var(--text-muted);
-    border-bottom: none;
-    letter-spacing: 0.06em;
-    opacity: 0.8;
-  }
-  .nav-mobile .nav-sub-end {
-    padding-top: 18px;
-  }
+  /* Sub-Links (Leistungs-Unterseiten) im Hamburger-Menü ausblenden */
+  .nav-mobile a.nav-sub { display: none; }
 }
 
 /* ─── BUTTONS ──────────────────────────────────────────────── */
