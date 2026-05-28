@@ -2978,3 +2978,62 @@ form[data-fs-form-success] ~ .form-success { display: block; }
   .section-head { margin-bottom: clamp(40px, 3.5vw, 64px); }
   .big-stat .num { font-size: clamp(3.6rem, 3.5vw, 5.5rem); }
 }
+
+/* ─── Glossar: Filter-Bar + Suche ─── */
+.glossar-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.glossar-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: 1;
+}
+.filter-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text-soft);
+  font: 500 13px/1 var(--sans);
+  cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.filter-btn:hover {
+  border-color: rgba(34,197,94,.4);
+  color: var(--text);
+}
+.filter-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+.glossar-search {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  color: var(--text);
+  font: 14px/1.4 var(--sans);
+  width: 200px;
+  outline: none;
+  transition: border-color .2s;
+}
+.glossar-search:focus { border-color: rgba(34,197,94,.4); }
+.glossar-search::placeholder { color: var(--text-muted); }
+.blog-card.is-hidden { display: none; }
+.glossar-no-results {
+  display: none;
+  color: var(--text-muted);
+  font-size: .95rem;
+  padding: 24px 0;
+}
+.glossar-no-results.visible { display: block; }
+@media (max-width: 600px) {
+  .glossar-filter-bar { flex-direction: column; align-items: flex-start; }
+  .glossar-search { width: 100%; }
+}

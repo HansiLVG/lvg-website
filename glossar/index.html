@@ -19,7 +19,7 @@
   <meta property="og:image" content="https://lvg-ppc.de/assets/logo-primary.svg" />
   <meta property="og:image:alt" content="LVG PPC, Amazon PPC Spezialist Berlin" />
 
-  <link rel="icon" type="image/svg+xml" href="../assets/logo-favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="../assets/logo-favicon.svg?v=2" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
 
@@ -152,9 +152,21 @@
     <section style="padding: 80px 0 120px;">
       <div class="wrap" style="max-width: 800px;">
 
+        <!-- Filter-Bar -->
+        <div class="glossar-filter-bar reveal">
+          <div class="glossar-filter-tabs">
+            <button class="filter-btn active" data-filter="all">Alle</button>
+            <button class="filter-btn" data-filter="kennzahlen">Kennzahlen</button>
+            <button class="filter-btn" data-filter="anzeigenformate">Anzeigenformate</button>
+            <button class="filter-btn" data-filter="kampagnensteuerung">Kampagnensteuerung</button>
+            <button class="filter-btn" data-filter="analyse">Analyse &amp; Tools</button>
+          </div>
+          <input class="glossar-search" type="search" placeholder="Begriff suchen…" aria-label="Glossar durchsuchen" />
+        </div>
+
         <div class="blog-list">
 
-          <a class="blog-card reveal" href="acos/">
+          <a class="blog-card reveal" href="acos/" data-cat="kennzahlen">
             <div class="blog-card-meta">KPI · Effizienz · Kampagnenebene</div>
             <div class="blog-card-title">ACOS</div>
             <p class="blog-card-teaser">
@@ -163,7 +175,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="tacos/">
+          <a class="blog-card reveal" href="tacos/" data-cat="kennzahlen">
             <div class="blog-card-meta">KPI · Strategie · Account-Ebene</div>
             <div class="blog-card-title">TACOS</div>
             <p class="blog-card-teaser">
@@ -172,7 +184,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="roas/">
+          <a class="blog-card reveal" href="roas/" data-cat="kennzahlen">
             <div class="blog-card-meta">KPI · Effizienz · Performance-Marketing</div>
             <div class="blog-card-title">ROAS</div>
             <p class="blog-card-teaser">
@@ -181,7 +193,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="cpc/">
+          <a class="blog-card reveal" href="cpc/" data-cat="kennzahlen">
             <div class="blog-card-meta">KPI · Kosten · Auktion</div>
             <div class="blog-card-title">CPC</div>
             <p class="blog-card-teaser">
@@ -190,7 +202,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="ctr/">
+          <a class="blog-card reveal" href="ctr/" data-cat="kennzahlen">
             <div class="blog-card-meta">KPI · Funnel · Anzeigen-Performance</div>
             <div class="blog-card-title">CTR</div>
             <p class="blog-card-teaser">
@@ -199,7 +211,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="conversion-rate/">
+          <a class="blog-card reveal" href="conversion-rate/" data-cat="kennzahlen">
             <div class="blog-card-meta">KPI · Funnel · Listing</div>
             <div class="blog-card-title">Conversion Rate</div>
             <p class="blog-card-teaser">
@@ -208,7 +220,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="impression-share/">
+          <a class="blog-card reveal" href="impression-share/" data-cat="kennzahlen">
             <div class="blog-card-meta">KPI · Sichtbarkeit · Auktion</div>
             <div class="blog-card-title">Impression Share</div>
             <p class="blog-card-teaser">
@@ -217,7 +229,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="sponsored-products/">
+          <a class="blog-card reveal" href="sponsored-products/" data-cat="anzeigenformate">
             <div class="blog-card-meta">Kampagnen-Format · Targeting · Amazon Advertising</div>
             <div class="blog-card-title">Sponsored Products</div>
             <p class="blog-card-teaser">
@@ -226,7 +238,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="sponsored-brands/">
+          <a class="blog-card reveal" href="sponsored-brands/" data-cat="anzeigenformate">
             <div class="blog-card-meta">Kampagnen-Format · Brand · Amazon Advertising</div>
             <div class="blog-card-title">Sponsored Brands</div>
             <p class="blog-card-teaser">
@@ -235,7 +247,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="sponsored-display/">
+          <a class="blog-card reveal" href="sponsored-display/" data-cat="anzeigenformate">
             <div class="blog-card-meta">Kampagnen-Format · Retargeting · Amazon Advertising</div>
             <div class="blog-card-title">Sponsored Display</div>
             <p class="blog-card-teaser">
@@ -244,7 +256,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="match-types/">
+          <a class="blog-card reveal" href="match-types/" data-cat="kampagnensteuerung">
             <div class="blog-card-meta">Targeting · Kampagnen-Mechanik · Keywords</div>
             <div class="blog-card-title">Match Types</div>
             <p class="blog-card-teaser">
@@ -253,7 +265,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="negative-keywords/">
+          <a class="blog-card reveal" href="negative-keywords/" data-cat="kampagnensteuerung">
             <div class="blog-card-meta">Targeting · Optimierung · ACOS</div>
             <div class="blog-card-title">Negative Keywords</div>
             <p class="blog-card-teaser">
@@ -262,7 +274,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="auto-vs-manual-kampagne/">
+          <a class="blog-card reveal" href="auto-vs-manual-kampagne/" data-cat="kampagnensteuerung">
             <div class="blog-card-meta">Kampagnen-Struktur · Targeting · Strategie</div>
             <div class="blog-card-title">Auto vs. Manual Kampagne</div>
             <p class="blog-card-teaser">
@@ -271,7 +283,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="placement-top-of-search/">
+          <a class="blog-card reveal" href="placement-top-of-search/" data-cat="kampagnensteuerung">
             <div class="blog-card-meta">Kampagnen-Mechanik · Sichtbarkeit · Gebotsoptimierung</div>
             <div class="blog-card-title">Placement: Top of Search</div>
             <p class="blog-card-teaser">
@@ -280,7 +292,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="search-term-report/">
+          <a class="blog-card reveal" href="search-term-report/" data-cat="analyse">
             <div class="blog-card-meta">Analyse · Reporting · Amazon PPC</div>
             <div class="blog-card-title">Search Term Report</div>
             <p class="blog-card-teaser">
@@ -289,7 +301,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="bid-strategy/">
+          <a class="blog-card reveal" href="bid-strategy/" data-cat="kampagnensteuerung">
             <div class="blog-card-meta">Kampagnensteuerung · Gebote · Optimierung</div>
             <div class="blog-card-title">Bid Strategy</div>
             <p class="blog-card-teaser">
@@ -298,7 +310,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="amazon-marketing-cloud/">
+          <a class="blog-card reveal" href="amazon-marketing-cloud/" data-cat="analyse">
             <div class="blog-card-meta">Attribution · Cross-Channel · Advanced Analytics</div>
             <div class="blog-card-title">Amazon Marketing Cloud</div>
             <p class="blog-card-teaser">
@@ -307,7 +319,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="bulk-sheet/">
+          <a class="blog-card reveal" href="bulk-sheet/" data-cat="analyse">
             <div class="blog-card-meta">Kampagnenpflege · Effizienz · Massenbearbeitung</div>
             <div class="blog-card-title">Bulk Sheet</div>
             <p class="blog-card-teaser">
@@ -316,7 +328,7 @@
             <span class="blog-card-link">Definition lesen ↗</span>
           </a>
 
-          <a class="blog-card reveal" href="amazon-dsp/">
+          <a class="blog-card reveal" href="amazon-dsp/" data-cat="anzeigenformate">
             <div class="blog-card-meta">Display · Programmatisch · Upper Funnel</div>
             <div class="blog-card-title">Amazon DSP</div>
             <p class="blog-card-teaser">
@@ -326,6 +338,7 @@
           </a>
 
         </div>
+        <p class="glossar-no-results" id="glossar-no-results">Kein Begriff gefunden.</p>
 
       </div>
     </section>
@@ -453,5 +466,38 @@
     });
   </script>
   <script src="../assets/app.js" defer></script>
+  <script>
+    (function () {
+      var cards = Array.from(document.querySelectorAll('.blog-card[data-cat]'));
+      var btns  = Array.from(document.querySelectorAll('.filter-btn'));
+      var input = document.querySelector('.glossar-search');
+      var noRes = document.getElementById('glossar-no-results');
+      var activeFilter = 'all';
+
+      function applyFilter() {
+        var q = input ? input.value.toLowerCase().trim() : '';
+        var visible = 0;
+        cards.forEach(function (card) {
+          var catOk  = activeFilter === 'all' || card.dataset.cat === activeFilter;
+          var textOk = !q || card.textContent.toLowerCase().includes(q);
+          var show   = catOk && textOk;
+          card.classList.toggle('is-hidden', !show);
+          if (show) visible++;
+        });
+        if (noRes) noRes.classList.toggle('visible', visible === 0);
+      }
+
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          activeFilter = btn.dataset.filter;
+          applyFilter();
+        });
+      });
+
+      if (input) input.addEventListener('input', applyFilter);
+    })();
+  </script>
 </body>
 </html>
