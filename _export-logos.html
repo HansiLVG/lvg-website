@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Logo Export</title>
+  <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face {
+      font-family: "Space Grotesk";
+      src: url("fonts/space-grotesk-latin.woff2") format("woff2");
+      font-weight: 300 700;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0e1117;
+      color: #f0f0f0;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      padding: 60px 80px;
+    }
+    h1 { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(240,240,240,0.38); margin-bottom: 48px; }
+    .grid { display: flex; flex-direction: column; gap: 40px; }
+    .row {
+      background: #131820;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .preview { flex-shrink: 0; }
+    .preview img { height: 56px; display: block; }
+    .preview.icon img { height: 56px; width: 56px; }
+    .info { flex: 1; }
+    .name { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .meta { font-size: 12px; color: rgba(240,240,240,0.38); margin-bottom: 16px; }
+    .buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+    button {
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.25);
+      color: #22c55e;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    button:hover { background: rgba(34,197,94,0.18); }
+    button:disabled { opacity: 0.4; cursor: not-allowed; }
+    .status { font-size: 11px; color: rgba(240,240,240,0.38); margin-top: 10px; min-height: 16px; }
+    .note {
+      font-size: 12px;
+      color: rgba(240,240,240,0.38);
+      margin-top: 48px;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Logo PNG Export</h1>
+
+  <div class="grid">
+    <div class="row">
+      <div class="preview icon">
+        <img src="assets/logo-icon.svg" id="prev-icon">
+      </div>
+      <div class="info">
+        <div class="name">Dreieck-Icon</div>
+        <div class="meta">logo-icon.svg &mdash; quadratisch, transparenter Hintergrund</div>
+        <div class="buttons">
+          <button onclick="exportPNG('icon', 512)">PNG 512x512</button>
+          <button onclick="exportPNG('icon', 1024)">PNG 1024x1024</button>
+        </div>
+        <div class="status" id="status-icon"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="preview">
+        <img src="assets/logo-wordmark.svg" id="prev-wordmark">
+      </div>
+      <div class="info">
+        <div class="name">Wordmark</div>
+        <div class="meta">logo-wordmark.svg &mdash; reines Textlogo, transparent</div>
+        <div class="buttons">
+          <button onclick="exportPNG('wordmark', 800)">PNG 800px</button>
+          <button onclick="exportPNG('wordmark', 1600)">PNG 1600px</button>
+        </div>
+        <div class="status" id="status-wordmark"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="preview">
+        <img src="assets/logo-primary.svg" id="prev-primary">
+      </div>
+      <div class="info">
+        <div class="name">Logo gesamt</div>
+        <div class="meta">logo-primary.svg &mdash; Funnel + Wordmark, transparent</div>
+        <div class="buttons">
+          <button onclick="exportPNG('primary', 1200)">PNG 1200px</button>
+          <button onclick="exportPNG('primary', 2400)">PNG 2400px</button>
+        </div>
+        <div class="status" id="status-primary"></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">
+    Fonts werden direkt aus dem Browser gerendert. Space Grotesk ist eingebettet.
+    Nach dem Klick kurz warten (1-2 Sek.), dann startet der Download automatisch.
+  </p>
+
+  <script>
+    const configs = {
+      icon:     { src: 'assets/logo-icon.svg',     vw: 200,  vh: 200  },
+      wordmark: { src: 'assets/logo-wordmark.svg', vw: 310,  vh: 235  },
+      primary:  { src: 'assets/logo-primary.svg',  vw: 560,  vh: 235  },
+    };
+
+    let fontBase64 = null;
+
+    async function getFont() {
+      if (fontBase64) return fontBase64;
+      const res = await fetch('fonts/space-grotesk-latin.woff2');
+      const buf = await res.arrayBuffer();
+      const bytes = new Uint8Array(buf);
+      let binary = '';
+      for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+      fontBase64 = btoa(binary);
+      return fontBase64;
+    }
+
+    async function exportPNG(key, outputWidth) {
+      const cfg = configs[key];
+      const statusEl = document.getElementById('status-' + key);
+      statusEl.textContent = 'Wird generiert...';
+
+      const font = await getFont();
+      const fontStyle = `@font-face{font-family:"Space Grotesk";src:url("data:font/woff2;base64,${font}") format("woff2");font-weight:100 900;}`;
+
+      const res = await fetch(cfg.src);
+      let svgText = await res.text();
+
+      // Inject font into SVG
+      svgText = svgText.replace(/(<svg[^>]*>)/, `$1<defs><style>${fontStyle}</style></defs>`);
+
+      const scale = outputWidth / cfg.vw;
+      const outputHeight = Math.round(cfg.vh * scale);
+
+      const blob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = outputWidth;
+        canvas.height = outputHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, outputWidth, outputHeight);
+        URL.revokeObjectURL(url);
+
+        canvas.toBlob(pngBlob => {
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(pngBlob);
+          a.download = `logo-${key}-${outputWidth}px.png`;
+          a.click();
+          statusEl.textContent = `Fertig: logo-${key}-${outputWidth}px.png`;
+        }, 'image/png');
+      };
+      img.onerror = () => {
+        statusEl.textContent = 'Fehler beim Laden der SVG.';
+      };
+      img.src = url;
+    }
+  </script>
+</body>
+</html>

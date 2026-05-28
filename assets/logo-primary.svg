@@ -1,6 +1,5 @@
 <svg viewBox="0 0 560 235" xmlns="http://www.w3.org/2000/svg" aria-label="LVG PPC Primary Logo">
-  <!-- Inverted triangle = Funnel/Conversion-Symbol -->
-  <polygon points="0,17 200,17 100,207" fill="#22c55e"/>
+  <polygon points="0,26 200,26 100,216" fill="#22c55e"/>
   <text x="214" y="115" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="129" fill="#f0f0f0" letter-spacing="-2.58">LVG</text>
   <text x="214" y="221" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="129" fill="#22c55e" letter-spacing="-6.45">PPC</text>
 </svg>
