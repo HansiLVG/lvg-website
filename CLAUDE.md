@@ -94,7 +94,7 @@ Vollständige Spezifikation V2-Design: siehe `../website-v2-dev/DESIGN-SYSTEM-V2
 
 ### Deployed
 - Vollständige V2-Site live auf lvg-ppc.de (HTTPS via GitHub Pages, Custom Domain).
-- 23 HTML-Seiten (Homepage + 3 Leistungs-Ordner-URLs + Preise + Über-mich + FAQ + Kontakt + Blog mit 2 Artikeln + Glossar Tier 1+2 mit 15 Seiten (Übersicht + 14 Begriffe) + Legal + 404 + Lead-Magnet).
+- 28 HTML-Seiten (Homepage + 3 Leistungs-Ordner-URLs + Preise + Über-mich + FAQ + Kontakt + Blog mit 2 Artikeln + Glossar Tier 1+2+3 mit 20 Seiten (Übersicht + 19 Begriffe) + Legal + 404 + Lead-Magnet).
 - Blog-Automation läuft als Remote-Routine (Donnerstags, siehe Routine-ID in Memory).
 
 ### Lead-Funnel (Status 2026-05)
@@ -110,8 +110,8 @@ Vollständige Spezifikation V2-Design: siehe `../website-v2-dev/DESIGN-SYSTEM-V2
 - [ ] **WCAG-Kontrast** für `--text-muted` (38% Opacity) auf `--bg` gecheckt: 3,28:1 (rechnerisch). Besteht WCAG AA für Großtext (3:1), fällt unter AA für Normaltext (4,5:1). Bewusste Design-Entscheidung, solange text-muted nur für Sekundärinformationen (Metadaten, Captions) eingesetzt wird.
 - [x] **Datenschutz aktualisiert** — Whatamesh-Library (lokal gehostet) als Sektion 7 eingetragen (28.05.2026).
 - [x] **Glossar Tier 2** — 7 Kampagnen-Mechanik-Seiten live (28.05.2026): Sponsored Products, Sponsored Brands, Sponsored Display, Match Types, Negative Keywords, Auto vs. Manual Kampagne, Placement Top of Search.
-- [ ] **Glossar Search-Console-Submission** — Alle 14 Glossar-URLs in GSC zur Indexierung einreichen.
-- [ ] **Glossar Tier 3** — Search Term Report, AMC, DSP, Bid Strategy, Bulk Sheet. Erst wenn Tier 1+2 erste Rankings zeigen (ca. 4-8 Wochen nach Indexierung).
+- [ ] **Glossar Search-Console-Submission** — Alle 19 Glossar-URLs in GSC zur Indexierung einreichen.
+- [x] **Glossar Tier 3** — Search Term Report, AMC, DSP, Bid Strategy, Bulk Sheet live (28.05.2026).
 
 ## Workflow-Regeln
 
