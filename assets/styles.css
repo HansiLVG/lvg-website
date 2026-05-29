@@ -1073,10 +1073,10 @@ section[id] { scroll-margin-top: 72px; }
   display: block;
   font-family: var(--sans);
   font-weight: 500;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--text-muted);
+  font-size: 12px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-soft);
   margin-bottom: 8px;
 }
 .calc-field .input-wrap {
@@ -1352,17 +1352,24 @@ section[id] { scroll-margin-top: 72px; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: var(--border);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
   color: var(--text-muted);
-  font-size: 9px;
-  font-style: normal;
-  font-weight: 600;
+  font-size: 0;
   cursor: help;
   position: relative;
   flex-shrink: 0;
+}
+.calc-tip::before {
+  content: "i";
+  font-size: 9px;
+  font-style: italic;
+  font-weight: 700;
+  font-family: var(--sans);
+  color: var(--text-muted);
   line-height: 1;
 }
 .calc-tip::after {
