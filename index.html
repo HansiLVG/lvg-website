@@ -433,7 +433,7 @@
                 <button type="button" class="calc-toggle-btn" id="calc-toggle">ROAS eingeben</button>
               </div>
               <div class="input-wrap" id="acos-wrap">
-                <input type="number" id="calc-acos" placeholder="z.B. 50" min="0" max="100" step="0.1" autocomplete="off" />
+                <input type="number" id="calc-acos" placeholder="z.B. 42" min="0" max="100" step="0.1" autocomplete="off" />
                 <span class="unit">%</span>
               </div>
               <div class="input-wrap" id="roas-wrap" hidden>
@@ -968,6 +968,12 @@
         outGood.hidden   = true;
 
         if (c.mode === 'good' || c.mode === 'extreme') {
+          var goodHtml = {
+            'lvl-aurora':    '<div class="calc-loss-hint">Das ist außergewöhnlich. Bist Du sicher, dass Du die richtigen Zahlen eingegeben hast?</div>',
+            'lvl-good':      '<div class="calc-growth-hint">Dein ACOS liegt im Sweet Spot. Zeit für Skalierung und organisches Wachstum.</div>',
+            'lvl-good-edge': '<div class="calc-growth-hint">Noch solider Bereich. Die Marge wird knapper. Behalte den Ziel-ACOS im Blick.</div>'
+          };
+          outGood.innerHTML = goodHtml[c.lvl] || '<div class="calc-growth-hint">Dein ACOS liegt im Sweet Spot.</div>';
           outGood.hidden = false;
           return;
         }
@@ -981,15 +987,21 @@
           outMonth.textContent    = fmt(growthMonth);
           outYear.textContent     = fmt(growthMonth * 12);
           outHint.className       = 'calc-growth-hint';
-          outHint.innerHTML       = 'Dieses Quartal liegen <strong>' + fmt(growthMonth * 3) + '</strong> Wachstum auf dem Tisch.';
+          var growthSuffix = c.lvl === 'lvl-aurora' ? ' Dein ACOS ist ausgezeichnet.' : ' Noch Potenzial, das Du abholen kannst.';
+          outHint.innerHTML       = 'Dieses Quartal liegen <strong>' + fmt(growthMonth * 3) + '</strong> Wachstum auf dem Tisch.' + growthSuffix;
           if (outDisclaimer) outDisclaimer.hidden = false;
         } else {
           var monthly = spend * (acos - TARGET) / 100;
           outLblMonth.textContent = 'Einsparpotenzial pro Monat';
           outMonth.textContent    = fmt(monthly);
           outYear.textContent     = fmt(monthly * 12);
+          var saveSuffix = c.lvl === 'lvl-bad'
+            ? ' Kritisch. Ohne Eingriff läuft das ins Defizit.'
+            : c.lvl === 'lvl-warn-strong'
+            ? ' Hier brennt Budget. Ein Kampagnen-Audit lohnt sich.'
+            : ' Erste Hebel: Negative Keywords und Gebotsanpassungen.';
           outHint.className       = 'calc-loss-hint';
-          outHint.innerHTML       = 'Pro Quartal verlierst Du bereits <strong>' + fmt(monthly * 3) + '</strong>.';
+          outHint.innerHTML       = 'Pro Quartal verlierst Du bereits <strong>' + fmt(monthly * 3) + '</strong>.' + saveSuffix;
           if (outDisclaimer) outDisclaimer.hidden = true;
         }
       }
