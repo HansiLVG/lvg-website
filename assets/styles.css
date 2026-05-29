@@ -2033,6 +2033,7 @@ section[id] { scroll-margin-top: 72px; }
 }
 .highlight-box p { margin: 0; color: var(--text); }
 .highlight-box p + p { margin-top: 12px; }
+.text-warning { color: var(--signal-warning); }   /* Inline-Signal: Verlust/Geld in Gefahr */
 
 /* Framework-Layer-Cards (4-Layer-Audit, Flywheel etc.) */
 .layer-grid {
