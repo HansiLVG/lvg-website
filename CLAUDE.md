@@ -103,7 +103,7 @@ Vollständige Spezifikation V2-Design: siehe `../website-v2-dev/DESIGN-SYSTEM-V2
 
 ## Offene TODOs
 
-- [ ] **Brevo fertigstellen** — Nurture-Sequenz aus Vault in Brevo einrichten, Datenschutz um Brevo-Abschnitt ergänzen. (E-Mail-Form + Bestätigungsseiten sind live.)
+- [ ] **Brevo fertigstellen** — Nurture-Sequenz aus Vault in Brevo einrichten. Erledigt (29.05.2026): Formular-Bug gefixt (`VORNAME` statt `FIRSTNAME` im fetch), Double-Opt-in läuft end-to-end, Resend-Timer auf Bestätigungsseite, DOI- + Welcome-Mail als helle Templates mit dunklem Logo (`assets/logo-email-light.png`), Datenschutz um Brevo-Abschnitt (Sektion 10) ergänzt. Offen: finaler End-to-End-Test, Nurture-Sequenz.
 - [ ] **Cert-Badge-Bilder** einbauen (`badge-sponsored-ads.avif`, `badge-marketing-cloud.png`) sobald die offiziellen Bilder vorliegen. PDFs liegen als Backup, werden bewusst nicht verlinkt (Datenschutz).
 - [ ] **Lead-Magnet Live-URL** — entscheiden ob `lead-magnet/` öffentlich verlinkbar oder nur per E-Mail-Versand nach Download. Aktuell `noindex`.
 - [ ] **PageSpeed/Lighthouse Benchmark** für V2 neu erheben (V1-Werte aus alter Doku sind nicht mehr aussagekräftig).
