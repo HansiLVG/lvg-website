@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Break-Even ACOS Rechner · Ziel-ACOS und Marge berechnen · lvg-ppc.de</title>
+  <meta name="description" content="Berechne kostenlos Deinen Break-Even ACOS und Ziel-ACOS. Eingabe: Verkaufspreis, COGS, Amazon-Gebühren, Ziel-Marge. Vollanalyse mit Max-CPC. Direkt im Browser." />
+
+  <link rel="canonical" href="https://lvg-ppc.de/rechner/break-even-acos/" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="LVG PPC · Leon-Vincent Gamradt" />
+  <meta property="og:title" content="Break-Even ACOS Rechner · Ziel-ACOS und Marge berechnen" />
+  <meta property="og:description" content="Ab welchem ACOS verlierst Du Geld? Berechne Break-Even ACOS, Ziel-ACOS und Max-CPC direkt im Browser. Kein Login nötig." />
+  <meta property="og:url" content="https://lvg-ppc.de/rechner/break-even-acos/" />
+  <meta property="og:image" content="https://lvg-ppc.de/assets/logo-primary.svg?v=2" />
+  <meta property="og:image:alt" content="LVG PPC, Amazon PPC Spezialist Berlin" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/assets/logo-favicon.svg?v=3" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preload" href="../../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../../assets/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": "https://lvg-ppc.de/rechner/break-even-acos/#app",
+    "url": "https://lvg-ppc.de/rechner/break-even-acos/",
+    "name": "Break-Even ACOS Rechner",
+    "description": "Kostenloser Rechner für Break-Even ACOS und Ziel-ACOS. Eingabe: Verkaufspreis, COGS, Amazon-Fees, Ziel-Marge. Vollanalyse mit Max-CPC.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "inLanguage": "de-DE",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "author": {
+      "@type": "Person",
+      "name": "Leon-Vincent Gamradt",
+      "url": "https://lvg-ppc.de/ueber-mich.html"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ═══════════ NAV ═══════════ -->
+  <nav class="nav is-transparent" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand" aria-label="LVG PPC Startseite">
+        <img src="/assets/logo-primary.svg?v=2" alt="LVG PPC" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-group">
+          <a href="/leistungen/" class="nav-group-trigger">
+            Leistungen
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown" role="menu">
+            <a href="/amazon-ppc-audit/" role="menuitem"><strong>Account-Audit</strong><small>Diagnose in 48 Stunden</small></a>
+            <a href="/amazon-ppc-strategie/" role="menuitem"><strong>Strategie-Aufbau</strong><small>Vollständiger Neuaufbau</small></a>
+            <a href="/amazon-ppc-management/" role="menuitem"><strong>Kampagnenmanagement</strong><small>Laufende Betreuung</small></a>
+          </div>
+        </div>
+        <a href="/preise/">Preise</a>
+        <a href="/ueber-mich.html">Über mich</a>
+        <div class="nav-group">
+          <a href="#" class="nav-group-trigger active">
+            Ressourcen
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav-dropdown" role="menu">
+            <a href="/blog/" role="menuitem"><strong>Blog</strong><small>Amazon PPC Artikel</small></a>
+            <a href="/glossar/" role="menuitem"><strong>Glossar</strong><small>PPC-Begriffe erklärt</small></a>
+            <a href="/rechner/" role="menuitem" class="active"><strong>Rechner</strong><small>ACOS, Bid, Budget</small></a>
+          </div>
+        </div>
+        <a href="/faq.html">FAQ</a>
+      </div>
+      <div class="nav-right">
+        <a href="/kontakt.html#formular" class="btn btn-ghost btn-sm nav-cta-secondary">Schreib mir</a>
+        <a href="/kontakt.html#termin" class="btn btn-primary btn-sm">Gespräch buchen <span class="arrow">↗</span></a>
+        <button class="nav-hamb" aria-label="Menü öffnen" id="hamb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" y1="8" x2="20" y2="8" />
+            <line x1="4" y1="16" x2="20" y2="16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <div class="nav-mobile-inner">
+        <a href="/leistungen/">Leistungen</a>
+        <a href="/amazon-ppc-audit/" class="nav-sub">Account-Audit</a>
+        <a href="/amazon-ppc-strategie/" class="nav-sub">Strategie-Aufbau</a>
+        <a href="/amazon-ppc-management/" class="nav-sub nav-sub-end">Kampagnen-Management</a>
+        <a href="/preise/">Preise</a>
+        <a href="/ueber-mich.html">Über mich</a>
+        <a href="/blog/">Blog</a>
+        <a href="/glossar/">Glossar</a>
+        <a href="/rechner/" class="active">Rechner</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/kontakt.html">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ COOKIE BANNER ═══════════ -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie-Hinweis">
+    <div class="cookie-banner-grid">
+      <p>Diese Website nutzt Cookies für anonyme Statistik (Google Analytics, IP anonymisiert). Details in der <a href="../../datenschutz.html">Datenschutzerklärung</a>.</p>
+      <div class="cookie-banner-buttons">
+        <button class="btn btn-ghost btn-sm" id="cookie-decline" type="button">Ablehnen</button>
+        <button class="btn btn-primary btn-sm" id="cookie-accept" type="button">Akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ SUB-HERO ═══════════ -->
+  <header class="sub-hero sub-hero-shader">
+    <canvas id="gradient-canvas-sub" data-transition-in></canvas>
+    <div class="sub-hero-fade"></div>
+    <div class="sub-hero-inner wrap">
+      <span class="eyebrow"><a href="/rechner/">Amazon PPC Rechner</a> · Break-Even ACOS</span>
+      <h1 class="reveal" style="--reveal-delay: 0.06s;">Ab welchem ACOS verlierst Du Geld?</h1>
+      <p class="lead reveal" style="--reveal-delay: 0.12s;">
+        Gib Verkaufspreis, Herstellkosten und Amazon-Gebühren ein. Der Rechner zeigt Dir sofort, welcher ACOS Deine Marge auf null drückt und wo Dein Ziel-ACOS liegen muss.
+      </p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══════════ SCHNELLRECHNER ═══════════ -->
+    <section class="calc-section" id="rechner" style="padding-top: 80px;">
+      <div class="wrap">
+        <div class="section-head reveal" style="margin-bottom: 32px;">
+          <span class="eyebrow">Schnellrechner</span>
+          <h2>Break-Even ACOS berechnen</h2>
+          <p class="lead">Drei Eingaben, sofortiges Ergebnis. Jeder ACOS über diesem Wert frisst Deine Marge.</p>
+        </div>
+
+        <div class="calc-card reveal">
+          <div class="calc-grid">
+            <div class="calc-inputs">
+              <div class="calc-field">
+                <label for="be-price">Verkaufspreis <span class="calc-tip" data-tip="Brutto-Verkaufspreis auf Amazon. Ohne Rabatte oder Gutscheine.">ℹ</span></label>
+                <div class="input-wrap">
+                  <input type="number" id="be-price" placeholder="z.B. 29,99" min="0.01" step="0.01" autocomplete="off" />
+                  <span class="unit">€</span>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label for="be-cogs">Herstellkosten (COGS) <span class="calc-tip" data-tip="Einkaufspreis + Verpackung + Inbound-Logistik pro Einheit. Was Dich eine Einheit kostet, bevor Amazon etwas anfasst.">ℹ</span></label>
+                <div class="input-wrap">
+                  <input type="number" id="be-cogs" placeholder="z.B. 8,50" min="0" step="0.01" autocomplete="off" />
+                  <span class="unit">€</span>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label for="be-fee">Amazon Referral Fee <span class="calc-tip" data-tip="Provision, die Amazon pro Verkauf einbehält. Meist 7–15 % je nach Kategorie. Im Seller Central unter Gebühren nachschlagen.">ℹ</span></label>
+                <div class="input-wrap">
+                  <input type="number" id="be-fee" placeholder="15" min="0" max="30" step="0.1" value="15" autocomplete="off" />
+                  <span class="unit">%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-outputs">
+              <div class="calc-out-row" id="be-out-empty">
+                <span class="label">Trag Preis, COGS und Referral Fee ein.</span>
+              </div>
+              <div id="be-out-result" hidden>
+                <div class="calc-out-row highlight">
+                  <span class="label">Break-Even ACOS</span>
+                  <span class="num" id="be-acos" style="font-size: 2rem;">–</span>
+                </div>
+                <div class="calc-out-row soft-good">
+                  <span class="label">Rohertrag pro Einheit</span>
+                  <span class="num" id="be-rohertrag">–</span>
+                </div>
+                <div id="be-hint" class="calc-context-hint calc-out-full" style="margin-top: 8px;"></div>
+              </div>
+              <div id="be-out-negative" hidden>
+                <div class="calc-out-row">
+                  <span class="label" style="color: var(--signal-danger);">Kosten übersteigen Verkaufspreis. Kein ACOS ist hier profitabel.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="reveal" style="margin-top: 16px; text-align: center; font-size: 13px; color: var(--text-muted); font-family: var(--sans);">
+          FBA-Kosten, Ziel-Marge und Max-CPC: <a href="#vollanalyse" style="color: var(--accent);">Vollanalyse unten ↓</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════ VOLLANALYSE ═══════════ -->
+    <section class="calc-section" id="vollanalyse" style="padding-top: 64px; padding-bottom: 80px;">
+      <div class="wrap">
+        <div class="section-head reveal" style="margin-bottom: 32px;">
+          <span class="eyebrow">Vollanalyse</span>
+          <h2>Ziel-ACOS, Marge und Max-CPC</h2>
+          <p class="lead">Ergänze FBA-Kosten und Deine gewünschte Nettomarge. Optional: Conversion Rate für den maximalen CPC.</p>
+        </div>
+
+        <div class="calc-card reveal">
+          <div class="calc-grid">
+            <div class="calc-inputs">
+              <div class="calc-field">
+                <label for="va-price">Verkaufspreis <span class="calc-tip" data-tip="Brutto-Verkaufspreis auf Amazon.">ℹ</span></label>
+                <div class="input-wrap">
+                  <input type="number" id="va-price" placeholder="z.B. 29,99" min="0.01" step="0.01" autocomplete="off" />
+                  <span class="unit">€</span>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label for="va-cogs">Herstellkosten (COGS) <span class="calc-tip" data-tip="Einkaufspreis + Verpackung + Inbound-Logistik pro Einheit.">ℹ</span></label>
+                <div class="input-wrap">
+                  <input type="number" id="va-cogs" placeholder="z.B. 8,50" min="0" step="0.01" autocomplete="off" />
+                  <span class="unit">€</span>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label for="va-fee">Amazon Referral Fee <span class="calc-tip" data-tip="Provision je Verkauf, meist 7–15 % je nach Kategorie.">ℹ</span></label>
+                <div class="input-wrap">
+                  <input type="number" id="va-fee" placeholder="15" min="0" max="30" step="0.1" value="15" autocomplete="off" />
+                  <span class="unit">%</span>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label for="va-fba">FBA-Versandkosten <span class="calc-tip" data-tip="Versand- und Lagerkosten pro Einheit laut Amazon FBA-Rechner. Für Merchant Fulfilled leer lassen.">ℹ</span></label>
+                <div class="input-wrap">
+                  <input type="number" id="va-fba" placeholder="optional, z.B. 3,50" min="0" step="0.01" autocomplete="off" />
+                  <span class="unit">€</span>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label for="va-margin">Gewünschte Nettomarge <span class="calc-tip" data-tip="Welchen Gewinn willst Du nach allen Kosten (inkl. Werbung) mindestens erzielen? Als Anteil am Verkaufspreis.">ℹ</span></label>
+                <div class="input-wrap">
+                  <input type="number" id="va-margin" placeholder="z.B. 20" min="0" max="80" step="0.5" autocomplete="off" />
+                  <span class="unit">%</span>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label for="va-cvr">Conversion Rate <span class="calc-tip" data-tip="Wie viel Prozent der Klicks kaufen? Amazon-Durchschnitt: 10–15 %. Optional, wird für den Max-CPC benötigt.">ℹ</span></label>
+                <div class="input-wrap">
+                  <input type="number" id="va-cvr" placeholder="optional, z.B. 12" min="0" max="100" step="0.1" autocomplete="off" />
+                  <span class="unit">%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-outputs">
+              <div class="calc-out-row" id="va-out-empty">
+                <span class="label">Fülle Preis, COGS, Fee und Ziel-Marge aus.</span>
+              </div>
+              <div id="va-out-result" hidden>
+                <div class="calc-out-row">
+                  <span class="label">Break-Even ACOS</span>
+                  <span class="num" id="va-break-even" style="font-size: 1.5rem;">–</span>
+                </div>
+                <div class="calc-out-row highlight">
+                  <span class="label">Ziel-ACOS bei gewünschter Marge <span class="arrow">↗</span></span>
+                  <span class="num" id="va-ziel-acos" style="font-size: 1.5rem;">–</span>
+                </div>
+                <div class="calc-out-row soft-good">
+                  <span class="label">Gewinn pro Einheit</span>
+                  <span class="num" id="va-marge-einheit">–</span>
+                </div>
+                <div class="calc-out-row" id="va-maxcpc-row" hidden>
+                  <span class="label">Max. CPC bei Ziel-ACOS</span>
+                  <span class="num" id="va-max-cpc">–</span>
+                </div>
+                <div id="va-hint" class="calc-context-hint calc-out-full" style="margin-top: 8px;"></div>
+              </div>
+              <div id="va-out-negative" hidden>
+                <div class="calc-out-row">
+                  <span class="label" style="color: var(--signal-danger);">Kosten übersteigen Verkaufspreis. Kein ACOS ist profitabel.</span>
+                </div>
+              </div>
+              <div id="va-out-margin-impossible" hidden>
+                <div class="calc-out-row">
+                  <span class="label" style="color: var(--signal-warning);">Gewünschte Marge nicht erreichbar. ACOS würde negativ werden. Marge senken oder Preis erhöhen.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════ FINAL CTA ═══════════ -->
+    <section class="final-cta" id="kontakt">
+      <canvas id="gradient-canvas-cta" data-transition-in></canvas>
+      <div class="cta-fade"></div>
+      <div class="wrap">
+        <span class="eyebrow reveal">Kontakt</span>
+        <h2 class="reveal" style="--reveal-delay: 0.06s;">Zahlen klar, Account noch nicht? <span class="arrow">↗</span></h2>
+        <p class="lead reveal" style="--reveal-delay: 0.12s;">15 Minuten Erstgespräch, kein Pitch. Ich sage Dir, wo Dein Account aktuell steht und was als Nächstes sinnvoll ist.</p>
+        <div class="kontakt-grid reveal" style="--reveal-delay: 0.18s; max-width: 720px; margin: 48px auto 0;">
+          <a class="kontakt-card kontakt-card-primary" href="../../kontakt.html#termin">
+            <div class="k-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <div class="k-label">Erstgespräch buchen</div>
+            <div class="k-sub">15 Min. via Cal.eu</div>
+            <span class="k-arrow">↗</span>
+          </a>
+          <a class="kontakt-card" href="../../kontakt.html#formular">
+            <div class="k-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/>
+              </svg>
+            </div>
+            <div class="k-label">Formular ausfüllen</div>
+            <div class="k-sub">Budget, Setup, Ziele in einem Schritt</div>
+            <span class="k-arrow">↗</span>
+          </a>
+          <a class="kontakt-card" href="https://www.linkedin.com/in/leon-vincent-gamradt" target="_blank" rel="noopener noreferrer me">
+            <div class="k-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.063 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div class="k-label">LinkedIn</div>
+            <div class="k-sub">vernetzen oder Nachricht</div>
+            <span class="k-arrow">↗</span>
+          </a>
+        </div>
+        <div class="trust reveal" style="--reveal-delay: 0.24s;">
+          <span>Amazon Ads Certified</span>
+          <span>Direkter Kontakt</span>
+          <span>Kein Lock-in</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════ SEO-FOOTER ═══════════ -->
+  <aside class="seo-footer" aria-label="Sitemap">
+    <div class="wrap">
+      <div class="seo-footer-grid">
+        <div class="seo-footer-col">
+          <h3>Leistungen</h3>
+          <ul>
+            <li><a href="/amazon-ppc-audit/">Account-Audit</a></li>
+            <li><a href="/amazon-ppc-strategie/">Strategie-Aufbau</a></li>
+            <li><a href="/amazon-ppc-management/">Kampagnen-Management</a></li>
+            <li><a href="/preise/">Preise</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Ressourcen</h3>
+          <ul>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/glossar/">Glossar</a></li>
+            <li><a href="/rechner/">Rechner</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Über</h3>
+          <ul>
+            <li><a href="/ueber-mich.html">Über mich</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="seo-footer-col">
+          <h3>Rechtliches</h3>
+          <ul>
+            <li><a href="/impressum.html">Impressum</a></li>
+            <li><a href="/datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="seo-footer-text">
+        <p>
+          Der <strong>Break-Even ACOS Rechner</strong> von <strong>Leon-Vincent Gamradt</strong> (Amazon PPC Spezialist, Berlin) berechnet den maximalen tragbaren ACOS auf Basis von Verkaufspreis, Herstellkosten und Amazon-Fees. Die Vollanalyse ergänzt Ziel-ACOS, Gewinn pro Einheit und Max-CPC. Weitere Rechner: <a href="/rechner/">Rechner-Übersicht</a>. Begriffe erklärt im <a href="/glossar/acos/">ACOS-Glossar</a>. Tiefer einsteigen: <a href="/amazon-ppc-audit/">Account-Audit</a>.
+        </p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="../../assets/logo-primary.svg?v=2" alt="LVG PPC" />
+        <span class="copy">© 2026 Leon-Vincent Gamradt</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/whatamesh.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var staticBg =
+        "radial-gradient(ellipse 70% 50% at 28% 28%, rgba(34,197,94,0.42), transparent 60%)," +
+        "radial-gradient(ellipse 60% 50% at 82% 60%, rgba(30,64,175,0.48), transparent 60%)," +
+        "radial-gradient(ellipse 60% 55% at 60% 92%, rgba(107,33,168,0.42), transparent 60%)," +
+        "#0f172a";
+      ['gradient-canvas-sub', 'gradient-canvas-cta'].forEach(function (id) {
+        var canvas = document.getElementById(id);
+        if (canvas) canvas.style.background = staticBg;
+        try {
+          if (typeof Gradient !== 'undefined' && canvas) {
+            var g = new Gradient();
+            g.initGradient('#' + id);
+          }
+        } catch (err) { console.warn('Gradient init failed', err); }
+      });
+    });
+  </script>
+
+  <script>
+    // Schnellrechner: Break-Even ACOS
+    (function () {
+      var ePrice = document.getElementById('be-price');
+      var eCogs  = document.getElementById('be-cogs');
+      var eFee   = document.getElementById('be-fee');
+      var outEmpty    = document.getElementById('be-out-empty');
+      var outResult   = document.getElementById('be-out-result');
+      var outNegative = document.getElementById('be-out-negative');
+      var elAcos      = document.getElementById('be-acos');
+      var elRohertrag = document.getElementById('be-rohertrag');
+      var elHint      = document.getElementById('be-hint');
+      if (!ePrice || !eCogs || !eFee) return;
+
+      function fmtPct(n) {
+        return n.toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %';
+      }
+      function fmtEur(n) {
+        return '€ ' + n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      function recalc() {
+        var price = parseFloat(ePrice.value) || 0;
+        var cogs  = parseFloat(eCogs.value)  || 0;
+        var fee   = parseFloat(eFee.value)   || 0;
+
+        if (!(price > 0)) {
+          outEmpty.hidden = false;
+          outResult.hidden = true;
+          outNegative.hidden = true;
+          return;
+        }
+
+        var referral  = price * (fee / 100);
+        var rohertrag = price - cogs - referral;
+        var beAcos    = rohertrag / price * 100;
+
+        outEmpty.hidden = true;
+
+        if (beAcos <= 0) {
+          outResult.hidden = true;
+          outNegative.hidden = false;
+          return;
+        }
+
+        outNegative.hidden = true;
+        outResult.hidden   = false;
+
+        elAcos.textContent      = fmtPct(beAcos);
+        elRohertrag.textContent = fmtEur(rohertrag);
+
+        if (beAcos > 25) {
+          elAcos.style.color = 'var(--accent)';
+          elHint.textContent = 'Viel Spielraum. Du kannst aggressiv auf Deinen Ziel-ACOS optimieren.';
+        } else if (beAcos > 15) {
+          elAcos.style.color = 'var(--text)';
+          elHint.textContent = 'Solider Spielraum. Gebote konsequent auf den Ziel-ACOS halten.';
+        } else if (beAcos > 8) {
+          elAcos.style.color = 'var(--signal-caution)';
+          elHint.textContent = 'Wenig Spielraum. Jeder Prozentpunkt ACOS zählt. Eng steuern.';
+        } else {
+          elAcos.style.color = 'var(--signal-danger)';
+          elHint.textContent = 'Kaum Spielraum für Werbung. Marge oder Preis überdenken.';
+        }
+      }
+
+      var t = null;
+      function schedule() { clearTimeout(t); t = setTimeout(recalc, 300); }
+      ePrice.addEventListener('input', schedule);
+      eCogs.addEventListener('input', schedule);
+      eFee.addEventListener('input', schedule);
+      recalc();
+    })();
+
+    // Vollanalyse
+    (function () {
+      var ePrice  = document.getElementById('va-price');
+      var eCogs   = document.getElementById('va-cogs');
+      var eFee    = document.getElementById('va-fee');
+      var eFba    = document.getElementById('va-fba');
+      var eMargin = document.getElementById('va-margin');
+      var eCvr    = document.getElementById('va-cvr');
+      var outEmpty           = document.getElementById('va-out-empty');
+      var outResult          = document.getElementById('va-out-result');
+      var outNegative        = document.getElementById('va-out-negative');
+      var outMarginImpossible = document.getElementById('va-out-margin-impossible');
+      var elBreakEven = document.getElementById('va-break-even');
+      var elZielAcos  = document.getElementById('va-ziel-acos');
+      var elMargeEin  = document.getElementById('va-marge-einheit');
+      var elMaxCpc    = document.getElementById('va-max-cpc');
+      var maxCpcRow   = document.getElementById('va-maxcpc-row');
+      var elHint      = document.getElementById('va-hint');
+      if (!ePrice || !eCogs || !eFee || !eMargin) return;
+
+      function fmtPct(n) {
+        return n.toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %';
+      }
+      function fmtEur(n) {
+        return '€ ' + n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      function recalc() {
+        var price  = parseFloat(ePrice.value)  || 0;
+        var cogs   = parseFloat(eCogs.value)   || 0;
+        var fee    = parseFloat(eFee.value)    || 0;
+        var fba    = parseFloat(eFba.value)    || 0;
+        var margin = parseFloat(eMargin.value);
+        var cvr    = parseFloat(eCvr.value)    || 0;
+
+        var hasMargin = !isNaN(margin) && margin >= 0;
+
+        if (!(price > 0) || !hasMargin) {
+          outEmpty.hidden = false;
+          outResult.hidden = true;
+          outNegative.hidden = true;
+          outMarginImpossible.hidden = true;
+          return;
+        }
+
+        var referral  = price * (fee / 100);
+        var rohertrag = price - cogs - referral - fba;
+        var beAcos    = rohertrag / price * 100;
+
+        outEmpty.hidden = true;
+
+        if (beAcos <= 0) {
+          outResult.hidden = true;
+          outMarginImpossible.hidden = true;
+          outNegative.hidden = false;
+          return;
+        }
+        outNegative.hidden = true;
+
+        var gewinnZiel = price * (margin / 100);
+        var zielAcos   = (rohertrag - gewinnZiel) / price * 100;
+
+        if (zielAcos <= 0) {
+          outResult.hidden = true;
+          outNegative.hidden = true;
+          outMarginImpossible.hidden = false;
+          return;
+        }
+        outMarginImpossible.hidden = true;
+        outResult.hidden = false;
+
+        elBreakEven.textContent = fmtPct(beAcos);
+        elBreakEven.style.color = beAcos > 20 ? 'var(--text-soft)' : 'var(--signal-caution)';
+
+        elZielAcos.textContent = fmtPct(zielAcos);
+        elZielAcos.style.color = 'var(--accent)';
+
+        elMargeEin.textContent = fmtEur(gewinnZiel);
+
+        if (cvr > 0) {
+          elMaxCpc.textContent = fmtEur(price * (zielAcos / 100) * (cvr / 100));
+          maxCpcRow.hidden = false;
+        } else {
+          maxCpcRow.hidden = true;
+        }
+
+        var spielraum = beAcos - zielAcos;
+        elHint.textContent = 'Spielraum zwischen Break-Even und Ziel-ACOS: ' + fmtPct(spielraum) + '. Liegt Dein aktueller ACOS darunter, bist Du profitabel.';
+      }
+
+      var t = null;
+      function schedule() { clearTimeout(t); t = setTimeout(recalc, 300); }
+      [ePrice, eCogs, eFee, eFba, eMargin, eCvr].forEach(function (el) {
+        if (el) el.addEventListener('input', schedule);
+      });
+      recalc();
+    })();
+  </script>
+
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>
