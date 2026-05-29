@@ -2683,6 +2683,7 @@ form[data-fs-form-success] ~ .form-success { display: block; }
 }
 .pk-card.pk-featured {
   --aurora-angle: 0deg;
+  position: relative;
   border: 1px solid transparent;
   background-color: transparent;
   background-image:
@@ -2699,6 +2700,9 @@ form[data-fs-form-success] ~ .form-success { display: block; }
   animation: aurora-spin 6s linear infinite;
 }
 .pk-badge {
+  position: absolute;
+  top: 28px;
+  right: 28px;
   display: inline-flex;
   align-items: center;
   background: var(--accent-dim);
@@ -2711,7 +2715,6 @@ form[data-fs-form-success] ~ .form-success { display: block; }
   text-transform: uppercase;
   padding: 3px 9px;
   border-radius: 100px;
-  margin-bottom: 18px;
 }
 .pk-name {
   font-family: var(--serif);
