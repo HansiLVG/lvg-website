@@ -214,7 +214,7 @@
 
         <div class="calc-card reveal">
           <div class="calc-grid">
-            <div class="calc-inputs">
+            <div class="calc-inputs" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; align-content: start;">
               <div class="calc-field">
                 <label for="va-price">Verkaufspreis <span class="calc-tip" data-tip="Brutto-Verkaufspreis auf Amazon.">ℹ</span></label>
                 <div class="input-wrap">
@@ -237,7 +237,7 @@
                 </div>
               </div>
               <div class="calc-field">
-                <label for="va-fba">FBA-Versandkosten <span class="calc-tip" data-tip="Versand- und Lagerkosten pro Einheit laut Amazon FBA-Rechner. Für Merchant Fulfilled leer lassen.">ℹ</span></label>
+                <label for="va-fba">FBA-Gebühren gesamt <span class="calc-tip" data-tip="Fulfillment + Lagerkosten pro Einheit laut Amazon FBA-Rechner (Versand, Lagerung, sonstige Fees). Für Merchant Fulfilled leer lassen.">ℹ</span></label>
                 <div class="input-wrap">
                   <input type="number" id="va-fba" placeholder="optional, z.B. 3,50" min="0" step="0.01" autocomplete="off" />
                   <span class="unit">€</span>
@@ -251,7 +251,7 @@
                 </div>
               </div>
               <div class="calc-field">
-                <label for="va-cvr">Conversion Rate <span class="calc-tip" data-tip="Wie viel Prozent der Klicks kaufen? Amazon-Durchschnitt: 10–15 %. Optional, wird für den Max-CPC benötigt.">ℹ</span></label>
+                <label for="va-cvr">Conversion Rate <span class="calc-tip" data-tip="Wie viel Prozent der Klicks kaufen? Amazon-Durchschnitt: 10–15 %. Optional, für den Max-CPC.">ℹ</span></label>
                 <div class="input-wrap">
                   <input type="number" id="va-cvr" placeholder="optional, z.B. 12" min="0" max="100" step="0.1" autocomplete="off" />
                   <span class="unit">%</span>
@@ -261,36 +261,39 @@
 
             <div class="calc-outputs">
               <div class="calc-out-row" id="va-out-empty">
-                <span class="label">Fülle Preis, COGS, Fee und Ziel-Marge aus.</span>
-              </div>
-              <div id="va-out-result" hidden>
-                <div class="calc-out-row">
-                  <span class="label">Break-Even ACOS</span>
-                  <span class="num" id="va-break-even" style="font-size: 1.5rem;">–</span>
-                </div>
-                <div class="calc-out-row highlight">
-                  <span class="label">Ziel-ACOS bei gewünschter Marge <span class="arrow">↗</span></span>
-                  <span class="num" id="va-ziel-acos" style="font-size: 1.5rem;">–</span>
-                </div>
-                <div class="calc-out-row soft-good">
-                  <span class="label">Gewinn pro Einheit</span>
-                  <span class="num" id="va-marge-einheit">–</span>
-                </div>
-                <div class="calc-out-row" id="va-maxcpc-row" hidden>
-                  <span class="label">Max. CPC bei Ziel-ACOS</span>
-                  <span class="num" id="va-max-cpc">–</span>
-                </div>
-                <div id="va-hint" class="calc-context-hint calc-out-full" style="margin-top: 8px;"></div>
+                <span class="label">Gib Preis, COGS und Referral Fee ein.</span>
               </div>
               <div id="va-out-negative" hidden>
                 <div class="calc-out-row">
                   <span class="label" style="color: var(--signal-danger);">Kosten übersteigen Verkaufspreis. Kein ACOS ist profitabel.</span>
                 </div>
               </div>
-              <div id="va-out-margin-impossible" hidden>
+              <div id="va-out-result" hidden>
                 <div class="calc-out-row">
-                  <span class="label" style="color: var(--signal-warning);">Gewünschte Marge nicht erreichbar. ACOS würde negativ werden. Marge senken oder Preis erhöhen.</span>
+                  <span class="label">Break-Even ACOS</span>
+                  <span class="num" id="va-break-even" style="font-size: 1.5rem;">–</span>
                 </div>
+                <div class="calc-out-row soft-good">
+                  <span class="label">Rohertrag pro Einheit</span>
+                  <span class="num" id="va-rohertrag">–</span>
+                </div>
+                <div id="va-ziel-block" hidden>
+                  <div class="calc-out-row highlight">
+                    <span class="label">Ziel-ACOS bei gewünschter Marge <span class="arrow">↗</span></span>
+                    <span class="num" id="va-ziel-acos" style="font-size: 1.5rem;">–</span>
+                  </div>
+                  <div class="calc-out-row soft-good">
+                    <span class="label">Gewinn pro Einheit</span>
+                    <span class="num" id="va-marge-einheit">–</span>
+                  </div>
+                </div>
+                <div class="calc-out-row" id="va-maxcpc-row" hidden>
+                  <span class="label">Max. CPC bei Ziel-ACOS</span>
+                  <span class="num" id="va-max-cpc">–</span>
+                </div>
+                <div id="va-out-margin-impossible" class="calc-context-hint calc-out-full" style="margin-top: 8px; color: var(--signal-warning);" hidden></div>
+                <div id="va-next-hint" class="calc-context-hint calc-out-full" style="margin-top: 8px; color: var(--text-muted);"></div>
+                <div id="va-hint" class="calc-context-hint calc-out-full" style="margin-top: 4px;"></div>
               </div>
             </div>
           </div>
@@ -504,17 +507,20 @@
       var eFba    = document.getElementById('va-fba');
       var eMargin = document.getElementById('va-margin');
       var eCvr    = document.getElementById('va-cvr');
-      var outEmpty           = document.getElementById('va-out-empty');
-      var outResult          = document.getElementById('va-out-result');
-      var outNegative        = document.getElementById('va-out-negative');
+      var outEmpty            = document.getElementById('va-out-empty');
+      var outResult           = document.getElementById('va-out-result');
+      var outNegative         = document.getElementById('va-out-negative');
       var outMarginImpossible = document.getElementById('va-out-margin-impossible');
       var elBreakEven = document.getElementById('va-break-even');
+      var elRohertrag = document.getElementById('va-rohertrag');
+      var elZielBlock = document.getElementById('va-ziel-block');
       var elZielAcos  = document.getElementById('va-ziel-acos');
       var elMargeEin  = document.getElementById('va-marge-einheit');
       var elMaxCpc    = document.getElementById('va-max-cpc');
       var maxCpcRow   = document.getElementById('va-maxcpc-row');
+      var elNextHint  = document.getElementById('va-next-hint');
       var elHint      = document.getElementById('va-hint');
-      if (!ePrice || !eCogs || !eFee || !eMargin) return;
+      if (!ePrice || !eCogs || !eFee) return;
 
       function fmtPct(n) {
         return n.toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %';
@@ -530,14 +536,12 @@
         var fba    = parseFloat(eFba.value)    || 0;
         var margin = parseFloat(eMargin.value);
         var cvr    = parseFloat(eCvr.value)    || 0;
-
         var hasMargin = !isNaN(margin) && margin >= 0;
 
-        if (!(price > 0) || !hasMargin) {
-          outEmpty.hidden = false;
-          outResult.hidden = true;
+        if (!(price > 0)) {
+          outEmpty.hidden    = false;
+          outResult.hidden   = true;
           outNegative.hidden = true;
-          outMarginImpossible.hidden = true;
           return;
         }
 
@@ -548,42 +552,59 @@
         outEmpty.hidden = true;
 
         if (beAcos <= 0) {
-          outResult.hidden = true;
-          outMarginImpossible.hidden = true;
+          outResult.hidden   = true;
           outNegative.hidden = false;
           return;
         }
         outNegative.hidden = true;
+        outResult.hidden   = false;
+
+        // Break-Even und Rohertrag: sofort ab Eingabe von Preis
+        elBreakEven.textContent = fmtPct(beAcos);
+        elBreakEven.style.color = beAcos > 20 ? 'var(--text-soft)' : 'var(--signal-caution)';
+        elRohertrag.textContent = fmtEur(rohertrag);
+
+        outMarginImpossible.hidden = true;
+
+        // Progressive: Ziel-ACOS erst wenn Marge eingegeben
+        if (!hasMargin) {
+          elZielBlock.hidden     = true;
+          maxCpcRow.hidden       = true;
+          elNextHint.textContent = 'Gib Ziel-Marge ein → Ziel-ACOS wird berechnet';
+          elHint.textContent     = '';
+          return;
+        }
 
         var gewinnZiel = price * (margin / 100);
         var zielAcos   = (rohertrag - gewinnZiel) / price * 100;
 
         if (zielAcos <= 0) {
-          outResult.hidden = true;
-          outNegative.hidden = true;
-          outMarginImpossible.hidden = false;
+          elZielBlock.hidden              = true;
+          maxCpcRow.hidden                = true;
+          outMarginImpossible.hidden      = false;
+          outMarginImpossible.textContent = 'Gewünschte Marge nicht erreichbar. Marge senken oder Preis erhöhen.';
+          elNextHint.textContent = '';
+          elHint.textContent     = '';
           return;
         }
-        outMarginImpossible.hidden = true;
-        outResult.hidden = false;
 
-        elBreakEven.textContent = fmtPct(beAcos);
-        elBreakEven.style.color = beAcos > 20 ? 'var(--text-soft)' : 'var(--signal-caution)';
-
+        elZielBlock.hidden     = false;
         elZielAcos.textContent = fmtPct(zielAcos);
         elZielAcos.style.color = 'var(--accent)';
-
         elMargeEin.textContent = fmtEur(gewinnZiel);
 
+        // Progressive: Max-CPC erst wenn CVR eingegeben
         if (cvr > 0) {
-          elMaxCpc.textContent = fmtEur(price * (zielAcos / 100) * (cvr / 100));
-          maxCpcRow.hidden = false;
+          elMaxCpc.textContent   = fmtEur(price * (zielAcos / 100) * (cvr / 100));
+          maxCpcRow.hidden       = false;
+          elNextHint.textContent = '';
         } else {
-          maxCpcRow.hidden = true;
+          maxCpcRow.hidden       = true;
+          elNextHint.textContent = 'Conversion Rate eingeben → Max. CPC';
         }
 
         var spielraum = beAcos - zielAcos;
-        elHint.textContent = 'Spielraum zwischen Break-Even und Ziel-ACOS: ' + fmtPct(spielraum) + '. Liegt Dein aktueller ACOS darunter, bist Du profitabel.';
+        elHint.textContent = 'Spielraum: ' + fmtPct(spielraum) + '. Liegt Dein aktueller ACOS unter dem Ziel-ACOS, bist Du profitabel.';
       }
 
       var t = null;
