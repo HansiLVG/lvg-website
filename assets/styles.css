@@ -18,6 +18,21 @@
   font-display: swap;
   font-style: normal;
 }
+/* Space Mono — Monospace-Schwester von Space Grotesk, nur für Daten-Zahlen */
+@font-face {
+  font-family: "Space Mono";
+  src: url("../fonts/space-mono-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("../fonts/space-mono-latin-700.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
 
 /* ─── TOKENS ───────────────────────────────────────────────── */
 :root {
@@ -64,6 +79,7 @@
 
   --serif: "Space Grotesk", system-ui, sans-serif;
   --sans:  "Inter", system-ui, sans-serif;
+  --mono:  "Space Mono", ui-monospace, "Cascadia Code", monospace;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -727,7 +743,8 @@ section[id] { scroll-margin-top: 72px; }
 }
 .big-stat .num {
   display: block;
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-family: var(--mono);   /* PROTOTYP: Space Mono für Daten-Zahlen */
+  font-size: clamp(2rem, 4.3vw, 3.1rem);
   font-weight: 700;
   color: var(--white);
   letter-spacing: -0.04em;
