@@ -57,6 +57,7 @@ Vollständige Spezifikation V2-Design: siehe `../website-v2-dev/DESIGN-SYSTEM-V2
 - **Typografie:** Space Grotesk (Headlines, Labels, Zahlen) + Inter (Body, Buttons)
 - **Farben:** Dunkler Hintergrund (`#0e1117`), heller Text auf 4 Opazitäten, Hellgrün-Akzent `#22c55e`
 - **Daten-Palette:** Orange `#FF9900` · Blue `#3b82f6` · Purple `#8B5CF6` (nur in Charts/Sparklines)
+- **Signal-/Statusfarben:** `--signal-warning` (Orange `#FF9900`, Achtung/Geld in Gefahr/Handlungsbedarf) · `--signal-danger` (Rot `#f87171`, kritisch/Verlust/Fehler) · `--signal-caution` (Gelb `#fbbf24`, Optimierungsbedarf). Grün `--accent` = positiv/gut. Orange ist semantisch belegt, nie als reine Deko an positiven Stellen (CTAs, Erfolg).
 - **Hero-Hintergrund:** Animierter WebGL-Mesh-Gradient via Whatamesh
 - **Hover-Pattern:** `translateY(-1px/-2px)` + `border-color` strong, kein Hintergrundfarbe-Hover
 - **Reveal:** IntersectionObserver-basierte Einblend-Animationen mit `--reveal-delay`
@@ -73,6 +74,9 @@ Vollständige Spezifikation V2-Design: siehe `../website-v2-dev/DESIGN-SYSTEM-V2
 --accent:       #22c55e;
 --accent-dim:   rgba(34,197,94,0.12);
 --accent-border:rgba(34,197,94,0.22);
+--signal-warning:       #FF9900;   /* Orange: Achtung/Geld in Gefahr */
+--signal-danger:        #f87171;   /* Rot: kritisch/Fehler */
+--signal-caution:       #fbbf24;   /* Gelb: Optimierungsbedarf */
 --border:       rgba(255,255,255,0.07);
 --border-strong:rgba(255,255,255,0.14);
 --maxw:  clamp(1100px, 80vw, 1440px);

@@ -39,6 +39,23 @@
   --data-blue:    #3b82f6;
   --data-purple:  #8B5CF6;
 
+  /* Signal-/Statusfarben (semantisch, site-weit einsetzbar) */
+  --signal-warning:        #FF9900;              /* Orange: Achtung, Geld in Gefahr, Handlungsbedarf */
+  --signal-warning-dim:    rgba(255,153,0,0.07); /* Hintergrund Warn-Box */
+  --signal-warning-border: rgba(255,153,0,0.18); /* Rahmen Warn-Box */
+  --signal-danger:         #f87171;              /* Rot: kritisch / Verlust / Fehler */
+  --signal-caution:        #fbbf24;              /* Gelb: Optimierungsbedarf */
+  /* Grün (--accent) ist das Positiv-/Gut-Signal */
+
+  /* ACOS-Skala (feine Abstufung, nur im Rechner) */
+  --acos-aurora:      #c084fc;                /* < 10 %: Wachstum verschenkt */
+  --acos-very-good:   #86efac;                /* 10–15 %: sehr effizient */
+  --acos-good:        #4ade80;                /* 15–22 %: Sweet Spot */
+  --acos-good-edge:   #a3e635;                /* 22–28 %: Sweet-Spot-Edge */
+  --acos-warn:        var(--signal-caution);  /* 28–38 %: Optimierungs-Zone */
+  --acos-warn-strong: #fb923c;                /* 35–50 %: stark warnend */
+  --acos-bad:         var(--signal-danger);   /* > 50 %: kritisch */
+
   --border:        rgba(255,255,255,0.07);
   --border-strong: rgba(255,255,255,0.14);
 
@@ -1109,23 +1126,23 @@ section[id] { scroll-margin-top: 72px; }
   font-size: 2.4rem;
 }
 .calc-out-row.danger .num {
-  color: #f87171;
+  color: var(--signal-danger);
   font-size: 2.4rem;
 }
-.calc-out-row.loss .num { color: #f87171; }
-.calc-out-row.soft-good .num { color: #86efac; }
+.calc-out-row.loss .num { color: var(--signal-danger); }
+.calc-out-row.soft-good .num { color: var(--acos-very-good); }
 .calc-out-filled { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
 .calc-loss-hint {
   grid-column: 1 / -1;
-  background: rgba(255, 153, 0, 0.07);
-  border: 1px solid rgba(255, 153, 0, 0.18);
+  background: var(--signal-warning-dim);
+  border: 1px solid var(--signal-warning-border);
   border-radius: 8px;
   padding: 10px 14px;
   font-size: 13px;
   color: var(--text-soft);
   line-height: 1.5;
 }
-.calc-loss-hint strong { color: #FF9900; font-weight: 600; }
+.calc-loss-hint strong { color: var(--signal-warning); font-weight: 600; }
 .calc-growth-hint {
   grid-column: 1 / -1;
   background: rgba(34, 197, 94, 0.05);
@@ -1167,25 +1184,25 @@ section[id] { scroll-margin-top: 72px; }
   background-origin: border-box;
   animation: aurora-spin 6s linear infinite;
 }
-.calc-field .input-wrap.lvl-aurora input { color: #c084fc; }
+.calc-field .input-wrap.lvl-aurora input { color: var(--acos-aurora); }
 /* 10–15 %: sehr effizient */
 .calc-field .input-wrap.lvl-very-good { border-color: rgba(134,239,172,0.55); }
-.calc-field .input-wrap.lvl-very-good input { color: #86efac; }
+.calc-field .input-wrap.lvl-very-good input { color: var(--acos-very-good); }
 /* 15–22 %: Sweet Spot (intensives Grün) */
 .calc-field .input-wrap.lvl-good { border-color: rgba(34,197,94,0.55); }
-.calc-field .input-wrap.lvl-good input { color: #4ade80; }
+.calc-field .input-wrap.lvl-good input { color: var(--acos-good); }
 /* 22–28 %: Sweet-Spot-Edge (Limegrün, knapp über optimal) */
 .calc-field .input-wrap.lvl-good-edge { border-color: rgba(163,230,53,0.60); }
-.calc-field .input-wrap.lvl-good-edge input { color: #a3e635; }
+.calc-field .input-wrap.lvl-good-edge input { color: var(--acos-good-edge); }
 /* 28–38 %: Gelb (Optimierungs-Zone) */
 .calc-field .input-wrap.lvl-warn { border-color: rgba(251,191,36,0.65); }
-.calc-field .input-wrap.lvl-warn input { color: #fbbf24; }
+.calc-field .input-wrap.lvl-warn input { color: var(--acos-warn); }
 /* 35–50 %: stark warnend */
 .calc-field .input-wrap.lvl-warn-strong { border-color: rgba(249,115,22,0.65); }
-.calc-field .input-wrap.lvl-warn-strong input { color: #fb923c; }
+.calc-field .input-wrap.lvl-warn-strong input { color: var(--acos-warn-strong); }
 /* > 50 %: kritisch */
 .calc-field .input-wrap.lvl-bad  { border-color: rgba(248,113,113,0.65); }
-.calc-field .input-wrap.lvl-bad  input { color: #f87171; }
+.calc-field .input-wrap.lvl-bad  input { color: var(--acos-bad); }
 
 /* ─── Mini-Skala unter dem Input ─────────────────────────── */
 .calc-scale {
@@ -1197,15 +1214,15 @@ section[id] { scroll-margin-top: 72px; }
   border-radius: 3px;
   background: linear-gradient(
     to right,
-    #c084fc 0%,        /* Aurora-Lila <10 % */
-    #86efac 14%,       /* Hellgrün 10 % */
-    #4ade80 21%,       /* Grün 15 % */
-    #4ade80 31%,       /* Grün-Plateau bis 22 % */
-    #a3e635 40%,       /* Limegrün 28 % (Sweet-Spot-Edge) */
-    #fbbf24 50%,       /* Gelb 35 % */
-    #FF9900 60%,       /* Orange 42 % */
-    #fb923c 75%,       /* Rot-Orange 52 % */
-    #f87171 100%       /* Rot 70 %+ */
+    var(--acos-aurora) 0%,        /* Aurora-Lila <10 % */
+    var(--acos-very-good) 14%,    /* Hellgrün 10 % */
+    var(--acos-good) 21%,         /* Grün 15 % */
+    var(--acos-good) 31%,         /* Grün-Plateau bis 22 % */
+    var(--acos-good-edge) 40%,    /* Limegrün 28 % (Sweet-Spot-Edge) */
+    var(--acos-warn) 50%,         /* Gelb 35 % */
+    var(--signal-warning) 60%,    /* Orange 42 % */
+    var(--acos-warn-strong) 75%,  /* Rot-Orange 52 % */
+    var(--acos-bad) 100%          /* Rot 70 %+ */
   );
   opacity: 0.6;
 }
@@ -2416,7 +2433,7 @@ section[id] { scroll-margin-top: 72px; }
 .field-error {
   font-family: var(--sans);
   font-size: 12px;
-  color: #ef4444;
+  color: var(--signal-danger);
 }
 .field-error:empty { display: none; }
 
@@ -2886,9 +2903,12 @@ form[data-fs-form-success] ~ .form-success { display: block; }
 .blog-card-link { font-size: 14px; color: var(--accent); }
 
 /* ─── BLOGARTIKEL ──────────────────────────────────────────── */
-.article-section { padding: 80px 0 120px; }
+.article-section,
+.list-section { padding: 80px 0 120px; }   /* Content-/Listen-Hub-Sektionen */
+.lead-magnet-cta { padding: 0 0 64px; }       /* Lead-Magnet-Block am Ende der Leistungsseiten */
 .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 .article-meta-line { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 24px; }
+.article-meta-line a { color: var(--accent); text-decoration: none; }
 .article-h1 { font-family: var(--serif); font-size: clamp(34px, 5vw, 60px); font-weight: 700; line-height: 1.1; color: var(--text); margin: 0 0 20px; }
 .article-lede { font-family: var(--serif); font-style: italic; font-size: clamp(18px, 2vw, 24px); color: var(--accent); line-height: 1.4; margin: 0 0 48px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
 .glossar-lede { font-size: clamp(17px, 1.4vw, 20px); color: var(--text); line-height: 1.6; margin: 0 0 40px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
