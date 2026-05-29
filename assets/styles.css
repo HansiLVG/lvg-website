@@ -1882,6 +1882,43 @@ section[id] { scroll-margin-top: 72px; }
   --gradient-color-4: #0f172a;
   opacity: 0.55;
 }
+
+/* ─── SHADER-VARIANTEN (Design-Tests) ─────────────────────────────────────
+   Zum Testen im Browser: data-shader="A" auf <html> setzen + reload.
+   Original (kein Attribut): Grün + Tiefblau + Violett + Dunkel.
+
+   Variante A  Grün + Orange + Violett + Dunkel  (warm, energetisch)
+   Variante B  Grün + Orange + Tiefblau + Dunkel (warm-kalt-Kontrast, kein Violett)
+   Variante C  Orange-Glut + Grün + Tiefblau + Dunkel (Orange glüht als Basis durch)
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-shader="A"] #gradient-canvas,
+[data-shader="A"] #gradient-canvas-sub,
+[data-shader="A"] #gradient-canvas-cta {
+  --gradient-color-1: #22c55e;
+  --gradient-color-2: #ea580c;
+  --gradient-color-3: #6b21a8;
+  --gradient-color-4: #0f172a;
+}
+
+[data-shader="B"] #gradient-canvas,
+[data-shader="B"] #gradient-canvas-sub,
+[data-shader="B"] #gradient-canvas-cta {
+  --gradient-color-1: #22c55e;
+  --gradient-color-2: #f97316;
+  --gradient-color-3: #1e40af;
+  --gradient-color-4: #0f172a;
+}
+
+[data-shader="C"] #gradient-canvas,
+[data-shader="C"] #gradient-canvas-sub,
+[data-shader="C"] #gradient-canvas-cta {
+  --gradient-color-1: #c2410c;
+  --gradient-color-2: #22c55e;
+  --gradient-color-3: #1e40af;
+  --gradient-color-4: #0f172a;
+}
+
 .cta-fade {
   position: absolute;
   inset: 0;
