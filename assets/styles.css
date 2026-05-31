@@ -2778,15 +2778,16 @@ form[data-fs-form-success] ~ .form-success { display: block; }
 }
 .pk-cta { margin-top: 28px; }
 .pk-note {
-  margin-top: 40px;
-  padding: 20px 28px;
+  margin: 40px auto 0;
+  max-width: 720px;
+  padding: 24px 32px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
   color: var(--text-soft);
   font-size: 14px;
   line-height: 1.7;
-  text-align: center;
+  text-align: left;
 }
 .pk-once-grid {
   display: grid;
