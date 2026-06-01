@@ -3004,6 +3004,10 @@ form[data-fs-form-success] ~ .form-success { display: block; }
   .pk-matrix th, .pk-matrix td { padding: 11px 13px; font-size: 13px; }
   .pk-matrix th[scope="row"] { font-size: 13px; }
   .pk-matrix .calc-tip::after { width: 170px; }
+  /* Auf schmalen Screens horizontal scrollen statt hart umbrechen */
+  .pk-matrix-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .pk-matrix { min-width: 640px; }
+  .pk-matrix-more > div { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
 }
 
 /* ─── SERVICE-SEITEN (Leistungsseiten) ──────────────────────── */
