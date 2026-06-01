@@ -14,6 +14,17 @@
     if (item) item.classList.toggle('open');
   });
 
+  /* ─── Generic expand toggle (Preis-Vergleichstabelle) ─── */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest && e.target.closest('[data-expand]');
+    if (!t) return;
+    var target = document.getElementById(t.getAttribute('data-expand'));
+    if (!target) return;
+    var open = target.classList.toggle('open');
+    t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    target.style.maxHeight = open ? target.scrollHeight + 'px' : '0px';
+  });
+
   /* ─── Step accordion (Leistungsseiten) ─── */
   document.addEventListener('click', function (e) {
     var trg = e.target.closest && e.target.closest('.step-acc');
