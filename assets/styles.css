@@ -3008,7 +3008,8 @@ form[data-fs-form-success] ~ .form-success { display: block; }
   /* Auf schmalen Screens horizontal scrollen statt hart umbrechen */
   .pk-matrix-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .pk-matrix { min-width: 640px; }
-  .pk-matrix-more > div { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
+  /* Aufgeklappter Teil laeuft im selben Scroll-Container wie die obere Tabelle, damit beide synchron scrollen und die Spalten ausgerichtet bleiben */
+  .pk-matrix-more { min-width: 640px; }
 }
 
 /* ─── SERVICE-SEITEN (Leistungsseiten) ──────────────────────── */
