@@ -33,6 +33,22 @@
     trg.classList.toggle('open');
   });
 
+  /* ─── Kategorie-Accordion (Leistungs-Sektion) ─── */
+  function setInclCatHeight(cat) {
+    var body = cat.querySelector('.incl-cat-body');
+    if (body) body.style.maxHeight = cat.classList.contains('open') ? body.scrollHeight + 'px' : '0px';
+  }
+  document.addEventListener('click', function (e) {
+    var head = e.target.closest && e.target.closest('.incl-cat-head');
+    if (!head) return;
+    var cat = head.closest('.incl-cat');
+    if (!cat) return;
+    cat.classList.toggle('open');
+    head.setAttribute('aria-expanded', cat.classList.contains('open') ? 'true' : 'false');
+    setInclCatHeight(cat);
+  });
+  document.querySelectorAll('.incl-cat').forEach(setInclCatHeight);
+
   /* ─── Mobile nav ─── */
   function initMobileNav() {
     var hamb = document.getElementById('hamb');
