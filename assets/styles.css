@@ -2202,6 +2202,7 @@ section[id] { scroll-margin-top: 72px; }
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
+.vergleich-grid-3 { grid-template-columns: repeat(3, 1fr); }
 .vergleich-col {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -2251,6 +2252,9 @@ section[id] { scroll-margin-top: 72px; }
 .vergleich-me li::before { color: var(--accent); }
 .vergleich-me li { color: var(--text); }
 
+@media (max-width: 900px) {
+  .vergleich-grid-3 { grid-template-columns: 1fr; }
+}
 @media (max-width: 720px) {
   .vergleich-grid { grid-template-columns: 1fr; }
 }
