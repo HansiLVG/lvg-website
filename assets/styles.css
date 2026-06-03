@@ -3127,6 +3127,19 @@ form[data-fs-form-success] ~ .form-success { display: block; }
   transition: border-color 0.2s var(--ease);
 }
 .incl-item:hover { border-color: var(--accent-border); }
+.incl-group {
+  grid-column: 1 / -1;
+  font-family: var(--serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 18px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.incl-group:first-child { margin-top: 0; }
 .incl-icon {
   width: 32px;
   height: 32px;
