@@ -2957,14 +2957,14 @@ form[data-fs-form-success] ~ .form-success { display: block; }
 .pk-matrix tr.pk-m-grouprow th {
   text-align: left;
   font-family: var(--serif);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-soft);
-  background: var(--bg-elevated);
-  padding-top: 18px;
-  padding-bottom: 8px;
+  color: var(--text-muted);
+  background: transparent;
+  padding-top: 26px;
+  padding-bottom: 6px;
 }
 .pk-m-no::before {
   content: "";
