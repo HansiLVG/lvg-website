@@ -108,7 +108,8 @@ Vollständige Spezifikation V2-Design: siehe `../website-v2-dev/DESIGN-SYSTEM-V2
 ## Offene TODOs
 
 - [ ] **Brevo fertigstellen** — Nurture-Sequenz aus Vault in Brevo einrichten. Erledigt (29.05.2026): Formular-Bug gefixt (`VORNAME` statt `FIRSTNAME` im fetch), Double-Opt-in läuft end-to-end, Resend-Timer auf Bestätigungsseite, DOI- + Welcome-Mail als helle Templates mit dunklem Logo (`assets/logo-email-light.png`), Datenschutz um Brevo-Abschnitt (Sektion 10) ergänzt. Offen: finaler End-to-End-Test, Nurture-Sequenz.
-- [ ] **Cert-Badge-Bilder** einbauen (`badge-sponsored-ads.avif`, `badge-marketing-cloud.png`) sobald die offiziellen Bilder vorliegen. PDFs liegen als Backup, werden bewusst nicht verlinkt (Datenschutz).
+- [ ] **Cert-Badge-Bilder** einbauen (`badge-sponsored-ads.avif`, `badge-marketing-cloud.png`) sobald die offiziellen Bilder vorliegen.
+- [x] **Zertifikate als Lightbox** — cert-cards auf Homepage und Über-mich anklickbar gemacht, öffnen die Urkunde als WebP-Overlay (03.06.2026). Quelle: `assets/zertifikat-*.pdf` nach `assets/zertifikat-*.webp` gerendert (PyMuPDF). Frühere Datenschutz-Bedenken gegen das Verlinken hinfällig: Urkunden enthalten nur Name, Datum und Zertifizierungs-ID, alles ohnehin öffentlich.
 - [ ] **Lead-Magnet Live-URL** — entscheiden ob `lead-magnet/` öffentlich verlinkbar oder nur per E-Mail-Versand nach Download. Aktuell `noindex`.
 - [ ] **PageSpeed/Lighthouse Benchmark** für V2 neu erheben (V1-Werte aus alter Doku sind nicht mehr aussagekräftig).
 - [ ] **WCAG-Kontrast** für `--text-muted` (38% Opacity) auf `--bg` gecheckt: 3,28:1 (rechnerisch). Besteht WCAG AA für Großtext (3:1), fällt unter AA für Normaltext (4,5:1). Bewusste Design-Entscheidung, solange text-muted nur für Sekundärinformationen (Metadaten, Captions) eingesetzt wird.
