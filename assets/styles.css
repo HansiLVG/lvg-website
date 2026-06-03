@@ -2954,6 +2954,18 @@ form[data-fs-form-success] ~ .form-success { display: block; }
 }
 .pk-matrix td.pk-m-yes { color: var(--accent); font-weight: 700; font-size: 15px; }
 .pk-matrix td.pk-m-val { color: var(--text); font-weight: 500; }
+.pk-matrix tr.pk-m-grouprow th {
+  text-align: left;
+  font-family: var(--serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  background: var(--bg-elevated);
+  padding-top: 18px;
+  padding-bottom: 8px;
+}
 .pk-m-no::before {
   content: "";
   display: inline-block;
