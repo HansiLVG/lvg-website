@@ -427,6 +427,54 @@
     });
   }
 
+  /* ─── Zertifikat-Lightbox (Homepage + Über-mich) ─── */
+  function initCertLightbox() {
+    var triggers = document.querySelectorAll('[data-cert-img]');
+    if (!triggers.length) return;
+
+    var box = document.createElement('div');
+    box.className = 'lightbox';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-modal', 'true');
+    box.setAttribute('aria-label', 'Zertifikat');
+    box.innerHTML =
+      '<div class="lightbox-backdrop"></div>' +
+      '<button class="lightbox-close" type="button" aria-label="Schließen">&times;</button>' +
+      '<img class="lightbox-img" src="" alt="" />';
+    document.body.appendChild(box);
+
+    var img = box.querySelector('.lightbox-img');
+    var closeBtn = box.querySelector('.lightbox-close');
+    var lastFocused = null;
+
+    function open(src, alt) {
+      lastFocused = document.activeElement;
+      img.src = src;
+      img.alt = alt || '';
+      box.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      box.classList.remove('open');
+      document.body.style.overflow = '';
+      img.removeAttribute('src');
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+
+    triggers.forEach(function (t) {
+      t.addEventListener('click', function () {
+        open(t.getAttribute('data-cert-img'), t.getAttribute('data-cert-alt'));
+      });
+    });
+    box.addEventListener('click', function (e) {
+      if (e.target === closeBtn || e.target.classList.contains('lightbox-backdrop')) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && box.classList.contains('open')) close();
+    });
+  }
+
   /* ─── Boot ─── */
   function boot() {
     initMobileNav();
@@ -438,6 +486,7 @@
     initBrevoForm();
     initResendTimer();
     initSearch();
+    initCertLightbox();
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);

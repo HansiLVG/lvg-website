@@ -1787,6 +1787,87 @@ section[id] { scroll-margin-top: 72px; }
 }
 @media (max-width: 720px) { .certs-grid { grid-template-columns: 1fr; } }
 
+/* ─── Zertifikat-Karte klickbar + Lightbox ─────────────────── */
+.cert-card--view {
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.cert-card--view:hover { transform: translateY(-2px); }
+.cert-card--green.cert-card--view:hover { border-color: var(--accent); }
+.cert-card--view:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.cert-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 14px;
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+.cert-view .arrow { transition: transform 0.2s ease; }
+.cert-card--view:hover .cert-view { color: var(--accent); }
+.cert-card--view:hover .cert-view .arrow { transform: translate(2px, -2px); }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 5vw, 48px);
+}
+.lightbox.open { display: flex; }
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 8, 13, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: lb-fade 0.2s ease;
+}
+.lightbox-img {
+  position: relative;
+  max-width: min(960px, 100%);
+  max-height: calc(100vh - 96px);
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  animation: lb-pop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elevated);
+  color: var(--text);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.lightbox-close:hover { border-color: var(--accent); transform: scale(1.06); }
+@keyframes lb-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lb-pop { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-backdrop, .lightbox-img { animation: none; }
+  .cert-card--view, .cert-view, .cert-view .arrow { transition: none; }
+}
+
 /* ─── FAQ ──────────────────────────────────────────────────── */
 .faq-list { display: flex; flex-direction: column; }
 .faq-item {
