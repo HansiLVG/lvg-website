@@ -160,6 +160,7 @@
     <!-- Embed: volle --maxw-Breite mit wenig Padding → Cal.com schaltet in Desktop-Layout -->
     <div style="max-width: var(--maxw); margin: 0 auto; padding: 0 20px;">
       <div id="cal-inline-15min" style="min-height: 300px; border-radius: 16px; overflow: hidden;" class="reveal"></div>
+      <p style="text-align: center; margin-top: 14px; font-size: 14px; color: var(--text-muted);">Kalender lädt nicht? <a href="https://cal.eu/lvg-ppc/15min" target="_blank" rel="noopener noreferrer">Termin direkt auf cal.eu buchen</a> <span class="arrow">↗</span></p>
     </div>
   </section>
 
@@ -210,7 +211,7 @@
         </div>
         <div class="form-error" data-fs-error></div>
 
-        <form id="kontakt-form" class="kontakt-form">
+        <form id="kontakt-form" class="kontakt-form" action="https://formspree.io/f/xojbqrad" method="POST">
           <div class="form-field">
             <label for="f-name">Name *</label>
             <input id="f-name" name="Name" type="text" required data-fs-field />

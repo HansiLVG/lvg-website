@@ -480,6 +480,7 @@
               <div class="calc-context-hint calc-out-full" id="out-disclaimer" hidden>
                 Richtwert. Das Potenzial hängt von Marktgröße, Konkurrenz und Marge ab.
               </div>
+              <a class="btn btn-primary calc-out-full" id="out-cta" href="/amazon-ppc-audit/" hidden>Zeig mir, wo das Budget verbrennt <span class="arrow">↗</span></a>
             </div>
             <div class="calc-out-good" id="calc-out-good" hidden>
               <div class="calc-out-row">
@@ -942,6 +943,7 @@
       var outYear      = document.getElementById('out-year');
       var outHint      = document.getElementById('out-hint');
       var outDisclaimer= document.getElementById('out-disclaimer');
+      var outCta       = document.getElementById('out-cta');
       var scaleMarker  = document.getElementById('calc-scale-marker');
       if (!eSpend || !eAcos) return;
 
@@ -994,6 +996,7 @@
           };
           outGood.innerHTML = goodHtml[c.lvl] || '<div class="calc-growth-hint">Dein ACOS liegt im Sweet Spot.</div>';
           outGood.hidden = false;
+          if (outCta) outCta.hidden = true;
           return;
         }
 
@@ -1009,6 +1012,7 @@
           var growthSuffix = c.lvl === 'lvl-aurora' ? ' Dein ACOS ist ausgezeichnet.' : ' Noch Potenzial, das Du abholen kannst.';
           outHint.innerHTML       = 'Dieses Quartal liegen <strong>' + fmt(growthMonth * 3) + '</strong> Wachstum auf dem Tisch.' + growthSuffix;
           if (outDisclaimer) outDisclaimer.hidden = false;
+          if (outCta) outCta.hidden = true;
         } else {
           var monthly = spend * (acos - TARGET) / 100;
           outLblMonth.textContent = 'Einsparpotenzial pro Monat';
@@ -1022,6 +1026,7 @@
           outHint.className       = 'calc-loss-hint';
           outHint.innerHTML       = 'Pro Quartal verlierst Du bereits <strong>' + fmt(monthly * 3) + '</strong>.' + saveSuffix;
           if (outDisclaimer) outDisclaimer.hidden = true;
+          if (outCta) outCta.hidden = !(c.lvl === 'lvl-bad' || c.lvl === 'lvl-warn-strong');
         }
       }
 
