@@ -3139,6 +3139,7 @@ form[data-fs-form-success] ~ .form-success { display: block; }
   border: 1px solid var(--border);
   border-radius: 14px;
   overflow: hidden;
+  cursor: pointer;
   transition: border-color 0.2s var(--ease);
 }
 .incl-cat.open { border-color: var(--border-strong); }
@@ -3155,20 +3156,11 @@ form[data-fs-form-success] ~ .form-success { display: block; }
   text-align: left;
   font-family: var(--sans);
 }
-.incl-cat-headtext { min-width: 0; }
 .incl-cat-title {
   font-family: var(--serif);
   font-size: 16px;
   font-weight: 600;
   color: var(--white);
-}
-.incl-cat-teaser {
-  font-size: 12.5px;
-  color: var(--text-muted);
-  margin-top: 3px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .incl-cat-chev {
   flex-shrink: 0;
@@ -3184,8 +3176,15 @@ form[data-fs-form-success] ~ .form-success { display: block; }
 }
 .incl-cat-body .incl-grid {
   margin-top: 0;
-  padding: 4px 24px 24px;
+  padding: 6px 24px 22px;
   grid-template-columns: 1fr;
+  gap: 20px;
+}
+.incl-cat-body .incl-item {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
 }
 .incl-icon {
   width: 32px;

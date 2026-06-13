@@ -39,12 +39,12 @@
     if (body) body.style.maxHeight = cat.classList.contains('open') ? body.scrollHeight + 'px' : '0px';
   }
   document.addEventListener('click', function (e) {
-    var head = e.target.closest && e.target.closest('.incl-cat-head');
-    if (!head) return;
-    var cat = head.closest('.incl-cat');
+    var cat = e.target.closest && e.target.closest('.incl-cat');
     if (!cat) return;
+    if (e.target.closest('a')) return;
     cat.classList.toggle('open');
-    head.setAttribute('aria-expanded', cat.classList.contains('open') ? 'true' : 'false');
+    var head = cat.querySelector('.incl-cat-head');
+    if (head) head.setAttribute('aria-expanded', cat.classList.contains('open') ? 'true' : 'false');
     setInclCatHeight(cat);
   });
   document.querySelectorAll('.incl-cat').forEach(setInclCatHeight);
