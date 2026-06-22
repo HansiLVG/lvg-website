@@ -27,6 +27,65 @@
   <link rel="preload" href="../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="../assets/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "@id": "https://lvg-ppc.de/preise/#offers",
+    "name": "Amazon PPC Preise und Pakete",
+    "url": "https://lvg-ppc.de/preise/",
+    "provider": { "@id": "https://lvg-ppc.de/#person" },
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Starter",
+        "description": "Laufendes Kampagnenmanagement, 1 Produktgruppe inklusive. Monatlich.",
+        "itemOffered": { "@type": "Service", "@id": "https://lvg-ppc.de/amazon-ppc-management/#service", "name": "Kampagnenmanagement" },
+        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "EUR", "price": "900", "minPrice": "900" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Growth",
+        "description": "Laufendes Kampagnenmanagement, 2 Produktgruppen inklusive, Sponsored Products, Brands und Display. Monatlich.",
+        "itemOffered": { "@type": "Service", "@id": "https://lvg-ppc.de/amazon-ppc-management/#service", "name": "Kampagnenmanagement" },
+        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "EUR", "price": "2100", "minPrice": "2100" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Scale",
+        "description": "Laufendes Kampagnenmanagement, 3 Produktgruppen inklusive, Multi-Market und AMC-Attribution. Monatlich.",
+        "itemOffered": { "@type": "Service", "@id": "https://lvg-ppc.de/amazon-ppc-management/#service", "name": "Kampagnenmanagement" },
+        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "EUR", "price": "3200", "minPrice": "3200" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Account-Audit",
+        "description": "Einmalige Analyse der Kampagnenstruktur mit Bericht und Sofortmaßnahmen, Lieferung in 48 Stunden.",
+        "itemOffered": { "@type": "Service", "@id": "https://lvg-ppc.de/amazon-ppc-audit/#service", "name": "Amazon PPC Audit" },
+        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "EUR", "price": "350", "minPrice": "350" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Strategie und Aufbau",
+        "description": "Keyword-Recherche, Kampagnenarchitektur und Setup pro Produktgruppe. Zzgl. Onboarding 300 EUR pro Account.",
+        "itemOffered": { "@type": "Service", "@id": "https://lvg-ppc.de/amazon-ppc-strategie/#service", "name": "Amazon PPC Strategie und Aufbau" },
+        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "EUR", "price": "350", "minPrice": "350" }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://lvg-ppc.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Preise", "item": "https://lvg-ppc.de/preise/" }
+    ]
+  }
+  </script>
 </head>
 <body>
 
