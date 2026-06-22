@@ -20,3 +20,7 @@ _big.png
 _nav.png
 _inkscan.js
 _measure.js
+
+# Lokale Build-/Dev-Skripte (enthalten lokale Pfade, nicht für die Live-Site nötig)
+_gen-docx.js
+_inject-components.js
