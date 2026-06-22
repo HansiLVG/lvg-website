@@ -2253,6 +2253,18 @@ section[id] { scroll-margin-top: 72px; }
 .cookie-banner-buttons {
   display: flex; gap: 8px; flex-shrink: 0;
 }
+/* DSGVO: "Ablehnen" gleich gewichtet wie "Akzeptieren", keine Nudging-Optik */
+.cookie-banner-buttons .btn { min-width: 112px; justify-content: center; }
+.cookie-banner-buttons .btn-ghost {
+  background: #ffffff;
+  color: #0a0f1c;
+  border-color: #ffffff;
+}
+.cookie-banner-buttons .btn-ghost:hover {
+  background: var(--accent);
+  color: #071a0e;
+  border-color: var(--accent);
+}
 
 /* ─── HERO REASSURE ───────────────────────────────────────── */
 .hero-reassure {
