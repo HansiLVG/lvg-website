@@ -40,6 +40,7 @@ website-main/
 - **Farben:** Dunkler Hintergrund (`#0e1117`), heller Text auf 4 Opazitäten, Hellgrün-Akzent `#22c55e`
 - **Daten-Palette:** Orange `#FF9900` · Blue `#3b82f6` · Purple `#8B5CF6` (nur in Charts/Sparklines)
 - **Signal-/Statusfarben:** `--signal-warning` (Orange `#FF9900`, Achtung/Geld in Gefahr) · `--signal-danger` (Rot `#f87171`, kritisch/Fehler) · `--signal-caution` (Gelb `#fbbf24`, Optimierungsbedarf). Grün `--accent` = positiv. Orange ist semantisch belegt, nie als reine Deko an positiven Stellen (CTAs, Erfolg).
+- **Erweiterte Akzent-Palette (Design):** `--accent-blue` `#3b82f6` · `--accent-purple` `#8B5CF6` · `--accent-amber` `#fbbf24` · `--accent-orange` `#FF9900`, je mit `-dim`/`-border`-Variante. Für farbige Design-Akzente über Grün hinaus (Karten, Badges, Highlights). Blau und Lila sind semantisch frei; Amber und Orange bleiben primär Signalfarben und dürfen dekorativ nur bewusst gesetzt werden.
 - **Hero-Hintergrund:** Animierter WebGL-Mesh-Gradient via Whatamesh
 - **Hover-Pattern:** `translateY(-1px/-2px)` + `border-color` strong, kein Hintergrundfarbe-Hover
 - **Reveal:** IntersectionObserver-basierte Einblend-Animationen mit `--reveal-delay`
