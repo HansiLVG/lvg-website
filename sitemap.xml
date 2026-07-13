@@ -181,6 +181,21 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lvg-ppc.de/glossar/brand-store/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/sponsored-brands-video/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lvg-ppc.de/glossar/amazon-attribution/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lvg-ppc.de/impressum.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>

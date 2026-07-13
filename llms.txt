@@ -19,6 +19,11 @@ Leon-Vincent Gamradt ist selbstständiger Amazon PPC Spezialist aus Berlin. Er b
 
 - [Amazon PPC Freelancer vs. Agentur: Was ist besser?](https://lvg-ppc.de/blog/amazon-ppc-freelancer-vs-agentur/): Ehrlicher Vergleich aus der Praxis: Kosten, Qualität, Reaktionszeit, wann welche Option sinnvoll ist.
 
+## Ressourcen
+
+- [Amazon PPC Glossar](https://lvg-ppc.de/glossar/): Über 20 Begriffe mit Definitionen, Formeln und Optimierungs-Hebeln, darunter ACOS, TACOS, Sponsored Products, Brand Store, Sponsored Brands Video, Amazon Attribution, Amazon Marketing Cloud und Amazon DSP.
+- [Rechner](https://lvg-ppc.de/rechner/): Kostenlose Rechner für ACOS und Break-Even-ACOS.
+
 ## Kontakt
 
 - [Erstgespräch buchen](https://cal.eu/lvg-ppc/15min): 15 Minuten via Cal.eu. Kein Pitch, kein Druck. Scope und Preis werden gemeinsam besprochen.
