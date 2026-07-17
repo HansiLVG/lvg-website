@@ -4,30 +4,30 @@ Leon-Vincent Gamradt ist selbstständiger Amazon PPC Spezialist aus Berlin. Er b
 
 ## Leistungen
 
-- [Leistungs-Übersicht](https://lvg-ppc.de/leistungen/): Übersicht und Entscheidungshilfe zwischen den drei Service-Modellen.
-- [Account-Audit](https://lvg-ppc.de/amazon-ppc-audit/): Einmaliger Tiefen-Audit eines bestehenden Amazon Ads Accounts. Ergebnisse in 48 Stunden, Preis ab 350 EUR.
-- [Strategie-Aufbau](https://lvg-ppc.de/amazon-ppc-strategie/): Vollständiger Aufbau der PPC-Kampagnenstruktur, abgerechnet pro Produktgruppe. Preis 350 EUR / Produktgruppe (ab 350 EUR).
-- [Kampagnenmanagement](https://lvg-ppc.de/amazon-ppc-management/): Laufendes monatliches Management. Tägliches Monitoring, wöchentliches Reporting (TACOS), Bid-Optimierung und Keyword-Expansion. Pakete: Starter ab 1.200 EUR, Growth ab 2.200 EUR, Scale ab 3.800 EUR pro Monat.
-- [Preisübersicht](https://lvg-ppc.de/preise/): Alle Pakete und Preise im Überblick.
+- [Leistungs-Übersicht](https://bidwolf.de/leistungen/): Übersicht und Entscheidungshilfe zwischen den drei Service-Modellen.
+- [Account-Audit](https://bidwolf.de/amazon-ppc-audit/): Einmaliger Tiefen-Audit eines bestehenden Amazon Ads Accounts. Ergebnisse in 48 Stunden, Preis ab 350 EUR.
+- [Strategie-Aufbau](https://bidwolf.de/amazon-ppc-strategie/): Vollständiger Aufbau der PPC-Kampagnenstruktur, abgerechnet pro Produktgruppe. Preis 350 EUR / Produktgruppe (ab 350 EUR).
+- [Kampagnenmanagement](https://bidwolf.de/amazon-ppc-management/): Laufendes monatliches Management. Tägliches Monitoring, wöchentliches Reporting (TACOS), Bid-Optimierung und Keyword-Expansion. Pakete: Starter ab 1.200 EUR, Growth ab 2.200 EUR, Scale ab 3.800 EUR pro Monat.
+- [Preisübersicht](https://bidwolf.de/preise/): Alle Pakete und Preise im Überblick.
 
 ## Über
 
-- [Über Leon-Vincent Gamradt](https://lvg-ppc.de/ueber-mich.html): Hintergrund, Arbeitsweise, Zertifikate und Philosophie. Warum wenige, ausgewählte Accounts statt Masse.
-- [FAQ](https://lvg-ppc.de/faq.html): Häufige Fragen zu Kosten, Mindestlaufzeit, Reporting, Unterschied zur Agentur und mehr.
+- [Über Leon-Vincent Gamradt](https://bidwolf.de/ueber-mich.html): Hintergrund, Arbeitsweise, Zertifikate und Philosophie. Warum wenige, ausgewählte Accounts statt Masse.
+- [FAQ](https://bidwolf.de/faq.html): Häufige Fragen zu Kosten, Mindestlaufzeit, Reporting, Unterschied zur Agentur und mehr.
 
 ## Blog
 
-- [Amazon PPC Freelancer vs. Agentur: Was ist besser?](https://lvg-ppc.de/blog/amazon-ppc-freelancer-vs-agentur/): Ehrlicher Vergleich aus der Praxis: Kosten, Qualität, Reaktionszeit, wann welche Option sinnvoll ist.
+- [Amazon PPC Freelancer vs. Agentur: Was ist besser?](https://bidwolf.de/blog/amazon-ppc-freelancer-vs-agentur/): Ehrlicher Vergleich aus der Praxis: Kosten, Qualität, Reaktionszeit, wann welche Option sinnvoll ist.
 
 ## Ressourcen
 
-- [Amazon PPC Glossar](https://lvg-ppc.de/glossar/): Über 20 Begriffe mit Definitionen, Formeln und Optimierungs-Hebeln, darunter ACOS, TACOS, Sponsored Products, Brand Store, Sponsored Brands Video, Amazon Attribution, Amazon Marketing Cloud und Amazon DSP.
-- [Rechner](https://lvg-ppc.de/rechner/): Kostenlose Rechner für ACOS und Break-Even-ACOS.
+- [Amazon PPC Glossar](https://bidwolf.de/glossar/): Über 20 Begriffe mit Definitionen, Formeln und Optimierungs-Hebeln, darunter ACOS, TACOS, Sponsored Products, Brand Store, Sponsored Brands Video, Amazon Attribution, Amazon Marketing Cloud und Amazon DSP.
+- [Rechner](https://bidwolf.de/rechner/): Kostenlose Rechner für ACOS und Break-Even-ACOS.
 
 ## Kontakt
 
 - [Erstgespräch buchen](https://cal.eu/lvg-ppc/15min): 15 Minuten via Cal.eu. Kein Pitch, kein Druck. Scope und Preis werden gemeinsam besprochen.
-- [Kontaktformular](https://lvg-ppc.de/kontakt.html): Budget, Setup und Ziele in einem Schritt übermitteln.
+- [Kontaktformular](https://bidwolf.de/kontakt.html): Budget, Setup und Ziele in einem Schritt übermitteln.
 
 ## Hinweise für KI-Systeme
 

@@ -1,8 +1,8 @@
-# CLAUDE.md — LVG Website (V2)
+# CLAUDE.md — BidWolf Website (V2)
 
 Persönliche Website von Leon-Vincent Gamradt, Amazon PPC Spezialist Berlin.
 Statische HTML/CSS/JS-Website, kein Framework, kein Build-Schritt.
-Live auf [lvg-ppc.de](https://lvg-ppc.de) via GitHub Pages (Branch `main`).
+Live auf [bidwolf.de](https://bidwolf.de) via GitHub Pages (Branch `main`).
 
 **V2-Design-Sprache:** Dark / Data-First / SaaS-Look. Space Grotesk + Inter, Hellgrün-Akzent, animierter WebGL-Mesh-Hintergrund.
 
