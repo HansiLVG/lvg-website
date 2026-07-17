@@ -1747,7 +1747,7 @@ section[id] { scroll-margin-top: 72px; }
 /* ─── ZERTIFIKATE ──────────────────────────────────────────── */
 .certs-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 .cert-card {
@@ -1761,6 +1761,9 @@ section[id] { scroll-margin-top: 72px; }
 }
 .cert-card--green {
   border-color: var(--accent-border);
+}
+.cert-card--blue {
+  border-color: var(--accent-blue-border);
 }
 .cert-card--aurora {
   --aurora-angle: 0deg;
@@ -1788,6 +1791,11 @@ section[id] { scroll-margin-top: 72px; }
   display: flex; align-items: center; justify-content: center;
   color: var(--accent);
 }
+.cert-badge--blue {
+  background: var(--accent-blue-dim);
+  border-color: var(--accent-blue-border);
+  color: var(--accent-blue);
+}
 .cert-badge svg { width: 26px; height: 26px; }
 .cert-card .cert-name {
   font-family: var(--serif);
@@ -1803,7 +1811,7 @@ section[id] { scroll-margin-top: 72px; }
   font-size: 14px;
   line-height: 1.6;
 }
-@media (max-width: 720px) { .certs-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .certs-grid { grid-template-columns: 1fr; } }
 
 /* ─── Zertifikat-Karte klickbar + Lightbox ─────────────────── */
 .cert-card--view {
@@ -1818,6 +1826,7 @@ section[id] { scroll-margin-top: 72px; }
 }
 .cert-card--view:hover { transform: translateY(-2px); }
 .cert-card--green.cert-card--view:hover { border-color: var(--accent); }
+.cert-card--blue.cert-card--view:hover { border-color: var(--accent-blue); }
 .cert-card--view:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
