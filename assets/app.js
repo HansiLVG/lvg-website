@@ -6,6 +6,54 @@
 (function () {
   'use strict';
 
+  /* ─── Theme (Bright/Dark Prototyp) ─────────────────────────────────
+     Standard = Dark. Toggle-Button wird in die Nav injiziert, Auswahl
+     bleibt per localStorage seitenuebergreifend erhalten. */
+  var THEME_KEY = 'bidwolf-theme';
+  (function applyStoredTheme() {
+    var t = null;
+    try { t = localStorage.getItem(THEME_KEY); } catch (e) {}
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  })();
+
+  function initThemeToggle() {
+    var navRight = document.querySelector('.nav-right');
+    if (!navRight) return;
+    var btn = document.createElement('button');
+    btn.className = 'nav-theme-btn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Hell- oder Dunkelmodus umschalten');
+    btn.innerHTML =
+      '<svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>' +
+      '<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+    btn.addEventListener('click', function () {
+      var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem(THEME_KEY, 'dark'); } catch (e) {}
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        try { localStorage.setItem(THEME_KEY, 'light'); } catch (e) {}
+      }
+    });
+    var ref = navRight.querySelector('.nav-cta-secondary') || navRight.firstChild;
+    navRight.insertBefore(btn, ref);
+  }
+
+  /* ─── Nav-Logo: dunkle Wortmarke fürs Crossfade injizieren ─── */
+  function initNavLogoSwap() {
+    var brand = document.querySelector('.nav-brand');
+    if (!brand) return;
+    var orig = brand.querySelector('img');
+    if (!orig || brand.querySelector('.nav-logo-dark')) return;
+    var dark = document.createElement('img');
+    dark.className = 'nav-logo-dark';
+    dark.src = '/assets/logo-primary-dark.svg?v=1';
+    dark.alt = '';
+    dark.setAttribute('aria-hidden', 'true');
+    brand.appendChild(dark);
+  }
+
   /* ─── FAQ accordion (delegated, works for any .faq-item on the page) ─── */
   document.addEventListener('click', function (e) {
     var btn = e.target.closest && e.target.closest('.faq-q');
@@ -493,6 +541,8 @@
 
   /* ─── Boot ─── */
   function boot() {
+    initThemeToggle();
+    initNavLogoSwap();
     initMobileNav();
     initNavScroll();
     initNavDropdown();

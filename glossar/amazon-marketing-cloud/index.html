@@ -1,11 +1,13 @@
 ﻿<!doctype html>
 <html lang="de-DE">
 <head>
+  <!-- Theme vor dem ersten Paint setzen (kein Dark-Blitz bei gespeichertem Light-Mode) -->
+  <script>(function(){try{if(localStorage.getItem('bidwolf-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Amazon Marketing Cloud (AMC) erklärt · Glossar · BidWolf</title>
-  <meta name="description" content="Amazon Marketing Cloud (AMC) als Clean Room für Cross-Channel-Attribution. Was AMC kann, wer Zugang hat und welche Use Cases sich lohnen." />
+  <meta name="description" content="Amazon Marketing Cloud (AMC) ist seit September 2025 für jedes Sponsored-Ads-Konto kostenlos. Was AMC über deine Werbung beantwortet, für wen es sich lohnt und wie ich es im Reporting nutze." />
 
   <link rel="canonical" href="https://bidwolf.de/glossar/amazon-marketing-cloud/" />
   <meta name="robots" content="index, follow" />
@@ -14,7 +16,7 @@
   <meta property="og:locale" content="de_DE" />
   <meta property="og:site_name" content="BidWolf" />
   <meta property="og:title" content="Amazon Marketing Cloud (AMC) erklärt" />
-  <meta property="og:description" content="AMC ist der Clean Room von Amazon für Cross-Channel-Attribution. Was er kann, wer Zugang hat und welche Use Cases sich lohnen." />
+  <meta property="og:description" content="AMC ist der Clean Room von Amazon für Cross-Channel-Attribution. Seit September 2025 kostenlos für jedes Sponsored-Ads-Konto. Was er beantwortet und für wen er sich lohnt." />
   <meta property="og:url" content="https://bidwolf.de/glossar/amazon-marketing-cloud/" />
   <meta property="og:image" content="https://bidwolf.de/assets/og-image.png?v=1" />
   <meta property="og:image:width" content="1200" />
@@ -23,7 +25,7 @@
   <meta property="og:image:alt" content="BidWolf, Amazon PPC Spezialist Berlin" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Amazon Marketing Cloud (AMC) erklärt" />
-  <meta name="twitter:description" content="AMC ist der Clean Room von Amazon für Cross-Channel-Attribution. Was er kann, wer Zugang hat und welche Use Cases sich lohnen." />
+  <meta name="twitter:description" content="AMC ist der Clean Room von Amazon für Cross-Channel-Attribution. Seit September 2025 kostenlos für jedes Sponsored-Ads-Konto. Was er beantwortet und für wen er sich lohnt." />
   <meta name="twitter:image" content="https://bidwolf.de/assets/og-image.png?v=1" />
 
   <link rel="icon" href="/favicon.ico?v=5" sizes="any" />
@@ -42,7 +44,7 @@
     "@id": "https://bidwolf.de/glossar/amazon-marketing-cloud/#term",
     "name": "Amazon Marketing Cloud",
     "alternateName": ["AMC", "Amazon AMC"],
-    "description": "Amazon Marketing Cloud ist ein Clean Room von Amazon für aggregierte Cross-Channel-Attribution aus Sponsored Ads, DSP und Shopping-Signalen. Beantwortet Fragen, die kein einzelner Werbe-Account beantworten kann.",
+    "description": "Amazon Marketing Cloud ist ein Clean Room von Amazon für aggregierte Cross-Channel-Attribution aus Sponsored Ads, DSP und Shopping-Signalen. Seit September 2025 kostenlos für alle Sponsored-Ads-Werbetreibenden, ohne DSP und ohne Mindestbudget. Beantwortet Fragen, die kein einzelner Werbe-Account beantworten kann.",
     "inDefinedTermSet": "https://bidwolf.de/glossar/",
     "url": "https://bidwolf.de/glossar/amazon-marketing-cloud/"
   }
@@ -151,7 +153,7 @@
           Amazon Marketing Cloud. <span class="arrow">↗</span>
         </h1>
         <p class="lead reveal" style="--reveal-delay: 0.14s;">
-          AMC ist der Clean Room von Amazon, in dem Daten aus Sponsored Ads, DSP und Shopping-Signalen zusammenfließen. Er beantwortet Fragen, die kein einzelner Werbe-Account beantworten kann.
+          AMC ist der Clean Room von Amazon, in dem deine Werbedaten aus Sponsored Ads und DSP zusammenfließen. Seit September 2025 ist er für jedes Sponsored-Ads-Konto kostenlos. Trotzdem wertet ihn kaum ein Seller aus.
         </p>
         <div class="hero-ctas reveal" style="--reveal-delay: 0.2s;">
           <a href="#was-ist" class="btn btn-primary">Zum Artikel <span class="arrow">↗</span></a>
@@ -176,7 +178,7 @@
         </h2>
 
         <p class="glossar-lede reveal" style="--reveal-delay: 0.12s;">
-          Sponsored Brands meldet ROAS 4, DSP meldet ROAS 1,5. Klingt so, als wäre DSP schlecht. In AMC siehst du, was wirklich passiert.
+          Ein Suchbegriff steht in deinem Report als reiner Kostenfresser, null Verkäufe. In AMC siehst du, dass er der erste Kontakt von Dutzenden Käufern war. Wer nur den letzten Klick zählt, pausiert genau die Werbung, die den Rest erst möglich macht.
         </p>
 
         <div class="article-body">
@@ -187,7 +189,26 @@
 
           <h2>Wer hat Zugang zu AMC?</h2>
 
-          <p>AMC ist nicht frei verfügbar. Du brauchst entweder einen aktiven Amazon DSP Account oder gehst über einen zertifizierten API-Partner. Sponsored-Ads-only-Konten ohne DSP haben keinen direkten Zugang. Das bedeutet in der Praxis: AMC ist für Brands mit ernsthaftem Werbebudget und parallelen Kanälen relevant.</p>
+          <p>Bis 2025 war AMC an einen Amazon DSP Account oder einen zertifizierten API-Partner gebunden und damit faktisch großen Budgets vorbehalten. Das hat sich geändert. Seit dem 18. September 2025 ist AMC für jedes Sponsored-Ads-Konto kostenlos nutzbar, ohne DSP-Vertrag und ohne Mindestbudget. Du aktivierst deine AMC-Instanz per Self-Service direkt in der Amazon Ads Console.</p>
+
+          <p>Amazon baut die Gratis-Schiene sogar weiter aus. Bis Ende 2026 sind auch zuvor kostenpflichtige Signale frei nutzbar, und das Rückblick-Fenster reicht inzwischen bis zu 24 Monate zurück. Das Werkzeug, das früher Enterprise-Marken vorbehalten war, liegt jetzt auf jedem 5k-Konto bereit. Ausgewertet wird es trotzdem kaum, und genau darin liegt der Vorsprung für alle, die früh damit arbeiten.</p>
+
+          <h2>Was AMC für dein Geschäft beantwortet</h2>
+
+          <p>Den Nutzen von AMC kann man ohne ein einziges Fachwort erklären. Es sind die Fragen, die dein normaler Werbebericht offen lässt:</p>
+
+          <ul>
+            <li><strong>Zahlst du für denselben Käufer zweimal?</strong> AMC zeigt, wie stark sich deine Kampagnen überschneiden, also wie oft du dieselbe Person über mehrere Anzeigen erneut bezahlst.</li>
+            <li><strong>Welche Anzeige bringt echte Neukunden?</strong> Und welche spricht nur bestehende Käufer erneut teuer an. Im Standardbericht sehen beide gleich gut aus.</li>
+            <li><strong>Ab welcher Häufigkeit verpufft dein Budget?</strong> Ab einer bestimmten Zahl an Einblendungen pro Person steigt die Conversion nicht mehr. Alles darüber ist Streuverlust.</li>
+            <li><strong>Welcher Klick war wirklich der erste Kontakt?</strong> Bevor du einen Suchbegriff als Kostenfresser pausierst, zeigt AMC, ob er in Wahrheit der Einstieg vieler späterer Käufe war.</li>
+          </ul>
+
+          <h2>Was in der Praxis dabei herauskommt</h2>
+
+          <p>Öffentlich dokumentierte Fälle zeigen, wie groß der Hebel sein kann. Eine Marke steigerte ihren ROAS mit AMC-basierten Zielgruppen um 158 Prozent, eine Forrester-Studie zu Amazons Ad-Tech nennt 30 bis 50 Prozent mehr ROAS über die eingesetzten Audiences hinweg.</p>
+
+          <p>Dazu die ehrliche Einordnung. Das sind Fälle mit deutlich größeren Budgets als bei den meisten Konten, die ich betreue, und ich verspreche dir diese Zahlen nicht. Was sie belegen, ist die Methodik. Audience-Overlap, echte Erstkontakt-Attribution und Frequenz-Steuerung wirken nachweisbar, und die Größenordnung skaliert mit Budget und Datenmenge.</p>
 
           <h2>Datenquellen und typische Use Cases</h2>
 
@@ -241,7 +262,7 @@
           </ul>
 
           <div class="highlight-box">
-            <p><strong>Kurz zusammengefasst:</strong> AMC ist kein Tool für Anfänger und kein Tool für reine Sponsored-Ads-Accounts. Wer aber DSP und Sponsored Ads parallel fährt, sieht ohne AMC nur Silos. AMC macht das Zusammenspiel sichtbar und liefert die einzig belastbare Quelle für Cross-Channel-Attribution.</p>
+            <p><strong>Kurz zusammengefasst:</strong> AMC ist seit 2025 für jedes Sponsored-Ads-Konto offen und kostenlos. Der Engpass ist nicht mehr der Zugang, sondern die Kompetenz, die richtigen Fragen zu stellen und die Antworten in Budget-Entscheidungen zu übersetzen. Wer Sponsored Ads und DSP parallel fährt, macht damit das Zusammenspiel beider Kanäle sichtbar. Wer nur Sponsored Ads fährt, findet den blinden Fleck im eigenen Trichter. Genau das übernehme ich.</p>
           </div>
 
         </div>
@@ -255,8 +276,8 @@
     <div class="cta-fade"></div>
     <div class="wrap">
       <span class="eyebrow reveal">Management</span>
-      <h2 class="reveal" style="--reveal-delay: 0.06s;">Du fährst Sponsored Ads und DSP und willst wissen, was wirklich zum Kauf führt? <span class="arrow">↗</span></h2>
-      <p class="lead reveal" style="--reveal-delay: 0.12s;">Ich bin Amazon-Marketing-Cloud-zertifiziert und baue Cross-Channel-Attribution-Reports, die zeigen, was Sponsored Ads und DSP gemeinsam leisten. AMC ist im Growth- und Scale-Paket enthalten.</p>
+      <h2 class="reveal" style="--reveal-delay: 0.06s;">Du willst wissen, was in deinen Kampagnen wirklich zum Kauf führt? <span class="arrow">↗</span></h2>
+      <p class="lead reveal" style="--reveal-delay: 0.12s;">Ich bin Amazon-Marketing-Cloud-zertifiziert und werte AMC für dein Konto aus, egal ob du nur Sponsored Ads fährst oder Sponsored Ads und DSP kombinierst. Du bekommst Attribution-Antworten statt Last-Click-Illusionen. AMC ist im Growth- und Scale-Paket enthalten.</p>
       <div class="kontakt-grid reveal" style="--reveal-delay: 0.18s; max-width: 720px; margin: 48px auto 0;">
         <a class="kontakt-card kontakt-card-primary" href="../../kontakt.html#termin">
           <div class="k-icon">
@@ -339,7 +360,7 @@
       <!-- FOOTER-NAV:END -->
       <div class="seo-footer-text">
         <p>
-          <strong>Amazon Marketing Cloud (AMC)</strong> ist der Clean Room von Amazon für Cross-Channel-Attribution aus Sponsored Ads, Amazon DSP und Shopping-Signalen. <strong>Leon-Vincent Gamradt</strong> ist AMC-zertifiziert und baut Attribution-Reports für Brands mit parallelen Werbekanälen. AMC ist im Growth- und Scale-Paket des <a href="../../amazon-ppc-management/">Kampagnen-Managements</a> enthalten.
+          <strong>Amazon Marketing Cloud (AMC)</strong> ist der Clean Room von Amazon für Cross-Channel-Attribution aus Sponsored Ads, Amazon DSP und Shopping-Signalen. Seit September 2025 ist AMC für jedes Sponsored-Ads-Konto kostenlos, ohne DSP und ohne Mindestbudget. <strong>Leon-Vincent Gamradt</strong> ist AMC-zertifiziert und wertet AMC für Sponsored-Ads- und DSP-Konten aus. AMC ist im Growth- und Scale-Paket des <a href="../../amazon-ppc-management/">Kampagnen-Managements</a> enthalten.
         </p>
       </div>
     </div>

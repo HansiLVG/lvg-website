@@ -3,6 +3,8 @@
 <head>
   <!-- Shader-Vergleichsschalter: ?shader=A|B|C in der URL schaltet die Farbvariante (Doku: Vault „Hero-Shader Aurora-Varianten"). Ohne Parameter unsichtbar. -->
   <script>(function(){var s=new URLSearchParams(location.search).get('shader');if(s)document.documentElement.setAttribute('data-shader',s);})();</script>
+  <!-- Theme vor dem ersten Paint setzen (kein Dark-Blitz bei gespeichertem Light-Mode) -->
+  <script>(function(){try{if(localStorage.getItem('bidwolf-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -585,6 +587,22 @@
               Laufende Optimierung Deiner Sponsored Products, Sponsored Brands und Sponsored Display Kampagnen. Nicht als Einzelkampagnen, sondern als zusammenhängenden Funnel. Klarer Fokus auf ACOS, ROAS und Marge, transparent, messbar, ohne Agentur-Overhead.
             </div>
             <a href="amazon-ppc-management/" class="l-link">Mehr erfahren <span class="arrow">↗</span></a>
+          </div>
+          <div class="l-cta"><a href="#kontakt" class="btn btn-ghost btn-sm">Anfragen</a></div>
+        </div>
+
+        <div class="leistung-row reveal">
+          <span class="l-idx">04 / SEO</span>
+          <div>
+            <h3>Amazon SEO</h3>
+            <div class="duration" style="margin-top:6px; font-family: var(--serif); font-size: 13px; color: var(--text-muted);">Listing · pro ASIN</div>
+          </div>
+          <div>
+            <div class="l-bold">Du rankst organisch oben, wo Budget allein nicht hinkommt.</div>
+            <div class="l-text">
+              Titel, Bullets, Backend-Keywords und A+ Content, ausgerichtet auf den Amazon-Algorithmus und auf echte Käufer. Wenn das Listing das Problem ist, hilft kein Werbebudget.
+            </div>
+            <a href="amazon-seo/" class="l-link">Mehr erfahren <span class="arrow">↗</span></a>
           </div>
           <div class="l-cta"><a href="#kontakt" class="btn btn-ghost btn-sm">Anfragen</a></div>
         </div>
