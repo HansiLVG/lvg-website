@@ -1747,9 +1747,12 @@ section[id] { scroll-margin-top: 72px; }
 /* ─── ZERTIFIKATE ──────────────────────────────────────────── */
 .certs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 20px;
 }
+/* 3 Karten oben, 2 breitere unten */
+.certs-grid > .cert-card { grid-column: span 2; }
+.certs-grid > .cert-card:nth-last-child(-n+2) { grid-column: span 3; }
 .cert-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1811,7 +1814,10 @@ section[id] { scroll-margin-top: 72px; }
   font-size: 14px;
   line-height: 1.6;
 }
-@media (max-width: 900px) { .certs-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) {
+  .certs-grid { grid-template-columns: 1fr; }
+  .certs-grid > .cert-card, .certs-grid > .cert-card:nth-last-child(-n+2) { grid-column: auto; }
+}
 
 /* ─── Zertifikat-Karte klickbar + Lightbox ─────────────────── */
 .cert-card--view {
